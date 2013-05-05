@@ -1,0 +1,94 @@
+﻿
+cbuffer data :register(b0)
+{
+	float4x4 worldViewProj;
+	float mode;
+};
+
+struct VS_IN
+{
+	float4 position : POSITION;
+	float3 normal : NORMAL;
+	float2 texcoord : TEXCOORD;
+};
+
+struct PS_IN
+{
+	float4 position : SV_POSITION;
+	float2 texcoord : TEXCOORD;
+};
+
+//texture
+Texture2D textureMap;
+SamplerState textureSampler;
+
+PS_IN VS( VS_IN input)
+{
+	PS_IN output = (PS_IN)0;
+
+	output.position = mul(worldViewProj,input.position);
+	output.texcoord=input.texcoord;
+
+	return output;
+}
+
+
+
+float4 SobelFilter(PS_IN input) 
+{
+	  float4 lum = float4(0.30, 0.59, 0.11, 1);
+ 
+	  // TOP ROW
+	  float s11 = dot(textureMap.Sample( textureSampler, input.texcoord + float2(-1.0f / 512.0f, -1.0f / 512.0f)), lum);   // LEFT
+	  float s12 = dot(textureMap.Sample( textureSampler, input.texcoord + float2(0, -1.0f / 512.0f)), lum);             // MIDDLE
+	  float s13 = dot(textureMap.Sample( textureSampler, input.texcoord + float2(1.0f / 512.0f, -1.0f / 512.0f)), lum);    // RIGHT
+ 
+	  // MIDDLE ROW
+	  float s21 = dot(textureMap.Sample( textureSampler, input.texcoord + float2(-1.0f / 512.0f, 0)), lum);                // LEFT
+	  // Omit center
+	  float s23 = dot(textureMap.Sample( textureSampler, input.texcoord + float2(-1.0f / 512.0f, 0)), lum);                // RIGHT
+ 
+	  // LAST ROW
+	  float s31 = dot(textureMap.Sample( textureSampler, input.texcoord + float2(-1.0f / 512.0f, 1.0f / 512.0f)), lum);    // LEFT
+	  float s32 = dot(textureMap.Sample( textureSampler, input.texcoord + float2(0, 1.0f / 512.0f)), lum);              // MIDDLE
+	  float s33 = dot(textureMap.Sample( textureSampler, input.texcoord + float2(1.0f / 512.0f, 1.0f / 512.0f)), lum); // RIGHT
+ 
+	  float t1 = s13 + s33 + (2 * s23) - s11 - (2 * s21) - s31;
+	  float t2 = s31 + (2 * s32) + s33 - s11 - (2 * s12) - s13;
+ 
+	  float4 col;
+ 
+	  if (((t1 * t1) + (t2 * t2)) > 0.05) {
+			col = float4(0,0,0,1);
+	  } else {
+			col = float4(1,1,1,1);
+	  }
+	  return col;
+}
+
+float4 PS( PS_IN input ) : SV_Target
+{
+    switch(mode)
+	{
+		case 0:
+			return textureMap.Sample( textureSampler, input.texcoord);
+		break;
+		case 1:
+			return 1.0F-textureMap.Sample( textureSampler, input.texcoord);
+		break;
+		case 2:
+		{
+			float4 D= textureMap.Sample( textureSampler, input.texcoord);
+			return (D.x+D.y+D.z)/3.0F;
+		}
+		break;
+		case 3:
+		{
+			return SobelFilter(input);
+		}
+		break;
+	}
+	
+	return 0;
+}
+

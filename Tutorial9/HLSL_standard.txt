@@ -1,0 +1,48 @@
+﻿
+cbuffer data :register(b0)
+{
+	float4x4 world;
+	float4x4 worldViewProj;
+	float4 lightDirection;
+};
+
+struct VS_IN
+{
+	float4 position : POSITION;
+	float3 normal : NORMAL;
+	float3 tangent: TANGENT;
+	float3 binormal: BINORMAL;
+	float2 texcoord : TEXCOORD;
+};
+
+struct PS_IN
+{
+	float4 position : SV_POSITION;
+	float3 normal : NORMAL;
+	float2 texcoord : TEXCOORD;
+};
+
+//texture
+Texture2D textureMap;
+Texture2D normalMap;
+SamplerState textureSampler;
+
+PS_IN VS( VS_IN input)
+{
+	PS_IN output = (PS_IN)0;
+
+	output.position = mul(worldViewProj,input.position);
+	output.normal=mul(world,input.normal);
+	output.texcoord=input.texcoord;
+		
+	
+	return output;
+}
+
+float4 PS( PS_IN input ) : SV_Target
+{
+	
+	float4 D=textureMap.Sample( textureSampler, input.texcoord);
+
+	return saturate(dot(normalize(input.normal),lightDirection))*D+0.2F;
+}
