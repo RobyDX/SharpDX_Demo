@@ -19,9 +19,9 @@ Graphics
 Tutorial10: Render To Texture
 Tutorial11: Tessellation
 Tutorial12: Compute Shader
+Tutorial13: Geometry Instancing
 
-Coming Soon
-: Geometry Instancing
+Coming Soon 
 : Output Stream
 : Cell Shading
 : Environment Mapping
@@ -56,4 +56,4 @@ Coming Soon
 : Font
 : Draw Images
 
-
+Last update 5/5/2013
