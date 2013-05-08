@@ -44,6 +44,11 @@ namespace SharpHelper
         /// </summary>
         public string DomainShaderFunction { get; set; }
 
+        /// <summary>
+        /// Stream output elements
+        /// </summary>
+        public StreamOutputElement[] GeometrySO { get; set; }
+
     }
 
     /// <summary>
@@ -101,13 +106,24 @@ namespace SharpHelper
             VertexShader = new VertexShader(Device.Device, vertexShaderByteCode);
 
             //create pixel shader
-            var pixelShaderByteCode = ShaderBytecode.CompileFromFile(filename, description.PixelShaderFunction, "ps_5_0");
-            PixelShader = new PixelShader(Device.Device, pixelShaderByteCode);
+            if (!string.IsNullOrEmpty(description.PixelShaderFunction))
+            {
+                var pixelShaderByteCode = ShaderBytecode.CompileFromFile(filename, description.PixelShaderFunction, "ps_5_0");
+                PixelShader = new PixelShader(Device.Device, pixelShaderByteCode);
+            }
 
             if (!string.IsNullOrEmpty(description.GeometryShaderFunction))
             {
                 var geometryShaderByteCode = ShaderBytecode.CompileFromFile(filename, description.GeometryShaderFunction, "gs_5_0");
-                GeometryShader = new GeometryShader(Device.Device, geometryShaderByteCode);
+
+                if (description.GeometrySO == null)
+                    GeometryShader = new GeometryShader(Device.Device, geometryShaderByteCode);
+                else
+                {
+                    int[] size = new int[] { description.GeometrySO.Select(e => e.ComponentCount * 4).Sum() };
+                    
+                    GeometryShader = new GeometryShader(Device.Device, geometryShaderByteCode, description.GeometrySO, size, -1);
+                }
             }
 
             if (!string.IsNullOrEmpty(description.DomainShaderFunction))

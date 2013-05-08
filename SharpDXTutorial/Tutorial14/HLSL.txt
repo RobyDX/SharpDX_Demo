@@ -1,0 +1,64 @@
+﻿
+cbuffer data :register(b0)
+{
+	float4x4 transform;
+};
+
+struct VS_IN
+{
+	float4 position : POSITION;
+	float2 texcoord : TEXCOORD;
+};
+
+struct PS_IN
+{
+	float4 position : SV_POSITION;
+	float2 texcoord : TEXCOORD;
+};
+
+//texture
+Texture2D textureMap;
+SamplerState textureSampler
+{
+    Filter = MIN_MAG_MIP_LINEAR;
+    AddressU = Wrap;
+    AddressV = Wrap;
+};
+
+VS_IN VS_O( VS_IN input)
+{
+	PS_IN output = (PS_IN)0;
+
+	output.position = mul(transform,input.position);
+	output.texcoord=input.texcoord;
+
+	return output;
+}
+
+
+[maxvertexcount(6)]
+void GS_O( triangle VS_IN input[3], inout TriangleStream<VS_IN> TriStream )
+{
+	TriStream.Append(input[0]);
+	TriStream.Append(input[1]);
+	TriStream.Append(input[2]);
+	TriStream.RestartStrip();
+}
+
+
+
+
+PS_IN VS( VS_IN input)
+{
+	PS_IN output = (PS_IN)0;
+
+	output.position = mul(transform,input.position);
+	output.texcoord=input.texcoord;
+
+	return output;
+}
+
+float4 PS( PS_IN input ) : SV_Target
+{
+	return textureMap.Sample( textureSampler, input.texcoord );
+}

@@ -5,7 +5,10 @@
 //Based on SharpDX Library (http://sharpdx.org/)
 
 //==============================================================
-Graphics
+//You can use the Launcher.Exe to quickly Run the Demos after they are compiled
+
+//==============================================================
+Direct3D11
 //==============================================================
  Tutorial1: Enumeration of graphics adapter capabilities
  Tutorial2: DirectX Initialitation
@@ -20,9 +23,10 @@ Tutorial10: Render To Texture
 Tutorial11: Tessellation
 Tutorial12: Compute Shader
 Tutorial13: Geometry Instancing
+Tutorial14: Output Stream
 
-Coming Soon 
-: Output Stream
+Coming Soon
+
 : Cell Shading
 : Environment Mapping
 : Rendering To Multiple Render Target
@@ -48,12 +52,11 @@ Coming Soon
 : Audio Effect
 
 //==============================================================
-2D
+Direct2D
 //==============================================================
+TutorialD1: Init Direct3D
+
 Coming Soon
-: Init Direct3D
-: Draw Elements
-: Font
 : Draw Images
 
-Last update 5/5/2013
+
