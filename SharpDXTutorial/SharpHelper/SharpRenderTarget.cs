@@ -45,11 +45,21 @@ namespace SharpHelper
             get { return _resource; }
         }
 
+        /// <summary>
+        /// Width
+        /// </summary>
+        public int Width { get; private set; }
+
+        /// <summary>
+        /// Height
+        /// </summary>
+        public int Height { get; private set; }
+
         private RenderTargetView _target;
         private DepthStencilView _zbuffer;
         private ShaderResourceView _resource;
-        private int _width;
-        private int _height;
+
+        
 
         /// <summary>
         /// Constructor
@@ -61,8 +71,8 @@ namespace SharpHelper
         public SharpRenderTarget(SharpDevice device, int width, int height, Format format)
         {
             Device = device;
-            _height = height;
-            _width = width;
+            Height = height;
+            Width = width;
 
             Texture2D target = new Texture2D(device.Device, new Texture2DDescription()
             {
@@ -107,7 +117,7 @@ namespace SharpHelper
         /// </summary>
         public void Apply()
         {
-            Device.DeviceContext.Rasterizer.SetViewport(0, 0, _width, _height);
+            Device.DeviceContext.Rasterizer.SetViewport(0, 0, Width, Height);
             Device.DeviceContext.OutputMerger.SetTargets(_zbuffer, _target);
         }
 
@@ -131,6 +141,8 @@ namespace SharpHelper
             Device.DeviceContext.ClearRenderTargetView(_target, color);
             Device.DeviceContext.ClearDepthStencilView(_zbuffer, DepthStencilClearFlags.Depth, 1.0F, 0);
         }
+
+
 
     }
 }

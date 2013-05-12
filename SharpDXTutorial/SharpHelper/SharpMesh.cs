@@ -212,6 +212,36 @@ namespace SharpHelper
         }
 
         /// <summary>
+        /// Create a quad for Multiple Render Target
+        /// </summary>
+        /// <param name="device">Device</param>
+        /// <returns>Mesh</returns>
+        public static SharpMesh CreateQuad(SharpDevice device)
+        {
+            Vector3[] vertices = new Vector3[] 
+            { 
+                new Vector3(-1, 1, 0), 
+                new Vector3(-1, -1, 0), 
+                new Vector3(1, 1, 0), 
+                new Vector3(1, -1, 0) 
+            };
+
+            int[] indices = new int[] { 0, 2, 1, 2, 3, 1 };
+            SharpMesh mesh = new SharpMesh(device);
+            mesh.VertexBuffer = Buffer11.Create<Vector3>(device.Device, BindFlags.VertexBuffer, vertices.ToArray());
+            mesh.IndexBuffer = Buffer11.Create(device.Device, BindFlags.IndexBuffer, indices.ToArray());
+            mesh.VertexSize = SharpDX.Utilities.SizeOf<Vector3>();
+
+            mesh.SubSets.Add(new SharpSubSet()
+            {
+                DiffuseColor = new Vector4(1, 1, 1, 1),
+                IndexCount = indices.Count()
+            });
+
+            return mesh;
+        }
+
+        /// <summary>
         /// Set all buffer and topology property to speed up rendering
         /// </summary>
         public void Begin()
@@ -256,7 +286,7 @@ namespace SharpHelper
             {
                 if (s.DiffuseMap != null)
                     s.DiffuseMap.Dispose();
-                
+
                 if (s.NormalMap != null)
                     s.NormalMap.Dispose();
             }

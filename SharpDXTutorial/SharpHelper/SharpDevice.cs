@@ -321,6 +321,18 @@ namespace SharpHelper
         }
 
         /// <summary>
+        /// Apply multiple targets to device
+        /// </summary>
+        /// <param name="targets">List of targets. Depth Buffer is taken from first one</param>
+        public void ApplyMultipleRenderTarget(params SharpRenderTarget[] targets)
+        {
+            var targetsView = targets.Select(t => t.Target).ToArray();
+            DeviceContext.OutputMerger.SetTargets(targets[0].Zbuffer, targetsView);
+            DeviceContext.Rasterizer.SetViewport(0, 0, targets[0].Width, targets[0].Height);
+        }
+
+
+        /// <summary>
         /// DirectX11 Support Avaiable
         /// </summary>
         /// <returns>Supported</returns>
@@ -328,5 +340,7 @@ namespace SharpHelper
         {
             return SharpDX.Direct3D11.Device.GetSupportedFeatureLevel() == FeatureLevel.Level_11_0;
         }
+
+        
     }
 }

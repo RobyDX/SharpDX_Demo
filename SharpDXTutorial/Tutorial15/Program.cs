@@ -11,24 +11,19 @@ using SharpHelper;
 
 using Buffer11 = SharpDX.Direct3D11.Buffer;
 
-
-namespace Tutorial10
+namespace Tutorial15
 {
     static class Program
     {
 
-        struct PhongData
+        struct ToonData
         {
             public Matrix world;
             public Matrix worldViewProjection;
             public Vector4 lightDirection;
+            public Vector4 cameraPosition;
         }
 
-        struct RenderTargetData
-        {
-            public Matrix worldViewProjection;
-            public Vector4 data;
-        }
 
         /// <summary>
         /// The main entry point for the application.
@@ -44,7 +39,7 @@ namespace Tutorial10
 
             //render form
             RenderForm form = new RenderForm();
-            form.Text = "Tutorial 10: Render Target";
+            form.Text = "Tutorial 15: Toon Shading With Multiple Render Target";
             //frame rate counter
             SharpFPS fpsCounter = new SharpFPS();
 
@@ -55,21 +50,13 @@ namespace Tutorial10
                 SharpBatch font = new SharpBatch(device, "textfont.dds");
 
                 //load model from wavefront obj file
-                SharpMesh dogMesh = SharpMesh.CreateNormalMappedFromObj(device, "../../../Models/dog/dog.obj");
-                SharpMesh cubeMesh = SharpMesh.CreateFromObj(device, "../../../Models/cube.obj");
+                SharpMesh dogMesh = SharpMesh.CreateFromObj(device, "../../../Models/dog/dog.obj");
+
+                //quad
+                SharpMesh quad = SharpMesh.CreateQuad(device);
 
                 //init shader
-                SharpShader phongShader = new SharpShader(device, "../../HLSL.txt",
-                    new SharpShaderDescription() { VertexShaderFunction = "VS", PixelShaderFunction = "PS" },
-                    new InputElement[] {  
-                        new InputElement("POSITION", 0, Format.R32G32B32_Float, 0, 0),
-                        new InputElement("NORMAL", 0, Format.R32G32B32_Float, 12, 0),
-                        new InputElement("TANGENT", 0, Format.R32G32B32_Float, 24, 0),
-                        new InputElement("BINORMAL", 0, Format.R32G32B32_Float, 36, 0),
-                        new InputElement("TEXCOORD", 0, Format.R32G32_Float, 48, 0)
-                    });
-
-                SharpShader renderTargetShader = new SharpShader(device, "../../HLSL_RT.txt",
+                SharpShader firstPass = new SharpShader(device, "../../HLSL.txt",
                     new SharpShaderDescription() { VertexShaderFunction = "VS", PixelShaderFunction = "PS" },
                     new InputElement[] {  
                         new InputElement("POSITION", 0, Format.R32G32B32_Float, 0, 0),
@@ -77,36 +64,28 @@ namespace Tutorial10
                         new InputElement("TEXCOORD", 0, Format.R32G32_Float, 24, 0)
                     });
 
+                //second pass
+                SharpShader secondPass = new SharpShader(device, "../../HLSL.txt",
+                    new SharpShaderDescription() { VertexShaderFunction = "VS_QUAD", PixelShaderFunction = "PS_QUAD" },
+                    new InputElement[] {  
+                        new InputElement("POSITION", 0, Format.R32G32B32_Float, 0, 0),
+                    });
+
                 //render target
-                SharpRenderTarget target = new SharpRenderTarget(device, 512, 512, Format.R8G8B8A8_UNorm);
+                SharpRenderTarget target = new SharpRenderTarget(device, form.ClientSize.Width, form.ClientSize.Height, Format.R8G8B8A8_UNorm);
+                //render target
+                SharpRenderTarget target2 = new SharpRenderTarget(device, form.ClientSize.Width, form.ClientSize.Height, Format.R8G8B8A8_UNorm);
+
+
+                //toon texture
+                ShaderResourceView bandTexture = ShaderResourceView.FromFile(device.Device, "../../../Models/band.bmp");
 
                 //init constant buffer
-                Buffer11 phongConstantBuffer = phongShader.CreateBuffer<PhongData>();
-                Buffer11 renderTargetConstantBuffer = phongShader.CreateBuffer<RenderTargetData>();
+                Buffer11 toonConstantBuffer = firstPass.CreateBuffer<ToonData>();
 
                 //init frame counter
                 fpsCounter.Reset();
 
-                //effect inside shader
-                int mode = 0;
-                form.KeyDown += (sender, e) =>
-                {
-                    switch (e.KeyCode)
-                    {
-                        case Keys.D1:
-                            mode = 0;
-                            break;
-                        case Keys.D2:
-                            mode = 1;
-                            break;
-                        case Keys.D3:
-                            mode = 2;
-                            break;
-                        case Keys.D4:
-                            mode = 3;
-                            break;
-                    }
-                };
 
                 //main loop
                 RenderLoop.Run(form, () =>
@@ -115,6 +94,17 @@ namespace Tutorial10
                     if (device.MustResize)
                     {
                         device.Resize();
+
+                        //render target
+                        target.Dispose();
+                        target = new SharpRenderTarget(device, form.ClientSize.Width, form.ClientSize.Height, Format.R8G8B8A8_UNorm);
+                        
+
+                        //render target
+                        target2.Dispose();
+                        target2 = new SharpRenderTarget(device, form.ClientSize.Width, form.ClientSize.Height, Format.R8G8B8A8_UNorm);
+
+
                         font.Resize();
                     }
 
@@ -122,9 +112,14 @@ namespace Tutorial10
                     device.UpdateAllStates();
 
 
-                    //BEGIN RENDERING TO TEXTURE
-                    target.Apply();
+                    //BEGIN RENDERING TO TEXTURE (MULTIPLE)
+
+                    device.ApplyMultipleRenderTarget(target, target2);
+
+
                     target.Clear(Color.CornflowerBlue);
+                    target2.Clear(Color.Black);
+
 
                     //set transformation matrix
                     float ratio = (float)form.ClientRectangle.Width / (float)form.ClientRectangle.Height;
@@ -141,30 +136,33 @@ namespace Tutorial10
                     lightDirection.Normalize();
 
 
-                    PhongData sceneInformation = new PhongData()
+                    ToonData sceneInformation = new ToonData()
                     {
                         world = world,
                         worldViewProjection = world * view * projection,
                         lightDirection = new Vector4(lightDirection, 1),
+                        cameraPosition = new Vector4(from, 1)
                     };
 
 
                     //apply shader
-                    phongShader.Apply();
+                    firstPass.Apply();
+
+                    //set toon band texture
+                    device.DeviceContext.PixelShader.SetShaderResource(1, bandTexture);
 
                     //write data inside constant buffer
-                    device.UpdateData<PhongData>(phongConstantBuffer, sceneInformation);
+                    device.UpdateData<ToonData>(toonConstantBuffer, sceneInformation);
 
                     //apply constant buffer to shader
-                    device.DeviceContext.VertexShader.SetConstantBuffer(0, phongConstantBuffer);
-                    device.DeviceContext.PixelShader.SetConstantBuffer(0, phongConstantBuffer);
+                    device.DeviceContext.VertexShader.SetConstantBuffer(0, toonConstantBuffer);
+                    device.DeviceContext.PixelShader.SetConstantBuffer(0, toonConstantBuffer);
 
                     //draw mesh
                     dogMesh.Begin();
                     for (int i = 0; i < dogMesh.SubSets.Count; i++)
                     {
                         device.DeviceContext.PixelShader.SetShaderResource(0, dogMesh.SubSets[i].DiffuseMap);
-                        device.DeviceContext.PixelShader.SetShaderResource(1, dogMesh.SubSets[i].NormalMap);
                         dogMesh.Draw(i);
                     }
 
@@ -176,27 +174,19 @@ namespace Tutorial10
                     device.SetDefaultTargers();
 
                     //apply shader
-                    renderTargetShader.Apply();
-
-                    Matrix WVP =
-                        Matrix.LookAtLH(new Vector3(7, 5, -13), new Vector3(), Vector3.UnitY) *
-                        projection;
-                    device.UpdateData<RenderTargetData>(renderTargetConstantBuffer, new RenderTargetData() { worldViewProjection = WVP, data = new Vector4(mode, 0, 0, 0) });
+                    secondPass.Apply();
 
 
                     //clear color
                     device.Clear(Color.Black);
 
-                    renderTargetShader.Apply();
-
-                    //apply constant buffer to shader
-                    device.DeviceContext.VertexShader.SetConstantBuffer(0, renderTargetConstantBuffer);
-                    device.DeviceContext.PixelShader.SetConstantBuffer(0, renderTargetConstantBuffer);
+                    secondPass.Apply();
 
                     //set target
                     device.DeviceContext.PixelShader.SetShaderResource(0, target.Resource);
+                    device.DeviceContext.PixelShader.SetShaderResource(1, target2.Resource);
 
-                    cubeMesh.Draw();
+                    quad.Draw();
 
 
                     //begin drawing text
@@ -205,7 +195,6 @@ namespace Tutorial10
                     //draw string
                     fpsCounter.Update();
                     font.DrawString("FPS: " + fpsCounter.FPS, 0, 0, Color.White);
-                    font.DrawString("Press 1 To 4 to change Effect", 0, 30, Color.White);
 
                     //flush text to view
                     font.End();
@@ -218,11 +207,13 @@ namespace Tutorial10
                 //release resource
                 font.Dispose();
                 dogMesh.Dispose();
-                cubeMesh.Dispose();
-                phongConstantBuffer.Dispose();
-                renderTargetConstantBuffer.Dispose();
-                phongShader.Dispose();
-                renderTargetShader.Dispose();
+                quad.Dispose();
+                toonConstantBuffer.Dispose();
+                firstPass.Dispose();
+                secondPass.Dispose();
+                bandTexture.Dispose();
+                target.Dispose();
+                target2.Dispose();
 
             }
         }

@@ -24,12 +24,11 @@ Tutorial11: Tessellation
 Tutorial12: Compute Shader
 Tutorial13: Geometry Instancing
 Tutorial14: Output Stream
+Tutorial15: Toon Shading With Multiple Render Target
 
 Coming Soon
 
-: Cell Shading
 : Environment Mapping
-: Rendering To Multiple Render Target
 : Shadow Mapping
 : Rendering To Texture Array
 : Skin Animation With Collada File Format

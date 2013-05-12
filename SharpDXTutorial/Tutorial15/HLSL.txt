@@ -1,0 +1,121 @@
+﻿
+cbuffer data :register(b0)
+{
+	float4x4 world;
+	float4x4 worldViewProj;
+	float4 lightDirection;
+	float4 eyePosition;
+};
+
+struct VS_IN
+{
+	float4 position : POSITION;
+	float3 normal : NORMAL;
+	float2 texcoord : TEXCOORD;
+};
+
+struct PS_IN
+{
+	float4 position : SV_POSITION;
+	float3 normal : NORMAL;
+	float2 texcoord : TEXCOORD;
+	float4 worldPosition : POSITION;
+};
+
+struct PS_OUT
+{
+	float4 C0:SV_TARGET0;
+	float4 C1:SV_TARGET1;
+};
+
+//texture
+Texture2D diffuseMap;
+Texture2D bandMap;
+SamplerState textureSampler;
+
+PS_IN VS( VS_IN input)
+{
+	PS_IN output = (PS_IN)0;
+
+    output.position =mul(worldViewProj,input.position);
+    output.normal=mul(world,input.normal);
+    output.worldPosition=mul(world,input.position);
+	output.texcoord=input.texcoord;
+    return output;
+
+	return output;
+}
+
+PS_OUT PS( PS_IN input ) : SV_Target
+{
+	PS_OUT outP;
+    //store Light vector
+	float3 L=normalize(lightDirection.xyz);
+
+	//diffuse light	
+	float D=saturate(dot(input.normal,L));
+	
+	//final light
+	float4 diffuseT = diffuseMap.Sample(textureSampler,input.texcoord);
+
+	float bandT=bandMap.Sample(textureSampler,float2(D,0));
+	
+    outP.C0= (bandT * diffuseT );
+    outP.C1= float4(input.normal,length(eyePosition - input.worldPosition));
+    
+    return outP;
+}
+
+
+//QUAD
+
+struct PS_QUAD_INPUT
+{
+    float4 Pos : SV_POSITION;
+    float2 tex:TEXCOORD;
+};
+
+Texture2D targetMap;
+Texture2D depthTarget;
+
+
+PS_QUAD_INPUT VS_QUAD(float4 position: POSITION )
+{
+    
+    PS_QUAD_INPUT output;
+    output.Pos =position;
+    output.tex=(position.xy * float2(1.0F,-1.0F) +1.0F)/2.0F;
+    
+    return output;
+}
+
+
+
+float4 PS_QUAD( PS_QUAD_INPUT input): SV_Target
+{
+	float d=1.0f/1024.0f;
+	float4 aa=depthTarget.Sample(textureSampler,float2(input.tex.x-d,input.tex.y-d));
+	float4 bb=depthTarget.Sample(textureSampler,float2(input.tex.x,input.tex.y-d));
+	float4 cc=depthTarget.Sample(textureSampler,float2(input.tex.x+d,input.tex.y-d));
+	float4 dd=depthTarget.Sample(textureSampler,float2(input.tex.x-d,input.tex.y));
+	float4 ee=depthTarget.Sample(textureSampler,float2(input.tex.x+d,input.tex.y));
+	float4 ff=depthTarget.Sample(textureSampler,float2(input.tex.x-d,input.tex.y+d));
+	float4 gg=depthTarget.Sample(textureSampler,float2(input.tex.x,input.tex.y+d));
+	float4 hh=depthTarget.Sample(textureSampler,float2(input.tex.x+d,input.tex.y+d));
+	float4 delX;
+	float4 delY;
+	
+	delX = ((cc + (2 * ee) + hh) - (aa + (2 * dd) + ff));
+	delY = ((ff + (2 * gg) + hh) - (aa + (2 * bb) + cc));
+	float4 variation = abs(delX) + abs(delY);
+	float v=(variation.x+variation.y+variation.z)/3;
+	bool border=true;
+
+	
+	if(border)
+		return (v<0.4F) * (variation.w<5) * targetMap.Sample(textureSampler,input.tex);
+	else
+		return  targetMap.Sample(textureSampler,input.tex);
+	
+
+}
