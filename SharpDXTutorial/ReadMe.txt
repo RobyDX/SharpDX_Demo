@@ -25,10 +25,10 @@ Tutorial12: Compute Shader
 Tutorial13: Geometry Instancing
 Tutorial14: Output Stream
 Tutorial15: Toon Shading With Multiple Render Target
+Tutorial16: Environment Mapping
 
 Coming Soon
 
-: Environment Mapping
 : Shadow Mapping
 : Rendering To Texture Array
 : Skin Animation With Collada File Format
