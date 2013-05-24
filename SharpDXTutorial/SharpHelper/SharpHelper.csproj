@@ -69,6 +69,7 @@
   <ItemGroup>
     <Compile Include="Audio\SharpAudioDevice.cs" />
     <Compile Include="Audio\SharpAudioVoice.cs" />
+    <Compile Include="SharpCubeTarget.cs" />
     <Compile Include="SharpComputeDevice.cs" />
     <Compile Include="SharpDebugger.cs" />
     <Compile Include="SharpDevice.cs" />
