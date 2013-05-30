@@ -26,6 +26,7 @@ Tutorial13: Geometry Instancing
 Tutorial14: Output Stream
 Tutorial15: Toon Shading With Multiple Render Target
 Tutorial16: Environment Mapping
+Tutorial17: Query
 
 Coming Soon
 
@@ -33,7 +34,6 @@ Coming Soon
 : Rendering To Texture Array
 : Skin Animation With Collada File Format
 : Debugging Code
-: Rendering To Texture Array
 : Cascading Shadow Map
 
 //==============================================================
