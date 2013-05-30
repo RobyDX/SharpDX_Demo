@@ -16,10 +16,10 @@ Roberto Nacchia
 
 Current Tutorials
 
-//==============================================================
+==============================================================
 Direct3D11
-//==============================================================
- Tutorial1: Enumeration of graphics adapter capabilities
+==============================================================
+ Tutorial1: Enumeration of graphics adapter capabilities 
  Tutorial2: DirectX Initialitation
  Tutorial3: Draw Text
  Tutorial4: Draw Primitives
