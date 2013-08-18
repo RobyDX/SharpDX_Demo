@@ -1131,17 +1131,17 @@
         </member>
         <member name="F:SharpDX.DirectSound.Compressor.ReleaseDefault">
             <summary>
-            Default speed at which compression is stopped after input drops below Threshold, in miliseconds. The default value is 200 ms.
+            Default speed at which compression is stopped after input drops below Threshold, in milliseconds. The default value is 200 ms.
             </summary>
         </member>
         <member name="F:SharpDX.DirectSound.Compressor.ReleaseMax">
             <summary>
-            Maximum speed at which compression is stopped after input drops below Threshold, in miliseconds. 
+            Maximum speed at which compression is stopped after input drops below Threshold, in milliseconds. 
             </summary>
         </member>
         <member name="F:SharpDX.DirectSound.Compressor.ReleaseMin">
             <summary>
-            Minimum speed at which compression is stopped after input drops below Threshold, in miliseconds. 
+            Minimum speed at which compression is stopped after input drops below Threshold, in milliseconds. 
             </summary>
         </member>
         <member name="F:SharpDX.DirectSound.Compressor.ThresholdDefault">
@@ -1428,6 +1428,15 @@
             Enumerates the DirectSound devices installed in the system.
             </summary>
             <returns>A collection of the devices found.</returns>
+        </member>
+        <member name="M:SharpDX.DirectSound.DirectSound.DuplicateSoundBuffer(SharpDX.DirectSound.SoundBuffer)">
+            <summary>
+            Duplicates the sound buffer.
+            </summary>
+            <param name="sourceBuffer">The source buffer.</param>
+            <returns>A duplicate of this soundBuffer.</returns>
+            <unmanaged>HRESULT IDirectSound::DuplicateSoundBuffer([In] IDirectSoundBuffer* pDSBufferOriginal,[Out] void** ppDSBufferDuplicate)</unmanaged>
+              <unmanaged-short>IDirectSound::DuplicateSoundBuffer</unmanaged-short>
         </member>
         <member name="M:SharpDX.DirectSound.DirectSound.#ctor(System.IntPtr)">
             <summary>
@@ -1915,7 +1924,7 @@
             <param name="lConeOutsideVolumeRef"><dd> Address of a variable that receives the cone outside volume for this buffer. </dd></param>	
             <returns><p>If the method succeeds, the return value is DS_OK. If the method fails, the return value may be DSERR_INVALIDPARAM.</p></returns>	
             <remarks>	
-            <p>Volume levels are expressed as attenuation, in hundredths of a decibel. Allowable values are between DSBVOLUME_MAX (no attenuation) and DSBVOLUME_MIN (silence). The default value is DS3D_DEFAULTCONEOUTSIDEVOLUME (no attenuation). These values are defined in Dsound.h. DirectSound does not support amplification.</p>	
+            <p>Volume levels are expressed as attenuation, in hundredths of a decibel. Allowable values are between <see cref="F:SharpDX.DirectSound.Volume.Maximum"/> (no attenuation) and <see cref="F:SharpDX.DirectSound.Volume.Minimum"/> (silence). The default value is DS3D_DEFAULTCONEOUTSIDEVOLUME (no attenuation). These values are defined in Dsound.h. DirectSound does not support amplification.</p>	
             </remarks>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='IDirectSound3DBuffer::GetConeOutsideVolume']/*"/>	
             <msdn-id>ee417969</msdn-id>	
@@ -2037,7 +2046,7 @@
             <param name="apply"><dd> Value that specifies when the setting should be applied. This value must be one of the those shown in the following table.<table> <tr><td>Value</td><td>Description</td></tr> <tr><td>DS3D_DEFERRED</td><td>Settings are not applied until the application calls the CommitDeferredSettings method. This allows the application to change several settings and generate a single recalculation.</td></tr> <tr><td>DS3D_IMMEDIATE</td><td>Settings are applied immediately, causing the system to recalculate the 3D coordinates for all 3D sound buffers.</td></tr> </table> </dd></param>	
             <returns><p>If the method succeeds, the return value is DS_OK. If the method fails, the return value may be DSERR_INVALIDPARAM.</p></returns>	
             <remarks>	
-            <p>Volume levels are represented by attenuation. Allowable values are between DSBVOLUME_MAX (no attenuation) and DSBVOLUME_MIN (silence). The default value is DS3D_DEFAULTCONEOUTSIDEVOLUME (no attenuation). These values are defined in Dsound.h. DirectSound does not support amplification.</p>	
+            <p>Volume levels are represented by attenuation. Allowable values are between <see cref="F:SharpDX.DirectSound.Volume.Maximum"/> (no attenuation) and <see cref="F:SharpDX.DirectSound.Volume.Minimum"/> (silence). The default value is DS3D_DEFAULTCONEOUTSIDEVOLUME (no attenuation). These values are defined in Dsound.h. DirectSound does not support amplification.</p>	
             </remarks>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='IDirectSound3DBuffer::SetConeOutsideVolume']/*"/>	
             <msdn-id>ee417987</msdn-id>	
@@ -2280,9 +2289,9 @@
         </member>
         <member name="P:SharpDX.DirectSound.EnumDelegateCallback.Informations">
             <summary>
-            Gets or sets the informations.
+            Gets or sets the device informations.
             </summary>
-            <value>The informations.</value>
+            <value>The device informations.</value>
         </member>
         <member name="T:SharpDX.DirectSound.Flanger">
             <summary>	
@@ -4029,6 +4038,20 @@
             <summary>Constant StandardGargle.</summary>
             <unmanaged>GUID_DSFX_STANDARD_GARGLE</unmanaged>
         </member>
+        <member name="T:SharpDX.DirectSound.Volume">
+            <summary>	
+            Functions	
+            </summary>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='SharpDX.DirectSound.Volume']/*"/>	
+        </member>
+        <member name="F:SharpDX.DirectSound.Volume.Minimum">
+            <summary>Constant Minimum.</summary>
+            <unmanaged>DSBVOLUME_MIN</unmanaged>
+        </member>
+        <member name="F:SharpDX.DirectSound.Volume.Maximum">
+            <summary>Constant Maximum.</summary>
+            <unmanaged>DSBVOLUME_MAX</unmanaged>
+        </member>
         <member name="T:SharpDX.DirectSound.AcousticEchoCancel">
             <summary>	
             No documentation.	
@@ -4766,7 +4789,7 @@
             <param name="volume"><dd> Attenuation, in hundredths of a decibel (dB). </dd></param>	
             <returns><p>If the method succeeds, the return value is DS_OK. If the method fails, the return value may be one of the following error values:</p> <table> <tr><td>Return code</td></tr> <tr><td>DSERR_CONTROLUNAVAIL </td></tr> <tr><td>DSERR_GENERIC </td></tr> <tr><td>DSERR_INVALIDPARAM </td></tr> <tr><td>DSERR_PRIOLEVELNEEDED </td></tr> </table></returns>	
             <remarks>	
-            <p>Allowable values are between DSBVOLUME_MAX (no attenuation) and DSBVOLUME_MIN (silence). These values are defined in Dsound.h as 0 and ?10,000 respectively. The value DSBVOLUME_MAX represents the original, unadjusted volume of the stream. The value DSBVOLUME_MIN indicates an audio volume attenuated by 100 dB, which, for all practical purposes, is silence. DirectSound does not support amplification.</p>	
+            <p>Allowable values are between <see cref="F:SharpDX.DirectSound.Volume.Maximum"/> (no attenuation) and <see cref="F:SharpDX.DirectSound.Volume.Minimum"/> (silence). These values are defined in Dsound.h as 0 and ?10,000 respectively. The value <see cref="F:SharpDX.DirectSound.Volume.Maximum"/> represents the original, unadjusted volume of the stream. The value <see cref="F:SharpDX.DirectSound.Volume.Minimum"/> indicates an audio volume attenuated by 100 dB, which, for all practical purposes, is silence. DirectSound does not support amplification.</p>	
             </remarks>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='IDirectSoundBuffer::SetVolume']/*"/>	
             <msdn-id>ee418150</msdn-id>	

@@ -31,7 +31,7 @@
             <param name="usageId">The usage id.</param>
             <param name="flags">The flags.</param>
         </member>
-        <member name="M:SharpDX.RawInput.Device.RegisterDevice(SharpDX.Multimedia.UsagePage,SharpDX.Multimedia.UsageId,SharpDX.RawInput.DeviceFlags,System.IntPtr,System.Boolean)">
+        <member name="M:SharpDX.RawInput.Device.RegisterDevice(SharpDX.Multimedia.UsagePage,SharpDX.Multimedia.UsageId,SharpDX.RawInput.DeviceFlags,System.IntPtr,SharpDX.RawInput.RegisterDeviceOptions)">
             <summary>
             Registers the devices that supply the raw input data.
             </summary>
@@ -39,7 +39,7 @@
             <param name="usageId">The usage id.</param>
             <param name="flags">The flags.</param>
             <param name="target">The target.</param>
-            <param name="addMessageFilter">if set to <c>true</c> register message filter to Application.AddMessageFilter.</param>
+            <param name="options">The options.</param>
         </member>
         <member name="M:SharpDX.RawInput.Device.HandleMessage(System.IntPtr)">
             <summary>
@@ -1698,6 +1698,26 @@
         <member name="F:SharpDX.RawInput.RawMouse.RawMouseButtonsData.ButtonData">
             <summary>
             If the mouse wheel is moved, this will contain the delta amount.
+            </summary>
+        </member>
+        <member name="T:SharpDX.RawInput.RegisterDeviceOptions">
+            <summary>
+            Options used when using <see cref="M:SharpDX.RawInput.Device.RegisterDevice(SharpDX.Multimedia.UsagePage,SharpDX.Multimedia.UsageId,SharpDX.RawInput.DeviceFlags)"/>
+            </summary>
+        </member>
+        <member name="F:SharpDX.RawInput.RegisterDeviceOptions.Default">
+            <summary>
+            Default register using <see cref="M:System.Windows.Forms.Application.AddMessageFilter(System.Windows.Forms.IMessageFilter)"/> for RawInput message filtering.
+            </summary>
+        </member>
+        <member name="F:SharpDX.RawInput.RegisterDeviceOptions.NoFiltering">
+            <summary>
+            To disable message filtering
+            </summary>
+        </member>
+        <member name="F:SharpDX.RawInput.RegisterDeviceOptions.CustomFiltering">
+            <summary>
+            Use custom message filtering instead of <see cref="M:System.Windows.Forms.Application.AddMessageFilter(System.Windows.Forms.IMessageFilter)"/>
             </summary>
         </member>
     </members>

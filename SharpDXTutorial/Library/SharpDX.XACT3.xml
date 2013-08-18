@@ -179,7 +179,7 @@
         </member>
         <member name="M:SharpDX.XACT3.Cue.OnNotificationDelegate(SharpDX.XACT3.Notification)">
             <summary>
-            Called when an internal notification occured.
+            Called when an internal notification occurred.
             </summary>
             <param name="notification">The notification.</param>
         </member>
@@ -409,7 +409,7 @@
         </member>
         <member name="T:SharpDX.XACT3.GuiNotification">
             <summary>
-            Gui notification parameters.
+            GUI notification parameters.
             </summary>
             <unmanaged>XACT_NOTIFICATION_GUI</unmanaged>
         </member>
@@ -480,7 +480,7 @@
         </member>
         <member name="M:SharpDX.XACT3.AudioEngine.OnNotificationDelegate(SharpDX.XACT3.Notification)">
             <summary>
-            Called when an internal notification occured.
+            Called when an internal notification occurred.
             </summary>
             <param name="notification">The notification.</param>
         </member>
@@ -1466,7 +1466,7 @@
         </member>
         <member name="M:SharpDX.XACT3.SoundBank.OnNotificationDelegate(SharpDX.XACT3.Notification)">
             <summary>
-            Called when an internal notification occured.
+            Called when an internal notification occurred.
             </summary>
             <param name="notification">The notification.</param>
         </member>
@@ -1647,7 +1647,7 @@
         </member>
         <member name="M:SharpDX.XACT3.Wave.OnNotificationDelegate(SharpDX.XACT3.Notification)">
             <summary>
-            Called when an internal notification occured.
+            Called when an internal notification occurred.
             </summary>
             <param name="notification">The notification.</param>
         </member>
@@ -1861,7 +1861,7 @@
         </member>
         <member name="M:SharpDX.XACT3.WaveBank.OnNotificationDelegate(SharpDX.XACT3.Notification)">
             <summary>
-            Called when an internal notification occured.
+            Called when an internal notification occurred.
             </summary>
             <param name="notification">The notification.</param>
         </member>

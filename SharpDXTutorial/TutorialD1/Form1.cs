@@ -53,7 +53,7 @@ namespace TutorialD1
             HwndRenderTargetProperties winProp = new HwndRenderTargetProperties()
             {
                 Hwnd = this.Handle,
-                PixelSize = new DrawingSize(this.ClientSize.Width, this.ClientSize.Height),
+                PixelSize = new Size2(this.ClientSize.Width, this.ClientSize.Height),
                 PresentOptions = PresentOptions.Immediately
             };
 
@@ -67,8 +67,8 @@ namespace TutorialD1
             //create a linear gradient brush
             var grad = new LinearGradientBrushProperties()
             {
-                StartPoint = new DrawingPointF(ClientSize.Width / 2, ClientSize.Height / 2),
-                EndPoint = new DrawingPointF(ClientSize.Width, ClientSize.Height)
+                StartPoint = new Vector2(ClientSize.Width / 2, ClientSize.Height / 2),
+                EndPoint = new Vector2(ClientSize.Width, ClientSize.Height)
             };
 
             var stopCollection = new GradientStopCollection(target, new GradientStop[] 
@@ -117,7 +117,7 @@ namespace TutorialD1
             //draw some ellipse
             for (int i = 0; i < 20; i++)
             {
-                target.DrawEllipse(new Ellipse(new DrawingPointF(ClientSize.Width / 2, ClientSize.Height / 2), 20 * i, 20 * i), redBrush);
+                target.DrawEllipse(new Ellipse(new Vector2(ClientSize.Width / 2, ClientSize.Height / 2), 20 * i, 20 * i), redBrush);
             }
 
             //draw text
@@ -132,18 +132,19 @@ namespace TutorialD1
         private void Form1_Resize(object sender, EventArgs e)
         {
             //resize target
-            target.Resize(new DrawingSize(this.ClientSize.Width, this.ClientSize.Height));
+            target.Resize(new Size2(this.ClientSize.Width, this.ClientSize.Height));
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            redBrush.Dispose();
             //release resource
-            ComObject.Dispose(ref redBrush);
-            ComObject.Dispose(ref whiteBrush);
-            ComObject.Dispose(ref gradient);
-            ComObject.Dispose(ref target);
-            ComObject.Dispose(ref factory);
-            ComObject.Dispose(ref factoryWrite);
+            redBrush.Dispose();
+            whiteBrush.Dispose();
+            gradient.Dispose();
+            target.Dispose();
+            factory.Dispose();
+            factoryWrite.Dispose();
         }
     }
 }

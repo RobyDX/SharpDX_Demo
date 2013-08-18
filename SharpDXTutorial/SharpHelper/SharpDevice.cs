@@ -130,8 +130,8 @@ namespace SharpHelper
         public void Resize()
         {
             // Dispose all previous allocated resources
-            ComObject.Dispose(ref _backbufferView);
-            ComObject.Dispose(ref _zbufferView);
+            Utilities.Dispose(ref _backbufferView);
+            Utilities.Dispose(ref _zbufferView);
 
             // Resize the backbuffer
             SwapChain.ResizeBuffers(1, View.ClientSize.Width, View.ClientSize.Height, Format.R8G8B8A8_UNorm, SwapChainFlags.AllowModeSwitch);
@@ -185,16 +185,16 @@ namespace SharpHelper
         /// </summary>
         public void Dispose()
         {
-            ComObject.Dispose(ref _rasterState);
-            ComObject.Dispose(ref _blendState);
-            ComObject.Dispose(ref _depthState);
-            ComObject.Dispose(ref _samplerState);
+            _rasterState.Dispose();
+            _blendState.Dispose();
+            _depthState.Dispose();
+            _samplerState.Dispose();
 
-            ComObject.Dispose(ref _backbufferView);
-            ComObject.Dispose(ref _zbufferView);
-            ComObject.Dispose(ref _swapchain);
-            ComObject.Dispose(ref _deviceContext);
-            ComObject.Dispose(ref _device);
+            _backbufferView.Dispose();
+            _zbufferView.Dispose();
+            _swapchain.Dispose();
+            _deviceContext.Dispose();
+            _device.Dispose();
         }
 
         /// <summary>
@@ -223,7 +223,7 @@ namespace SharpHelper
         /// </summary>
         public void SetDefaultRasterState()
         {
-            ComObject.Dispose(ref _rasterState);
+            Utilities.Dispose(ref  _rasterState);
             //Rasterize state
             RasterizerStateDescription rasterDescription = RasterizerStateDescription.Default();
             _rasterState = new RasterizerState(Device, rasterDescription);
@@ -235,7 +235,7 @@ namespace SharpHelper
         /// </summary>
         public void SetWireframeRasterState()
         {
-            ComObject.Dispose(ref _rasterState);
+            _rasterState.Dispose();
             //Rasterize state
             RasterizerStateDescription rasterDescription = RasterizerStateDescription.Default();
             rasterDescription.FillMode = FillMode.Wireframe;
@@ -249,7 +249,7 @@ namespace SharpHelper
         /// </summary>
         public void SetDefaultBlendState()
         {
-            ComObject.Dispose(ref _blendState);
+            Utilities.Dispose(ref _blendState);
             BlendStateDescription description = BlendStateDescription.Default();
             _blendState = new BlendState(Device, description);
         }
@@ -262,7 +262,7 @@ namespace SharpHelper
         /// <param name="destination">Destination Option</param>
         public void SetBlend(BlendOperation operation, BlendOption source, BlendOption destination)
         {
-            ComObject.Dispose(ref _blendState);
+            Utilities.Dispose(ref _blendState);
             BlendStateDescription description = BlendStateDescription.Default();
 
             description.RenderTarget[0].BlendOperation = operation;
@@ -277,7 +277,7 @@ namespace SharpHelper
         /// </summary>
         public void SetDefaultDepthState()
         {
-            ComObject.Dispose(ref _depthState);
+            Utilities.Dispose(ref  _depthState);
             DepthStencilStateDescription description = DepthStencilStateDescription.Default();
             description.DepthComparison = Comparison.LessEqual;
             description.IsDepthEnabled = true;
@@ -290,7 +290,7 @@ namespace SharpHelper
         /// </summary>
         public void SetDefaultSamplerState()
         {
-            ComObject.Dispose(ref _samplerState);
+            Utilities.Dispose(ref _samplerState);
             SamplerStateDescription description = SamplerStateDescription.Default();
             description.Filter = Filter.MinMagMipLinear;
             description.AddressU = TextureAddressMode.Wrap;
@@ -341,6 +341,6 @@ namespace SharpHelper
             return SharpDX.Direct3D11.Device.GetSupportedFeatureLevel() == FeatureLevel.Level_11_0;
         }
 
-        
+
     }
 }

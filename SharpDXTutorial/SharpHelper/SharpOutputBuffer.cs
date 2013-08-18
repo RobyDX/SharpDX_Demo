@@ -60,7 +60,7 @@ namespace SharpHelper
         /// </summary>
         public void Begin()
         {
-            Device.DeviceContext.StreamOutput.SetTargets(new StreamOutputBufferBinding(_buffer, 0));
+            Device.DeviceContext.StreamOutput.SetTarget(_buffer, 0);
         }
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace SharpHelper
         /// </summary>
         public void End()
         {
-            Device.DeviceContext.StreamOutput.SetTargets(new StreamOutputBufferBinding(null, 0));
+            Device.DeviceContext.StreamOutput.SetTargets(new StreamOutputBufferBinding[] { new StreamOutputBufferBinding() });
         }
 
 
@@ -77,7 +77,7 @@ namespace SharpHelper
         /// </summary>
         public void Dispose()
         {
-            ComObject.Dispose(ref _buffer);
+            _buffer.Dispose();
         }
 
         /// <summary>

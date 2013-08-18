@@ -85,7 +85,7 @@ namespace SharpHelper
             
             _resource = new ShaderResourceView(device.Device, target);
             
-            ComObject.Dispose(ref target);
+            target.Dispose();
 
             var _zbufferTexture = new Texture2D(Device.Device, new Texture2DDescription()
             {
@@ -103,7 +103,7 @@ namespace SharpHelper
 
             // Create the depth buffer view
             _zbuffer = new DepthStencilView(Device.Device, _zbufferTexture);
-            ComObject.Dispose(ref _zbufferTexture);
+            _zbufferTexture.Dispose();
 
         }
 
@@ -121,9 +121,9 @@ namespace SharpHelper
         /// </summary>
         public void Dispose()
         {
-            ComObject.Dispose(ref _resource);
-            ComObject.Dispose(ref _target);
-            ComObject.Dispose(ref _zbuffer);
+            _resource.Dispose();
+            _target.Dispose();
+            _zbuffer.Dispose();
         }
 
 

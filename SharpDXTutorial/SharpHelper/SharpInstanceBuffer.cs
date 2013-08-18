@@ -78,7 +78,7 @@ namespace SharpHelper
         /// </summary>
         public void Dispose()
         {
-            ComObject.Dispose(ref _instanceBuffer);
+            _instanceBuffer.Dispose();
         }
     }
 }

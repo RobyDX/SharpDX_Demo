@@ -162,14 +162,14 @@
         </member>
         <member name="M:SharpDX.DirectInput.TypeSpecificParameters.Init(System.Int32,System.IntPtr)">
             <summary>
-            Inits this instance from the specified buffer.
+            Initializes this instance from the specified buffer.
             </summary>
             <param name="bufferSize">Size of the buffer.</param>
             <param name="bufferPointer">The buffer pointer.</param>
         </member>
         <member name="M:SharpDX.DirectInput.TypeSpecificParameters.MarshalFrom(System.Int32,System.IntPtr)">
             <summary>
-            Marshal this class from an unamanaged buffer.
+            Marshal this class from an unmanaged buffer.
             </summary>
             <param name="bufferSize">The size of the unmanaged buffer.</param>
             <param name="bufferPointer">The pointer to the unmanaged buffer.</param>
@@ -202,7 +202,7 @@
         </member>
         <member name="M:SharpDX.DirectInput.ConditionSet.MarshalFrom(System.Int32,System.IntPtr)">
             <summary>
-            Marshal this class from an unamanaged buffer.
+            Marshal this class from an unmanaged buffer.
             </summary>
             <param name="bufferSize">The size of the unmanaged buffer.</param>
             <param name="bufferPointer">The pointer to the unmanaged buffer.</param>
@@ -234,7 +234,7 @@
         </member>
         <member name="M:SharpDX.DirectInput.ConstantForce.MarshalFrom(System.Int32,System.IntPtr)">
             <summary>
-            Marshal this class from an unamanaged buffer.
+            Marshal this class from an unmanaged buffer.
             </summary>
             <param name="bufferSize">The size of the unmanaged buffer.</param>
             <param name="bufferPointer">The pointer to the unmanaged buffer.</param>
@@ -376,7 +376,7 @@
         </member>
         <member name="M:SharpDX.DirectInput.Device.SetCooperativeLevel(System.Windows.Forms.Control,SharpDX.DirectInput.CooperativeLevel)">
             <summary>	
-            Requests the cooperative level for this instance of the inpute device. The cooperative level determines how this instance of the device interacts with other instances of the device and the rest of the system.	
+            Requests the cooperative level for this instance of the input device. The cooperative level determines how this instance of the device interacts with other instances of the device and the rest of the system.	
             </summary>	
             <param name="control">Window control to be associated with the device. This parameter must be a valid top-level window handle that belongs to the process. The window associated with the device must not be destroyed while it is still active in a DirectInput device.</param>	
             <param name="level">Flags that specify the cooperative level to associate with the input device.</param>	
@@ -384,7 +384,7 @@
             <remarks>	
             <para>Applications cannot specify <see cref="F:SharpDX.DirectInput.CooperativeLevel.Foreground"/> and <see cref="F:SharpDX.DirectInput.CooperativeLevel.Background"/> at the same time. This apply as well to <see cref="F:SharpDX.DirectInput.CooperativeLevel.Exclusive"/> and <see cref="F:SharpDX.DirectInput.CooperativeLevel.NonExclusive"/>.</para>
              <para>When the mouse is acquired with exclusive access, the mouse pointer is removed from the screen until the device is unacquired.</para>	
-             <para>Applications that select the background exclusive mode cooperative level are not guaranteed to retain access to the device if another application requests exclusive access. When a background exclusive mode application loses access, calls to DirectInput device methods will fail and return <see cref="F:SharpDX.DirectInput.ResultCode.NotAcquired"/>. The application can regain access to the device by manually unacquiring the device and reaquiring it.</para>	
+             <para>Applications that select the background exclusive mode cooperative level are not guaranteed to retain access to the device if another application requests exclusive access. When a background exclusive mode application loses access, calls to DirectInput device methods will fail and return <see cref="F:SharpDX.DirectInput.ResultCode.NotAcquired"/>. The application can regain access to the device by manually unacquiring the device and reacquiring it.</para>	
              <para>Applications must call this method before acquiring the device by using the <see cref="T:SharpDX.DirectInput.Device"/> method.</para>	
             </remarks>	
             <unmanaged>HRESULT IDirectInputDevice8W::SetCooperativeLevel([In] HWND arg0,[In] DISCL arg1)</unmanaged>	
@@ -957,7 +957,7 @@ Requests the cooperative level for this instance of the inpute device. The coope
         </member>
         <member name="M:SharpDX.DirectInput.CustomForce.MarshalFrom(System.Int32,System.IntPtr)">
             <summary>
-            Marshal this class from an unamanaged buffer.
+            Marshal this class from an unmanaged buffer.
             </summary>
             <param name="bufferSize">The size of the unmanaged buffer.</param>
             <param name="bufferPointer">The pointer to the unmanaged buffer.</param>
@@ -1079,7 +1079,7 @@ Flags describing other attributes of the data format.
         </member>
         <member name="F:SharpDX.DirectInput.DataFormatAttribute.Flags">
             <summary>
-            Gets or sets the dataformat flags.
+            Gets or sets the data format flags.
             </summary>
             <value>The flags.</value>
         </member>
@@ -1460,7 +1460,7 @@ Flags describing other attributes of the data format.
         </member>
         <member name="T:SharpDX.DirectInput.DeviceProperties">
             <summary>
-            Propertyies for a <see cref="T:SharpDX.DirectInput.Device"/>.
+            Properties for a <see cref="T:SharpDX.DirectInput.Device"/>.
             </summary>
         </member>
         <member name="T:SharpDX.DirectInput.PropertyAccessor">
@@ -1474,7 +1474,7 @@ Flags describing other attributes of the data format.
             </summary>
             <param name="device">The device.</param>
             <param name="code">The code.</param>
-            <param name="propertyType">Howtype.</param>
+            <param name="propertyType">The property type.</param>
         </member>
         <member name="M:SharpDX.DirectInput.PropertyAccessor.#ctor(SharpDX.DirectInput.Device,System.String,System.Type)">
             <summary>
@@ -1550,7 +1550,7 @@ Flags describing other attributes of the data format.
             <summary>
             Gets or sets the force feedback gain of the device. 
             The gain value is applied to all effects created on the device. The value is an integer in the range from 0 through 10,000, specifying the amount by which effect magnitudes should be scaled for the device. For example, a value of 10,000 indicates that all effect magnitudes are to be taken at face value. A value of 9,000 indicates that all effect magnitudes are to be reduced to 90 percent of their nominal magnitudes.
-            DirectInput always checks the gain value before setting the gain property. If the gain is outside of the range (less than zero or greater than 10,000), setting this propery will raise an exception. Otherwise, no exception if successful, even if the device does not support force feedback.
+            DirectInput always checks the gain value before setting the gain property. If the gain is outside of the range (less than zero or greater than 10,000), setting this property will raise an exception. Otherwise, no exception if successful, even if the device does not support force feedback.
             Setting a gain value is useful when an application wants to scale down the strength of all force-feedback effects uniformly, based on user preferences.
             Unlike other properties, the gain can be set when the device is in an acquired state. 
             </summary>
@@ -2308,9 +2308,9 @@ Flags describing other attributes of the data format.
         </member>
         <member name="P:SharpDX.DirectInput.EnumCreatedEffectsCallback.Effects">
             <summary>
-            Gets or sets the informations.
+            Gets or sets the effects.
             </summary>
-            <value>The informations.</value>
+            <value>The effects.</value>
         </member>
         <member name="T:SharpDX.DirectInput.EnumDevicesCallback">
             <summary>
@@ -2330,9 +2330,9 @@ Flags describing other attributes of the data format.
         </member>
         <member name="P:SharpDX.DirectInput.EnumDevicesCallback.DeviceInstances">
             <summary>
-            Gets or sets the informations.
+            Gets or sets the device instances.
             </summary>
-            <value>The informations.</value>
+            <value>The device instances.</value>
         </member>
         <member name="T:SharpDX.DirectInput.EnumEffectsCallback">
             <summary>
@@ -2352,9 +2352,9 @@ Flags describing other attributes of the data format.
         </member>
         <member name="P:SharpDX.DirectInput.EnumEffectsCallback.EffectInfos">
             <summary>
-            Gets or sets the informations.
+            Gets or sets the effect infos.
             </summary>
-            <value>The informations.</value>
+            <value>The effect infos.</value>
         </member>
         <member name="T:SharpDX.DirectInput.EnumEffectsInFileCallback">
             <summary>
@@ -2374,9 +2374,9 @@ Flags describing other attributes of the data format.
         </member>
         <member name="P:SharpDX.DirectInput.EnumEffectsInFileCallback.EffectsInFile">
             <summary>
-            Gets or sets the informations.
+            Gets or sets the effects in file.
             </summary>
-            <value>The informations.</value>
+            <value>The effects in file.</value>
         </member>
         <member name="T:SharpDX.DirectInput.EnumObjectsCallback">
             <summary>
@@ -2396,9 +2396,9 @@ Flags describing other attributes of the data format.
         </member>
         <member name="P:SharpDX.DirectInput.EnumObjectsCallback.Objects">
             <summary>
-            Gets or sets the informations.
+            Gets or sets the device object instances.
             </summary>
-            <value>The informations.</value>
+            <value>The device object instances.</value>
         </member>
         <member name="T:SharpDX.DirectInput.Envelope">
             <summary>	
@@ -4892,7 +4892,7 @@ First-person action game device. The following subtypes are defined.
             <unmanaged>DIK_HOME</unmanaged>	
             <unmanaged-short>DIK_HOME</unmanaged-short>	
         </member>
-        <member name="F:SharpDX.DirectInput.Key.UpArrow">
+        <member name="F:SharpDX.DirectInput.Key.Up">
             <summary>	
             No documentation.	
             </summary>	
@@ -6166,10 +6166,6 @@ First-person action game device. The following subtypes are defined.
             <summary>Constant Flapsdown.</summary>
             <unmanaged>DIBUTTON_FLYINGC_FLAPSDOWN</unmanaged>
         </member>
-        <member name="F:SharpDX.DirectInput.CivilianFlightControls.GlanceDownLink">
-            <summary>Constant GlanceDownLink.</summary>
-            <unmanaged>DIBUTTON_FLYINGC_GLANCE_DOWN_LINK</unmanaged>
-        </member>
         <member name="F:SharpDX.DirectInput.CivilianFlightControls.GlanceLeftLink">
             <summary>Constant GlanceLeftLink.</summary>
             <unmanaged>DIBUTTON_FLYINGC_GLANCE_LEFT_LINK</unmanaged>
@@ -6189,6 +6185,10 @@ First-person action game device. The following subtypes are defined.
         <member name="F:SharpDX.DirectInput.CivilianFlightControls.Menu">
             <summary>Constant Menu.</summary>
             <unmanaged>DIBUTTON_FLYINGC_MENU</unmanaged>
+        </member>
+        <member name="F:SharpDX.DirectInput.CivilianFlightControls.GlanceDownLink">
+            <summary>Constant GlanceDownLink.</summary>
+            <unmanaged>DIBUTTON_FLYINGC_GLANCE_DOWN_LINK</unmanaged>
         </member>
         <member name="F:SharpDX.DirectInput.CivilianFlightControls.Device">
             <summary>Constant Device.</summary>
@@ -7132,13 +7132,13 @@ First-person action game device. The following subtypes are defined.
             <summary>Constant Menu.</summary>
             <unmanaged>DIBUTTON_FIGHTINGH_MENU</unmanaged>
         </member>
-        <member name="F:SharpDX.DirectInput.HandToHandControls.Punch">
-            <summary>Constant Punch.</summary>
-            <unmanaged>DIBUTTON_FIGHTINGH_PUNCH</unmanaged>
-        </member>
         <member name="F:SharpDX.DirectInput.HandToHandControls.Kick">
             <summary>Constant Kick.</summary>
             <unmanaged>DIBUTTON_FIGHTINGH_KICK</unmanaged>
+        </member>
+        <member name="F:SharpDX.DirectInput.HandToHandControls.Punch">
+            <summary>Constant Punch.</summary>
+            <unmanaged>DIBUTTON_FIGHTINGH_PUNCH</unmanaged>
         </member>
         <member name="F:SharpDX.DirectInput.HandToHandControls.Special1">
             <summary>Constant Special1.</summary>
@@ -7185,6 +7185,10 @@ First-person action game device. The following subtypes are defined.
         <member name="F:SharpDX.DirectInput.HelicopterCombatControls.Throttle">
             <summary>Constant Throttle.</summary>
             <unmanaged>DIAXIS_FLYINGH_THROTTLE</unmanaged>
+        </member>
+        <member name="F:SharpDX.DirectInput.HelicopterCombatControls.View">
+            <summary>Constant View.</summary>
+            <unmanaged>DIBUTTON_FLYINGH_VIEW</unmanaged>
         </member>
         <member name="F:SharpDX.DirectInput.HelicopterCombatControls.FasterLink">
             <summary>Constant FasterLink.</summary>
@@ -7233,10 +7237,6 @@ First-person action game device. The following subtypes are defined.
         <member name="F:SharpDX.DirectInput.HelicopterCombatControls.GlanceLeftLink">
             <summary>Constant GlanceLeftLink.</summary>
             <unmanaged>DIBUTTON_FLYINGH_GLANCE_LEFT_LINK</unmanaged>
-        </member>
-        <member name="F:SharpDX.DirectInput.HelicopterCombatControls.View">
-            <summary>Constant View.</summary>
-            <unmanaged>DIBUTTON_FLYINGH_VIEW</unmanaged>
         </member>
         <member name="F:SharpDX.DirectInput.HelicopterCombatControls.Pause">
             <summary>Constant Pause.</summary>
@@ -9242,13 +9242,13 @@ First-person action game device. The following subtypes are defined.
             <summary>Constant SoccerDefenseGenre.</summary>
             <unmanaged>DIVIRTUAL_SPORTS_SOCCER_DEFENSE</unmanaged>
         </member>
-        <member name="F:SharpDX.DirectInput.SoccerDefenseControls.Move">
-            <summary>Constant Move.</summary>
-            <unmanaged>DIAXIS_SOCCERD_MOVE</unmanaged>
-        </member>
         <member name="F:SharpDX.DirectInput.SoccerDefenseControls.Lateral">
             <summary>Constant Lateral.</summary>
             <unmanaged>DIAXIS_SOCCERD_LATERAL</unmanaged>
+        </member>
+        <member name="F:SharpDX.DirectInput.SoccerDefenseControls.Move">
+            <summary>Constant Move.</summary>
+            <unmanaged>DIAXIS_SOCCERD_MOVE</unmanaged>
         </member>
         <member name="F:SharpDX.DirectInput.SoccerDefenseControls.Head">
             <summary>Constant Head.</summary>
@@ -9376,6 +9376,10 @@ First-person action game device. The following subtypes are defined.
             <summary>Constant Control.</summary>
             <unmanaged>DIBUTTON_SOCCERO_CONTROL</unmanaged>
         </member>
+        <member name="F:SharpDX.DirectInput.SoccerOffenceControls.Head">
+            <summary>Constant Head.</summary>
+            <unmanaged>DIBUTTON_SOCCERO_HEAD</unmanaged>
+        </member>
         <member name="F:SharpDX.DirectInput.SoccerOffenceControls.Shoot">
             <summary>Constant Shoot.</summary>
             <unmanaged>DIBUTTON_SOCCERO_SHOOT</unmanaged>
@@ -9399,10 +9403,6 @@ First-person action game device. The following subtypes are defined.
         <member name="F:SharpDX.DirectInput.SoccerOffenceControls.Fake">
             <summary>Constant Fake.</summary>
             <unmanaged>DIBUTTON_SOCCERO_FAKE</unmanaged>
-        </member>
-        <member name="F:SharpDX.DirectInput.SoccerOffenceControls.Head">
-            <summary>Constant Head.</summary>
-            <unmanaged>DIBUTTON_SOCCERO_HEAD</unmanaged>
         </member>
         <member name="F:SharpDX.DirectInput.SoccerOffenceControls.Pause">
             <summary>Constant Pause.</summary>
@@ -9870,13 +9870,13 @@ First-person action game device. The following subtypes are defined.
         </member>
         <member name="P:SharpDX.DirectInput.IDataFormatProvider.Flags">
             <summary>
-            Gets or sets the dataformat flags.
+            Gets or sets the data format flags.
             </summary>
             <value>The flags.</value>
         </member>
         <member name="P:SharpDX.DirectInput.IDataFormatProvider.ObjectsFormat">
             <summary>
-            Gets the defined dataformat objects.
+            Gets the defined data format objects.
             </summary>
             <value>The objects.</value>
         </member>
@@ -11018,32 +11018,32 @@ First-person action game device. The following subtypes are defined.
         </member>
         <member name="T:SharpDX.DirectInput.ObjectDataFormatFlags">
             <summary>
-            Flags for a dataformat.
+            Flags for a data format.
             </summary>
         </member>
         <member name="F:SharpDX.DirectInput.ObjectDataFormatFlags.None">
             <summary>
-            The dataformat doesn't report any specific information.
+            The data format doesn't report any specific information.
             </summary>
         </member>
         <member name="F:SharpDX.DirectInput.ObjectDataFormatFlags.Acceleration">
             <summary>
-            The dataformat must report acceleration information.
+            The data format must report acceleration information.
             </summary>
         </member>
         <member name="F:SharpDX.DirectInput.ObjectDataFormatFlags.Force">
             <summary>
-            The dataformat must report force information.
+            The data format must report force information.
             </summary>
         </member>
         <member name="F:SharpDX.DirectInput.ObjectDataFormatFlags.Position">
             <summary>
-            The dataformat must report position information.
+            The data format must report position information.
             </summary>
         </member>
         <member name="F:SharpDX.DirectInput.ObjectDataFormatFlags.Velocity">
             <summary>
-            The dataformat must report velocity information.
+            The data format must report velocity information.
             </summary>
         </member>
         <member name="T:SharpDX.DirectInput.ObjectProperties">
@@ -11095,7 +11095,7 @@ First-person action game device. The following subtypes are defined.
         </member>
         <member name="M:SharpDX.DirectInput.PeriodicForce.MarshalFrom(System.Int32,System.IntPtr)">
             <summary>
-            Marshal this class from an unamanaged buffer.
+            Marshal this class from an unmanaged buffer.
             </summary>
             <param name="bufferSize">The size of the unmanaged buffer.</param>
             <param name="bufferPointer">The pointer to the unmanaged buffer.</param>
@@ -11148,7 +11148,7 @@ First-person action game device. The following subtypes are defined.
         </member>
         <member name="M:SharpDX.DirectInput.RampForce.MarshalFrom(System.Int32,System.IntPtr)">
             <summary>
-            Marshal this class from an unamanaged buffer.
+            Marshal this class from an unmanaged buffer.
             </summary>
             <param name="bufferSize">The size of the unmanaged buffer.</param>
             <param name="bufferPointer">The pointer to the unmanaged buffer.</param>

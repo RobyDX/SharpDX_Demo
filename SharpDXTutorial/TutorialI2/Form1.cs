@@ -30,8 +30,8 @@ namespace TutorialI2
             if (controller1 != null && controller1.IsConnected)
             {
                 Vibration v = new Vibration();
-                v.LeftMotorSpeed = (short)(controller1.GetState().Gamepad.LeftTrigger * 255);
-                v.RightMotorSpeed = (short)(controller1.GetState().Gamepad.RightTrigger * 255);
+                v.LeftMotorSpeed = (ushort)(controller1.GetState().Gamepad.LeftTrigger * 255);
+                v.RightMotorSpeed = (ushort)(controller1.GetState().Gamepad.RightTrigger * 255);
                 lblLeftEngine.Text = "Left: " + v.LeftMotorSpeed;
                 lblRightEngine.Text = "Right: " + v.RightMotorSpeed;
                 controller1.SetVibration(v);

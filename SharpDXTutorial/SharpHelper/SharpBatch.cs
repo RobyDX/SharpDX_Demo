@@ -54,7 +54,7 @@ namespace SharpHelper
         /// </summary>
         public void Begin()
         {
-            Batch.Begin(SpriteSortMode.Immediate);
+            Batch.Begin(SpriteSortMode.Immediate, null);
         }
 
         /// <summary>
