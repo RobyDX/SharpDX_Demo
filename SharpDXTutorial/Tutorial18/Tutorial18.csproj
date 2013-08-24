@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EA6F422E-3D4F-499F-A76F-3DC366489387}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{5F54D099-1F35-4D3E-AC4A-BB44FA1CFF0F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SharpHelper</RootNamespace>
-    <AssemblyName>SharpHelper</AssemblyName>
+    <RootNamespace>Tutorial18</RootNamespace>
+    <AssemblyName>Tutorial18</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -20,10 +21,9 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\SharpHelper.XML</DocumentationFile>
-    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -47,59 +47,52 @@
     <Reference Include="SharpDX.Toolkit">
       <HintPath>..\Library\SharpDX.Toolkit.dll</HintPath>
     </Reference>
-    <Reference Include="SharpDX.Toolkit.Graphics">
-      <HintPath>..\Library\SharpDX.Toolkit.Graphics.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpDX.XAudio2">
-      <HintPath>..\Library\SharpDX.XAudio2.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpDX.XInput">
-      <HintPath>..\Library\SharpDX.XInput.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Audio\SharpAudioDevice.cs" />
-    <Compile Include="Audio\SharpAudioVoice.cs" />
-    <Compile Include="ColladaImporter.cs" />
-    <Compile Include="Skinning\AnimationManager.cs" />
-    <Compile Include="Skinning\ModelData.cs" />
-    <Compile Include="SharpCubeTarget.cs" />
-    <Compile Include="SharpComputeDevice.cs" />
-    <Compile Include="SharpDebugger.cs" />
-    <Compile Include="SharpDevice.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SharpBatch.cs" />
-    <Compile Include="SharpFPS.cs" />
-    <Compile Include="SharpInstanceBuffer.cs" />
-    <Compile Include="SharpMesh.cs" />
-    <Compile Include="SharpOutputBuffer.cs" />
-    <Compile Include="SharpRenderTarget.cs" />
-    <Compile Include="SharpShader.cs" />
-    <Compile Include="SharpSubSet.cs" />
-    <Compile Include="Skinning\Geometry.cs" />
-    <Compile Include="Skinning\Material.cs" />
-    <Compile Include="Skinning\SharpModel.cs" />
-    <Compile Include="Skinning\Node.cs" />
-    <Compile Include="Skinning\SkinData.cs" />
-    <Compile Include="Utilities.cs" />
-    <Compile Include="Vertices.cs" />
-    <Compile Include="WaveFrontImporter.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="textfont.dds">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\SharpHelper\SharpHelper.csproj">
+      <Project>{ea6f422e-3d4f-499f-a76f-3dc366489387}</Project>
+      <Name>SharpHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Basic.hlsl" />
+    <Content Include="BasicSkin.hlsl" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

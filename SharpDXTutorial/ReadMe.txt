@@ -4,8 +4,6 @@
 
 //Based on SharpDX Library (http://sharpdx.org/)
 
-//==============================================================
-//You can use the Launcher.Exe to quickly Run the Demos after they are compiled
 
 //==============================================================
 Direct3D11
@@ -27,12 +25,12 @@ Tutorial14: Output Stream
 Tutorial15: Toon Shading With Multiple Render Target
 Tutorial16: Environment Mapping
 Tutorial17: Query
+Tutorial18: Skin Animation With Collada File Format
 
 Coming Soon
 
 : Shadow Mapping
 : Rendering To Texture Array
-: Skin Animation With Collada File Format
 : Debugging Code
 : Cascading Shadow Map
 
