@@ -1,0 +1,15 @@
+C:\Users\Moritz\Documents\Development\Repositories\SharpDX_Demo\SharpDXTutorial\Tutorial1\bin\Debug\Tutorial1.exe.config
+C:\Users\Moritz\Documents\Development\Repositories\SharpDX_Demo\SharpDXTutorial\Tutorial1\bin\Debug\Tutorial1.exe
+C:\Users\Moritz\Documents\Development\Repositories\SharpDX_Demo\SharpDXTutorial\Tutorial1\bin\Debug\Tutorial1.pdb
+C:\Users\Moritz\Documents\Development\Repositories\SharpDX_Demo\SharpDXTutorial\Tutorial1\bin\Debug\SharpDX.Direct3D11.dll
+C:\Users\Moritz\Documents\Development\Repositories\SharpDX_Demo\SharpDXTutorial\Tutorial1\bin\Debug\SharpDX.dll
+C:\Users\Moritz\Documents\Development\Repositories\SharpDX_Demo\SharpDXTutorial\Tutorial1\bin\Debug\SharpDX.DXGI.dll
+C:\Users\Moritz\Documents\Development\Repositories\SharpDX_Demo\SharpDXTutorial\Tutorial1\bin\Debug\SharpDX.xml
+C:\Users\Moritz\Documents\Development\Repositories\SharpDX_Demo\SharpDXTutorial\Tutorial1\bin\Debug\SharpDX.Direct3D11.xml
+C:\Users\Moritz\Documents\Development\Repositories\SharpDX_Demo\SharpDXTutorial\Tutorial1\bin\Debug\SharpDX.DXGI.xml
+C:\Users\Moritz\Documents\Development\Repositories\SharpDX_Demo\SharpDXTutorial\Tutorial1\obj\Debug\Tutorial01.csprojResolveAssemblyReference.cache
+C:\Users\Moritz\Documents\Development\Repositories\SharpDX_Demo\SharpDXTutorial\Tutorial1\obj\Debug\Tutorial1.Form1.resources
+C:\Users\Moritz\Documents\Development\Repositories\SharpDX_Demo\SharpDXTutorial\Tutorial1\obj\Debug\Tutorial1.Properties.Resources.resources
+C:\Users\Moritz\Documents\Development\Repositories\SharpDX_Demo\SharpDXTutorial\Tutorial1\obj\Debug\Tutorial01.csproj.GenerateResource.Cache
+C:\Users\Moritz\Documents\Development\Repositories\SharpDX_Demo\SharpDXTutorial\Tutorial1\obj\Debug\Tutorial1.exe
+C:\Users\Moritz\Documents\Development\Repositories\SharpDX_Demo\SharpDXTutorial\Tutorial1\obj\Debug\Tutorial1.pdb
