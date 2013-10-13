@@ -32,7 +32,6 @@ namespace Tutorial2
                 switch (e.KeyCode)
                 {
                     case System.Windows.Forms.Keys.D1:
-
                         color = Color.CornflowerBlue;
                         break;
                     case System.Windows.Forms.Keys.D2:
@@ -77,8 +76,6 @@ namespace Tutorial2
                     device.Present();
                 });
             }
-
-
         }
     }
 }
