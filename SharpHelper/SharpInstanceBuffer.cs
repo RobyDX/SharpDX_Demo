@@ -29,10 +29,7 @@ namespace SharpHelper
         /// <summary>
         /// Instance Buffer
         /// </summary>
-        public Buffer11 InstanceBuffer
-        {
-            get { return _instanceBuffer; }
-        }
+        public Buffer11 InstanceBuffer { get; private set; }
 
         /// <summary>
         /// Number of instances inside buffer
@@ -44,9 +41,6 @@ namespace SharpHelper
         /// </summary>
         public int Stride { get; private set; }
 
-
-        private Buffer11 _instanceBuffer;
-
         /// <summary>
         /// Constructor
         /// </summary>
@@ -54,7 +48,7 @@ namespace SharpHelper
         /// <param name="data">Data to load inside</param>
         public SharpInstanceBuffer(SharpDevice device, T[] data)
         {
-            _instanceBuffer = Buffer11.Create(device.Device, BindFlags.VertexBuffer, data);
+            this.InstanceBuffer = Buffer11.Create(device.Device, BindFlags.VertexBuffer, data);
             Device = device;
             Stride = Utilities.SizeOf<T>();
             Count = data.Length;
@@ -69,7 +63,7 @@ namespace SharpHelper
         public void DrawInstance(int count, int indexCountPerInstance, int startIndexLocation)
         {
             int c = Math.Min(count, Count);
-            Device.DeviceContext.InputAssembler.SetVertexBuffers(1, new VertexBufferBinding(_instanceBuffer, Stride, 0));
+            Device.DeviceContext.InputAssembler.SetVertexBuffers(1, new VertexBufferBinding(this.InstanceBuffer, Stride, 0));
             Device.DeviceContext.DrawIndexedInstanced(indexCountPerInstance, count, startIndexLocation, 0, 0);
         }
 
@@ -78,7 +72,8 @@ namespace SharpHelper
         /// </summary>
         public void Dispose()
         {
-            _instanceBuffer.Dispose();
+            if (this.InstanceBuffer != null)
+                this.InstanceBuffer.Dispose();
         }
     }
 }

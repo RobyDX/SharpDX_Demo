@@ -116,7 +116,6 @@ namespace SharpHelper
 
                 }
             }
-
         }
 
         /// <summary>
@@ -135,20 +134,17 @@ namespace SharpHelper
             //instance_visual_scene
             XElement scene = doc.GetNode("instance_visual_scene");
 
-
             if (scene == null)
                 return null;
 
             XElement sceneReference = doc.GetReference(scene);
             data.Name = sceneReference.GetAttribute("name");
 
-
             //Search for Nodes
             foreach (XElement c in sceneReference.GetChildren("node"))
             {
                 data.Nodes.Add(LoadNodes(c, association));
             }
-
 
             //Search for Animations
             XElement animation = doc.GetNode("library_animations");
@@ -175,7 +171,6 @@ namespace SharpHelper
         {
             return Import(filename, new SemanticAssociations());
         }
-
 
         #region Geometry
 
@@ -219,7 +214,6 @@ namespace SharpHelper
             return node;
         }
 
-
         private static Matrix ComputeMatrix(XElement node)
         {
             Matrix matrix = Matrix.Identity;
@@ -247,7 +241,6 @@ namespace SharpHelper
             }
             return matrix;
         }
-
 
         private static List<ModelGeometry> LoadGeometries(XElement geometryNode, SemanticAssociations association, List<Vector4> weights = null, List<Vector4> joints = null)
         {
@@ -288,8 +281,6 @@ namespace SharpHelper
                         default:
                             break;
                     }
-
-
                 }
 
             }
@@ -298,10 +289,6 @@ namespace SharpHelper
         }
 
         #endregion
-
-
-
-
 
         //Load Triangle Mesh
         private static void GetTriangleMesh(ModelGeometry model, XElement triangle, XElement mesh, SemanticAssociations association, List<Vector4> weights = null, List<Vector4> joints = null)
@@ -347,7 +334,6 @@ namespace SharpHelper
                             {
                                 v.Joint = joints[indices[k]];
                             }
-
                             break;
                         case ChannelCode.Normal:
                             v.Normal = new Vector3(data);
@@ -381,15 +367,11 @@ namespace SharpHelper
                     k++;
                 }
 
-
                 //Save to model
                 model.Vertices.Add(v);
                 model.Indices.Add(model.Indices.Count);
             }
-
         }
-
-
 
         private static MaterialData GetMaterial(XDocument document, string materialName)
         {
@@ -417,8 +399,6 @@ namespace SharpHelper
 
             return matData;
         }
-
-
 
         private static Vector4 GetColor(XElement element, string elementName)
         {
@@ -519,7 +499,6 @@ namespace SharpHelper
             var jointName = joints.GetChildren("input").Where(i => i.GetAttribute("semantic") == "JOINT").First();
             skinInfo.JointNames = jointName.GetSource().Value.Replace('\n', ' ').Split(' ').Where(s => !string.IsNullOrWhiteSpace(s)).ToList();
 
-
             var bindMatrix = joints.GetChildren("input").Where(i => i.GetAttribute("semantic") == "INV_BIND_MATRIX").First();
             var values = GetFloatList(bindMatrix.GetSource().Value);
 
@@ -527,7 +506,6 @@ namespace SharpHelper
             {
                 skinInfo.InverseBinding.Add(new Matrix(values.GetRange(i, 16).ToArray()).ToTranspose());
             }
-
 
             //Weight
             XElement vertex_weights = skin.GetChild("vertex_weights");
@@ -544,7 +522,6 @@ namespace SharpHelper
             {
                 Vector4 wei = new Vector4();
                 Vector4 joy = new Vector4();
-
 
                 for (int j = 0; j < i; j++)
                 {
@@ -583,7 +560,6 @@ namespace SharpHelper
 
         #endregion
 
-
         #region Animation Data
 
         private static AnimationNode CreateAnimationTrack(XElement animationData)
@@ -616,7 +592,6 @@ namespace SharpHelper
                 in_tangent = in_tangent.GetSource();
             if (out_tangent != null)
                 out_tangent = out_tangent.GetSource();
-
 
             //get target of animation
             string target = channel.GetAttribute("target");
@@ -666,7 +641,6 @@ namespace SharpHelper
 
         private static List<Matrix> GetKeyFrames(string animationType, XElement element)
         {
-            
             if (element == null)
                 return null;
             
@@ -680,7 +654,6 @@ namespace SharpHelper
                 return null;
 
             List<float> values = GetFloatList(output.GetChild("float_array").Value);
-
 
             //Create animation data by type
             if (animationType.Contains("rot"))
@@ -797,7 +770,6 @@ namespace SharpHelper
 
         #endregion
 
-
         #region Utilities
 
         private static XElement GetByID(this XDocument document, string id)
@@ -828,7 +800,6 @@ namespace SharpHelper
             string url = reference.Attribute("source").Value.Replace("#", "");
             return reference.Document.Descendants().Where(n => n.Attribute("id") != null && n.Attribute("id").Value == url).FirstOrDefault();
         }
-
 
         private static XElement GetNode(this XElement element, string name)
         {
@@ -1019,6 +990,5 @@ namespace SharpHelper
         }
         
         #endregion
-
     }
 }

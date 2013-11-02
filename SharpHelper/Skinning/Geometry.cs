@@ -26,7 +26,6 @@ namespace SharpHelper.Skinning
         /// World Matrix
         /// </summary>
         public Matrix World;
-
     }
 
     /// <summary>
@@ -107,11 +106,9 @@ namespace SharpHelper.Skinning
             //Index Buffer
             IndexBuffer = SharpDX.Direct3D11.Buffer.Create<int>(Device.Device, BindFlags.IndexBuffer, indices.ToArray());
 
-
             Material = new Material(data.Material);
 
             IsAnimated = animated;
-
 
             transformBuffer = new Buffer11(Device.Device, Utilities.SizeOf<SkinShaderInformation>(), ResourceUsage.Default, BindFlags.ConstantBuffer, CpuAccessFlags.None, ResourceOptionFlags.None, 0);
             paletteBuffer = new Buffer11(Device.Device, Utilities.SizeOf<Matrix>() * 256, ResourceUsage.Default, BindFlags.ConstantBuffer, CpuAccessFlags.None, ResourceOptionFlags.None, 0);
@@ -152,11 +149,8 @@ namespace SharpHelper.Skinning
                 Device.DeviceContext.VertexShader.SetConstantBuffer(0, transformBuffer);
             }
 
-
             Device.DeviceContext.PixelShader.SetShaderResource(0, Material.DiffuseTexture);
             Device.DeviceContext.PixelShader.SetShaderResource(1, Material.NormalTexture);
-
-
         }
 
         //Draw

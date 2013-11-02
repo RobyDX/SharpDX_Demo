@@ -38,7 +38,7 @@ namespace Tutorial5
                 16,18,17,16,19,18,
                 20,21,22,20,22,23
             };
-            
+
             TexturedVertex[] vertices = new[] 
             {
                 ////TOP
@@ -73,15 +73,10 @@ namespace Tutorial5
                 new TexturedVertex(new Vector3(-5,-5,-5),new Vector2(0,1))
             };
 
-
-
-
-
             //render form
             RenderForm form = new RenderForm();
             form.Text = "Tutorial 5: Texture";
             SharpFPS fpsCounter = new SharpFPS();
-
 
             using (SharpDevice device = new SharpDevice(form))
             {
@@ -101,6 +96,7 @@ namespace Tutorial5
 
                 //Create constant buffer
                 Buffer11 buffer = shader.CreateBuffer<Matrix>();
+
                 //Create texture from file
                 ShaderResourceView texture = ShaderResourceView.FromFile(device.Device, "../../texture.bmp");
 
@@ -122,7 +118,6 @@ namespace Tutorial5
                     //clear color
                     device.Clear(Color.CornflowerBlue);
 
-                    
                     //apply shader
                     shader.Apply();
 

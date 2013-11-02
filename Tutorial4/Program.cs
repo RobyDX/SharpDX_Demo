@@ -38,7 +38,6 @@ namespace Tutorial4
                 20,21,22,20,22,23
             };
 
-
             //Vertices
             ColoredVertex[] vertices = new[] 
             {
@@ -74,34 +73,30 @@ namespace Tutorial4
                 new ColoredVertex(new Vector3(-5,-5,-5),new Vector4(0,0,1,1))
             };
 
-
-
-            //render form
-            RenderForm form = new RenderForm();
-            form.Text = "Tutorial 4: Primitives";
-
-            //Help to count Frame Per Seconds
-            SharpFPS fpsCounter = new SharpFPS();
-
+            using (RenderForm form = new RenderForm())
             using (SharpDevice device = new SharpDevice(form))
+            using (SharpBatch font = new SharpBatch(device, "textfont.dds"))
+            using (SharpMesh mesh = SharpMesh.Create<ColoredVertex>(device, vertices, indices))
+            using (SharpShader shader = new SharpShader(
+                        device, 
+                        "../../HLSL.hlsl",
+                        new SharpShaderDescription() 
+                        { 
+                            VertexShaderFunction = "VS", 
+                            PixelShaderFunction = "PS" 
+                        },
+                        new InputElement[] 
+                        {  
+                            new InputElement("POSITION", 0, Format.R32G32B32_Float, 0, 0),
+                            new InputElement("COLOR", 0, Format.R32G32B32A32_Float, 12, 0)
+                        }
+                ))
+            using (Buffer11 buffer = shader.CreateBuffer<Matrix>())
             {
-                //Init Font
-                SharpBatch font = new SharpBatch(device, "textfont.dds");
+                form.Text = "Tutorial 4: Primitives";
 
-                //Init Mesh
-                SharpMesh mesh = SharpMesh.Create<ColoredVertex>(device, vertices, indices);
-
-                //Create Shader From File and Create Input Layout
-                SharpShader shader = new SharpShader(device, "../../HLSL.txt",
-                    new SharpShaderDescription() { VertexShaderFunction = "VS", PixelShaderFunction = "PS" },
-                    new InputElement[] {  
-                        new InputElement("POSITION", 0, Format.R32G32B32_Float, 0, 0),
-                        new InputElement("COLOR", 0, Format.R32G32B32A32_Float, 12, 0)
-                    });
-
-                //create constant buffer
-                Buffer11 buffer = shader.CreateBuffer<Matrix>();
-
+                //Help to count Frame Per Seconds
+                SharpFPS fpsCounter = new SharpFPS();
                 fpsCounter.Reset();
 
                 //main loop
@@ -148,16 +143,11 @@ namespace Tutorial4
 
                     //flush text to view
                     font.End();
+
                     //present
                     device.Present();
                 });
-
-                //release resources
-                font.Dispose();
-                mesh.Dispose();
-                buffer.Dispose();
             }
-
         }
     }
 }

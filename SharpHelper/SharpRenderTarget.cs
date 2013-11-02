@@ -24,26 +24,17 @@ namespace SharpHelper
         /// <summary>
         /// Render Target
         /// </summary>
-        public RenderTargetView Target
-        {
-            get { return _target; }
-        }
+        public RenderTargetView Target { get; private set; }
 
         /// <summary>
         /// Depth Buffer for Render Target
         /// </summary>
-        public DepthStencilView Zbuffer
-        {
-            get { return _zbuffer; }
-        }
+        public DepthStencilView Zbuffer { get; private set; }
 
         /// <summary>
         /// Resource connected to Render Target
         /// </summary>
-        public ShaderResourceView Resource
-        {
-            get { return _resource; }
-        }
+        public ShaderResourceView Resource { get; private set; }
 
         /// <summary>
         /// Width
@@ -54,12 +45,6 @@ namespace SharpHelper
         /// Height
         /// </summary>
         public int Height { get; private set; }
-
-        private RenderTargetView _target;
-        private DepthStencilView _zbuffer;
-        private ShaderResourceView _resource;
-
-
 
         /// <summary>
         /// Constructor
@@ -74,7 +59,7 @@ namespace SharpHelper
             Height = height;
             Width = width;
 
-            Texture2D target = new Texture2D(device.Device, new Texture2DDescription()
+            using (Texture2D target = new Texture2D(device.Device, new Texture2DDescription()
             {
                 Format = format,
                 Width = width,
@@ -86,13 +71,14 @@ namespace SharpHelper
                 OptionFlags = ResourceOptionFlags.None,
                 SampleDescription = new SampleDescription(1, 0),
                 Usage = ResourceUsage.Default,
-            });
+            }))
+            {
 
-            _target = new RenderTargetView(device.Device, target);
-            _resource = new ShaderResourceView(device.Device, target);
-             target.Dispose();
+                this.Target = new RenderTargetView(device.Device, target);
+                this.Resource = new ShaderResourceView(device.Device, target);
+            }
 
-            var _zbufferTexture = new Texture2D(Device.Device, new Texture2DDescription()
+            using (Texture2D zBufferTexture = new Texture2D(Device.Device, new Texture2DDescription()
             {
                 Format = Format.D16_UNorm,
                 ArraySize = 1,
@@ -104,12 +90,11 @@ namespace SharpHelper
                 BindFlags = BindFlags.DepthStencil,
                 CpuAccessFlags = CpuAccessFlags.None,
                 OptionFlags = ResourceOptionFlags.None
-            });
-
-            // Create the depth buffer view
-            _zbuffer = new DepthStencilView(Device.Device, _zbufferTexture);
-            _zbufferTexture.Dispose();
-
+            }))
+            {
+                // Create the depth buffer view
+                this.Zbuffer = new DepthStencilView(Device.Device, zBufferTexture);
+            }
         }
 
         /// <summary>
@@ -118,7 +103,7 @@ namespace SharpHelper
         public void Apply()
         {
             Device.DeviceContext.Rasterizer.SetViewport(0, 0, Width, Height);
-            Device.DeviceContext.OutputMerger.SetTargets(_zbuffer, _target);
+            Device.DeviceContext.OutputMerger.SetTargets(this.Zbuffer, this.Target);
         }
 
         /// <summary>
@@ -126,11 +111,13 @@ namespace SharpHelper
         /// </summary>
         public void Dispose()
         {
-            _resource.Dispose();
-            _target.Dispose();
-            _zbuffer.Dispose();
+            if (this.Resource != null)
+                this.Resource.Dispose();
+            if (this.Target != null)
+                this.Target.Dispose();
+            if (this.Zbuffer != null)
+                this.Zbuffer.Dispose();
         }
-
 
         /// <summary>
         /// Clear backbuffer and zbuffer
@@ -138,11 +125,8 @@ namespace SharpHelper
         /// <param name="color">background color</param>
         public void Clear(Color4 color)
         {
-            Device.DeviceContext.ClearRenderTargetView(_target, color);
-            Device.DeviceContext.ClearDepthStencilView(_zbuffer, DepthStencilClearFlags.Depth, 1.0F, 0);
+            Device.DeviceContext.ClearRenderTargetView(this.Target, color);
+            Device.DeviceContext.ClearDepthStencilView(this.Zbuffer, DepthStencilClearFlags.Depth, 1.0F, 0);
         }
-
-
-
     }
 }

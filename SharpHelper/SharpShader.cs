@@ -48,7 +48,6 @@ namespace SharpHelper
         /// Stream output elements
         /// </summary>
         public StreamOutputElement[] GeometrySO { get; set; }
-
     }
 
     /// <summary>
@@ -141,7 +140,6 @@ namespace SharpHelper
             var signature = ShaderSignature.GetInputSignature(vertexShaderByteCode);
             // Layout from VertexShader input signature
             Layout = new InputLayout(Device.Device, signature, elements);
-
         }
 
         /// <summary>
@@ -149,9 +147,18 @@ namespace SharpHelper
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public Buffer CreateBuffer<T>() where T : struct
+        public Buffer CreateBuffer<T>()
+            where T : struct
         {
-            return new Buffer(Device.Device, Utilities.SizeOf<T>(), ResourceUsage.Default, BindFlags.ConstantBuffer, CpuAccessFlags.None, ResourceOptionFlags.None, 0);
+            return new Buffer(
+                Device.Device, 
+                Utilities.SizeOf<T>(), 
+                ResourceUsage.Default, 
+                BindFlags.ConstantBuffer, 
+                CpuAccessFlags.None, 
+                ResourceOptionFlags.None, 
+                0
+            );
         }
 
         /// <summary>

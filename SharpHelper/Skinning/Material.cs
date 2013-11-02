@@ -10,13 +10,11 @@ using System.IO;
 
 namespace SharpHelper.Skinning
 {
-    
     /// <summary>
     /// Geometry Material
     /// </summary>
     public class Material
     {
-        
         /// <summary>
         /// Ambient
         /// </summary>
@@ -77,7 +75,5 @@ namespace SharpHelper.Skinning
             DiffuseTextureName = Path.GetFileName(material.DiffuseTexture);
 
         }
-
-
     }
 }

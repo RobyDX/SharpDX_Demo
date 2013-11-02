@@ -92,16 +92,13 @@ namespace SharpHelper.Skinning
                 a.Weight == b.Weight &&
                 a.Joint == b.Joint;
         }
-
     }
-
 
     /// <summary>
     /// Material Data
     /// </summary>
     public class MaterialData
     {
-
         /// <summary>
         /// Ambient Color
         /// </summary>
@@ -151,7 +148,6 @@ namespace SharpHelper.Skinning
             Emissive = new Vector4();
             SpecularPower = 0;
         }
-
     }
 
     /// <summary>
@@ -260,7 +256,6 @@ namespace SharpHelper.Skinning
         /// </summary>
         public List<string> JointNames { get; set; }
 
-
         /// <summary>
         /// Inverse Binding Matrices
         /// </summary>
@@ -274,7 +269,6 @@ namespace SharpHelper.Skinning
             JointNames = new List<string>();
             InverseBinding = new List<Matrix>();
         }
-
     }
 
     /// <summary>
@@ -302,8 +296,6 @@ namespace SharpHelper.Skinning
         /// </summary>
         public MaterialData Material { get; set; }
 
-
-
         /// <summary>
         /// Constructor
         /// </summary>
@@ -312,7 +304,6 @@ namespace SharpHelper.Skinning
             Vertices = new List<VertexFormat>();
             Indices = new List<int>();
         }
-
 
         /// <summary>
         /// Optimize Geometry

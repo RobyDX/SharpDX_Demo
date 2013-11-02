@@ -8,7 +8,6 @@ using SharpDX.Direct3D11;
 
 namespace SharpHelper
 {
-
     /// <summary>
     /// Describe a mesh subset
     /// </summary>

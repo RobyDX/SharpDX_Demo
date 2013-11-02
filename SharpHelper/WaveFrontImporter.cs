@@ -54,22 +54,27 @@ namespace SharpHelper
             /// Name
             /// </summary>
             public string MaterialName;
+
             /// <summary>
             /// Ambient color
             /// </summary>
             public Vector3 Ambient;
+
             /// <summary>
             /// Diffuse color
             /// </summary>
             public Vector3 Diffuse;
+
             /// <summary>
             /// Specular color
             /// </summary>
             public Vector3 Specular;
+
             /// <summary>
             /// Shininess
             /// </summary>
             public float Shininess;
+
             /// <summary>
             /// Texture name
             /// </summary>
@@ -101,12 +106,12 @@ namespace SharpHelper
             c.MeshMaterial.AddRange(b.MeshMaterial);
 
             int tot = 0;
+
             foreach (int i in a.FaceCounts)
             {
                 c.FaceCounts.Add(i + tot);
                 tot += i;
             }
-
             foreach (int i in b.FaceCounts)
             {
                 c.FaceCounts.Add(i + tot);
@@ -141,19 +146,9 @@ namespace SharpHelper
             List<Material> materials = new List<Material>();
             List<string> lines = new List<string>();
 
-            using (StreamReader reader = new StreamReader(filename))
+            using (StreamReader sr = new StreamReader(filename))
             {
-                for (; ; )
-                {
-                    string l = reader.ReadLine();
-                    if (reader.EndOfStream)
-                        break;
-
-                    if (l.Contains("#") || string.IsNullOrEmpty(l.Trim()))
-                        continue;
-
-                    lines.Add(l);
-                }
+                lines.AddRange(sr.ReadToEnd().Split('\n').Where(line => !String.IsNullOrWhiteSpace(line) && !line.StartsWith("#")));
             }
 
             foreach (string line in lines)
@@ -178,7 +173,7 @@ namespace SharpHelper
             }
 
             string currentMesh = "default";
-            Material currentMate = new Material();
+            Material currentMat = new Material();
 
             foreach (string line in lines)
             {
@@ -189,17 +184,19 @@ namespace SharpHelper
                 else if (line.Contains("usemtl "))
                 {
                     if (faces.Count > 0)
-                        geom.Add(CreateGeom(currentMesh, positions, normals, textures, faces, currentMate));
-
-                    currentMate = (from m in materials where m.MaterialName == line.Replace("usemtl", "").Trim() select m).First();
+                    {
+                        geom.Add(CreateGeom(currentMesh, positions, normals, textures, faces, currentMat));
+                    }
+                    currentMat = (from m in materials where m.MaterialName == line.Replace("usemtl", "").Trim() select m).First();
 
                     faces.Clear();
                 }
                 else if (line.Contains("g "))
                 {
                     if (faces.Count > 0)
-                        geom.Add(CreateGeom(currentMesh, positions, normals, textures, faces, currentMate));
-
+                    {
+                        geom.Add(CreateGeom(currentMesh, positions, normals, textures, faces, currentMat));
+                    }
                     currentMesh = line.Replace("g", "").Trim();
 
                     faces.Clear();
@@ -210,17 +207,17 @@ namespace SharpHelper
                 }
             }
 
-
             if (faces.Count > 0)
-                geom.Add(CreateGeom(currentMesh, positions, normals, textures, faces, currentMate));
-
+            {
+                geom.Add(CreateGeom(currentMesh, positions, normals, textures, faces, currentMat));
+            }
             foreach (WaveFrontModel model in geom)
+            {
                 model.Optimize();
+            }
 
             return geom.ToArray();
         }
-
-
 
         private static WaveFrontModel CreateGeom(string name, List<Vector3> position, List<Vector3> normals, List<Vector2> texture, List<int> faces, Material mate)
         {
@@ -231,46 +228,36 @@ namespace SharpHelper
 
             int stride = 0;
 
-
             if (position.Count > 0)
                 stride++;
-
-
             if (normals.Count > 0)
                 stride++;
-
-
             if (texture.Count > 0)
                 stride++;
 
-
             int vertexCount = faces.Count / stride;
-
             int k = 0;
-
-
             for (int i = 0; i < vertexCount; i++)
             {
                 StaticVertex v = new StaticVertex();
+
                 if (position.Count > 0)
                 {
                     v.Position = position[faces[k] - 1];
                     k++;
                 }
-
                 if (texture.Count > 0)
                 {
-                    v.TextureCoordinate = texture[faces[k] - 1];
+                    v.TextureCoordinates = texture[faces[k] - 1];
                     k++;
                 }
-
                 if (normals.Count > 0)
                 {
                     v.Normal = normals[faces[k] - 1];
                     k++;
                 }
-                geom.VertexData.Add(v);
 
+                geom.VertexData.Add(v);
             }
 
             for (int i = 0; i < (geom.VertexData.Count); i++)
@@ -280,8 +267,8 @@ namespace SharpHelper
 
             geom.MeshMaterial.Add(mate);
             geom.FaceCounts.Add(geom.IndexData.Count);
-            return geom;
 
+            return geom;
         }
 
         private static string[] Parts(string name, string line)
@@ -295,7 +282,8 @@ namespace SharpHelper
             return new Vector3(
                 float.Parse(parts[0], infos),
                 float.Parse(parts[1], infos),
-                float.Parse(parts[2], infos));
+                float.Parse(parts[2], infos)
+            );
         }
 
         private static Vector3 GetNormal(string line)
@@ -304,7 +292,8 @@ namespace SharpHelper
             return new Vector3(
                 float.Parse(parts[0], infos),
                 float.Parse(parts[1], infos),
-                float.Parse(parts[2], infos));
+                float.Parse(parts[2], infos)
+            );
         }
 
         private static Vector2 GetTexture(string line)
@@ -312,7 +301,8 @@ namespace SharpHelper
             string[] parts = Parts("vt", line);
             return new Vector2(
                 float.Parse(parts[0], infos),
-               1 - float.Parse(parts[1], infos));
+                1 - float.Parse(parts[1], infos)
+            );
         }
 
         private static int[] GetFace(string line)
@@ -328,11 +318,8 @@ namespace SharpHelper
 
         private static WaveFrontModel Create(StreamReader reader)
         {
-            WaveFrontModel geom = new WaveFrontModel();
-
-            return geom;
+            return new WaveFrontModel();
         }
-
 
         private static Material[] LoadMaterial(String filename)
         {
@@ -340,16 +327,12 @@ namespace SharpHelper
             List<Material> materials = new List<Material>();
             using (StreamReader reader = new StreamReader(filename))
             {
-
-
                 for (; ; )
                 {
                     if (reader.EndOfStream)
                         break;
+
                     string line = reader.ReadLine();
-
-
-
                     if (line.Contains("newmtl"))
                     {
                         if (current != null)
@@ -405,10 +388,8 @@ namespace SharpHelper
             GenerateTangentBinormal();
         }
 
-
         private void GenerateNormal()
         {
-
             for (int i = 0; i < VertexData.Count; i++)
             {
                 StaticVertex v = VertexData[i];
@@ -418,7 +399,6 @@ namespace SharpHelper
 
             for (int i = 0; i < IndexData.Count; i += 3)
             {
-
                 StaticVertex p1 = VertexData[IndexData[i]];
                 StaticVertex p2 = VertexData[IndexData[i + 1]];
                 StaticVertex p3 = VertexData[IndexData[i + 2]];
@@ -445,7 +425,6 @@ namespace SharpHelper
                 v.Normal.Normalize();
                 VertexData[i] = v;
             }
-
         }
 
         private void GenerateTangentBinormal()
@@ -454,9 +433,8 @@ namespace SharpHelper
             {
                 Position = v.Position,
                 Normal = v.Normal,
-                TextureCoordinate = v.TextureCoordinate
+                TextureCoordinate = v.TextureCoordinates
             }).ToList();
-
 
             //resetta i vettori
             for (int i = 0; i < VertexData.Count; i++)
@@ -473,7 +451,6 @@ namespace SharpHelper
                 TangentVertex P0 = TangentData[IndexData[i]];
                 TangentVertex P1 = TangentData[IndexData[i + 1]];
                 TangentVertex P2 = TangentData[IndexData[i + 2]];
-
 
                 Vector3 e0 = P1.Position - P0.Position;
                 Vector3 e1 = P2.Position - P0.Position;
@@ -493,12 +470,10 @@ namespace SharpHelper
                 float s2 = P2.TextureCoordinate.X - P0.TextureCoordinate.X;
                 float t2 = P2.TextureCoordinate.Y - P0.TextureCoordinate.Y;
 
-
                 //we need to solve the equation
                 // P = s1*T + t1*B
                 // Q = s2*T + t2*B
                 // for T and B
-
 
                 //this is a linear system with six unknowns and six equatinos, for TxTyTz BxByBz
                 //[px,py,pz] = [s1,t1] * [Tx,Ty,Tz]
@@ -621,11 +596,6 @@ namespace SharpHelper
 
             IndexData.Clear();
             IndexData.AddRange(tempIndices);
-
         }
     }
-
 }
-
-
-

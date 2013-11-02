@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SharpDX;
-using SharpDX.DXGI;
-using SharpDX.Direct3D11;
 using SharpDX.D3DCompiler;
 using SharpDX.Direct3D;
-
+using SharpDX.Direct3D11;
+using SharpDX.DXGI;
 using Buffer11 = SharpDX.Direct3D11.Buffer;
 using Device = SharpDX.Direct3D11.Device;
 using MapFlags = SharpDX.Direct3D11.MapFlags;
-using System.IO;
 
 
 namespace SharpHelper
@@ -81,7 +80,8 @@ namespace SharpHelper
         /// <param name="vertices">Vertices</param>
         /// <param name="indices">Indices</param>
         /// <returns>Mesh</returns>
-        public static SharpMesh Create<VType>(SharpDevice device, VType[] vertices, int[] indices) where VType : struct
+        public static SharpMesh Create<VType>(SharpDevice device, VType[] vertices, int[] indices)
+            where VType : struct
         {
             SharpMesh mesh = new SharpMesh(device);
             mesh.VertexBuffer = Buffer11.Create<VType>(device.Device, BindFlags.VertexBuffer, vertices);
@@ -119,13 +119,12 @@ namespace SharpHelper
                 vertices.AddRange(model.VertexData);
                 indices.AddRange(model.IndexData.Select(i => i + vcount));
 
-                var mate = model.MeshMaterial.First();
-
+                WaveFrontModel.Material material = model.MeshMaterial.First();
 
                 ShaderResourceView tex = null;
-                if (!string.IsNullOrEmpty(mate.DiffuseMap))
+                if (!string.IsNullOrEmpty(material.DiffuseMap))
                 {
-                    string textureFile = System.IO.Path.GetDirectoryName(filename) + "\\" + System.IO.Path.GetFileName(mate.DiffuseMap);
+                    string textureFile = System.IO.Path.GetDirectoryName(filename) + "\\" + System.IO.Path.GetFileName(material.DiffuseMap);
                     tex = ShaderResourceView.FromFile(device.Device, textureFile);
                 }
 
@@ -135,8 +134,6 @@ namespace SharpHelper
                     StartIndex = icount,
                     DiffuseMap = tex
                 });
-
-
 
                 vcount += model.VertexData.Count;
                 icount += model.IndexData.Count;
@@ -148,7 +145,6 @@ namespace SharpHelper
 
             return mesh;
         }
-
 
         /// <summary>
         /// Create a mesh from wavefront obj file format using Tangent and Binormal vertex format
@@ -277,15 +273,20 @@ namespace SharpHelper
         /// </summary>
         public void Dispose()
         {
-            VertexBuffer.Dispose();
-            IndexBuffer.Dispose();
-            foreach (var s in SubSets)
-            {
-                if (s.DiffuseMap != null)
-                    s.DiffuseMap.Dispose();
+            if (this.VertexBuffer != null)
+                this.VertexBuffer.Dispose();
+            if (this.IndexBuffer != null)
+                this.IndexBuffer.Dispose();
 
-                if (s.NormalMap != null)
-                    s.NormalMap.Dispose();
+            if (this.SubSets != null)
+            {
+                foreach (var s in this.SubSets)
+                {
+                    if (s.DiffuseMap != null)
+                        s.DiffuseMap.Dispose();
+                    if (s.NormalMap != null)
+                        s.NormalMap.Dispose();
+                }
             }
         }
     }

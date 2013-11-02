@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SharpDX;
-using SharpDX.DXGI;
-using SharpDX.Direct3D11;
 using SharpDX.D3DCompiler;
 using SharpDX.Direct3D;
-
+using SharpDX.Direct3D11;
+using SharpDX.DXGI;
 using Buffer11 = SharpDX.Direct3D11.Buffer;
 using Device = SharpDX.Direct3D11.Device;
 using MapFlags = SharpDX.Direct3D11.MapFlags;
-using System.IO;
 
 namespace SharpHelper
 {
@@ -21,17 +20,10 @@ namespace SharpHelper
     /// </summary>
     public class SharpOutputBuffer : IDisposable
     {
-        //buffer
-        private Buffer11 _buffer;
-
         /// <summary>
         /// Buffer pointer
         /// </summary>
-        public Buffer11 Buffer
-        {
-            get { return _buffer; }
-        }
-
+        public Buffer11 Buffer { get; private set; }
 
         /// <summary>
         /// Device pointer
@@ -52,7 +44,7 @@ namespace SharpHelper
                 BindFlags = BindFlags.VertexBuffer | BindFlags.StreamOutput,
                 Usage = ResourceUsage.Default,
             };
-            _buffer = new Buffer11(Device.Device, desc);
+            this.Buffer = new Buffer11(Device.Device, desc);
         }
 
         /// <summary>
@@ -60,7 +52,7 @@ namespace SharpHelper
         /// </summary>
         public void Begin()
         {
-            Device.DeviceContext.StreamOutput.SetTarget(_buffer, 0);
+            Device.DeviceContext.StreamOutput.SetTarget(this.Buffer, 0);
         }
 
         /// <summary>
@@ -77,7 +69,8 @@ namespace SharpHelper
         /// </summary>
         public void Dispose()
         {
-            _buffer.Dispose();
+            if (this.Buffer != null)
+                this.Buffer.Dispose();
         }
 
         /// <summary>
@@ -86,10 +79,8 @@ namespace SharpHelper
         /// <param name="vertexSize">Size of vertex in the buffer</param>
         public void Draw(int vertexSize)
         {
-            Device.DeviceContext.InputAssembler.SetVertexBuffers(0, new VertexBufferBinding(_buffer, vertexSize, 0));
+            Device.DeviceContext.InputAssembler.SetVertexBuffers(0, new VertexBufferBinding(this.Buffer, vertexSize, 0));
             Device.DeviceContext.DrawAuto();
         }
-
-
     }
 }

@@ -52,7 +52,7 @@ namespace SharpHelper
         /// <summary>
         /// Texture coordinate
         /// </summary>
-        public Vector2 TextureCoordinate;
+        public Vector2 TextureCoordinates;
 
         /// <summary>
         /// Compare 2 vertices on Position and Texture Coordinate
@@ -62,13 +62,11 @@ namespace SharpHelper
         /// <returns></returns>
         internal static bool Compare(StaticVertex a, StaticVertex b)
         {
-            return a.Position == b.Position &&
-                a.TextureCoordinate == b.TextureCoordinate;
+            return 
+                (a.Position == b.Position) &&
+                (a.TextureCoordinates == b.TextureCoordinates);
         }
-
-
     }
-
 
     /// <summary>
     /// Tangent Vertex
