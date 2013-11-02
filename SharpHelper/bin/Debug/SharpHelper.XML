@@ -1,0 +1,1895 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SharpHelper</name>
+    </assembly>
+    <members>
+        <member name="T:SharpHelper.Audio.SharpAudioDevice">
+            <summary>
+            Audio Device
+            </summary>
+        </member>
+        <member name="M:SharpHelper.Audio.SharpAudioDevice.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:SharpHelper.Audio.SharpAudioDevice.Dispose">
+            <summary>
+            Release resource
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Audio.SharpAudioDevice.Device">
+            <summary>
+            Audio Device
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Audio.SharpAudioDevice.Master">
+            <summary>
+            Master voice
+            </summary>
+        </member>
+        <member name="T:SharpHelper.Audio.SoundStop">
+            <summary>
+            Delegate for sound stop
+            </summary>
+            <param name="voice">Voice that generate event</param>
+        </member>
+        <member name="T:SharpHelper.Audio.SharpAudioVoice">
+            <summary>
+            Audio Voice
+            </summary>
+        </member>
+        <member name="M:SharpHelper.Audio.SharpAudioVoice.#ctor(SharpHelper.Audio.SharpAudioDevice,System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="device">Device</param>
+            <param name="filename">Filename</param>
+        </member>
+        <member name="M:SharpHelper.Audio.SharpAudioVoice.Play">
+            <summary>
+            Play
+            </summary>
+        </member>
+        <member name="M:SharpHelper.Audio.SharpAudioVoice.Stop">
+            <summary>
+            Stop audio
+            </summary>
+        </member>
+        <member name="M:SharpHelper.Audio.SharpAudioVoice.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Audio.SharpAudioVoice.Voice">
+            <summary>
+            Voice
+            </summary>
+        </member>
+        <member name="E:SharpHelper.Audio.SharpAudioVoice.Stopped">
+            <summary>
+            Raise event when stopped
+            </summary>
+        </member>
+        <member name="T:SharpHelper.ColladaImporter">
+            <summary>
+            Importer for collada
+            </summary>
+        </member>
+        <member name="F:SharpHelper.ColladaImporter.ColladaNamespace">
+            <summary>
+            Namespace
+            </summary>
+        </member>
+        <member name="M:SharpHelper.ColladaImporter.Import(System.String,SharpHelper.ColladaImporter.SemanticAssociations)">
+            <summary>
+            Load From File
+            </summary>
+            <param name="filename">Filename</param>
+            <param name="association">Custom Semantic Association</param>
+            <returns>Model</returns>
+        </member>
+        <member name="M:SharpHelper.ColladaImporter.Import(System.String)">
+            <summary>
+            Load From File
+            </summary>
+            <param name="filename">Filename</param>
+            <returns>Model</returns>
+        </member>
+        <member name="T:SharpHelper.ColladaImporter.SemanticAssociations">
+            <summary>
+            Define custom Semantic Associations
+            </summary>
+        </member>
+        <member name="M:SharpHelper.ColladaImporter.SemanticAssociations.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:SharpHelper.ColladaImporter.SemanticAssociations.Position">
+            <summary>
+            Position
+            </summary>
+        </member>
+        <member name="P:SharpHelper.ColladaImporter.SemanticAssociations.Normal">
+            <summary>
+            Normal
+            </summary>
+        </member>
+        <member name="P:SharpHelper.ColladaImporter.SemanticAssociations.Tangent">
+            <summary>
+            Tangent
+            </summary>
+        </member>
+        <member name="P:SharpHelper.ColladaImporter.SemanticAssociations.Binormal">
+            <summary>
+            Binormal
+            </summary>
+        </member>
+        <member name="P:SharpHelper.ColladaImporter.SemanticAssociations.TexCoord1">
+            <summary>
+            Coordinate texture 1
+            </summary>
+        </member>
+        <member name="P:SharpHelper.ColladaImporter.SemanticAssociations.TexCoord2">
+            <summary>
+            Cordinate texture 2
+            </summary>
+        </member>
+        <member name="P:SharpHelper.ColladaImporter.SemanticAssociations.Joint">
+            <summary>
+            Joint
+            </summary>
+        </member>
+        <member name="P:SharpHelper.ColladaImporter.SemanticAssociations.Weight">
+            <summary>
+            Weight
+            </summary>
+        </member>
+        <member name="T:SharpHelper.Skinning.AnimationManager">
+            <summary>
+            Animation Manager
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.AnimationManager.Sets">
+            <summary>
+            Controllers of Animations
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.AnimationManager.Duration">
+            <summary>
+            Animation Length
+            </summary>
+        </member>
+        <member name="T:SharpHelper.Skinning.AnimationSet">
+            <summary>
+            Animation Controller
+            </summary>
+        </member>
+        <member name="M:SharpHelper.Skinning.AnimationSet.#ctor(SharpHelper.Skinning.AnimationNode)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="node">Node Data to load</param>
+        </member>
+        <member name="M:SharpHelper.Skinning.AnimationSet.SetTime(System.Single)">
+            <summary>
+            Set Current Matrix
+            </summary>
+            <param name="tick"></param>
+        </member>
+        <member name="M:SharpHelper.Skinning.AnimationSet.GetMatrix(System.Single)">
+            <summary>
+            Get Matrix Interpolation
+            </summary>
+            <param name="tick">Animation Time</param>
+            <returns>Computed Matrices</returns>
+        </member>
+        <member name="P:SharpHelper.Skinning.AnimationSet.InterpolationMode">
+            <summary>
+            Interpolation Type
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.AnimationSet.Ticks">
+            <summary>
+            List of keys
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.AnimationSet.Output">
+            <summary>
+            Output Matrix Array
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.AnimationSet.Tangent_In">
+            <summary>
+            Input Tangent Matrices (for bezier animation)
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.AnimationSet.Tangent_Out">
+            <summary>
+            Output Tangent Matrices (for bezier animation)
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.AnimationSet.Target">
+            <summary>
+            Name of node that is target of this animation set
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.AnimationSet.TargetNode">
+            <summary>
+            Node target of this animation
+            </summary>
+        </member>
+        <member name="T:SharpHelper.Skinning.AnimationData">
+            <summary>
+            Animation Data
+            </summary>
+        </member>
+        <member name="M:SharpHelper.Skinning.AnimationData.#ctor(SharpDX.Matrix)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="matrix">Matrix to decompose</param>
+        </member>
+        <member name="M:SharpHelper.Skinning.AnimationData.Lerp(SharpHelper.Skinning.AnimationData,SharpHelper.Skinning.AnimationData,System.Single)">
+            <summary>
+            Linear Interpolation
+            </summary>
+            <param name="start">Start</param>
+            <param name="end">End</param>
+            <param name="interpolation">Value from 0 to 1</param>
+            <returns>Matrix</returns>
+        </member>
+        <member name="M:SharpHelper.Skinning.AnimationData.Bezier(SharpHelper.Skinning.AnimationData,SharpHelper.Skinning.AnimationData,SharpHelper.Skinning.AnimationData,SharpHelper.Skinning.AnimationData,System.Single)">
+            <summary>
+            Bezier Interpolation
+            </summary>
+            <param name="start">Start</param>
+            <param name="end">End</param>
+            <param name="tangent_in">Input Tangent</param>
+            <param name="tangent_out">Output Tangent</param>
+            <param name="interpolation">Value from 0 to 1</param>
+            <returns>Matrix</returns>
+        </member>
+        <member name="P:SharpHelper.Skinning.AnimationData.Rotation">
+            <summary>
+            Rotation
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.AnimationData.Translation">
+            <summary>
+            Translation
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.AnimationData.Scaling">
+            <summary>
+            Scale
+            </summary>
+        </member>
+        <member name="T:SharpHelper.Skinning.InterpolationType">
+            <summary>
+            Interpolation Type
+            </summary>
+        </member>
+        <member name="F:SharpHelper.Skinning.InterpolationType.Linear">
+            <summary>
+            Linear
+            </summary>
+        </member>
+        <member name="F:SharpHelper.Skinning.InterpolationType.Bezier">
+            <summary>
+            Bezier
+            </summary>
+        </member>
+        <member name="T:SharpHelper.Skinning.VertexFormat">
+            <summary>
+            Skinned Vertex Format
+            </summary>
+        </member>
+        <member name="F:SharpHelper.Skinning.VertexFormat.Size">
+            <summary>
+            Byte Size
+            </summary>
+        </member>
+        <member name="F:SharpHelper.Skinning.VertexFormat.Position">
+            <summary>
+            Position
+            </summary>
+        </member>
+        <member name="F:SharpHelper.Skinning.VertexFormat.Normal">
+            <summary>
+            Normal
+            </summary>
+        </member>
+        <member name="F:SharpHelper.Skinning.VertexFormat.TextureSet1">
+            <summary>
+            Texture Set 1
+            </summary>
+        </member>
+        <member name="F:SharpHelper.Skinning.VertexFormat.TextureSet2">
+            <summary>
+            Texture Set 2
+            </summary>
+        </member>
+        <member name="F:SharpHelper.Skinning.VertexFormat.Binormal">
+            <summary>
+            Binormal
+            </summary>
+        </member>
+        <member name="F:SharpHelper.Skinning.VertexFormat.Tangent">
+            <summary>
+            Tangent
+            </summary>
+        </member>
+        <member name="F:SharpHelper.Skinning.VertexFormat.Joint">
+            <summary>
+            Joint
+            </summary>
+        </member>
+        <member name="F:SharpHelper.Skinning.VertexFormat.Weight">
+            <summary>
+            Weight
+            </summary>
+        </member>
+        <member name="M:SharpHelper.Skinning.VertexFormat.GetArray">
+            <summary>
+            Return Vertex as Float Array
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpHelper.Skinning.VertexFormat.Compare(SharpHelper.Skinning.VertexFormat,SharpHelper.Skinning.VertexFormat)">
+            <summary>
+            Compare 2 Vertices
+            </summary>
+            <param name="a">First Vertex</param>
+            <param name="b">Secon Vertex</param>
+            <returns>Result</returns>
+        </member>
+        <member name="T:SharpHelper.Skinning.MaterialData">
+            <summary>
+            Material Data
+            </summary>
+        </member>
+        <member name="M:SharpHelper.Skinning.MaterialData.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.MaterialData.Ambient">
+            <summary>
+            Ambient Color
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.MaterialData.Diffuse">
+            <summary>
+            Diffuse Color
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.MaterialData.Specular">
+            <summary>
+            Specular Color
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.MaterialData.SpecularPower">
+            <summary>
+            Specular Power
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.MaterialData.Emissive">
+            <summary>
+            Emissiva Color
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.MaterialData.DiffuseTexture">
+            <summary>
+            Diffuse Texture Name
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.MaterialData.NormalTexture">
+            <summary>
+            Normal Texture Name
+            </summary>
+        </member>
+        <member name="T:SharpHelper.Skinning.ModelData">
+            <summary>
+            Model Data
+            </summary>
+        </member>
+        <member name="M:SharpHelper.Skinning.ModelData.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.ModelData.Name">
+            <summary>
+            Model Name
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.ModelData.Nodes">
+            <summary>
+            Nodes
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.ModelData.Animations">
+            <summary>
+            Animations
+            </summary>
+        </member>
+        <member name="T:SharpHelper.Skinning.NodeType">
+            <summary>
+            Node Type
+            </summary>
+        </member>
+        <member name="F:SharpHelper.Skinning.NodeType.Joint">
+            <summary>
+            Joint
+            </summary>
+        </member>
+        <member name="F:SharpHelper.Skinning.NodeType.Node">
+            <summary>
+            Node
+            </summary>
+        </member>
+        <member name="T:SharpHelper.Skinning.ModelNode">
+            <summary>
+            Model Node
+            </summary>
+        </member>
+        <member name="M:SharpHelper.Skinning.ModelNode.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.ModelNode.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.ModelNode.Type">
+            <summary>
+            Node Type
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.ModelNode.World">
+            <summary>
+            World Matrix
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.ModelNode.Children">
+            <summary>
+            Children Nodes
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.ModelNode.Geometries">
+            <summary>
+            Geometries Inside this node
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.ModelNode.Skinning">
+            <summary>
+            Skinning Information
+            </summary>
+        </member>
+        <member name="T:SharpHelper.Skinning.SkinInformation">
+            <summary>
+            Skin Information
+            </summary>
+        </member>
+        <member name="M:SharpHelper.Skinning.SkinInformation.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.SkinInformation.BindMatrix">
+            <summary>
+            Bind Matrix
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.SkinInformation.JointNames">
+            <summary>
+            Joint Names List
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.SkinInformation.InverseBinding">
+            <summary>
+            Inverse Binding Matrices
+            </summary>
+        </member>
+        <member name="T:SharpHelper.Skinning.ModelGeometry">
+            <summary>
+            Geometry Data
+            </summary>
+        </member>
+        <member name="M:SharpHelper.Skinning.ModelGeometry.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:SharpHelper.Skinning.ModelGeometry.Optimize">
+            <summary>
+            Optimize Geometry
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.ModelGeometry.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.ModelGeometry.Vertices">
+            <summary>
+            Vertices List
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.ModelGeometry.Indices">
+            <summary>
+            Indices List
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.ModelGeometry.Material">
+            <summary>
+            Material
+            </summary>
+        </member>
+        <member name="T:SharpHelper.Skinning.Animation">
+            <summary>
+            Animations
+            </summary>
+        </member>
+        <member name="M:SharpHelper.Skinning.Animation.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.Animation.Nodes">
+            <summary>
+            Animation Nodes
+            </summary>
+        </member>
+        <member name="T:SharpHelper.Skinning.Interpolation">
+            <summary>
+            Interpolation Type
+            </summary>
+        </member>
+        <member name="F:SharpHelper.Skinning.Interpolation.Undefined">
+            <summary>
+            Undefined
+            </summary>
+        </member>
+        <member name="F:SharpHelper.Skinning.Interpolation.Linear">
+            <summary>
+            Linear
+            </summary>
+        </member>
+        <member name="F:SharpHelper.Skinning.Interpolation.Bezier">
+            <summary>
+            Bezier
+            </summary>
+        </member>
+        <member name="T:SharpHelper.Skinning.AnimationNode">
+            <summary>
+            Animation Node
+            </summary>
+        </member>
+        <member name="M:SharpHelper.Skinning.AnimationNode.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.AnimationNode.Children">
+            <summary>
+            Children Nodes
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.AnimationNode.Target">
+            <summary>
+            Model Node that is target of this animation node
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.AnimationNode.Input">
+            <summary>
+            Input
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.AnimationNode.Output">
+            <summary>
+            Output matrices
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.AnimationNode.In_Tangent">
+            <summary>
+            Input Tangents
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.AnimationNode.Out_Tangent">
+            <summary>
+            Output Tangents
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.AnimationNode.Interpolation">
+            <summary>
+            Interpolation Type
+            </summary>
+        </member>
+        <member name="T:SharpHelper.SharpCubeTarget">
+            <summary>
+            Cube Map Render Target
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpCubeTarget.#ctor(SharpHelper.SharpDevice,System.Int32,SharpDX.DXGI.Format)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="device">Device</param>
+            <param name="size">Cube Size</param>
+            <param name="format">Color Format</param>
+        </member>
+        <member name="M:SharpHelper.SharpCubeTarget.Apply">
+            <summary>
+            Apply Render Target To Device Context
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpCubeTarget.Dispose">
+            <summary>
+            Dispose resource
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpCubeTarget.Clear(SharpDX.Color4)">
+            <summary>
+            Clear backbuffer and zbuffer
+            </summary>
+            <param name="color">background color</param>
+        </member>
+        <member name="P:SharpHelper.SharpCubeTarget.Device">
+            <summary>
+            Device pointer
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpCubeTarget.Target">
+            <summary>
+            Render Target
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpCubeTarget.Zbuffer">
+            <summary>
+            Depth Buffer for Render Target
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpCubeTarget.Resource">
+            <summary>
+            Resource connected to Render Target
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpCubeTarget.Size">
+            <summary>
+            Height
+            </summary>
+        </member>
+        <member name="T:SharpHelper.SharpComputeDevice`1">
+            <summary>
+            Execute Compute Shader outside Regular Graphics Device
+            </summary>
+            <typeparam name="T">Result Struct Type</typeparam>
+        </member>
+        <member name="M:SharpHelper.SharpComputeDevice`1.#ctor(System.String,System.String,System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="filename">Path of compute shader source</param>
+            <param name="functionName">Name of compute shader function</param>
+            <param name="count">Max number of elements</param>
+        </member>
+        <member name="M:SharpHelper.SharpComputeDevice`1.Begin">
+            <summary>
+            Prepare Device to compute shader
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpComputeDevice`1.End">
+            <summary>
+            End compute shader processing
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpComputeDevice`1.Start(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Execute Compute Shader code
+            </summary>
+            <param name="threadGroupCountX">Number of thread Group on X Axis</param>
+            <param name="threadGroupCountY">Number of thread Group on Y Axis</param>
+            <param name="threadGroupCountZ">Number of thread Group on Z Axis</param>
+        </member>
+        <member name="M:SharpHelper.SharpComputeDevice`1.ReadData(System.Int32)">
+            <summary>
+            Return Executed Data
+            </summary>
+            <param name="count">Number of element to read</param>
+            <returns>Result</returns>
+        </member>
+        <member name="P:SharpHelper.SharpComputeDevice`1.Device">
+            <summary>
+            Device Pointer
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpComputeDevice`1.DeviceContext">
+            <summary>
+            Device Context Pointer
+            </summary>
+        </member>
+        <member name="T:SharpHelper.SharpDebugger">
+            <summary>
+            Debugger
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpDebugger.#ctor(SharpHelper.SharpDevice,System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="device">Device</param>
+            <param name="breakOnWarning">Generate an error on warning</param>
+        </member>
+        <member name="M:SharpHelper.SharpDebugger.GetMessage(System.Boolean)">
+            <summary>
+            Get message stored inside debugger
+            </summary>
+            <param name="clearCache">Delete messages inside debugger</param>
+            <returns>List of messages</returns>
+        </member>
+        <member name="M:SharpHelper.SharpDebugger.Check">
+            <summary>
+            Do a check on device context status
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpDebugger.Debug">
+            <summary>
+            Debug device
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpDebugger.Queue">
+            <summary>
+            Info Queue
+            </summary>
+        </member>
+        <member name="T:SharpHelper.SharpDevice">
+            <summary>
+            Encapsulate All DirectX Elements
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpDevice.#ctor(SharpDX.Windows.RenderForm,System.Boolean)">
+            <summary>
+            Init all object to start rendering
+            </summary>
+            <param name="form">Rendering form</param>
+            <param name="debug">Active the debug mode</param>
+        </member>
+        <member name="M:SharpHelper.SharpDevice.Resize">
+            <summary>
+            Create and Resize all items
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpDevice.SetDefaultTargets">
+            <summary>
+            Set default render and depth buffer inside device context
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpDevice.Dispose">
+            <summary>
+            Dispose element
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpDevice.Clear(SharpDX.Color4)">
+            <summary>
+            Clear backbuffer and zbuffer
+            </summary>
+            <param name="color">background color</param>
+        </member>
+        <member name="M:SharpHelper.SharpDevice.Present">
+            <summary>
+            Present scene to screen
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpDevice.SetDefaultRasterState">
+            <summary>
+            Set current rasterizer state to default
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpDevice.SetWireframeRasterState">
+            <summary>
+            Set current rasterizer state to wireframe
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpDevice.SetDefaultBlendState">
+            <summary>
+            Set current blending state to default
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpDevice.SetBlend(SharpDX.Direct3D11.BlendOperation,SharpDX.Direct3D11.BlendOption,SharpDX.Direct3D11.BlendOption)">
+            <summary>
+            Set current blending state
+            </summary>
+            <param name="operation">Blend Operation</param>
+            <param name="source">Source Option</param>
+            <param name="destination">Destination Option</param>
+        </member>
+        <member name="M:SharpHelper.SharpDevice.SetDefaultDepthState">
+            <summary>
+            Set current depth state to default
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpDevice.SetDefaultSamplerState">
+            <summary>
+            Set current sampler state to default
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpDevice.UpdateAllStates">
+            <summary>
+            Set current states inside context
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpDevice.UpdateData``1(SharpDX.Direct3D11.Buffer,``0)">
+            <summary>
+            Update constant buffer
+            </summary>
+            <typeparam name="T">Data Type</typeparam>
+            <param name="buffer">Buffer to update</param>
+            <param name="data">Data to write inside buffer</param>
+        </member>
+        <member name="M:SharpHelper.SharpDevice.ApplyMultipleRenderTarget(SharpHelper.SharpRenderTarget[])">
+            <summary>
+            Apply multiple targets to device
+            </summary>
+            <param name="targets">List of targets. Depth Buffer is taken from first one</param>
+        </member>
+        <member name="M:SharpHelper.SharpDevice.IsDirectX11Supported">
+            <summary>
+            DirectX11 Support Avaiable
+            </summary>
+            <returns>Supported</returns>
+        </member>
+        <member name="P:SharpHelper.SharpDevice.Device">
+            <summary>
+            Device
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpDevice.DeviceContext">
+            <summary>
+            Device Context
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpDevice.SwapChain">
+            <summary>
+            Swapchain
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpDevice.View">
+            <summary>
+            Rendering Form
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpDevice.MustResize">
+            <summary>
+            Indicate that device must be resized
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpDevice.BackBufferView">
+            <summary>
+            View to BackBuffer
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpDevice.ZBufferView">
+            <summary>
+            View to Depth Buffer
+            </summary>
+        </member>
+        <member name="T:SharpHelper.SharpBatch">
+            <summary>
+            Permit to draw font
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpBatch.#ctor(SharpHelper.SharpDevice,System.String)">
+            <summary>
+            Create a batch manager for drawing text and sprite
+            </summary>
+            <param name="device">Device pointer</param>
+            <param name="filename">Path of the font file</param>
+        </member>
+        <member name="M:SharpHelper.SharpBatch.Begin">
+            <summary>
+            Begin a 2D drawing session
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpBatch.End">
+            <summary>
+            End drawing session
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpBatch.Resize">
+            <summary>
+            Resize graphics device
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpBatch.DrawString(System.String,System.Int32,System.Int32)">
+            <summary>
+            Draw text
+            </summary>
+            <param name="text">Text</param>
+            <param name="x">Left position</param>
+            <param name="y">Top position</param>
+        </member>
+        <member name="M:SharpHelper.SharpBatch.DrawString(System.String,System.Int32,System.Int32,SharpDX.Color)">
+            <summary>
+            Draw text
+            </summary>
+            <param name="text">Text</param>
+            <param name="x">Left position</param>
+            <param name="y">Top position</param>
+            <param name="color">Text color</param>
+        </member>
+        <member name="M:SharpHelper.SharpBatch.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpBatch.GraphicsDevice">
+            <summary>
+            Graphics device pointer
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpBatch.Device">
+            <summary>
+            Device reference
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpBatch.Font">
+            <summary>
+            Main font for drawing text
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpBatch.Batch">
+            <summary>
+            Batch
+            </summary>
+        </member>
+        <member name="T:SharpHelper.SharpFPS">
+            <summary>
+            Helper to count frame per seconds
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpFPS.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpFPS.Reset">
+            <summary>
+            Reset Counter
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpFPS.Update">
+            <summary>
+            Update counter. This must be executed every frame in render loop
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpFPS.FPS">
+            <summary>
+            Last computed FPS
+            </summary>
+        </member>
+        <member name="T:SharpHelper.SharpInstanceBuffer`1">
+            <summary>
+            Helper for drawing Instance Buffer
+            </summary>
+            <typeparam name="T">Data Type</typeparam>
+        </member>
+        <member name="M:SharpHelper.SharpInstanceBuffer`1.#ctor(SharpHelper.SharpDevice,`0[])">
+            <summary>
+            Constructor
+            </summary>
+            <param name="device">Device</param>
+            <param name="data">Data to load inside</param>
+        </member>
+        <member name="M:SharpHelper.SharpInstanceBuffer`1.DrawInstance(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Draw instance Data in Vertex Buffer 0 and Index Buffer must be ready inside device context
+            </summary>
+            <param name="count">Number of instance to draw</param>
+            <param name="indexCountPerInstance">Index count of each instance</param>
+            <param name="startIndexLocation">Starting index of the current instance</param>
+        </member>
+        <member name="M:SharpHelper.SharpInstanceBuffer`1.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpInstanceBuffer`1.Device">
+            <summary>
+            Device Pointer
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpInstanceBuffer`1.InstanceBuffer">
+            <summary>
+            Instance Buffer
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpInstanceBuffer`1.Count">
+            <summary>
+            Number of instances inside buffer
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpInstanceBuffer`1.Stride">
+            <summary>
+            Size of each instance data
+            </summary>
+        </member>
+        <member name="T:SharpHelper.SharpMesh">
+            <summary>
+            To Render Static Object
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpMesh.Draw">
+            <summary>
+            Draw Mesh
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpMesh.Draw(System.Int32)">
+            <summary>
+            Draw Mesh
+            </summary>
+            <param name="subset">Subsets</param>
+        </member>
+        <member name="M:SharpHelper.SharpMesh.Create``1(SharpHelper.SharpDevice,``0[],System.Int32[])">
+            <summary>
+            Create From Vertices and Indices array
+            </summary>
+            <typeparam name="VType">Vertex Type</typeparam>
+            <param name="device">Device</param>
+            <param name="vertices">Vertices</param>
+            <param name="indices">Indices</param>
+            <returns>Mesh</returns>
+        </member>
+        <member name="M:SharpHelper.SharpMesh.CreateFromObj(SharpHelper.SharpDevice,System.String)">
+            <summary>
+            Create a mesh from wavefront obj file format
+            </summary>
+            <param name="device">Device</param>
+            <param name="filename">Filename</param>
+            <returns>Mesh</returns>
+        </member>
+        <member name="M:SharpHelper.SharpMesh.CreateNormalMappedFromObj(SharpHelper.SharpDevice,System.String)">
+            <summary>
+            Create a mesh from wavefront obj file format using Tangent and Binormal vertex format
+            </summary>
+            <param name="device">Device</param>
+            <param name="filename">Filename</param>
+            <returns>Mesh</returns>
+        </member>
+        <member name="M:SharpHelper.SharpMesh.CreateQuad(SharpHelper.SharpDevice)">
+            <summary>
+            Create a quad for Multiple Render Target
+            </summary>
+            <param name="device">Device</param>
+            <returns>Mesh</returns>
+        </member>
+        <member name="M:SharpHelper.SharpMesh.Begin">
+            <summary>
+            Set all buffer and topology property to speed up rendering
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpMesh.DrawPoints(System.Int32)">
+            <summary>
+            Draw all vertices as points
+            </summary>
+            <param name="count"></param>
+        </member>
+        <member name="M:SharpHelper.SharpMesh.DrawPatch(SharpDX.Direct3D.PrimitiveTopology)">
+            <summary>
+            Draw patch
+            </summary>
+            <param name="topology">Patch Topology type</param>
+        </member>
+        <member name="M:SharpHelper.SharpMesh.Dispose">
+            <summary>
+            Release resource
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpMesh.Device">
+            <summary>
+            Device pointer
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpMesh.VertexBuffer">
+            <summary>
+            Vertex Buffer
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpMesh.IndexBuffer">
+            <summary>
+            Index Buffer
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpMesh.VertexSize">
+            <summary>
+            Vertex Size
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpMesh.SubSets">
+            <summary>
+            Mesh Parts
+            </summary>
+        </member>
+        <member name="T:SharpHelper.SharpOutputBuffer">
+            <summary>
+            Output buffer manager
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpOutputBuffer.#ctor(SharpHelper.SharpDevice,System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="device">Device</param>
+            <param name="size">Buffer size</param>
+        </member>
+        <member name="M:SharpHelper.SharpOutputBuffer.Begin">
+            <summary>
+            Begin buffer
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpOutputBuffer.End">
+            <summary>
+            End rendering on this buffer
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpOutputBuffer.Dispose">
+            <summary>
+            Release resource
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpOutputBuffer.Draw(System.Int32)">
+            <summary>
+            Draw buffer
+            </summary>
+            <param name="vertexSize">Size of vertex in the buffer</param>
+        </member>
+        <member name="P:SharpHelper.SharpOutputBuffer.Buffer">
+            <summary>
+            Buffer pointer
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpOutputBuffer.Device">
+            <summary>
+            Device pointer
+            </summary>
+        </member>
+        <member name="T:SharpHelper.SharpRenderTarget">
+            <summary>
+            Contain Render Targets
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpRenderTarget.#ctor(SharpHelper.SharpDevice,System.Int32,System.Int32,SharpDX.DXGI.Format)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="device">Device</param>
+            <param name="width">Width</param>
+            <param name="height">Height</param>
+            <param name="format">Format</param>
+        </member>
+        <member name="M:SharpHelper.SharpRenderTarget.Apply">
+            <summary>
+            Apply Render Target To Device Context
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpRenderTarget.Dispose">
+            <summary>
+            Dispose resource
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpRenderTarget.Clear(SharpDX.Color4)">
+            <summary>
+            Clear backbuffer and zbuffer
+            </summary>
+            <param name="color">background color</param>
+        </member>
+        <member name="P:SharpHelper.SharpRenderTarget.Device">
+            <summary>
+            Device pointer
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpRenderTarget.Target">
+            <summary>
+            Render Target
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpRenderTarget.Zbuffer">
+            <summary>
+            Depth Buffer for Render Target
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpRenderTarget.Resource">
+            <summary>
+            Resource connected to Render Target
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpRenderTarget.Width">
+            <summary>
+            Width
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpRenderTarget.Height">
+            <summary>
+            Height
+            </summary>
+        </member>
+        <member name="T:SharpHelper.SharpShaderDescription">
+            <summary>
+            Shader description
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpShaderDescription.VertexShaderFunction">
+            <summary>
+            Vertex Shader Function Name
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpShaderDescription.PixelShaderFunction">
+            <summary>
+            Pixel Shader Function Name
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpShaderDescription.GeometryShaderFunction">
+            <summary>
+            Geometry Shader Function Name
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpShaderDescription.HullShaderFunction">
+            <summary>
+            Hull Shader Function Name
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpShaderDescription.DomainShaderFunction">
+            <summary>
+            Domain Shader Function Name
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpShaderDescription.GeometrySO">
+            <summary>
+            Stream output elements
+            </summary>
+        </member>
+        <member name="T:SharpHelper.SharpShader">
+            <summary>
+            Shader Helper Class
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpShader.#ctor(SharpHelper.SharpDevice,System.String,SharpHelper.SharpShaderDescription,SharpDX.Direct3D11.InputElement[])">
+            <summary>
+            Constructor
+            </summary>
+            <param name="device">Device</param>
+            <param name="filename">Path of shader file</param>
+            <param name="description">Description structure</param>
+            <param name="elements">Input Layout Elements</param>
+        </member>
+        <member name="M:SharpHelper.SharpShader.CreateBuffer``1">
+            <summary>
+            Create a constant buffer
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:SharpHelper.SharpShader.Apply">
+            <summary>
+            Applica lo shader
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpShader.Clear">
+            <summary>
+            Remove Shader from
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpShader.Dispose">
+            <summary>
+            Release Elements
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpShader.VertexShader">
+            <summary>
+            Vertex Shader
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpShader.PixelShader">
+            <summary>
+            Pixel Shader
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpShader.GeometryShader">
+            <summary>
+            Geometry Shader
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpShader.DomainShader">
+            <summary>
+            Domain Shader
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpShader.HullShader">
+            <summary>
+            Hull Shader
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpShader.Layout">
+            <summary>
+            Input Layout
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpShader.Device">
+            <summary>
+            Pointer to current device
+            </summary>
+        </member>
+        <member name="T:SharpHelper.SharpSubSet">
+            <summary>
+            Describe a mesh subset
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpSubSet.DiffuseMap">
+            <summary>
+            Diffuse map
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpSubSet.NormalMap">
+            <summary>
+            Normal Map
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpSubSet.AmbientColor">
+            <summary>
+            Ambient Color (RGBA)
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpSubSet.DiffuseColor">
+            <summary>
+            Diffuse Color (RGBA)
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpSubSet.SpecularColor">
+            <summary>
+            Specular Color (RGBA)
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpSubSet.SpecularPower">
+            <summary>
+            Specular Power
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpSubSet.EmissiveColor">
+            <summary>
+            Emissive Color (RGBA)
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpSubSet.StartIndex">
+            <summary>
+            Index Start inside IndexBuffer
+            </summary>
+        </member>
+        <member name="P:SharpHelper.SharpSubSet.IndexCount">
+            <summary>
+            Number of indices to draw
+            </summary>
+        </member>
+        <member name="T:SharpHelper.Skinning.SkinShaderInformation">
+            <summary>
+            Skinning data for Shader
+            </summary>
+        </member>
+        <member name="F:SharpHelper.Skinning.SkinShaderInformation.Trasform">
+            <summary>
+            Transform matrix
+            </summary>
+        </member>
+        <member name="F:SharpHelper.Skinning.SkinShaderInformation.World">
+            <summary>
+            World Matrix
+            </summary>
+        </member>
+        <member name="T:SharpHelper.Skinning.Geometry">
+            <summary>
+            Mesh for Skinning Rendering
+            </summary>
+        </member>
+        <member name="M:SharpHelper.Skinning.Geometry.Apply(SharpHelper.Skinning.SkinShaderInformation)">
+            <summary>
+            Prepare for rendering
+            </summary>
+            <param name="information">Rendering Information</param>
+        </member>
+        <member name="M:SharpHelper.Skinning.Geometry.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.Geometry.Device">
+            <summary>
+            Device
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.Geometry.Shader">
+            <summary>
+            Shader
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.Geometry.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.Geometry.VertexBuffer">
+            <summary>
+            Vertex Buffer
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.Geometry.VertexCount">
+            <summary>
+            Vertex Count
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.Geometry.IndexCount">
+            <summary>
+            Index Count
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.Geometry.IndexBuffer">
+            <summary>
+            Index Buffer
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.Geometry.Node">
+            <summary>
+            Node
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.Geometry.IsAnimated">
+            <summary>
+            True for animated geometry
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.Geometry.Material">
+            <summary>
+            Material
+            </summary>
+        </member>
+        <member name="T:SharpHelper.Skinning.Material">
+            <summary>
+            Geometry Material
+            </summary>
+        </member>
+        <member name="M:SharpHelper.Skinning.Material.#ctor(SharpHelper.Skinning.MaterialData)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="material">Material loaded</param>
+        </member>
+        <member name="P:SharpHelper.Skinning.Material.Ambient">
+            <summary>
+            Ambient
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.Material.Diffuse">
+            <summary>
+            Diffuse Color
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.Material.Specular">
+            <summary>
+            Specular Color
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.Material.SpecularPower">
+            <summary>
+            Specular Power
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.Material.Emissive">
+            <summary>
+            Emissive Color
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.Material.DiffuseTextureName">
+            <summary>
+            Diffuse Texture Name
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.Material.NormalTextureName">
+            <summary>
+            Normal Texture Name
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.Material.DiffuseTexture">
+            <summary>
+            Diffuse Texture 
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.Material.NormalTexture">
+            <summary>
+            Normal Texture
+            </summary>
+        </member>
+        <member name="T:SharpHelper.Skinning.SharpModel">
+            <summary>
+            Animated Model
+            </summary>
+        </member>
+        <member name="M:SharpHelper.Skinning.SharpModel.#ctor(SharpHelper.SharpDevice,SharpHelper.Skinning.ModelData)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="device">Device</param>
+            <param name="model">Model Data</param>
+        </member>
+        <member name="M:SharpHelper.Skinning.SharpModel.GetNodeByName(System.String)">
+            <summary>
+            Get Node by name
+            </summary>
+            <param name="name">Node Name</param>
+            <returns>Node or null</returns>
+        </member>
+        <member name="M:SharpHelper.Skinning.SharpModel.SetTime(System.Single)">
+            <summary>
+            Set animation times
+            </summary>
+            <param name="tick">Ticks</param>
+        </member>
+        <member name="M:SharpHelper.Skinning.SharpModel.Draw(SharpHelper.SharpDevice,SharpHelper.Skinning.SkinShaderInformation)">
+            <summary>
+            Draw Animated Model
+            </summary>
+            <param name="device">Device</param>
+            <param name="information">Information</param>
+        </member>
+        <member name="M:SharpHelper.Skinning.SharpModel.Dispose">
+            <summary>
+            Dispose all
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.SharpModel.Name">
+            <summary>
+            Model Name
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.SharpModel.Device">
+            <summary>
+            Device Pointer
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.SharpModel.Geometries">
+            <summary>
+            Geometries loaded
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.SharpModel.Children">
+            <summary>
+            Children Nodes
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.SharpModel.Animations">
+            <summary>
+            Animation Manager
+            </summary>
+        </member>
+        <member name="T:SharpHelper.Skinning.Node">
+            <summary>
+            Model Node
+            </summary>
+        </member>
+        <member name="M:SharpHelper.Skinning.Node.#ctor(SharpHelper.SharpDevice,SharpHelper.Skinning.ModelNode,SharpHelper.Skinning.SharpModel)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="device">Device</param>
+            <param name="node">Parent Node</param>
+            <param name="Model">Sharp Model</param>
+        </member>
+        <member name="M:SharpHelper.Skinning.Node.GetByName(System.String)">
+            <summary>
+            Get Node By Name
+            </summary>
+            <param name="name">Name</param>
+            <returns>Node</returns>
+        </member>
+        <member name="M:SharpHelper.Skinning.Node.GetNodeMatrix">
+            <summary>
+            Get Computed Node Matrix
+            </summary>
+            <returns>Matrix of this Node</returns>
+        </member>
+        <member name="P:SharpHelper.Skinning.Node.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.Node.World">
+            <summary>
+            World Matrix
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.Node.Children">
+            <summary>
+            Children Node
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.Node.Parent">
+            <summary>
+            Parent
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.Node.Skinning">
+            <summary>
+            Skinning information
+            </summary>
+        </member>
+        <member name="T:SharpHelper.Skinning.SkinData">
+            <summary>
+            Skinning Information
+            </summary>
+        </member>
+        <member name="M:SharpHelper.Skinning.SkinData.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.SkinData.BindMatrix">
+            <summary>
+            Bind Matrix
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.SkinData.InverseBindMatrix">
+            <summary>
+            Inverse Bind Matrix
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.SkinData.JointNodes">
+            <summary>
+            Joint
+            </summary>
+        </member>
+        <member name="P:SharpHelper.Skinning.SkinData.JointNames">
+            <summary>
+            Joint Names
+            </summary>
+        </member>
+        <member name="T:SharpHelper.SharpUtilities">
+            <summary>
+            Utilities
+            </summary>
+        </member>
+        <member name="M:SharpHelper.SharpUtilities.AngleToRad(System.Single)">
+            <summary>
+            Degree to Radiant
+            </summary>
+            <param name="degree">Degree</param>
+            <returns>Radiant</returns>
+        </member>
+        <member name="M:SharpHelper.SharpUtilities.RadToGrad(System.Single)">
+            <summary>
+            Radiant to Degree
+            </summary>
+            <param name="radiant">Radiant</param>
+            <returns>Degree</returns>
+        </member>
+        <member name="M:SharpHelper.SharpUtilities.StringToFloat(System.String)">
+            <summary>
+            String to float array
+            </summary>
+            <param name="text">String</param>
+            <returns>Array</returns>
+        </member>
+        <member name="M:SharpHelper.SharpUtilities.FloatToText(System.Single[])">
+            <summary>
+            Convert array of float in a string
+            </summary>
+            <param name="values">Values</param>
+            <returns>String</returns>
+        </member>
+        <member name="M:SharpHelper.SharpUtilities.IntToText(System.Int32[])">
+            <summary>
+            Convert array of integer in a string
+            </summary>
+            <param name="values">Values</param>
+            <returns>String</returns>
+        </member>
+        <member name="T:SharpHelper.TexturedVertex">
+            <summary>
+            Textured Vertex
+            </summary>
+        </member>
+        <member name="F:SharpHelper.TexturedVertex.Position">
+            <summary>
+            Position
+            </summary>
+        </member>
+        <member name="F:SharpHelper.TexturedVertex.TextureCoordinate">
+            <summary>
+            Texture coordinate
+            </summary>
+        </member>
+        <member name="M:SharpHelper.TexturedVertex.#ctor(SharpDX.Vector3,SharpDX.Vector2)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="position">Position</param>
+            <param name="textureCoordinate">Texture Coordinate</param>
+        </member>
+        <member name="T:SharpHelper.StaticVertex">
+            <summary>
+            Static Vertex
+            </summary>
+        </member>
+        <member name="F:SharpHelper.StaticVertex.Position">
+            <summary>
+            Position
+            </summary>
+        </member>
+        <member name="F:SharpHelper.StaticVertex.Normal">
+            <summary>
+            Normal
+            </summary>
+        </member>
+        <member name="F:SharpHelper.StaticVertex.TextureCoordinate">
+            <summary>
+            Texture coordinate
+            </summary>
+        </member>
+        <member name="M:SharpHelper.StaticVertex.Compare(SharpHelper.StaticVertex,SharpHelper.StaticVertex)">
+            <summary>
+            Compare 2 vertices on Position and Texture Coordinate
+            </summary>
+            <param name="a">First vertex</param>
+            <param name="b">Second vertex</param>
+            <returns></returns>
+        </member>
+        <member name="T:SharpHelper.TangentVertex">
+            <summary>
+            Tangent Vertex
+            </summary>
+        </member>
+        <member name="F:SharpHelper.TangentVertex.Position">
+            <summary>
+            Position
+            </summary>
+        </member>
+        <member name="F:SharpHelper.TangentVertex.Normal">
+            <summary>
+            Normal
+            </summary>
+        </member>
+        <member name="F:SharpHelper.TangentVertex.Tangent">
+            <summary>
+            Tangent
+            </summary>
+        </member>
+        <member name="F:SharpHelper.TangentVertex.Binormal">
+            <summary>
+            Binormal
+            </summary>
+        </member>
+        <member name="F:SharpHelper.TangentVertex.TextureCoordinate">
+            <summary>
+            Texture coordinate
+            </summary>
+        </member>
+        <member name="T:SharpHelper.ColoredVertex">
+            <summary>
+            Vertex Colored
+            </summary>
+        </member>
+        <member name="F:SharpHelper.ColoredVertex.Position">
+            <summary>
+            Position
+            </summary>
+        </member>
+        <member name="F:SharpHelper.ColoredVertex.Color">
+            <summary>
+            Color
+            </summary>
+        </member>
+        <member name="M:SharpHelper.ColoredVertex.#ctor(SharpDX.Vector3,SharpDX.Vector4)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="position">Position XYZ</param>
+            <param name="color">Vertex Color</param>
+        </member>
+        <member name="T:SharpHelper.WaveFrontModel">
+            <summary>
+            Load an obj model
+            </summary>
+        </member>
+        <member name="M:SharpHelper.WaveFrontModel.op_Addition(SharpHelper.WaveFrontModel,SharpHelper.WaveFrontModel)">
+            <summary>
+            Fuse 2 model
+            </summary>
+            <param name="a">A</param>
+            <param name="b">B</param>
+            <returns>Sum</returns>
+        </member>
+        <member name="M:SharpHelper.WaveFrontModel.CreateFromObj(System.String)">
+            <summary>
+            Create obj from file
+            </summary>
+            <param name="filename">Filename</param>
+            <returns>Models</returns>
+        </member>
+        <member name="M:SharpHelper.WaveFrontModel.Optimize">
+            <summary>
+            Optimize model
+            </summary>
+        </member>
+        <member name="P:SharpHelper.WaveFrontModel.Name">
+            <summary>
+            Name of the model
+            </summary>
+        </member>
+        <member name="P:SharpHelper.WaveFrontModel.VertexData">
+            <summary>
+            Vertex data
+            </summary>
+        </member>
+        <member name="P:SharpHelper.WaveFrontModel.TangentData">
+            <summary>
+            Vertex data in Tangent Format
+            </summary>
+        </member>
+        <member name="P:SharpHelper.WaveFrontModel.IndexData">
+            <summary>
+            Index data
+            </summary>
+        </member>
+        <member name="P:SharpHelper.WaveFrontModel.MeshMaterial">
+            <summary>
+            Mesh material
+            </summary>
+        </member>
+        <member name="P:SharpHelper.WaveFrontModel.FaceCounts">
+            <summary>
+            Face counts
+            </summary>
+        </member>
+        <member name="T:SharpHelper.WaveFrontModel.Material">
+            <summary>
+            Material description
+            </summary>
+        </member>
+        <member name="F:SharpHelper.WaveFrontModel.Material.MaterialName">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="F:SharpHelper.WaveFrontModel.Material.Ambient">
+            <summary>
+            Ambient color
+            </summary>
+        </member>
+        <member name="F:SharpHelper.WaveFrontModel.Material.Diffuse">
+            <summary>
+            Diffuse color
+            </summary>
+        </member>
+        <member name="F:SharpHelper.WaveFrontModel.Material.Specular">
+            <summary>
+            Specular color
+            </summary>
+        </member>
+        <member name="F:SharpHelper.WaveFrontModel.Material.Shininess">
+            <summary>
+            Shininess
+            </summary>
+        </member>
+        <member name="F:SharpHelper.WaveFrontModel.Material.DiffuseMap">
+            <summary>
+            Texture name
+            </summary>
+        </member>
+        <member name="F:SharpHelper.WaveFrontModel.Material.NormalMap">
+            <summary>
+            Normal Texture name
+            </summary>
+        </member>
+    </members>
+</doc>
