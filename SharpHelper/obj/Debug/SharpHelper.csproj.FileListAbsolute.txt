@@ -20,6 +20,5 @@ C:\Users\Moritz\Documents\Development\Repositories\SharpDX_Demo\SharpHelper\bin\
 C:\Users\Moritz\Documents\Development\Repositories\SharpDX_Demo\SharpHelper\bin\Debug\SharpDX.XAudio2.xml
 C:\Users\Moritz\Documents\Development\Repositories\SharpDX_Demo\SharpHelper\bin\Debug\SharpDX.XInput.xml
 C:\Users\Moritz\Documents\Development\Repositories\SharpDX_Demo\SharpHelper\bin\Debug\SharpDX.Direct2D1.xml
-C:\Users\Moritz\Documents\Development\Repositories\SharpDX_Demo\SharpHelper\obj\Debug\SharpHelper.csprojResolveAssemblyReference.cache
 C:\Users\Moritz\Documents\Development\Repositories\SharpDX_Demo\SharpHelper\obj\Debug\SharpHelper.dll
 C:\Users\Moritz\Documents\Development\Repositories\SharpDX_Demo\SharpHelper\obj\Debug\SharpHelper.pdb
