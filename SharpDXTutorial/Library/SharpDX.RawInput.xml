@@ -129,9 +129,10 @@
         </member>
         <member name="T:SharpDX.RawInput.DeviceFlags">
             <summary>	
-            No documentation.	
+            <p>There are many user-input devices beside the traditional keyboard and mouse. For example, user input can come from a joystick, a touch screen, a microphone, or other devices that allow great flexibility in user input. These devices are collectively known as Human Interface Devices (HIDs). The raw input API provides a stable and robust way for applications to accept raw input from any HID, including the keyboard and mouse.</p><p>This section covers the following topics:</p><p> </p><ul> <li>Raw</li> <li>Registration</li> <li>Reading</li> </ul>	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RAW_DEVICE_FLAGS']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RAW_DEVICE_FLAGS</unmanaged>	
             <unmanaged-short>RAW_DEVICE_FLAGS</unmanaged-short>	
         </member>
@@ -140,6 +141,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RIDEV_REMOVE']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RIDEV_REMOVE</unmanaged>	
             <unmanaged-short>RIDEV_REMOVE</unmanaged-short>	
         </member>
@@ -148,6 +150,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RIDEV_EXCLUDE']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RIDEV_EXCLUDE</unmanaged>	
             <unmanaged-short>RIDEV_EXCLUDE</unmanaged-short>	
         </member>
@@ -156,6 +159,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RIDEV_PAGEONLY']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RIDEV_PAGEONLY</unmanaged>	
             <unmanaged-short>RIDEV_PAGEONLY</unmanaged-short>	
         </member>
@@ -164,6 +168,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RIDEV_NOLEGACY']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RIDEV_NOLEGACY</unmanaged>	
             <unmanaged-short>RIDEV_NOLEGACY</unmanaged-short>	
         </member>
@@ -172,6 +177,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RIDEV_INPUTSINK']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RIDEV_INPUTSINK</unmanaged>	
             <unmanaged-short>RIDEV_INPUTSINK</unmanaged-short>	
         </member>
@@ -180,6 +186,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RIDEV_CAPTUREMOUSE']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RIDEV_CAPTUREMOUSE</unmanaged>	
             <unmanaged-short>RIDEV_CAPTUREMOUSE</unmanaged-short>	
         </member>
@@ -188,6 +195,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RIDEV_NOHOTKEYS']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RIDEV_NOHOTKEYS</unmanaged>	
             <unmanaged-short>RIDEV_NOHOTKEYS</unmanaged-short>	
         </member>
@@ -196,6 +204,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RIDEV_APPKEYS']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RIDEV_APPKEYS</unmanaged>	
             <unmanaged-short>RIDEV_APPKEYS</unmanaged-short>	
         </member>
@@ -204,6 +213,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RIDEV_EXINPUTSINK']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RIDEV_EXINPUTSINK</unmanaged>	
             <unmanaged-short>RIDEV_EXINPUTSINK</unmanaged-short>	
         </member>
@@ -212,6 +222,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RIDEV_DEVNOTIFY']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RIDEV_DEVNOTIFY</unmanaged>	
             <unmanaged-short>RIDEV_DEVNOTIFY</unmanaged-short>	
         </member>
@@ -225,9 +236,10 @@
         </member>
         <member name="T:SharpDX.RawInput.DeviceType">
             <summary>	
-            No documentation.	
+            <p>There are many user-input devices beside the traditional keyboard and mouse. For example, user input can come from a joystick, a touch screen, a microphone, or other devices that allow great flexibility in user input. These devices are collectively known as Human Interface Devices (HIDs). The raw input API provides a stable and robust way for applications to accept raw input from any HID, including the keyboard and mouse.</p><p>This section covers the following topics:</p><p> </p><ul> <li>Raw</li> <li>Registration</li> <li>Reading</li> </ul>	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RAW_DEVICE_TYPE']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RAW_DEVICE_TYPE</unmanaged>	
             <unmanaged-short>RAW_DEVICE_TYPE</unmanaged-short>	
         </member>
@@ -236,6 +248,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RIM_TYPEMOUSE']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RIM_TYPEMOUSE</unmanaged>	
             <unmanaged-short>RIM_TYPEMOUSE</unmanaged-short>	
         </member>
@@ -244,6 +257,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RIM_TYPEKEYBOARD']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RIM_TYPEKEYBOARD</unmanaged>	
             <unmanaged-short>RIM_TYPEKEYBOARD</unmanaged-short>	
         </member>
@@ -252,6 +266,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RIM_TYPEHID']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RIM_TYPEHID</unmanaged>	
             <unmanaged-short>RIM_TYPEHID</unmanaged-short>	
         </member>
@@ -369,9 +384,10 @@
         </member>
         <member name="T:SharpDX.RawInput.MouseButtonFlags">
             <summary>	
-            No documentation.	
+            <p>There are many user-input devices beside the traditional keyboard and mouse. For example, user input can come from a joystick, a touch screen, a microphone, or other devices that allow great flexibility in user input. These devices are collectively known as Human Interface Devices (HIDs). The raw input API provides a stable and robust way for applications to accept raw input from any HID, including the keyboard and mouse.</p><p>This section covers the following topics:</p><p> </p><ul> <li>Raw</li> <li>Registration</li> <li>Reading</li> </ul>	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RAW_MOUSE_BUTTON_FLAGS']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RAW_MOUSE_BUTTON_FLAGS</unmanaged>	
             <unmanaged-short>RAW_MOUSE_BUTTON_FLAGS</unmanaged-short>	
         </member>
@@ -380,6 +396,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RI_MOUSE_LEFT_BUTTON_DOWN']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RI_MOUSE_LEFT_BUTTON_DOWN</unmanaged>	
             <unmanaged-short>RI_MOUSE_LEFT_BUTTON_DOWN</unmanaged-short>	
         </member>
@@ -388,6 +405,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RI_MOUSE_LEFT_BUTTON_UP']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RI_MOUSE_LEFT_BUTTON_UP</unmanaged>	
             <unmanaged-short>RI_MOUSE_LEFT_BUTTON_UP</unmanaged-short>	
         </member>
@@ -396,6 +414,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RI_MOUSE_RIGHT_BUTTON_DOWN']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RI_MOUSE_RIGHT_BUTTON_DOWN</unmanaged>	
             <unmanaged-short>RI_MOUSE_RIGHT_BUTTON_DOWN</unmanaged-short>	
         </member>
@@ -404,6 +423,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RI_MOUSE_RIGHT_BUTTON_UP']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RI_MOUSE_RIGHT_BUTTON_UP</unmanaged>	
             <unmanaged-short>RI_MOUSE_RIGHT_BUTTON_UP</unmanaged-short>	
         </member>
@@ -412,6 +432,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RI_MOUSE_MIDDLE_BUTTON_DOWN']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RI_MOUSE_MIDDLE_BUTTON_DOWN</unmanaged>	
             <unmanaged-short>RI_MOUSE_MIDDLE_BUTTON_DOWN</unmanaged-short>	
         </member>
@@ -420,6 +441,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RI_MOUSE_MIDDLE_BUTTON_UP']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RI_MOUSE_MIDDLE_BUTTON_UP</unmanaged>	
             <unmanaged-short>RI_MOUSE_MIDDLE_BUTTON_UP</unmanaged-short>	
         </member>
@@ -428,6 +450,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RI_MOUSE_BUTTON_1_DOWN']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RI_MOUSE_BUTTON_1_DOWN</unmanaged>	
             <unmanaged-short>RI_MOUSE_BUTTON_1_DOWN</unmanaged-short>	
         </member>
@@ -436,6 +459,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RI_MOUSE_BUTTON_1_UP']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RI_MOUSE_BUTTON_1_UP</unmanaged>	
             <unmanaged-short>RI_MOUSE_BUTTON_1_UP</unmanaged-short>	
         </member>
@@ -444,6 +468,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RI_MOUSE_BUTTON_2_DOWN']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RI_MOUSE_BUTTON_2_DOWN</unmanaged>	
             <unmanaged-short>RI_MOUSE_BUTTON_2_DOWN</unmanaged-short>	
         </member>
@@ -452,6 +477,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RI_MOUSE_BUTTON_2_UP']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RI_MOUSE_BUTTON_2_UP</unmanaged>	
             <unmanaged-short>RI_MOUSE_BUTTON_2_UP</unmanaged-short>	
         </member>
@@ -460,6 +486,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RI_MOUSE_BUTTON_3_DOWN']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RI_MOUSE_BUTTON_3_DOWN</unmanaged>	
             <unmanaged-short>RI_MOUSE_BUTTON_3_DOWN</unmanaged-short>	
         </member>
@@ -468,6 +495,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RI_MOUSE_BUTTON_3_UP']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RI_MOUSE_BUTTON_3_UP</unmanaged>	
             <unmanaged-short>RI_MOUSE_BUTTON_3_UP</unmanaged-short>	
         </member>
@@ -476,6 +504,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RI_MOUSE_BUTTON_4_DOWN']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RI_MOUSE_BUTTON_4_DOWN</unmanaged>	
             <unmanaged-short>RI_MOUSE_BUTTON_4_DOWN</unmanaged-short>	
         </member>
@@ -484,6 +513,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RI_MOUSE_BUTTON_4_UP']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RI_MOUSE_BUTTON_4_UP</unmanaged>	
             <unmanaged-short>RI_MOUSE_BUTTON_4_UP</unmanaged-short>	
         </member>
@@ -492,6 +522,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RI_MOUSE_BUTTON_5_DOWN']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RI_MOUSE_BUTTON_5_DOWN</unmanaged>	
             <unmanaged-short>RI_MOUSE_BUTTON_5_DOWN</unmanaged-short>	
         </member>
@@ -500,6 +531,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RI_MOUSE_BUTTON_5_UP']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RI_MOUSE_BUTTON_5_UP</unmanaged>	
             <unmanaged-short>RI_MOUSE_BUTTON_5_UP</unmanaged-short>	
         </member>
@@ -508,6 +540,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RI_MOUSE_WHEEL']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RI_MOUSE_WHEEL</unmanaged>	
             <unmanaged-short>RI_MOUSE_WHEEL</unmanaged-short>	
         </member>
@@ -521,9 +554,10 @@
         </member>
         <member name="T:SharpDX.RawInput.MouseMode">
             <summary>	
-            No documentation.	
+            <p>There are many user-input devices beside the traditional keyboard and mouse. For example, user input can come from a joystick, a touch screen, a microphone, or other devices that allow great flexibility in user input. These devices are collectively known as Human Interface Devices (HIDs). The raw input API provides a stable and robust way for applications to accept raw input from any HID, including the keyboard and mouse.</p><p>This section covers the following topics:</p><p> </p><ul> <li>Raw</li> <li>Registration</li> <li>Reading</li> </ul>	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RAW_MOUSE_MODE']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RAW_MOUSE_MODE</unmanaged>	
             <unmanaged-short>RAW_MOUSE_MODE</unmanaged-short>	
         </member>
@@ -532,6 +566,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='MOUSE_MOVE_RELATIVE']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>MOUSE_MOVE_RELATIVE</unmanaged>	
             <unmanaged-short>MOUSE_MOVE_RELATIVE</unmanaged-short>	
         </member>
@@ -540,6 +575,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='MOUSE_MOVE_ABSOLUTE']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>MOUSE_MOVE_ABSOLUTE</unmanaged>	
             <unmanaged-short>MOUSE_MOVE_ABSOLUTE</unmanaged-short>	
         </member>
@@ -548,6 +584,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='MOUSE_VIRTUAL_DESKTOP']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>MOUSE_VIRTUAL_DESKTOP</unmanaged>	
             <unmanaged-short>MOUSE_VIRTUAL_DESKTOP</unmanaged-short>	
         </member>
@@ -556,6 +593,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='MOUSE_ATTRIBUTES_CHANGED']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>MOUSE_ATTRIBUTES_CHANGED</unmanaged>	
             <unmanaged-short>MOUSE_ATTRIBUTES_CHANGED</unmanaged-short>	
         </member>
@@ -564,6 +602,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='MOUSE_MOVE_NOCOALESCE']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>MOUSE_MOVE_NOCOALESCE</unmanaged>	
             <unmanaged-short>MOUSE_MOVE_NOCOALESCE</unmanaged-short>	
         </member>
@@ -572,6 +611,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RAW_INPUT_DATA_TYPE']/*"/>	
+            <msdn-id>ff561902</msdn-id>	
             <unmanaged>RAW_INPUT_DATA_TYPE</unmanaged>	
             <unmanaged-short>RAW_INPUT_DATA_TYPE</unmanaged-short>	
         </member>
@@ -580,6 +620,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RID_INPUT']/*"/>	
+            <msdn-id>ff561902</msdn-id>	
             <unmanaged>RID_INPUT</unmanaged>	
             <unmanaged-short>RID_INPUT</unmanaged-short>	
         </member>
@@ -588,14 +629,16 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RID_HEADER']/*"/>	
+            <msdn-id>ff561902</msdn-id>	
             <unmanaged>RID_HEADER</unmanaged>	
             <unmanaged-short>RID_HEADER</unmanaged-short>	
         </member>
         <member name="T:SharpDX.RawInput.RawInputDeviceInfoType">
             <summary>	
-            No documentation.	
+            <p>There are many user-input devices beside the traditional keyboard and mouse. For example, user input can come from a joystick, a touch screen, a microphone, or other devices that allow great flexibility in user input. These devices are collectively known as Human Interface Devices (HIDs). The raw input API provides a stable and robust way for applications to accept raw input from any HID, including the keyboard and mouse.</p><p>This section covers the following topics:</p><p> </p><ul> <li>Raw</li> <li>Registration</li> <li>Reading</li> </ul>	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RAW_INPUT_DEVICE_INFO_TYPE']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RAW_INPUT_DEVICE_INFO_TYPE</unmanaged>	
             <unmanaged-short>RAW_INPUT_DEVICE_INFO_TYPE</unmanaged-short>	
         </member>
@@ -604,6 +647,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RIDI_PREPARSEDDATA']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RIDI_PREPARSEDDATA</unmanaged>	
             <unmanaged-short>RIDI_PREPARSEDDATA</unmanaged-short>	
         </member>
@@ -612,6 +656,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RIDI_DEVICENAME']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RIDI_DEVICENAME</unmanaged>	
             <unmanaged-short>RIDI_DEVICENAME</unmanaged-short>	
         </member>
@@ -620,6 +665,7 @@
             No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RIDI_DEVICEINFO']/*"/>	
+            <msdn-id>ms645543</msdn-id>	
             <unmanaged>RIDI_DEVICEINFO</unmanaged>	
             <unmanaged-short>RIDI_DEVICEINFO</unmanaged-short>	
         </member>
@@ -740,11 +786,11 @@
             <param name="cbSizeHeader"><dd>  <p>The size, in bytes, of the <strong><see cref="T:SharpDX.RawInput.RawInputHeader"/></strong> structure. </p> </dd></param>	
             <returns><p>If  <em>pData</em> is <c>null</c> and the function is successful, the return value is zero. If  <em>pData</em> is not <c>null</c> and the function is successful, the return value is the number of <strong><see cref="T:SharpDX.RawInput.RawInput"/></strong> structures written to  <em>pData</em>.</p><p>If an error occurs, the return value is (<strong>UINT</strong>)-1. Call <strong>GetLastError</strong> for the error code.</p></returns>	
             <remarks>	
-            <p>Using <strong>GetRawInputBuffer</strong>, the raw input data is buffered in the array of <strong><see cref="T:SharpDX.RawInput.RawInput"/></strong> structures. For an unbuffered read, use the <strong>GetMessage</strong> function to read in the raw input data. </p><p>The <strong>NEXTRAWINPUTBLOCK</strong> macro allows an application to traverse an array of <strong><see cref="T:SharpDX.RawInput.RawInput"/></strong> structures.</p><p><strong>Note</strong>??To get the correct size of the raw input buffer, do not use *<em>pcbSize</em>, use *<em>pcbSize</em> * 8 instead.   To ensure <strong>GetRawInputBuffer</strong> behaves properly on WOW64, you must align the <strong><see cref="T:SharpDX.RawInput.RawInput"/></strong> structure by 8 bytes. The following code shows how to align <strong><see cref="T:SharpDX.RawInput.RawInput"/></strong> for WOW64.  </p><pre><code>[StructLayout(LayoutKind.Explicit)]	
+            <p>Using <strong>GetRawInputBuffer</strong>, the raw input data is buffered in the array of <strong><see cref="T:SharpDX.RawInput.RawInput"/></strong> structures. For an unbuffered read, use the <strong>GetMessage</strong> function to read in the raw input data. </p><p>The <strong>NEXTRAWINPUTBLOCK</strong> macro allows an application to traverse an array of <strong><see cref="T:SharpDX.RawInput.RawInput"/></strong> structures.</p><p><strong>Note</strong>??To get the correct size of the raw input buffer, do not use *<em>pcbSize</em>, use *<em>pcbSize</em> * 8 instead.   To ensure <strong>GetRawInputBuffer</strong> behaves properly on WOW64, you must align the <strong><see cref="T:SharpDX.RawInput.RawInput"/></strong> structure by 8 bytes. The following code shows how to align <strong><see cref="T:SharpDX.RawInput.RawInput"/></strong> for WOW64.  </p><pre>[StructLayout(LayoutKind.Explicit)]	
             internal struct <see cref="T:SharpDX.RawInput.RawInput"/>	
             { [FieldOffset(0)] public <see cref="T:SharpDX.RawInput.RawInputHeader"/> header; [FieldOffset(16+8)] public <see cref="T:SharpDX.RawInput.RawMouse"/> mouse; [FieldOffset(16+8)] public <see cref="T:SharpDX.RawInput.RawKeyboard"/> keyboard; [FieldOffset(16+8)] public <see cref="T:SharpDX.RawInput.RawHid"/> hid;	
             }	
-            </code></pre>	
+            </pre>	
             </remarks>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='GetRawInputBuffer']/*"/>	
             <msdn-id>ms645595</msdn-id>	
@@ -984,7 +1030,7 @@
         </member>
         <member name="F:SharpDX.RawInput.RawDeviceInformationMouse.HasHorizontalWheel">
             <summary>	
-            <dd> <p><strong>TRUE</strong> if the mouse has a wheel for horizontal scrolling; otherwise, <strong><see cref="F:SharpDX.Result.False"/></strong>. </p> <strong>Windows?XP:??</strong>This member is only supported starting with Windows?Vista. </dd>	
+            <dd> <p><strong>TRUE</strong> if the mouse has a wheel for horizontal scrolling; otherwise, <strong><see cref="F:SharpDX.Result.False"/></strong>. </p> <p><strong>Windows?XP:??</strong>This member is only supported starting with Windows?Vista.</p> </dd>	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RID_DEVICE_INFO_MOUSE::fHasHorizontalWheel']/*"/>	
             <msdn-id>ms645589</msdn-id>	
@@ -1032,31 +1078,28 @@
         </member>
         <member name="T:SharpDX.RawInput.RawInput">
             <summary>	
-            <p>Contains the raw input from a device. </p>	
+            <p>This section describes how the system provides raw input to your application and how an application receives and processes that input. Raw input is sometimes referred to as generic input. </p>	
             </summary>	
-            <remarks>	
-            <p>The handle to this structure is passed in the <em>lParam</em> parameter of <strong>WM_INPUT</strong>.</p><p>To get detailed information -- such as the header and the content of the raw input -- call <strong>GetRawInputData</strong>.</p><p>To read the <strong><see cref="T:SharpDX.RawInput.RawInput"/></strong> in the message loop as a buffered read, call <strong>GetRawInputBuffer</strong>. </p><p>To get device specific information, call <strong>GetRawInputDeviceInfo</strong> with the <em>hDevice</em> from <strong><see cref="T:SharpDX.RawInput.RawInputHeader"/></strong>.</p><p>Raw input is available only when the application calls <strong>RegisterRawInputDevices</strong> with valid device specifications. </p>	
-            </remarks>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RAWINPUT']/*"/>	
-            <msdn-id>ms645562</msdn-id>	
+            <msdn-id>ms645536</msdn-id>	
             <unmanaged>RAWINPUT</unmanaged>	
             <unmanaged-short>RAWINPUT</unmanaged-short>	
         </member>
         <member name="F:SharpDX.RawInput.RawInput.Header">
             <summary>	
-            <dd> <p>The raw input data. </p> </dd>	
+            No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RAWINPUT::header']/*"/>	
-            <msdn-id>ms645562</msdn-id>	
+            <msdn-id>ms645536</msdn-id>	
             <unmanaged>RAWINPUTHEADER header</unmanaged>	
             <unmanaged-short>RAWINPUTHEADER header</unmanaged-short>	
         </member>
         <member name="F:SharpDX.RawInput.RawInput.Data">
             <summary>	
-            <dd> <dl> <dt><strong>mouse</strong></dt> <dd><p></p></dd> <dd> <p>If the data comes from a mouse, this is the raw input data. </p> </dd> <dt><strong>keyboard</strong></dt> <dd><p></p></dd> <dd> <p>If the data comes from a keyboard, this is the raw input data. </p> </dd> <dt><strong>hid</strong></dt> <dd><p></p></dd> <dd> <p>If the data comes from an HID, this is the raw input data. </p> </dd> </dl> </dd>	
+            No documentation.	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RAWINPUT::data']/*"/>	
-            <msdn-id>ms645562</msdn-id>	
+            <msdn-id>ms645536</msdn-id>	
             <unmanaged>RAWINPUT_INNER_0 data</unmanaged>	
             <unmanaged-short>RAWINPUT_INNER_0 data</unmanaged-short>	
         </member>
@@ -1092,7 +1135,7 @@
         </member>
         <member name="F:SharpDX.RawInput.RawInputDevice.Flags">
             <summary>	
-            <dd> <p>Mode flag that specifies how to interpret the information provided by <strong>usUsagePage</strong> and <strong>usUsage</strong>. It can be zero (the default) or one of the following values. By default, the operating system sends raw input from devices with the specified top level collection (TLC) to the registered application as long as it has the window focus. </p> <table> <tr><th>Value</th><th>Meaning</th></tr> <tr><td><dl> <dt><strong><see cref="F:SharpDX.RawInput.DeviceFlags.AppKeys"/></strong></dt> <dt>0x00000400</dt> </dl> </td><td> <p>If set, the application command keys are handled. <strong><see cref="F:SharpDX.RawInput.DeviceFlags.AppKeys"/></strong> can be specified only if <strong><see cref="F:SharpDX.RawInput.DeviceFlags.NoLegacy"/></strong> is specified for a keyboard device.</p> </td></tr> <tr><td><dl> <dt><strong><see cref="F:SharpDX.RawInput.DeviceFlags.CaptureMouse"/></strong></dt> <dt>0x00000200</dt> </dl> </td><td> <p>If set, the mouse button click does not activate the other window.</p> </td></tr> <tr><td><dl> <dt><strong><see cref="F:SharpDX.RawInput.DeviceFlags.DeviceNotify"/></strong></dt> <dt>0x00002000</dt> </dl> </td><td> <p>If set, this enables the caller to receive <strong>WM_INPUT_DEVICE_CHANGE</strong> notifications for device arrival and device removal.</p> <strong>Windows?XP:??</strong>This flag is not supported until Windows?Vista </td></tr> <tr><td><dl> <dt><strong><see cref="F:SharpDX.RawInput.DeviceFlags.Exclude"/></strong></dt> <dt>0x00000010</dt> </dl> </td><td> <p>If set, this specifies the top level collections to exclude when reading a complete usage page. This flag only affects a TLC whose usage page is already specified with <strong><see cref="F:SharpDX.RawInput.DeviceFlags.PageOnly"/></strong>. </p> </td></tr> <tr><td><dl> <dt><strong><see cref="F:SharpDX.RawInput.DeviceFlags.ExclusiveInputSink"/></strong></dt> <dt>0x00001000</dt> </dl> </td><td> <p>If set, this enables the caller to receive input in the background only if the foreground application does not process it. In other words, if the foreground application is not registered for raw input, then the background application that is registered will receive the input.</p> <strong>Windows?XP:??</strong>This flag is not supported until Windows?Vista </td></tr> <tr><td><dl> <dt><strong><see cref="F:SharpDX.RawInput.DeviceFlags.InputSink"/></strong></dt> <dt>0x00000100</dt> </dl> </td><td> <p>If set, this enables the caller to receive the input even when the caller is not in the foreground.  Note that <strong>hwndTarget</strong> must be specified.</p> </td></tr> <tr><td><dl> <dt><strong><see cref="F:SharpDX.RawInput.DeviceFlags.NoHotKeys"/></strong></dt> <dt>0x00000200</dt> </dl> </td><td> <p>If set, the application-defined keyboard device hotkeys are not handled. However, the system hotkeys; for example, ALT+TAB and CTRL+ALT+DEL, are still handled. By default, all keyboard hotkeys are handled. <strong><see cref="F:SharpDX.RawInput.DeviceFlags.NoHotKeys"/></strong> can be specified even if <strong><see cref="F:SharpDX.RawInput.DeviceFlags.NoLegacy"/></strong> is not specified and <strong>hwndTarget</strong> is <strong><c>null</c></strong>.</p> </td></tr> <tr><td><dl> <dt><strong><see cref="F:SharpDX.RawInput.DeviceFlags.NoLegacy"/></strong></dt> <dt>0x00000030</dt> </dl> </td><td> <p>If set, this prevents any devices specified by <strong>usUsagePage</strong> or <strong>usUsage</strong> from generating legacy messages. This is only for the mouse and keyboard. See Remarks.</p> </td></tr> <tr><td><dl> <dt><strong><see cref="F:SharpDX.RawInput.DeviceFlags.PageOnly"/></strong></dt> <dt>0x00000020</dt> </dl> </td><td> <p>If set, this specifies all devices whose top level collection is from the specified <strong>usUsagePage</strong>. Note that <strong>usUsage</strong> must be zero. To exclude a particular top level collection, use <strong><see cref="F:SharpDX.RawInput.DeviceFlags.Exclude"/></strong>.</p> </td></tr> <tr><td><dl> <dt><strong><see cref="F:SharpDX.RawInput.DeviceFlags.Remove"/></strong></dt> <dt>0x00000001</dt> </dl> </td><td> <p>If set, this removes the top level collection from the inclusion list. This tells the operating system to stop reading from a device which matches the top level collection.</p> </td></tr> </table> <p>?</p> </dd>	
+            <dd> <p>Mode flag that specifies how to interpret the information provided by <strong>usUsagePage</strong> and <strong>usUsage</strong>. It can be zero (the default) or one of the following values. By default, the operating system sends raw input from devices with the specified top level collection (TLC) to the registered application as long as it has the window focus. </p> <table> <tr><th>Value</th><th>Meaning</th></tr> <tr><td><dl> <dt><strong><see cref="F:SharpDX.RawInput.DeviceFlags.AppKeys"/></strong></dt> <dt>0x00000400</dt> </dl> </td><td> <p>If set, the application command keys are handled. <strong><see cref="F:SharpDX.RawInput.DeviceFlags.AppKeys"/></strong> can be specified only if <strong><see cref="F:SharpDX.RawInput.DeviceFlags.NoLegacy"/></strong> is specified for a keyboard device.</p> </td></tr> <tr><td><dl> <dt><strong><see cref="F:SharpDX.RawInput.DeviceFlags.CaptureMouse"/></strong></dt> <dt>0x00000200</dt> </dl> </td><td> <p>If set, the mouse button click does not activate the other window.</p> </td></tr> <tr><td><dl> <dt><strong><see cref="F:SharpDX.RawInput.DeviceFlags.DeviceNotify"/></strong></dt> <dt>0x00002000</dt> </dl> </td><td> <p>If set, this enables the caller to receive <strong>WM_INPUT_DEVICE_CHANGE</strong> notifications for device arrival and device removal.</p> <p><strong>Windows?XP:??</strong>This flag is not supported until Windows?Vista</p> </td></tr> <tr><td><dl> <dt><strong><see cref="F:SharpDX.RawInput.DeviceFlags.Exclude"/></strong></dt> <dt>0x00000010</dt> </dl> </td><td> <p>If set, this specifies the top level collections to exclude when reading a complete usage page. This flag only affects a TLC whose usage page is already specified with <strong><see cref="F:SharpDX.RawInput.DeviceFlags.PageOnly"/></strong>. </p> </td></tr> <tr><td><dl> <dt><strong><see cref="F:SharpDX.RawInput.DeviceFlags.ExclusiveInputSink"/></strong></dt> <dt>0x00001000</dt> </dl> </td><td> <p>If set, this enables the caller to receive input in the background only if the foreground application does not process it. In other words, if the foreground application is not registered for raw input, then the background application that is registered will receive the input.</p> <p><strong>Windows?XP:??</strong>This flag is not supported until Windows?Vista</p> </td></tr> <tr><td><dl> <dt><strong><see cref="F:SharpDX.RawInput.DeviceFlags.InputSink"/></strong></dt> <dt>0x00000100</dt> </dl> </td><td> <p>If set, this enables the caller to receive the input even when the caller is not in the foreground.  Note that <strong>hwndTarget</strong> must be specified.</p> </td></tr> <tr><td><dl> <dt><strong><see cref="F:SharpDX.RawInput.DeviceFlags.NoHotKeys"/></strong></dt> <dt>0x00000200</dt> </dl> </td><td> <p>If set, the application-defined keyboard device hotkeys are not handled. However, the system hotkeys; for example, ALT+TAB and CTRL+ALT+DEL, are still handled. By default, all keyboard hotkeys are handled. <strong><see cref="F:SharpDX.RawInput.DeviceFlags.NoHotKeys"/></strong> can be specified even if <strong><see cref="F:SharpDX.RawInput.DeviceFlags.NoLegacy"/></strong> is not specified and <strong>hwndTarget</strong> is <strong><c>null</c></strong>.</p> </td></tr> <tr><td><dl> <dt><strong><see cref="F:SharpDX.RawInput.DeviceFlags.NoLegacy"/></strong></dt> <dt>0x00000030</dt> </dl> </td><td> <p>If set, this prevents any devices specified by <strong>usUsagePage</strong> or <strong>usUsage</strong> from generating legacy messages. This is only for the mouse and keyboard. See Remarks.</p> </td></tr> <tr><td><dl> <dt><strong><see cref="F:SharpDX.RawInput.DeviceFlags.PageOnly"/></strong></dt> <dt>0x00000020</dt> </dl> </td><td> <p>If set, this specifies all devices whose top level collection is from the specified <strong>usUsagePage</strong>. Note that <strong>usUsage</strong> must be zero. To exclude a particular top level collection, use <strong><see cref="F:SharpDX.RawInput.DeviceFlags.Exclude"/></strong>.</p> </td></tr> <tr><td><dl> <dt><strong><see cref="F:SharpDX.RawInput.DeviceFlags.Remove"/></strong></dt> <dt>0x00000001</dt> </dl> </td><td> <p>If set, this removes the top level collection from the inclusion list. This tells the operating system to stop reading from a device which matches the top level collection.</p> </td></tr> </table> <p>?</p> </dd>	
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='RAWINPUTDEVICE::dwFlags']/*"/>	
             <msdn-id>ms645565</msdn-id>	

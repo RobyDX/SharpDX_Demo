@@ -14,11 +14,23 @@
             Exception when an asset was not found from the <see cref="T:SharpDX.Toolkit.Content.ContentManager"/>.
             </summary>
         </member>
-        <member name="M:SharpDX.Toolkit.Content.AssetNotFoundException.#ctor(System.String)">
+        <member name="M:SharpDX.Toolkit.Content.AssetNotFoundException.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:SharpDX.Toolkit.Content.AssetNotFoundException"/> class.
             </summary>
-            <param name="message">The message.</param>
+        </member>
+        <member name="M:SharpDX.Toolkit.Content.AssetNotFoundException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpDX.Toolkit.Content.AssetNotFoundException"/> class with the specified message.
+            </summary>
+            <param name="message">The exception message.</param>
+        </member>
+        <member name="M:SharpDX.Toolkit.Content.AssetNotFoundException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpDX.Toolkit.Content.AssetNotFoundException"/> class with the specified message and inner exception.
+            </summary>
+            <param name="message">The exception message.</param>
+            <param name="innerException">The inner exception.</param>
         </member>
         <member name="T:SharpDX.Toolkit.Content.ContentManager">
             <summary>
@@ -50,6 +62,7 @@
             <exception cref="T:SharpDX.Toolkit.Content.AssetNotFoundException">If the asset was not found from all <see cref="T:SharpDX.Toolkit.Content.IContentResolver"/>.</exception>
             <exception cref="T:System.NotSupportedException">If no content reader was suitable to decode the asset.</exception>
         </member>
+        <!-- Badly formed XML comment ignored for member "M:SharpDX.Toolkit.Content.IContentManager.Load(System.Type,System.String,System.Object)" -->
         <member name="M:SharpDX.Toolkit.Content.IContentManager.Unload">
             <summary>
             Unloads all data that was loaded by this ContentManager. All data will be disposed.
@@ -58,10 +71,18 @@
             Unlike <see cref="M:SharpDX.Toolkit.Content.ContentManager.Load``1(System.String,System.Object)"/> method, this method is not thread safe and must be called by a single caller at a single time.
             </remarks>
         </member>
-        <member name="M:SharpDX.Toolkit.Content.IContentManager.Unload(System.String)">
+        <member name="M:SharpDX.Toolkit.Content.IContentManager.Unload``1(System.String)">
             <summary>
             Unloads and disposes an asset.
             </summary>
+            <param name="assetName">The asset name</param>
+            <returns><c>true</c> if the asset exists and was unloaded, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:SharpDX.Toolkit.Content.IContentManager.Unload(System.Type,System.String)">
+            <summary>
+            Unloads and disposes an asset.
+            </summary>
+            <param name="assetType">The asset type</param>
             <param name="assetName">The asset name</param>
             <returns><c>true</c> if the asset exists and was unloaded, <c>false</c> otherwise.</returns>
         </member>
@@ -81,17 +102,25 @@
             </summary>
             <param name="serviceProvider">The service provider that the ContentManager should use to locate services.</param>
         </member>
+        <member name="M:SharpDX.Toolkit.Content.ContentManager.Exists(System.String)">
+            <summary>
+            Checks if the specified assets exists.
+            </summary>
+            <param name="assetName">The asset name with extension.</param>
+            <returns><c>true</c> if the specified assets exists, <c>false</c> otherwise</returns>
+        </member>
         <member name="M:SharpDX.Toolkit.Content.ContentManager.Load``1(System.String,System.Object)">
             <summary>
             Loads an asset that has been processed by the Content Pipeline.  Reference page contains code sample.
             </summary>
-            <typeparam name="T"></typeparam>
+            <typeparam name="T">Type of the asset</typeparam>
             <param name="assetName">The asset name </param>
             <param name="options">The options to pass to the content reader (null by default).</param>
             <returns>``0.</returns>
             <exception cref="T:SharpDX.Toolkit.Content.AssetNotFoundException">If the asset was not found from all <see cref="T:SharpDX.Toolkit.Content.IContentResolver"/>.</exception>
             <exception cref="T:System.NotSupportedException">If no content reader was suitable to decode the asset.</exception>
         </member>
+        <!-- Badly formed XML comment ignored for member "M:SharpDX.Toolkit.Content.ContentManager.Load(System.Type,System.String,System.Object)" -->
         <member name="M:SharpDX.Toolkit.Content.ContentManager.Unload">
             <summary>
             Unloads all data that was loaded by this ContentManager. All data will be disposed.
@@ -100,10 +129,18 @@
             Unlike <see cref="M:SharpDX.Toolkit.Content.ContentManager.Load``1(System.String,System.Object)"/> method, this method is not thread safe and must be called by a single caller at a single time.
             </remarks>
         </member>
-        <member name="M:SharpDX.Toolkit.Content.ContentManager.Unload(System.String)">
+        <member name="M:SharpDX.Toolkit.Content.ContentManager.Unload``1(System.String)">
             <summary>
             Unloads and disposes an asset.
             </summary>
+            <param name="assetName">The asset name</param>
+            <returns><c>true</c> if the asset exists and was unloaded, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:SharpDX.Toolkit.Content.ContentManager.Unload(System.Type,System.String)">
+            <summary>
+            Unloads and disposes an asset.
+            </summary>
+            <param name="assetType">The asset type</param>
             <param name="assetName">The asset name</param>
             <returns><c>true</c> if the asset exists and was unloaded, <c>false</c> otherwise.</returns>
         </member>
@@ -117,6 +154,12 @@
             Add or remove registered <see cref="T:SharpDX.Toolkit.Content.IContentReader"/> to this instance.
             </summary>
         </member>
+        <member name="P:SharpDX.Toolkit.Content.ContentManager.ReaderFactories">
+            <summary>
+            Add or remove a registered <see cref="T:SharpDX.Toolkit.Content.IContentReaderFactory"/> to this instance.
+            </summary>
+            <value>The reader factories.</value>
+        </member>
         <member name="P:SharpDX.Toolkit.Content.ContentManager.ServiceProvider">
             <summary>
             Gets the service provider associated with the ContentManager.
@@ -126,6 +169,11 @@
         <member name="P:SharpDX.Toolkit.Content.ContentManager.RootDirectory">
             <summary>
             Gets or sets the root directory.
+            </summary>
+        </member>
+        <member name="T:SharpDX.Toolkit.Content.ContentManager.AssetKey">
+            <summary>
+            Use this key to store loaded assets.
             </summary>
         </member>
         <member name="T:SharpDX.Toolkit.Content.ContentReaderAttribute">
@@ -210,11 +258,12 @@
             </summary>
             <param name="rootDirectory">The root directory.</param>
         </member>
-        <member name="M:SharpDX.Toolkit.Content.FileSystemContentResolver.GetAssetPath(System.String)">
+        <member name="M:SharpDX.Toolkit.Content.FileSystemContentResolver.GetAssetPath(System.String,System.Boolean)">
             <summary>
             Gets the full asset path based on the root directory and default extension.
             </summary>
             <param name="assetName">The asset name.</param>
+            <param name="forceAppendExtension">A value indicating whether to append the default extension even if the supplied name already has one.</param>
             <returns>The full asset path.</returns>
         </member>
         <member name="P:SharpDX.Toolkit.Content.FileSystemContentResolver.RootDirectory">
@@ -235,6 +284,19 @@
             <param name="contentManager">The content manager.</param>
             <param name="parameters"></param>
             <returns>The data decoded from the stream, or null if the kind of asset is not supported by this content reader.</returns>
+        </member>
+        <member name="T:SharpDX.Toolkit.Content.IContentReaderFactory">
+            <summary>
+            A factory to create <see cref="T:SharpDX.Toolkit.Content.IContentReader"/> when a specific type is requested
+            from the <see cref="T:SharpDX.Toolkit.Content.IContentManager"/>.
+            </summary>
+        </member>
+        <member name="M:SharpDX.Toolkit.Content.IContentReaderFactory.TryCreate(System.Type)">
+            <summary>
+            Returns an instance of a <see cref="T:SharpDX.Toolkit.Content.IContentReader"/> for loading the specified type or null if not handled by this factory.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>An instance of a <see cref="T:SharpDX.Toolkit.Content.IContentReader"/> for loading the specified type or null if not handled..</returns>
         </member>
         <member name="T:SharpDX.Toolkit.Content.NamespaceDoc">
             <summary>
@@ -377,107 +439,112 @@
             Common data used by <see cref="T:SharpDX.Toolkit.Graphics.EffectData"/>, <see cref="T:SharpDX.Toolkit.Graphics.ModelData"/>.
             </summary>
         </member>
-        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeysBase.Name">
+        <member name="T:SharpDX.Toolkit.Graphics.MaterialKeys">
+            <summary>
+            Default keys optionally stored in <see cref="F:SharpDX.Toolkit.Graphics.ModelData.Material.Properties"/>.
+            </summary>
+        </member>
+        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeys.Name">
             <summary>
             The name of the material, if available. 
             </summary>
         </member>
-        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeysBase.TwoSided">
+        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeys.TwoSided">
             <summary>
             Specifies whether meshes using this material must be rendered without backface culling. 0 for false, !0 for true. 
             </summary>
         </member>
-        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeysBase.ShadingMode">
+        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeys.ShadingMode">
             <summary>
             One of the <see cref="T:SharpDX.Toolkit.Graphics.MaterialShadingMode"/> enumerated values. Defines the library shading model to use for (real time) rendering to approximate the original look of the material as closely as possible. 
             </summary>
         </member>
-        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeysBase.Wireframe">
+        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeys.Wireframe">
             <summary>
             Specifies whether wireframe rendering must be turned on for the material. 0 for false, !0 for true. 
             </summary>
         </member>
-        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeysBase.BlendMode">
+        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeys.BlendMode">
             <summary>
             Defines the blending mode used when rendering this material.
             </summary>
         </member>
-        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeysBase.Opacity">
+        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeys.Opacity">
             <summary>
             Defines the opacity of the material in a range between 0..1. 
             </summary>
         </member>
-        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeysBase.BumpScaling">
+        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeys.BumpScaling">
             <summary>
             Defines the bump normal scaling.
             </summary>
         </member>
-        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeysBase.Shininess">
+        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeys.Shininess">
             <summary>
             Defines the shininess of a Phong-shaded material. This is actually the exponent of the Phong specular equation 
             </summary>
         </member>
-        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeysBase.Reflectivity">
+        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeys.Reflectivity">
             <summary>
             Defines the reflectivity of the material.
             </summary>
         </member>
-        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeysBase.ShininessStrength">
+        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeys.ShininessStrength">
             <summary>
             Scales the specular color of the material. 
             </summary>
         </member>
-        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeysBase.Refraction">
+        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeys.Refraction">
             <summary>
             Defines the Index Of Refraction for the material. That's not supported by most file formats. 
             </summary>
         </member>
-        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeysBase.ColorDiffuse">
+        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeys.ColorDiffuse">
             <summary>
             Diffuse color of the material. This is typically scaled by the amount of incoming diffuse light (e.g. using Gouraud shading).
             </summary>
         </member>
-        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeysBase.ColorAmbient">
+        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeys.ColorAmbient">
             <summary>
             Ambient color of the material. This is typically scaled by the amount of ambient light 
             </summary>
         </member>
-        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeysBase.ColorSpecular">
+        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeys.ColorSpecular">
             <summary>
             Specular color of the material. This is typically scaled by the amount of incoming specular light (e.g. using Phong shading) 
             </summary>
         </member>
-        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeysBase.ColorEmissive">
+        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeys.ColorEmissive">
             <summary>
             Emissive color of the material. This is the amount of light emitted by the object. In real time applications it will usually not affect surrounding objects, but ray tracing applications may wish to treat emissive objects as light sources. 
             </summary>
         </member>
-        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeysBase.ColorTransparent">
+        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeys.ColorTransparent">
             <summary>
             Defines the transparent color of the material, this is the color to be multiplied with the color of translucent light to construct the final 'destination color' for a particular position in the screen buffer. T 
             </summary>
         </member>
-        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeysBase.ColorReflective">
+        <member name="F:SharpDX.Toolkit.Graphics.MaterialKeys.ColorReflective">
             <summary>
             Defines the reflective color of the material.
             </summary>
         </member>
-        <member name="M:SharpDX.Toolkit.Graphics.MaterialKeysBase.FindKeyByName(System.String)">
+        <member name="M:SharpDX.Toolkit.Graphics.MaterialKeys.FindKeyByName(System.String)">
             <summary>
             Finds the name of the key by.
             </summary>
             <param name="name">The name.</param>
             <returns>PropertyKey.</returns>
         </member>
-        <member name="M:SharpDX.Toolkit.Graphics.MaterialKeysBase.RegisterKey``1(SharpDX.Toolkit.PropertyKey{``0})">
+        <member name="M:SharpDX.Toolkit.Graphics.MaterialKeys.RegisterKey``1(SharpDX.Toolkit.PropertyKey{``0})">
             <summary>
             Registers the specified key.
             </summary>
             <typeparam name="T">Type of the property</typeparam>
-            <param name="key">The key.</param>
-            <returns>The key.</returns>
+            <param name="key">The property key.</param>
+            <returns>The registered property key.</returns>
         </member>
-        <member name="P:SharpDX.Toolkit.Graphics.MaterialKeysBase.RegisteredKeys">
+        <member name="P:SharpDX.Toolkit.Graphics.MaterialKeys.RegisteredKeys">
             <summary>
             Gets the registered keys.
             </summary>
@@ -499,6 +566,18 @@
             Gets the Name.
             </summary>
             <value>The Name.</value>
+        </member>
+        <member name="T:SharpDX.Toolkit.PropertyKey`1">
+            <summary>
+            A typed <see cref="T:SharpDX.Toolkit.PropertyKey"/>
+            </summary>
+            <typeparam name="T">Type of the value to associate with the key</typeparam>
+        </member>
+        <member name="M:SharpDX.Toolkit.PropertyKey`1.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpDX.Toolkit.PropertyKey"/> class.
+            </summary>
+            <param name="name">The Name.</param>
         </member>
         <member name="M:SharpDX.Toolkit.PropertyCollection.#ctor">
             <summary>
@@ -1564,6 +1643,8 @@
             <param name="flags">The flags.</param>
             <param name="macros">The macrosArgs.</param>
             <param name="includeDirectoryList">The include directory list.</param>
+            <param name="alloDynamicCompiling">Whether or not to allow dynamic compilation.</param>
+            <param name="dependencyFilePath">Path to dependency files.</param>
             <returns>The result of compilation.</returns>
         </member>
         <member name="M:SharpDX.Toolkit.Graphics.IEffectCompiler.Compile(System.String,System.String,SharpDX.Toolkit.Graphics.EffectCompilerFlags,System.Collections.Generic.List{SharpDX.Toolkit.Graphics.EffectData.ShaderMacro},System.Collections.Generic.List{System.String},System.Boolean,System.String)">
@@ -1575,6 +1656,8 @@
             <param name="flags">The flags.</param>
             <param name="macrosArgs">The macrosArgs.</param>
             <param name="includeDirectoryList">The include directory list.</param>
+            <param name="allowDynamicCompiling">Whether or not to allow dynamic compilation.</param>
+            <param name="dependencyFilePath">Path to dependency files.</param>
             <returns>The result of compilation.</returns>
         </member>
         <member name="M:SharpDX.Toolkit.Graphics.IEffectCompiler.DisassembleShader(SharpDX.Toolkit.Graphics.EffectData.Shader)">
@@ -2181,7 +2264,7 @@
         </member>
         <member name="M:SharpDX.Toolkit.Graphics.VertexElement.BlendWeights``1(System.Int32,System.Int32)">
             <summary>
-            Declares a VertexElement with the semantic "BLENDWEIGHTS".
+            Declares a VertexElement with the semantic "BLENDWEIGHT".
             </summary>
             <typeparam name="T">Type of the BlendWeights semantic.</typeparam>
             <param name="semanticIndex">The semantic index.</param>
@@ -2190,7 +2273,7 @@
         </member>
         <member name="M:SharpDX.Toolkit.Graphics.VertexElement.BlendWeights(SharpDX.DXGI.Format,System.Int32)">
             <summary>
-            Declares a VertexElement with the semantic "BLENDWEIGHTS".
+            Declares a VertexElement with the semantic "BLENDWEIGHT".
             </summary>
             <param name="format">Format of this element.</param>
             <param name="offsetInBytes">The offset in bytes of this element. Use <see cref="F:SharpDX.Toolkit.Graphics.VertexElement.AppendAligned"/> to compute automatically the offset from previous elements.</param>
@@ -2198,7 +2281,7 @@
         </member>
         <member name="M:SharpDX.Toolkit.Graphics.VertexElement.BlendWeights(System.Int32,SharpDX.DXGI.Format,System.Int32)">
             <summary>
-            Declares a VertexElement with the semantic "BLENDWEIGHTS".
+            Declares a VertexElement with the semantic "BLENDWEIGHT".
             </summary>
             <param name="semanticIndex">The semantic index.</param>
             <param name="format">Format of this element.</param>

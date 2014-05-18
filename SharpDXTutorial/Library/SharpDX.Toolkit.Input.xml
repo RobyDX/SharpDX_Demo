@@ -11,17 +11,104 @@
         </member>
         <member name="T:SharpDX.Toolkit.Input.ButtonState">
             <summary>
-            State of a button.
+            State of a button or key.
             </summary>
         </member>
-        <member name="F:SharpDX.Toolkit.Input.ButtonState.Released">
+        <member name="M:SharpDX.Toolkit.Input.ButtonState.#ctor(SharpDX.Toolkit.Input.ButtonStateFlags)">
             <summary>
-            The button is released.
+            Initializes a new instance of the <see cref="T:SharpDX.Toolkit.Input.ButtonState"/> struct.
+            </summary>
+            <param name="flags">The state.</param>
+        </member>
+        <member name="M:SharpDX.Toolkit.Input.ButtonState.ResetEvents">
+            <summary>
+            Resets the Pressed and Released events.
             </summary>
         </member>
-        <member name="F:SharpDX.Toolkit.Input.ButtonState.Pressed">
+        <member name="M:SharpDX.Toolkit.Input.ButtonState.Equals(SharpDX.Toolkit.Input.ButtonState)">
             <summary>
-            The button is pressed.
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns>true if the current object is equal to the <paramref name="other" /> parameter; otherwise, false.</returns>
+        </member>
+        <member name="M:SharpDX.Toolkit.Input.ButtonState.op_Equality(SharpDX.Toolkit.Input.ButtonState,SharpDX.Toolkit.Input.ButtonState)">
+            <summary>
+            Implements the ==.
+            </summary>
+            <param name="left">The left.</param>
+            <param name="right">The right.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:SharpDX.Toolkit.Input.ButtonState.op_Inequality(SharpDX.Toolkit.Input.ButtonState,SharpDX.Toolkit.Input.ButtonState)">
+            <summary>
+            Implements the !=.
+            </summary>
+            <param name="left">The left.</param>
+            <param name="right">The right.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:SharpDX.Toolkit.Input.ButtonState.op_Implicit(SharpDX.Toolkit.Input.ButtonState)~SharpDX.Toolkit.Input.ButtonStateFlags">
+            <summary>
+            Performs an implicit conversion from <see cref="T:SharpDX.Toolkit.Input.ButtonState"/> to <see cref="T:SharpDX.Toolkit.Input.ButtonStateFlags"/>.
+            </summary>
+            <param name="buttonState">State of the button.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:SharpDX.Toolkit.Input.ButtonState.op_Implicit(SharpDX.Toolkit.Input.ButtonStateFlags)~SharpDX.Toolkit.Input.ButtonState">
+            <summary>
+            Performs an implicit conversion from <see cref="T:SharpDX.Toolkit.Input.ButtonStateFlags"/> to <see cref="T:SharpDX.Toolkit.Input.ButtonState"/>.
+            </summary>
+            <param name="buttonFlags">State of the button.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="P:SharpDX.Toolkit.Input.ButtonState.Flags">
+            <summary>
+            Gets the state of this button as an enum.
+            </summary>
+            <value>The state.</value>
+        </member>
+        <member name="P:SharpDX.Toolkit.Input.ButtonState.Down">
+            <summary>
+            Gets a value indicating whether the button is being pressed.
+            </summary>
+            <value><c>true</c> if the button is being pressed; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SharpDX.Toolkit.Input.ButtonState.Pressed">
+            <summary>
+            Gets a value indicating whether the button was pressed since last frame.
+            </summary>
+            <value><c>true</c> if the button was pressed since last frame; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SharpDX.Toolkit.Input.ButtonState.Released">
+            <summary>
+            Gets a value indicating whether the button was released since last frame.
+            </summary>
+            <value><c>true</c> if the button was released since last frame; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="T:SharpDX.Toolkit.Input.ButtonStateFlags">
+            <summary>
+            State of a button declared as an enum. See <see cref="T:SharpDX.Toolkit.Input.ButtonState"/>.
+            </summary>
+        </member>
+        <member name="F:SharpDX.Toolkit.Input.ButtonStateFlags.None">
+            <summary>
+            Button is in a none state.
+            </summary>
+        </member>
+        <member name="F:SharpDX.Toolkit.Input.ButtonStateFlags.Down">
+            <summary>
+            The button is being pressed.
+            </summary>
+        </member>
+        <member name="F:SharpDX.Toolkit.Input.ButtonStateFlags.Pressed">
+            <summary>
+            The button was pressed since last frame.
+            </summary>
+        </member>
+        <member name="F:SharpDX.Toolkit.Input.ButtonStateFlags.Released">
+            <summary>
+            The button was released since last frame.
             </summary>
         </member>
         <member name="T:SharpDX.Toolkit.Input.IKeyboardService">
@@ -78,15 +165,15 @@
             </summary>
             <returns>A snapshot of current keyboard state</returns>
         </member>
-        <member name="M:SharpDX.Toolkit.Input.KeyboardManager.HandleKeyPressed(SharpDX.Toolkit.Input.Keys)">
+        <member name="M:SharpDX.Toolkit.Input.KeyboardManager.HandleKeyDown(SharpDX.Toolkit.Input.Keys)">
             <summary>
-            Handles the <see cref="E:SharpDX.Toolkit.Input.KeyboardPlatform.KeyPressed"/> event
+            Handles the <see cref="E:SharpDX.Toolkit.Input.KeyboardPlatform.KeyDown"/> event
             </summary>
             <param name="key">The pressed key</param>
         </member>
-        <member name="M:SharpDX.Toolkit.Input.KeyboardManager.HandleKeyReleased(SharpDX.Toolkit.Input.Keys)">
+        <member name="M:SharpDX.Toolkit.Input.KeyboardManager.HandleKeyUp(SharpDX.Toolkit.Input.Keys)">
             <summary>
-            Handles the <see cref="E:SharpDX.Toolkit.Input.KeyboardPlatform.KeyReleased"/> event
+            Handles the <see cref="E:SharpDX.Toolkit.Input.KeyboardPlatform.KeyUp"/> event
             </summary>
             <param name="key">The released key</param>
         </member>
@@ -118,13 +205,13 @@
         </member>
         <member name="M:SharpDX.Toolkit.Input.KeyboardPlatform.RaiseKeyPressed(SharpDX.Toolkit.Input.Keys)">
             <summary>
-            Raises the <see cref="E:SharpDX.Toolkit.Input.KeyboardPlatform.KeyPressed"/> event.
+            Raises the <see cref="E:SharpDX.Toolkit.Input.KeyboardPlatform.KeyDown"/> event.
             </summary>
             <param name="key">The key that was pressed</param>
         </member>
         <member name="M:SharpDX.Toolkit.Input.KeyboardPlatform.RaiseKeyReleased(SharpDX.Toolkit.Input.Keys)">
             <summary>
-            Raises the <see cref="E:SharpDX.Toolkit.Input.KeyboardPlatform.KeyReleased"/> event.
+            Raises the <see cref="E:SharpDX.Toolkit.Input.KeyboardPlatform.KeyUp"/> event.
             </summary>
             <param name="key">The key that was released</param>
         </member>
@@ -137,14 +224,14 @@
             <param name="handler">The reference to event delegate</param>
             <param name="argument">The event argument</param>
         </member>
-        <member name="E:SharpDX.Toolkit.Input.KeyboardPlatform.KeyPressed">
+        <member name="E:SharpDX.Toolkit.Input.KeyboardPlatform.KeyDown">
             <summary>
-            Raised when a key pressed
+            Raised when a key down.
             </summary>
         </member>
-        <member name="E:SharpDX.Toolkit.Input.KeyboardPlatform.KeyReleased">
+        <member name="E:SharpDX.Toolkit.Input.KeyboardPlatform.KeyUp">
             <summary>
-            Raised when a key is released
+            Raised when a key is up.
             </summary>
         </member>
         <member name="T:SharpDX.Toolkit.Input.KeyboardPlatformDesktop">
@@ -244,81 +331,37 @@
             </summary>
             <remarks>The returned values from member methods require computation - it is advised to cache them when they needs to be reused</remarks>
         </member>
-        <member name="M:SharpDX.Toolkit.Input.KeyboardState.#ctor(System.Collections.Generic.HashSet{SharpDX.Toolkit.Input.Keys})">
+        <member name="M:SharpDX.Toolkit.Input.KeyboardState.IsKeyDown(SharpDX.Toolkit.Input.Keys)">
             <summary>
-            Initializes a new instance of <see cref="T:SharpDX.Toolkit.Input.KeyboardState"/> structure
-            </summary>
-            <param name="pressedKeys">a set of keys which are pressed</param>
-            <exception cref="T:System.ArgumentNullException">Is thrown when <paramref name="pressedKeys"/> is null</exception>
-        </member>
-        <member name="M:SharpDX.Toolkit.Input.KeyboardState.IsKeyUp(SharpDX.Toolkit.Input.Keys)">
-            <summary>
-            Checks it the specified key is not pressed
+            Checks if the specified key is being pressed
             </summary>
             <remarks>Cache the returned value if it needs to be reused</remarks>
             <param name="key">A <see cref="T:SharpDX.Toolkit.Input.Keys"/> to check whether it is pressed or not</param>
-            <returns>True if the key is not pressed; False - otherwise</returns>
+            <returns>True if the specified key is being pressed; False - otherwise</returns>
         </member>
-        <member name="M:SharpDX.Toolkit.Input.KeyboardState.IsKeyDown(SharpDX.Toolkit.Input.Keys)">
+        <member name="M:SharpDX.Toolkit.Input.KeyboardState.IsKeyPressed(SharpDX.Toolkit.Input.Keys)">
             <summary>
-            Checks it the specified key is pressed
+            Checks if the specified key has been pressed since last frame
             </summary>
             <remarks>Cache the returned value if it needs to be reused</remarks>
             <param name="key">A <see cref="T:SharpDX.Toolkit.Input.Keys"/> to check whether it is pressed or not</param>
             <returns>True if the key is pressed; False - otherwise</returns>
         </member>
-        <member name="M:SharpDX.Toolkit.Input.KeyboardState.GetPressedKeys">
+        <member name="M:SharpDX.Toolkit.Input.KeyboardState.IsKeyReleased(SharpDX.Toolkit.Input.Keys)">
             <summary>
-            Gets an array with all pressed keys from this instance
+            Checks if the specified key has been released since last frame.
             </summary>
             <remarks>Cache the returned value if it needs to be reused</remarks>
-            <returns>An array of all pressed keys</returns>
+            <param name="key">A <see cref="T:SharpDX.Toolkit.Input.Keys"/> to check whether if the specified key has been released since last frame</param>
+            <returns>True if the specified key has been released since last frame; False - otherwise</returns>
         </member>
-        <member name="M:SharpDX.Toolkit.Input.KeyboardState.SetKeyDown(SharpDX.Toolkit.Input.Keys)">
+        <member name="M:SharpDX.Toolkit.Input.KeyboardState.GetDownKeys(System.Collections.Generic.List{SharpDX.Toolkit.Input.Keys})">
             <summary>
-            Sets the specified key as pressed
+            Gets an array with all keys down.
             </summary>
-            <param name="key">A <see cref="T:SharpDX.Toolkit.Input.Keys"/> which state needs to be set as pressed</param>
-        </member>
-        <member name="M:SharpDX.Toolkit.Input.KeyboardState.CountSetBits(System.UInt32)">
-            <summary>
-            Counts how many bits are set in provided value
-            </summary>
-            <param name="chunk">The value whose bits should be counted</param>
-            <returns>The count of bits with value 1</returns>
-        </member>
-        <member name="M:SharpDX.Toolkit.Input.KeyboardState.AddKeysToArray(System.UInt32,System.Int32,SharpDX.Toolkit.Input.Keys[],System.Int32@)">
-            <summary>
-            Recomputes the <see cref="T:SharpDX.Toolkit.Input.Keys"/> value from a bit in specified <paramref name="chunk"/>,
-            using specified <paramref name="arrayOffset"/> and increases the <paramref name="index"/>
-            </summary>
-            <param name="chunk">The chunk from whose bits should be recreated the <see cref="T:SharpDX.Toolkit.Input.Keys"/> values</param>
-            <param name="arrayOffset">The offset of bit (0-256)</param>
-            <param name="pressedKeys">The destination array</param>
-            <param name="index">The index of element in array. Increased for every new element</param>
-        </member>
-        <member name="M:SharpDX.Toolkit.Input.KeyboardState.Equals(SharpDX.Toolkit.Input.KeyboardState)">
-            <summary>
-            Indicates whether the current object is equal to another object of the same type.
-            </summary>
-            <param name="other">An object to compare with this object.</param>
-            <returns>true if the current object is equal to the <paramref name="other" /> parameter; otherwise, false.</returns>
-        </member>
-        <member name="M:SharpDX.Toolkit.Input.KeyboardState.op_Equality(SharpDX.Toolkit.Input.KeyboardState,SharpDX.Toolkit.Input.KeyboardState)">
-            <summary>
-            Implements the ==.
-            </summary>
-            <param name="left">The left.</param>
-            <param name="right">The right.</param>
-            <returns>The result of the operator.</returns>
-        </member>
-        <member name="M:SharpDX.Toolkit.Input.KeyboardState.op_Inequality(SharpDX.Toolkit.Input.KeyboardState,SharpDX.Toolkit.Input.KeyboardState)">
-            <summary>
-            Implements the !=.
-            </summary>
-            <param name="left">The left.</param>
-            <param name="right">The right.</param>
-            <returns>The result of the operator.</returns>
+            <param name="keys">The list of keys that will received keys being pressed.</param>
+            <exception cref="T:System.ArgumentNullException">keys</exception>
+            <remarks>This method clears the list before appending</remarks>
         </member>
         <member name="P:SharpDX.Toolkit.Input.KeyboardState.Item(SharpDX.Toolkit.Input.Keys)">
             <summary>
@@ -326,29 +369,7 @@
             </summary>
             <remarks>Cache the returned value if it needs to be reused</remarks>
             <param name="key">A <see cref="T:SharpDX.Toolkit.Input.Keys"/> to check whether it is pressed or not</param>
-            <returns><see cref="F:SharpDX.Toolkit.Input.KeyState.Down"/> if the <paramref name="key"/> is pressed; <see cref="F:SharpDX.Toolkit.Input.KeyState.Up"/> otherwise.</returns>
-        </member>
-        <member name="T:SharpDX.Toolkit.Input.KeyboardState.KeyInfo">
-            <summary>
-            Represents information about where should be stored information about a key.
-            Created to avoid code duplication.
-            </summary>
-        </member>
-        <member name="F:SharpDX.Toolkit.Input.KeyboardState.KeyInfo.ChunkIndex">
-            <summary>
-            Index of 32-bit chunk where the key flag is stored
-            </summary>
-        </member>
-        <member name="F:SharpDX.Toolkit.Input.KeyboardState.KeyInfo.KeyBitFlagIndex">
-            <summary>
-            Index of flag in the chunk
-            </summary>
-        </member>
-        <member name="M:SharpDX.Toolkit.Input.KeyboardState.KeyInfo.#ctor(SharpDX.Toolkit.Input.Keys)">
-            <summary>
-            Initializes a new instance of <see cref="T:SharpDX.Toolkit.Input.KeyboardState.KeyInfo"/> structure
-            </summary>
-            <param name="key">The key whose storage information needs to be computed.</param>
+            <returns>The state of a key.</returns>
         </member>
         <member name="T:SharpDX.Toolkit.Input.KeyModifiers">
             <summary>
@@ -616,21 +637,6 @@
             </summary>
             <param name="point">The desired position</param>
         </member>
-        <member name="T:SharpDX.Toolkit.Input.KeyState">
-            <summary>
-            Represents the state of a keyboard key or mouse button
-            </summary>
-        </member>
-        <member name="F:SharpDX.Toolkit.Input.KeyState.Up">
-            <summary>
-            Key is released (not pressed)
-            </summary>
-        </member>
-        <member name="F:SharpDX.Toolkit.Input.KeyState.Down">
-            <summary>
-            Key is pressed
-            </summary>
-        </member>
         <member name="T:SharpDX.Toolkit.Input.MouseButton">
             <summary>
             Represents a mouse button
@@ -698,6 +704,12 @@
             <param name="point">The desired position in the range X/Y [0,1]</param>
             <exception cref="T:System.InvalidOperationException">Is thrown when <see cref="T:SharpDX.Toolkit.Input.MouseManager"/> is not initialized</exception>
         </member>
+        <member name="M:SharpDX.Toolkit.Input.MouseManager.Update(SharpDX.Toolkit.GameTime)">
+            <summary>
+            Updates the mouse states.
+            </summary>
+            <param name="gameTime">Not used.</param>
+        </member>
         <member name="M:SharpDX.Toolkit.Input.MouseManager.HandleMouseDown(SharpDX.Toolkit.Input.MouseButton)">
             <summary>
             Handler for <see cref="E:SharpDX.Toolkit.Input.MousePlatform.MouseDown"/> event
@@ -716,13 +728,21 @@
             </summary>
             <param name="wheelDelta">The pressed button</param>
         </member>
-        <member name="M:SharpDX.Toolkit.Input.MouseManager.SetButtonStateTo(SharpDX.Toolkit.Input.MouseButton,SharpDX.Toolkit.Input.ButtonState)">
+        <member name="M:SharpDX.Toolkit.Input.MouseManager.SetButtonStateTo(SharpDX.Toolkit.Input.MouseButton,System.Boolean)">
             <summary>
             Sets the state of specified mouse button
             </summary>
             <param name="button">The button whose state needs to be set.</param>
-            <param name="state">The new state of the button.</param>
+            <param name="isDown">if set to <c>true</c> [is pressed].</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">button</exception>
             <exception cref="T:System.ArgumentOutOfRangeException">Is thrown if the <paramref name="button"/> has an unknown value.</exception>
+        </member>
+        <member name="M:SharpDX.Toolkit.Input.MouseManager.HandleState(SharpDX.Toolkit.Input.ButtonState@,System.Boolean)">
+            <summary>
+            Computes the next state from the provided button sate.
+            </summary>
+            <param name="state">The current button state.</param>
+            <param name="isDown">A value indicating whether the button is pressed or not.</param>
         </member>
         <member name="T:SharpDX.Toolkit.Input.MouseState">
             <summary>
@@ -734,21 +754,14 @@
             <summary>
             Initializes a new instance of the <see cref="T:SharpDX.Toolkit.Input.MouseState"/> structure.
             </summary>
-            <param name="left">State of the left button</param>
-            <param name="middle">State of the middle button</param>
-            <param name="right">State of the right button</param>
+            <param name="leftButton">State of the left button</param>
+            <param name="middleButton">State of the middle button</param>
+            <param name="rightButton">State of the right button</param>
             <param name="xButton1">State of the X-Button 1</param>
             <param name="xButton2">State of the X-Button 2</param>
             <param name="x">X-position of the mouse cursor</param>
             <param name="y">Y-position of the mouse cursor</param>
             <param name="wheelDelta">Delta of mouse wheel relative to previous input event</param>
-        </member>
-        <member name="M:SharpDX.Toolkit.Input.MouseState.Equals(SharpDX.Toolkit.Input.MouseState)">
-            <summary>
-            Indicates whether the current object is equal to another object of the same type.
-            </summary>
-            <param name="other">An object to compare with this object.</param>
-            <returns>true if the current object is equal to the <paramref name="other" /> parameter; otherwise, false.</returns>
         </member>
         <member name="M:SharpDX.Toolkit.Input.MouseState.op_Equality(SharpDX.Toolkit.Input.MouseState,SharpDX.Toolkit.Input.MouseState)">
             <summary>
@@ -766,17 +779,17 @@
             <param name="right">The right.</param>
             <returns>The result of the operator.</returns>
         </member>
-        <member name="P:SharpDX.Toolkit.Input.MouseState.Left">
+        <member name="P:SharpDX.Toolkit.Input.MouseState.LeftButton">
             <summary>
             State of the left button
             </summary>
         </member>
-        <member name="P:SharpDX.Toolkit.Input.MouseState.Middle">
+        <member name="P:SharpDX.Toolkit.Input.MouseState.MiddleButton">
             <summary>
             State of the middle button
             </summary>
         </member>
-        <member name="P:SharpDX.Toolkit.Input.MouseState.Right">
+        <member name="P:SharpDX.Toolkit.Input.MouseState.RightButton">
             <summary>
             State of the right button
             </summary>

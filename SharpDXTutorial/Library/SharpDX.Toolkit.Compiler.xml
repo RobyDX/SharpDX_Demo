@@ -373,6 +373,8 @@
             <param name="flags">The flags.</param>
             <param name="macros">The macrosArgs.</param>
             <param name="includeDirectoryList">The include directory list.</param>
+            <param name="alloDynamicCompiling">Whether or not to allow dynamic compilation.</param>
+            <param name="dependencyFilePath">Path to dependency files.</param>
             <returns>The result of compilation.</returns>
         </member>
         <member name="M:SharpDX.Toolkit.Graphics.EffectCompiler.Compile(System.String,System.String,SharpDX.Toolkit.Graphics.EffectCompilerFlags,System.Collections.Generic.List{SharpDX.Toolkit.Graphics.EffectData.ShaderMacro},System.Collections.Generic.List{System.String},System.Boolean,System.String)">
@@ -384,6 +386,8 @@
             <param name="flags">The flags.</param>
             <param name="macrosArgs">The macrosArgs.</param>
             <param name="includeDirectoryList">The include directory list.</param>
+            <param name="allowDynamicCompiling">Whether or not to allow dynamic compilation.</param>
+            <param name="dependencyFilePath">Path to dependency files.</param>
             <returns>The result of compilation.</returns>
         </member>
         <member name="M:SharpDX.Toolkit.Graphics.EffectCompiler.DisassembleShader(SharpDX.Toolkit.Graphics.EffectData.Shader)">
@@ -392,6 +396,13 @@
             </summary>
             <param name="shader">The shader.</param>
             <returns>A string containing asm code decoded from HLSL bytecode.</returns>
+        </member>
+        <member name="M:SharpDX.Toolkit.Graphics.EffectCompiler.Compile(SharpDX.D3DCompiler.ShaderBytecode[])">
+            <summary>
+            Builds effect data from the provided bytecode.
+            </summary>
+            <param name="shaderSource">The bytecode list to for the provided effect.</param>
+            <returns>Built effect data.</returns>
         </member>
         <member name="T:SharpDX.Toolkit.Graphics.EffectDataCodeWriter">
             <summary>
@@ -508,6 +519,31 @@
             </summary>
             <value>The logger.</value>
         </member>
+        <member name="T:SharpDX.Toolkit.Graphics.FontAntiAliasMode">
+            <summary>
+            Available antialias mode.
+            </summary>
+        </member>
+        <member name="F:SharpDX.Toolkit.Graphics.FontAntiAliasMode.Default">
+            <summary>
+            The default grayscale anti-aliasing
+            </summary>
+        </member>
+        <member name="F:SharpDX.Toolkit.Graphics.FontAntiAliasMode.Grayscale">
+            <summary>
+            Use grayscale antialiasing
+            </summary>
+        </member>
+        <member name="F:SharpDX.Toolkit.Graphics.FontAntiAliasMode.ClearType">
+            <summary>
+            Use cleartype antialiasing.
+            </summary>
+        </member>
+        <member name="F:SharpDX.Toolkit.Graphics.FontAntiAliasMode.Aliased">
+            <summary>
+            Don't use any antialiasing
+            </summary>
+        </member>
         <member name="T:SharpDX.Toolkit.Graphics.FontCompiler">
             <summary>
             Main class used to compile a Font file XML file.
@@ -588,6 +624,11 @@
             By default, font textures use premultiplied alpha format. Set this if you want interpolative alpha instead.
             </summary>
         </member>
+        <member name="F:SharpDX.Toolkit.Graphics.FontDescription.AntiAlias">
+            <summary>
+            By default, font textures is a grey. To generate ClearType textures, turn this flag to true 
+            </summary>
+        </member>
         <member name="T:SharpDX.Toolkit.Graphics.FontStyle">
             <summary>
             Type of a font.
@@ -606,16 +647,6 @@
         <member name="F:SharpDX.Toolkit.Graphics.FontStyle.Italic">
             <summary>
             An italic font.
-            </summary>
-        </member>
-        <member name="F:SharpDX.Toolkit.Graphics.FontStyle.Underline">
-            <summary>
-            An underline font.
-            </summary>
-        </member>
-        <member name="F:SharpDX.Toolkit.Graphics.FontStyle.Strikeout">
-            <summary>
-            A strikeout font.
             </summary>
         </member>
         <member name="T:SharpDX.Toolkit.Graphics.FontTextureFormat">
