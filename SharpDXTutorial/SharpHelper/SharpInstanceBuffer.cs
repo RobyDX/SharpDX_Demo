@@ -68,7 +68,6 @@ namespace SharpHelper
         /// <param name="startIndexLocation">Starting index of the current instance</param>
         public void DrawInstance(int count, int indexCountPerInstance, int startIndexLocation)
         {
-            int c = Math.Min(count, Count);
             Device.DeviceContext.InputAssembler.SetVertexBuffers(1, new VertexBufferBinding(_instanceBuffer, Stride, 0));
             Device.DeviceContext.DrawIndexedInstanced(indexCountPerInstance, count, startIndexLocation, 0, 0);
         }

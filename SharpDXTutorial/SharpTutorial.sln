@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpHelper", "SharpHelper\SharpHelper.csproj", "{EA6F422E-3D4F-499F-A76F-3DC366489387}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tutorial01", "Tutorial1\Tutorial01.csproj", "{D0802ED9-DC65-44CD-9B17-DDE0C4EF21DF}"
@@ -51,6 +53,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tutorial17", "Tutorial17\Tutorial17.csproj", "{93367D00-DBAB-4336-B8CA-7158F4583838}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tutorial18", "Tutorial18\Tutorial18.csproj", "{5F54D099-1F35-4D3E-AC4A-BB44FA1CFF0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tutorial19", "Tutorial19\Tutorial19.csproj", "{7268D943-FFCA-40FF-A9D1-41BCCCE2417A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -150,6 +154,10 @@ Global
 		{5F54D099-1F35-4D3E-AC4A-BB44FA1CFF0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F54D099-1F35-4D3E-AC4A-BB44FA1CFF0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F54D099-1F35-4D3E-AC4A-BB44FA1CFF0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7268D943-FFCA-40FF-A9D1-41BCCCE2417A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7268D943-FFCA-40FF-A9D1-41BCCCE2417A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7268D943-FFCA-40FF-A9D1-41BCCCE2417A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7268D943-FFCA-40FF-A9D1-41BCCCE2417A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

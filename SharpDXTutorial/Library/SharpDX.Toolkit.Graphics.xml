@@ -552,6 +552,21 @@
             Gets or sets whether vertex color is enabled.
             </summary>
         </member>
+        <member name="T:SharpDX.Toolkit.Graphics.DepthStencilViewSelector">
+            <summary>
+            Used by <see cref="T:SharpDX.Toolkit.Graphics.DepthStencilBuffer"/> to provide a selector to a <see cref="T:SharpDX.Direct3D11.DepthStencilView"/>.
+            </summary>
+        </member>
+        <member name="P:SharpDX.Toolkit.Graphics.DepthStencilViewSelector.Item(SharpDX.Toolkit.Graphics.ViewType,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Gets a specific <see cref="T:SharpDX.Direct3D11.DepthStencilView"/> from this texture.
+            </summary>
+            <param name="viewType">Type of the view slice.</param>
+            <param name="arrayOrDepthSlice">The texture array slice index.</param>
+            <param name="mipIndex">The mip map slice index.</param>
+            <param name="readOnlyView">Indicates if this view is read-only.</param>
+            <returns>An <see cref="T:SharpDX.Direct3D11.DepthStencilView"/></returns>
+        </member>
         <member name="T:SharpDX.Toolkit.Graphics.EffectDefaultParameters">
             <summary>
             Provides a set of default parameters that could be defined in an effect. See remarks for usage.
@@ -1156,6 +1171,108 @@
             </summary>
             <typeparam name="T"></typeparam>
         </member>
+        <member name="M:SharpDX.Toolkit.Graphics.ModelSkinnedBoneCollection.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpDX.Toolkit.Graphics.ModelSkinnedBoneCollection"/> class.
+            </summary>
+        </member>
+        <member name="M:SharpDX.Toolkit.Graphics.ModelSkinnedBoneCollection.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpDX.Toolkit.Graphics.ModelSkinnedBoneCollection"/> class that is empty and has the specified initial capacity.
+            </summary>
+            <param name="capacity">The number of elements that the new list can initially store.</param>
+        </member>
+        <member name="M:SharpDX.Toolkit.Graphics.ModelSkinnedBoneCollection.#ctor(System.Collections.Generic.IEnumerable{SharpDX.Toolkit.Graphics.ModelSkinnedBone})">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpDX.Toolkit.Graphics.ModelSkinnedBoneCollection"/> class.
+            </summary>
+            <param name="collection">The collection.</param>
+        </member>
+        <member name="T:SharpDX.Toolkit.Graphics.SkinnedEffectInstaller">
+            <summary>
+            Implementation of the <see cref="T:SharpDX.Toolkit.Graphics.IEffectInstaller"/> for the <see cref="T:SharpDX.Toolkit.Graphics.SkinnedEffect"/>.
+            </summary>
+            <remarks>
+            This effect installer uses <see cref="T:SharpDX.Toolkit.Graphics.SkinnedEffect"/> if the model supports skeletal animation and <see cref="T:SharpDX.Toolkit.Graphics.BasicEffect"/> otherwise.
+            </remarks>
+        </member>
+        <member name="T:SharpDX.Toolkit.Graphics.BasicEffectInstaller">
+            <summary>
+            Implementation of the <see cref="T:SharpDX.Toolkit.Graphics.IEffectInstaller"/> for the <see cref="T:SharpDX.Toolkit.Graphics.BasicEffect"/>.
+            </summary>
+            <remarks>
+            This effect installer is similar to the default behavior of XNA with <see cref="T:SharpDX.Toolkit.Graphics.BasicEffect"/>.
+            </remarks>
+        </member>
+        <member name="M:SharpDX.Toolkit.Graphics.BasicEffectInstaller.#ctor(SharpDX.IServiceRegistry)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpDX.Toolkit.Graphics.EffectInstallerBase"/> class.
+            </summary>
+            <param name="services">The services.</param>
+        </member>
+        <member name="M:SharpDX.Toolkit.Graphics.BasicEffectInstaller.#ctor(SharpDX.Toolkit.Graphics.GraphicsDevice)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpDX.Toolkit.Graphics.EffectInstallerBase"/> class.
+            </summary>
+            <param name="graphicsDevice">The graphics device.</param>
+        </member>
+        <member name="M:SharpDX.Toolkit.Graphics.BasicEffectInstaller.CreateBasicEffect">
+            <summary>
+            Creates an instance of <see cref="T:SharpDX.Toolkit.Graphics.BasicEffect"/>, overridable in case a user would want to subclass <see cref="T:SharpDX.Toolkit.Graphics.BasicEffect"/>.
+            </summary>
+            <returns>A new instance of BasicEffect.</returns>
+        </member>
+        <member name="M:SharpDX.Toolkit.Graphics.SkinnedEffectInstaller.#ctor(SharpDX.IServiceRegistry)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpDX.Toolkit.Graphics.SkinnedEffectInstaller"/> class.
+            </summary>
+            <param name="services">The services.</param>
+        </member>
+        <member name="M:SharpDX.Toolkit.Graphics.SkinnedEffectInstaller.#ctor(SharpDX.Toolkit.Graphics.GraphicsDevice)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpDX.Toolkit.Graphics.SkinnedEffectInstaller"/> class.
+            </summary>
+            <param name="graphicsDevice">The graphics device.</param>
+        </member>
+        <member name="M:SharpDX.Toolkit.Graphics.SkinnedEffectInstaller.CreateSkinnedEffect">
+            <summary>
+            Creates an instance of <see cref="T:SharpDX.Toolkit.Graphics.SkinnedEffect"/>, overridable in case a user would want to subclass <see cref="T:SharpDX.Toolkit.Graphics.SkinnedEffect"/>.
+            </summary>
+            <returns>A new instance of BasicEffect.</returns>
+        </member>
+        <member name="T:SharpDX.Toolkit.Graphics.OcclusionQuery">
+            <summary>
+            A D3D query used to determine the number of visible pixels of a drawn object(s)
+            </summary>
+        </member>
+        <member name="M:SharpDX.Toolkit.Graphics.OcclusionQuery.#ctor(SharpDX.Toolkit.Graphics.GraphicsDevice)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpDX.Toolkit.Graphics.OcclusionQuery"/> class.
+            </summary>
+        </member>
+        <member name="M:SharpDX.Toolkit.Graphics.OcclusionQuery.Begin">
+            <summary>
+            Begins the query.
+            </summary>
+        </member>
+        <member name="M:SharpDX.Toolkit.Graphics.OcclusionQuery.End">
+            <summary>
+            Ends the query.
+            </summary>
+        </member>
+        <member name="P:SharpDX.Toolkit.Graphics.OcclusionQuery.IsComplete">
+            <summary>
+            Gets a value indicating whether or not the query is complete.
+            </summary>
+        </member>
+        <member name="P:SharpDX.Toolkit.Graphics.OcclusionQuery.PixelCount">
+            <summary>
+            Gets the number of unoccluded (visible) pixels.
+            </summary>
+            <remarks>
+            A value of 0 is only valid if the query was successfully completed.
+            </remarks>
+        </member>
         <member name="T:SharpDX.Toolkit.Graphics.TextureKeys">
             <summary>
             Default keys optionally stored in <see cref="F:SharpDX.Toolkit.Graphics.Material.Properties"/>.
@@ -1411,7 +1528,7 @@
         </member>
         <member name="M:SharpDX.Toolkit.Graphics.ModelBoneCollection.#ctor(System.Int32)">
             <summary>
-            Initializes a new instance of the <see cref="T:System.Collections.Generic.List`1" /> class that is empty and has the specified initial capacity.
+            Initializes a new instance of the <see cref="T:SharpDX.Toolkit.Graphics.ModelBoneCollection"/> class that is empty and has the specified initial capacity.
             </summary>
             <param name="capacity">The number of elements that the new list can initially store.</param>
         </member>
@@ -1537,11 +1654,12 @@
             </summary>
             <param name="meshPartFunction">The mesh part function.</param>
         </member>
-        <member name="M:SharpDX.Toolkit.Graphics.ModelMesh.Draw(SharpDX.Toolkit.Graphics.GraphicsDevice,SharpDX.Toolkit.Graphics.Effect)">
+        <member name="M:SharpDX.Toolkit.Graphics.ModelMesh.Draw(SharpDX.Toolkit.Graphics.GraphicsDevice,SharpDX.Matrix[],SharpDX.Toolkit.Graphics.Effect)">
             <summary>
             Draws all of the ModelMeshPart objects in this mesh, using their current Effect settings.
             </summary>
             <param name="context">The graphics context.</param>
+            <param name="boneTransforms">The model's bone transforms.</param>
             <param name="effectOverride">The effect to use instead of the effect attached to each mesh part. Default is null (use Effect in MeshPart)</param>
             <exception cref="T:System.InvalidOperationException">Model has no effect</exception>
         </member>
@@ -1581,6 +1699,11 @@
             The attributes for this mesh part.
             </summary>
         </member>
+        <member name="F:SharpDX.Toolkit.Graphics.ModelMeshPart.SkinnedBones">
+            <summary>
+            The skinned bones that are affecting this mesh part.
+            </summary>
+        </member>
         <member name="M:SharpDX.Toolkit.Graphics.ModelMeshPart.Draw(SharpDX.Toolkit.Graphics.GraphicsDevice)">
             <summary>
             Draws this <see cref="T:SharpDX.Toolkit.Graphics.ModelMeshPart"/>. See remarks for difference with XNA.
@@ -1591,39 +1714,21 @@
             This method is only responsible to setup the VertexBuffer, IndexBuffer and call the appropriate <see cref="M:SharpDX.Toolkit.Graphics.GraphicsDevice.DrawIndexed(SharpDX.Toolkit.Graphics.PrimitiveType,System.Int32,System.Int32,System.Int32)"/> method on the <see cref="T:SharpDX.Toolkit.Graphics.GraphicsDevice"/>.
             </remarks>
         </member>
+        <member name="P:SharpDX.Toolkit.Graphics.ModelMeshPart.IsSkinned">
+            <summary>
+            Gets a value indicating whether this instance contains skinning information.
+            </summary>
+            <value>
+            <c>true</c> if this instance contains skinning information; otherwise, <c>false</c>.
+            </value>
+        </member>
         <member name="P:SharpDX.Toolkit.Graphics.ModelMeshPart.Effect">
             <summary>Gets or sets the material Effect for this mesh part.  Reference page contains code sample.</summary>
         </member>
-        <member name="T:SharpDX.Toolkit.Graphics.BasicEffectInstaller">
-            <summary>
-            Implementation of the <see cref="T:SharpDX.Toolkit.Graphics.IEffectInstaller"/> for the <see cref="T:SharpDX.Toolkit.Graphics.BasicEffect"/>.
-            </summary>
-            <remarks>
-            This effect installer is similar to the default behavior of XNA with <see cref="T:SharpDX.Toolkit.Graphics.BasicEffect"/>.
-            </remarks>
-        </member>
-        <member name="M:SharpDX.Toolkit.Graphics.BasicEffectInstaller.#ctor(SharpDX.IServiceRegistry)">
-            <summary>
-            Initializes a new instance of the <see cref="T:SharpDX.Toolkit.Graphics.EffectInstallerBase"/> class.
-            </summary>
-            <param name="services">The services.</param>
-        </member>
-        <member name="M:SharpDX.Toolkit.Graphics.BasicEffectInstaller.#ctor(SharpDX.Toolkit.Graphics.GraphicsDevice)">
-            <summary>
-            Initializes a new instance of the <see cref="T:SharpDX.Toolkit.Graphics.EffectInstallerBase"/> class.
-            </summary>
-            <param name="graphicsDevice">The graphics device.</param>
-        </member>
-        <member name="M:SharpDX.Toolkit.Graphics.BasicEffectInstaller.CreateBasicEffect">
-            <summary>
-            Creates an instance of <see cref="T:SharpDX.Toolkit.Graphics.BasicEffect"/>, overridable in case a user would want to subclass <see cref="T:SharpDX.Toolkit.Graphics.BasicEffect"/>.
-            </summary>
-            <returns>A new instance of BasicEffect.</returns>
-        </member>
         <member name="T:SharpDX.Toolkit.Graphics.TextureView">
             <summary>
-            A texture view is a view on a specified mipmap set of a <see cref="P:SharpDX.Toolkit.Graphics.TextureView.Texture"/> or a RenderTarget. 
-            An instance of this class is castable to <see cref="T:SharpDX.Direct3D11.ShaderResourceView"/> or <see cref="T:SharpDX.Direct3D11.RenderTargetView"/> depending on the underlying native view.
+            A texture view is a view on a specified mipmap set of a <see cref="P:SharpDX.Toolkit.Graphics.TextureView.Texture"/>, a RenderTarget or a <see cref="T:SharpDX.Toolkit.Graphics.DepthStencilBuffer"/>. 
+            An instance of this class is castable to <see cref="T:SharpDX.Direct3D11.ShaderResourceView"/>, <see cref="T:SharpDX.Direct3D11.RenderTargetView"/> or <see cref="T:SharpDX.Direct3D11.DepthStencilView"/> depending on the underlying native view.
             </summary>
         </member>
         <member name="F:SharpDX.Toolkit.Graphics.TextureView.Description">
@@ -1641,6 +1746,13 @@
         <member name="M:SharpDX.Toolkit.Graphics.TextureView.op_Implicit(SharpDX.Toolkit.Graphics.TextureView)~SharpDX.Direct3D11.RenderTargetView">
             <summary>
             Performs an implicit conversion from <see cref="T:SharpDX.Toolkit.Graphics.TextureView"/> to <see cref="T:SharpDX.Direct3D11.RenderTargetView"/>.
+            </summary>
+            <param name="view">The view.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:SharpDX.Toolkit.Graphics.TextureView.op_Implicit(SharpDX.Toolkit.Graphics.TextureView)~SharpDX.Direct3D11.DepthStencilView">
+            <summary>
+            Performs an implicit conversion from <see cref="T:SharpDX.Toolkit.Graphics.TextureView"/> to <see cref="T:SharpDX.Direct3D11.DepthStencilView"/>.
             </summary>
             <param name="view">The view.</param>
             <returns>The result of the conversion.</returns>
@@ -1674,6 +1786,12 @@
             Gets a value indicating whether this instance is render view.
             </summary>
             <value><c>true</c> if this instance is render view; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SharpDX.Toolkit.Graphics.TextureView.IsDepthStencilView">
+            <summary>
+            Gets a value indicating whether this instance is a depth stencil view.
+            </summary>
+            <value><c>true</c> if this instance is a depth stencil view; otherwise, <c>false</c>.</value>
         </member>
         <member name="P:SharpDX.Toolkit.Graphics.TextureView.Texture">
             <summary>
@@ -1825,7 +1943,7 @@
         </member>
         <member name="T:SharpDX.Toolkit.Graphics.GraphicsPresenter">
             <summary>
-            This class is a front end to <see cref="T:SharpDX.DXGI.SwapChain"/> and <see cref="!:SwapChain1"/>.
+            This class is a front end to <see cref="T:SharpDX.DXGI.SwapChain"/> and <see cref="T:SharpDX.DXGI.SwapChain1"/>.
             </summary>
             <remarks>
             In order to create a new <see cref="T:SharpDX.Toolkit.Graphics.GraphicsPresenter"/>, a <see cref="P:SharpDX.Toolkit.Graphics.GraphicsPresenter.GraphicsDevice"/> should have been initialized first.
@@ -1892,7 +2010,7 @@
         </member>
         <member name="P:SharpDX.Toolkit.Graphics.GraphicsPresenter.NativePresenter">
             <summary>
-            Gets the underlying native presenter (can be a <see cref="T:SharpDX.DXGI.SwapChain"/> or <see cref="!:SharpDX.DXGI.SwapChain1"/> or null, depending on the platform).
+            Gets the underlying native presenter (can be a <see cref="T:SharpDX.DXGI.SwapChain"/> or <see cref="T:SharpDX.DXGI.SwapChain1"/> or null, depending on the platform).
             </summary>
             <value>The native presenter.</value>
         </member>
@@ -7439,19 +7557,26 @@
             Gets a boolean value indicating if this buffer is supporting read-only view.
             </summary>
         </member>
-        <member name="F:SharpDX.Toolkit.Graphics.DepthStencilBuffer.ReadOnlyView">
+        <member name="F:SharpDX.Toolkit.Graphics.DepthStencilBuffer.DepthStencilView">
             <summary>
-            Gets a a read-only <see cref="T:SharpDX.Direct3D11.DepthStencilView"/>.
+            Gets the selector for a <see cref="F:SharpDX.Toolkit.Graphics.DepthStencilBuffer.DepthStencilView"/>
             </summary>
-            <remarks>
-            This value can be null if not supported by hardware (minimum features level is 11.0)
-            </remarks>
         </member>
         <member name="M:SharpDX.Toolkit.Graphics.DepthStencilBuffer.op_Implicit(SharpDX.Toolkit.Graphics.DepthStencilBuffer)~SharpDX.Direct3D11.DepthStencilView">
             <summary>
             DepthStencilView casting operator.
             </summary>
             <param name="buffer">Source for the.</param>
+        </member>
+        <member name="M:SharpDX.Toolkit.Graphics.DepthStencilBuffer.GetDepthStencilView(SharpDX.Toolkit.Graphics.ViewType,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Gets a specific <see cref="F:SharpDX.Toolkit.Graphics.DepthStencilBuffer.DepthStencilView"/> from this texture.
+            </summary>
+            <param name="viewType">Type of the view slice.</param>
+            <param name="arrayOrDepthSlice">The texture array slice index.</param>
+            <param name="mipMapSlice">The mip map slice index.</param>
+            <param name="readOnlyView">Indicates if the view is read-only.</param>
+            <returns>A <see cref="F:SharpDX.Toolkit.Graphics.DepthStencilBuffer.DepthStencilView"/></returns>
         </member>
         <member name="M:SharpDX.Toolkit.Graphics.DepthStencilBuffer.New(SharpDX.Toolkit.Graphics.GraphicsDevice,SharpDX.Direct3D11.Texture2DDescription)">
             <summary>
@@ -7509,6 +7634,14 @@
             <msdn-id>ff476521</msdn-id>
               <unmanaged>HRESULT ID3D11Device::CreateTexture2D([In] const D3D11_TEXTURE2D_DESC* pDesc,[In, Buffer, Optional] const D3D11_SUBRESOURCE_DATA* pInitialData,[Out, Fast] ID3D11Texture2D** ppTexture2D)</unmanaged>
               <unmanaged-short>ID3D11Device::CreateTexture2D</unmanaged-short>
+        </member>
+        <member name="P:SharpDX.Toolkit.Graphics.DepthStencilBuffer.ReadOnlyView">
+            <summary>
+            Gets a a read-only <see cref="F:SharpDX.Toolkit.Graphics.DepthStencilBuffer.DepthStencilView"/>.
+            </summary>
+            <remarks>
+            This value can be null if not supported by hardware (minimum features level is 11.0)
+            </remarks>
         </member>
         <member name="T:SharpDX.Toolkit.Graphics.RenderTargetCube">
             <summary>

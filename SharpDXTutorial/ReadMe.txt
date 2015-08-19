@@ -1,8 +1,9 @@
 //==============================================================
 //Tutorial Created By Roberto Nacchia (robydx@gmail.com)
-//www.notjustcode.it 2013
+//www.notjustcode.it 2015
 
 //Based on SharpDX Library (http://sharpdx.org/)
+//web site: http://www.notjustcode.it
 
 
 //==============================================================
@@ -26,13 +27,8 @@ Tutorial15: Toon Shading With Multiple Render Target
 Tutorial16: Environment Mapping
 Tutorial17: Query
 Tutorial18: Skin Animation With Collada File Format
+Tutorial19: Adaptive Tessellation
 
-Coming Soon
-
-: Shadow Mapping
-: Rendering To Texture Array
-: Debugging Code
-: Cascading Shadow Map
 
 //==============================================================
 INPUT
@@ -45,15 +41,12 @@ AUDIO
 //==============================================================
 TutorialA1: Playing Audio
 
-Coming Soon
-: Audio Effect
-
 //==============================================================
 Direct2D
 //==============================================================
 TutorialD1: Init Direct3D
 
-Coming Soon
-: Draw Images
+
+-- Compile and run, required .Net Framework 4.5, Windows 7 or above, DirectX11 Compatible VideoCard
 
 

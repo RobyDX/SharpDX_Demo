@@ -90,7 +90,7 @@ namespace Tutorial5
 
                 //Init Mesh
                 SharpMesh mesh = SharpMesh.Create<TexturedVertex>(device, vertices, indices);
-
+                
                 //Init shader from file
                 SharpShader shader = new SharpShader(device, "../../HLSL.txt",
                     new SharpShaderDescription() { VertexShaderFunction = "VS", PixelShaderFunction = "PS" },

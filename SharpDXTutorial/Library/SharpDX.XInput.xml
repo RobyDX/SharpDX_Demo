@@ -96,16 +96,6 @@
             	<c>true</c> if this instance is connected; otherwise, <c>false</c>.
             </value>
         </member>
-        <member name="P:SharpDX.XInput.Controller.SoundRenderGuid">
-            <summary>
-            Gets the sound render GUID.
-            </summary>
-        </member>
-        <member name="P:SharpDX.XInput.Controller.SoundCaptureGuid">
-            <summary>
-            Gets the sound capture GUID.
-            </summary>
-        </member>
         <member name="T:SharpDX.XInput.Gamepad">
             <summary>	
             <p>Describes the current state of the Xbox 360 Controller.</p>	
@@ -337,6 +327,42 @@
             <unmanaged>XINPUT_CAPS_VOICE_SUPPORTED</unmanaged>	
             <unmanaged-short>XINPUT_CAPS_VOICE_SUPPORTED</unmanaged-short>	
         </member>
+        <member name="F:SharpDX.XInput.CapabilityFlags.FfbSupported">
+            <summary>	
+            No documentation.	
+            </summary>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='XINPUT_CAPS_FFB_SUPPORTED']/*"/>	
+            <msdn-id>microsoft.directx_sdk.reference.xinput_capabilities</msdn-id>	
+            <unmanaged>XINPUT_CAPS_FFB_SUPPORTED</unmanaged>	
+            <unmanaged-short>XINPUT_CAPS_FFB_SUPPORTED</unmanaged-short>	
+        </member>
+        <member name="F:SharpDX.XInput.CapabilityFlags.Wireless">
+            <summary>	
+            No documentation.	
+            </summary>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='XINPUT_CAPS_WIRELESS']/*"/>	
+            <msdn-id>microsoft.directx_sdk.reference.xinput_capabilities</msdn-id>	
+            <unmanaged>XINPUT_CAPS_WIRELESS</unmanaged>	
+            <unmanaged-short>XINPUT_CAPS_WIRELESS</unmanaged-short>	
+        </member>
+        <member name="F:SharpDX.XInput.CapabilityFlags.PmdSupported">
+            <summary>	
+            No documentation.	
+            </summary>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='XINPUT_CAPS_PMD_SUPPORTED']/*"/>	
+            <msdn-id>microsoft.directx_sdk.reference.xinput_capabilities</msdn-id>	
+            <unmanaged>XINPUT_CAPS_PMD_SUPPORTED</unmanaged>	
+            <unmanaged-short>XINPUT_CAPS_PMD_SUPPORTED</unmanaged-short>	
+        </member>
+        <member name="F:SharpDX.XInput.CapabilityFlags.NoNavigation">
+            <summary>	
+            No documentation.	
+            </summary>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='XINPUT_CAPS_NO_NAVIGATION']/*"/>	
+            <msdn-id>microsoft.directx_sdk.reference.xinput_capabilities</msdn-id>	
+            <unmanaged>XINPUT_CAPS_NO_NAVIGATION</unmanaged>	
+            <unmanaged-short>XINPUT_CAPS_NO_NAVIGATION</unmanaged-short>	
+        </member>
         <member name="F:SharpDX.XInput.CapabilityFlags.None">
             <summary>	
             None.	
@@ -387,6 +413,15 @@
             <unmanaged>XINPUT_DEVSUBTYPE_GAMEPAD</unmanaged>	
             <unmanaged-short>XINPUT_DEVSUBTYPE_GAMEPAD</unmanaged-short>	
         </member>
+        <member name="F:SharpDX.XInput.DeviceSubType.Unknown">
+            <summary>	
+            No documentation.	
+            </summary>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='XINPUT_DEVSUBTYPE_UNKNOWN']/*"/>	
+            <msdn-id>hh405050</msdn-id>	
+            <unmanaged>XINPUT_DEVSUBTYPE_UNKNOWN</unmanaged>	
+            <unmanaged-short>XINPUT_DEVSUBTYPE_UNKNOWN</unmanaged-short>	
+        </member>
         <member name="F:SharpDX.XInput.DeviceSubType.Wheel">
             <summary>	
             No documentation.	
@@ -405,14 +440,14 @@
             <unmanaged>XINPUT_DEVSUBTYPE_ARCADE_STICK</unmanaged>	
             <unmanaged-short>XINPUT_DEVSUBTYPE_ARCADE_STICK</unmanaged-short>	
         </member>
-        <member name="F:SharpDX.XInput.DeviceSubType.FlightSick">
+        <member name="F:SharpDX.XInput.DeviceSubType.FlightStick">
             <summary>	
             No documentation.	
             </summary>	
-            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='XINPUT_DEVSUBTYPE_FLIGHT_SICK']/*"/>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='XINPUT_DEVSUBTYPE_FLIGHT_STICK']/*"/>	
             <msdn-id>hh405050</msdn-id>	
-            <unmanaged>XINPUT_DEVSUBTYPE_FLIGHT_SICK</unmanaged>	
-            <unmanaged-short>XINPUT_DEVSUBTYPE_FLIGHT_SICK</unmanaged-short>	
+            <unmanaged>XINPUT_DEVSUBTYPE_FLIGHT_STICK</unmanaged>	
+            <unmanaged-short>XINPUT_DEVSUBTYPE_FLIGHT_STICK</unmanaged-short>	
         </member>
         <member name="F:SharpDX.XInput.DeviceSubType.DancePad">
             <summary>	
@@ -432,6 +467,15 @@
             <unmanaged>XINPUT_DEVSUBTYPE_GUITAR</unmanaged>	
             <unmanaged-short>XINPUT_DEVSUBTYPE_GUITAR</unmanaged-short>	
         </member>
+        <member name="F:SharpDX.XInput.DeviceSubType.GuitarAlternate">
+            <summary>	
+            No documentation.	
+            </summary>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='XINPUT_DEVSUBTYPE_GUITAR_ALTERNATE']/*"/>	
+            <msdn-id>hh405050</msdn-id>	
+            <unmanaged>XINPUT_DEVSUBTYPE_GUITAR_ALTERNATE</unmanaged>	
+            <unmanaged-short>XINPUT_DEVSUBTYPE_GUITAR_ALTERNATE</unmanaged-short>	
+        </member>
         <member name="F:SharpDX.XInput.DeviceSubType.DrumKit">
             <summary>	
             No documentation.	
@@ -440,6 +484,24 @@
             <msdn-id>hh405050</msdn-id>	
             <unmanaged>XINPUT_DEVSUBTYPE_DRUM_KIT</unmanaged>	
             <unmanaged-short>XINPUT_DEVSUBTYPE_DRUM_KIT</unmanaged-short>	
+        </member>
+        <member name="F:SharpDX.XInput.DeviceSubType.GuitarBass">
+            <summary>	
+            No documentation.	
+            </summary>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='XINPUT_DEVSUBTYPE_GUITAR_BASS']/*"/>	
+            <msdn-id>hh405050</msdn-id>	
+            <unmanaged>XINPUT_DEVSUBTYPE_GUITAR_BASS</unmanaged>	
+            <unmanaged-short>XINPUT_DEVSUBTYPE_GUITAR_BASS</unmanaged-short>	
+        </member>
+        <member name="F:SharpDX.XInput.DeviceSubType.ArcadePad">
+            <summary>	
+            No documentation.	
+            </summary>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='XINPUT_DEVSUBTYPE_ARCADE_PAD']/*"/>	
+            <msdn-id>hh405050</msdn-id>	
+            <unmanaged>XINPUT_DEVSUBTYPE_ARCADE_PAD</unmanaged>	
+            <unmanaged-short>XINPUT_DEVSUBTYPE_ARCADE_PAD</unmanaged-short>	
         </member>
         <member name="T:SharpDX.XInput.DeviceType">
             <summary>	
@@ -1044,6 +1106,19 @@
             <unmanaged>unsigned int XInputGetKeystroke([In] unsigned int dwUserIndex,[In] unsigned int dwReserved,[Out] XINPUT_KEYSTROKE* pKeystroke)</unmanaged>	
             <unmanaged-short>XInputGetKeystroke</unmanaged-short>	
         </member>
+        <member name="M:SharpDX.XInput.XInput.XInputGetBatteryInformation(System.Int32,SharpDX.XInput.BatteryDeviceType,SharpDX.XInput.BatteryInformation@)">
+            <summary>	
+            <p>Retrieves the battery type and charge status of a wireless controller.</p>	
+            </summary>	
+            <param name="dwUserIndex"><dd> <p>Index of the signed-in gamer associated with the device. Can be a value in the range 0?XUSER_MAX_COUNT ? 1.</p> </dd></param>	
+            <param name="devType"><dd> <p>Specifies which device associated with this user index should be queried. Must be <see cref="F:SharpDX.XInput.BatteryDeviceType.Gamepad"/> or <see cref="F:SharpDX.XInput.BatteryDeviceType.Headset"/>.</p> </dd></param>	
+            <param name="batteryInformationRef"><dd> <p>Pointer to an <strong><see cref="T:SharpDX.XInput.BatteryInformation"/></strong> structure that receives the battery information.</p> </dd></param>	
+            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Win32.ErrorCode.Success"/>.</p></returns>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='XInputGetBatteryInformation']/*"/>	
+            <msdn-id>microsoft.directx_sdk.reference.xinputgetbatteryinformation</msdn-id>	
+            <unmanaged>unsigned int XInputGetBatteryInformation([In] unsigned int dwUserIndex,[In] BATTERY_DEVTYPE devType,[Out] XINPUT_BATTERY_INFORMATION* pBatteryInformation)</unmanaged>	
+            <unmanaged-short>XInputGetBatteryInformation</unmanaged-short>	
+        </member>
         <member name="M:SharpDX.XInput.XInput.XInputSetState(System.Int32,SharpDX.XInput.Vibration)">
             <summary>	
             <p>Sends data to a connected controller. This function is used to activate the vibration function of a controller.</p>	
@@ -1055,22 +1130,6 @@
             <msdn-id>microsoft.directx_sdk.reference.xinputsetstate</msdn-id>	
             <unmanaged>unsigned int XInputSetState([In] unsigned int dwUserIndex,[In] XINPUT_VIBRATION* pVibration)</unmanaged>	
             <unmanaged-short>XInputSetState</unmanaged-short>	
-        </member>
-        <member name="M:SharpDX.XInput.XInput.XInputGetDSoundAudioDeviceGuids(System.Int32,System.Guid@,System.Guid@)">
-            <summary>	
-            <p>Gets the sound rendering and sound capture device GUIDs that are associated with the headset connected to the specified controller.</p>	
-            </summary>	
-            <param name="dwUserIndex"><dd> <p>[in] Index of the user's controller. It can be a value in the range 0?3. For information about how this value is determined and how the value maps to indicators on the controller, see Multiple Controllers.</p> </dd></param>	
-            <param name="dSoundRenderGuidRef"><dd> <p>[out] Pointer that receives the <see cref="T:System.Guid"/> of the headset sound rendering device.</p> </dd></param>	
-            <param name="dSoundCaptureGuidRef"><dd> <p>[out] Pointer that receives the <see cref="T:System.Guid"/> of the headset sound capture device.</p> </dd></param>	
-            <returns><p>If the function successfully retrieves the device IDs for render and capture, the return code is <strong><see cref="F:SharpDX.Win32.ErrorCode.Success"/></strong>. </p><p>If there is no headset connected to the controller, the function also retrieves <strong><see cref="F:SharpDX.Win32.ErrorCode.Success"/></strong> with <strong>GUID_NULL</strong> as the values for <em>pDSoundRenderGuid</em> and <em>pDSoundCaptureGuid</em>. </p><p>If the controller port device is not physically connected, the function returns <strong><see cref="F:SharpDX.Win32.ErrorCode.DeviceNotConnected"/></strong>. </p><p>If the function fails, it returns a valid Win32 error code.</p></returns>	
-            <remarks>	
-            <p>Use of legacy DirectSound is not recommended, and DirectSound is not available for Windows Store apps.</p><p><strong>Note</strong>??<strong><see cref="M:SharpDX.XInput.XInput.XInputGetDSoundAudioDeviceGuids(System.Int32,System.Guid@,System.Guid@)"/></strong> is deprecated because it isn't supported by Windows?8 (XInput 1.4).</p>	
-            </remarks>	
-            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='XInputGetDSoundAudioDeviceGuids']/*"/>	
-            <msdn-id>microsoft.directx_sdk.reference.xinputgetdsoundaudiodeviceguids</msdn-id>	
-            <unmanaged>unsigned int XInputGetDSoundAudioDeviceGuids([In] unsigned int dwUserIndex,[Out] GUID* pDSoundRenderGuid,[Out] GUID* pDSoundCaptureGuid)</unmanaged>	
-            <unmanaged-short>XInputGetDSoundAudioDeviceGuids</unmanaged-short>	
         </member>
         <member name="M:SharpDX.XInput.XInput.XInputGetState(System.Int32,SharpDX.XInput.State@)">
             <summary>	
@@ -1087,6 +1146,37 @@
             <unmanaged>unsigned int XInputGetState([In] unsigned int dwUserIndex,[Out] XINPUT_STATE* pState)</unmanaged>	
             <unmanaged-short>XInputGetState</unmanaged-short>	
         </member>
+        <member name="M:SharpDX.XInput.XInput.XInputGetAudioDeviceIds(System.Int32,System.IntPtr,System.IntPtr,System.IntPtr,System.IntPtr)">
+            <summary>	
+            <p>Retrieves the sound rendering and sound capture audio device IDs that are associated with the headset connected to the specified controller.</p>	
+            </summary>	
+            <param name="dwUserIndex"><dd> <p> Index of the gamer associated with the device.</p> </dd></param>	
+            <param name="renderDeviceIdRef"><dd> <p> Windows Core Audio device ID string for render (speakers).</p> </dd></param>	
+            <param name="renderCountRef"><dd> <p> Size, in wide-chars, of the render device ID string buffer.</p> </dd></param>	
+            <param name="captureDeviceIdRef"><dd> <p>Windows Core Audio device ID string for capture (microphone).</p> </dd></param>	
+            <param name="captureCountRef"><dd> <p>Size, in wide-chars, of capture device ID string buffer.</p> </dd></param>	
+            <returns><p>If the function successfully retrieves the device IDs for render and capture, the return code is <see cref="F:SharpDX.Win32.ErrorCode.Success"/>. </p><p>If there is no headset connected to the controller, the function will also retrieve <see cref="F:SharpDX.Win32.ErrorCode.Success"/> with <c>null</c> as the values for <em>pRenderDeviceId</em> and <em>pCaptureDeviceId</em>. </p><p>If the controller port device is not physically connected, the function will return <see cref="F:SharpDX.Win32.ErrorCode.DeviceNotConnected"/>. </p><p>If the function fails, it will return a valid Win32 error code. </p></returns>	
+            <remarks>	
+            <p>Callers must allocate the memory for the buffers passed to <strong><see cref="M:SharpDX.XInput.XInput.XInputGetAudioDeviceIds(System.Int32,System.IntPtr,System.IntPtr,System.IntPtr,System.IntPtr)"/></strong>. The resulting strings can be of arbitrary length.</p>	
+            </remarks>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='XInputGetAudioDeviceIds']/*"/>	
+            <msdn-id>microsoft.directx_sdk.reference.xinputgetaudiodeviceids</msdn-id>	
+            <unmanaged>unsigned int XInputGetAudioDeviceIds([In] unsigned int dwUserIndex,[Out, Buffer, Optional] wchar_t* pRenderDeviceId,[InOut, Optional] unsigned int* pRenderCount,[Out, Buffer, Optional] wchar_t* pCaptureDeviceId,[InOut, Optional] unsigned int* pCaptureCount)</unmanaged>	
+            <unmanaged-short>XInputGetAudioDeviceIds</unmanaged-short>	
+        </member>
+        <member name="M:SharpDX.XInput.XInput.XInputEnable(SharpDX.Bool)">
+            <summary>	
+            <p>Sets the reporting state of XInput.</p>	
+            </summary>	
+            <param name="enable"><dd> <p>If enable is <strong><see cref="F:SharpDX.Result.False"/></strong>, XInput will only send neutral data in response to <strong><see cref="M:SharpDX.XInput.XInput.XInputGetState(System.Int32,SharpDX.XInput.State@)"/></strong> (all buttons up, axes centered, and triggers at 0). <strong><see cref="M:SharpDX.XInput.XInput.XInputSetState(System.Int32,SharpDX.XInput.Vibration)"/></strong> calls will be registered but not sent to the device. Sending any value other than <strong><see cref="F:SharpDX.Result.False"/> </strong>will restore reading and writing functionality to normal.</p> </dd></param>	
+            <remarks>	
+            <p>This function is meant to be called when an application gains or loses focus (such as via WM_ACTIVATEAPP). Using this function, you will not have to change the XInput query loop in your application as neutral data will always be reported if XInput is disabled. </p><p>In a controller that supports vibration effects: </p><ul> <li>Passing <strong><see cref="F:SharpDX.Result.False"/></strong> will stop any vibration effects currently playing. In this state, calls to <strong><see cref="M:SharpDX.XInput.XInput.XInputSetState(System.Int32,SharpDX.XInput.Vibration)"/></strong> will be registered, but not passed to the device.</li> <li>Passing <strong>TRUE</strong> will pass the last vibration request (even if it is 0) sent to <strong><see cref="M:SharpDX.XInput.XInput.XInputSetState(System.Int32,SharpDX.XInput.Vibration)"/></strong> to the device.</li> </ul>	
+            </remarks>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='XInputEnable']/*"/>	
+            <msdn-id>microsoft.directx_sdk.reference.xinputenable</msdn-id>	
+            <unmanaged>void XInputEnable([In] BOOL enable)</unmanaged>	
+            <unmanaged-short>XInputEnable</unmanaged-short>	
+        </member>
         <member name="M:SharpDX.XInput.XInput.XInputGetCapabilities(System.Int32,SharpDX.XInput.DeviceQueryType,SharpDX.XInput.Capabilities@)">
             <summary>	
             <p>Retrieves the capabilities and features of a connected controller.</p>	
@@ -1102,32 +1192,6 @@
             <msdn-id>microsoft.directx_sdk.reference.xinputgetcapabilities</msdn-id>	
             <unmanaged>unsigned int XInputGetCapabilities([In] unsigned int dwUserIndex,[In] XINPUT_DEVQUERYTYPE dwFlags,[Out] XINPUT_CAPABILITIES* pCapabilities)</unmanaged>	
             <unmanaged-short>XInputGetCapabilities</unmanaged-short>	
-        </member>
-        <member name="M:SharpDX.XInput.XInput.XInputGetBatteryInformation(System.Int32,SharpDX.XInput.BatteryDeviceType,SharpDX.XInput.BatteryInformation@)">
-            <summary>	
-            <p>Retrieves the battery type and charge status of a wireless controller.</p>	
-            </summary>	
-            <param name="dwUserIndex"><dd> <p>Index of the signed-in gamer associated with the device. Can be a value in the range 0?XUSER_MAX_COUNT ? 1.</p> </dd></param>	
-            <param name="devType"><dd> <p>Specifies which device associated with this user index should be queried. Must be <see cref="F:SharpDX.XInput.BatteryDeviceType.Gamepad"/> or <see cref="F:SharpDX.XInput.BatteryDeviceType.Headset"/>.</p> </dd></param>	
-            <param name="batteryInformationRef"><dd> <p>Pointer to an <strong><see cref="T:SharpDX.XInput.BatteryInformation"/></strong> structure that receives the battery information.</p> </dd></param>	
-            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Win32.ErrorCode.Success"/>.</p></returns>	
-            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='XInputGetBatteryInformation']/*"/>	
-            <msdn-id>microsoft.directx_sdk.reference.xinputgetbatteryinformation</msdn-id>	
-            <unmanaged>unsigned int XInputGetBatteryInformation([In] unsigned int dwUserIndex,[In] BATTERY_DEVTYPE devType,[Out] XINPUT_BATTERY_INFORMATION* pBatteryInformation)</unmanaged>	
-            <unmanaged-short>XInputGetBatteryInformation</unmanaged-short>	
-        </member>
-        <member name="M:SharpDX.XInput.XInput.XInputEnable(SharpDX.Bool)">
-            <summary>	
-            <p>Sets the reporting state of XInput.</p>	
-            </summary>	
-            <param name="enable"><dd> <p>If enable is <strong><see cref="F:SharpDX.Result.False"/></strong>, XInput will only send neutral data in response to <strong><see cref="M:SharpDX.XInput.XInput.XInputGetState(System.Int32,SharpDX.XInput.State@)"/></strong> (all buttons up, axes centered, and triggers at 0). <strong><see cref="M:SharpDX.XInput.XInput.XInputSetState(System.Int32,SharpDX.XInput.Vibration)"/></strong> calls will be registered but not sent to the device. Sending any value other than <strong><see cref="F:SharpDX.Result.False"/> </strong>will restore reading and writing functionality to normal.</p> </dd></param>	
-            <remarks>	
-            <p>This function is meant to be called when an application gains or loses focus (such as via WM_ACTIVATEAPP). Using this function, you will not have to change the XInput query loop in your application as neutral data will always be reported if XInput is disabled. </p><p>In a controller that supports vibration effects: </p><ul> <li>Passing <strong><see cref="F:SharpDX.Result.False"/></strong> will stop any vibration effects currently playing. In this state, calls to <strong><see cref="M:SharpDX.XInput.XInput.XInputSetState(System.Int32,SharpDX.XInput.Vibration)"/></strong> will be registered, but not passed to the device.</li> <li>Passing <strong>TRUE</strong> will pass the last vibration request (even if it is 0) sent to <strong><see cref="M:SharpDX.XInput.XInput.XInputSetState(System.Int32,SharpDX.XInput.Vibration)"/></strong> to the device.</li> </ul>	
-            </remarks>	
-            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='XInputEnable']/*"/>	
-            <msdn-id>microsoft.directx_sdk.reference.xinputenable</msdn-id>	
-            <unmanaged>void XInputEnable([In] BOOL enable)</unmanaged>	
-            <unmanaged-short>XInputEnable</unmanaged-short>	
         </member>
         <member name="T:SharpDX.XInput.BatteryInformation">
             <summary>	

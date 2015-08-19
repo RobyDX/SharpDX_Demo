@@ -1609,6 +1609,13 @@
             <returns>Returns one of the following {{Direct3D 10 Return Codes}}.</returns>
             <unmanaged>HRESULT Apply([None] UINT Flags)</unmanaged>
         </member>
+        <member name="M:SharpDX.Direct3D11.EffectPass.Apply(SharpDX.Direct3D11.DeviceContext,System.Int32)">
+            <summary>	
+            Set the state contained in a pass to the device.	
+            </summary>	
+            <returns>Returns one of the following {{Direct3D 10 Return Codes}}.</returns>
+            <unmanaged>HRESULT Apply([None] UINT Flags)</unmanaged>
+        </member>
         <member name="M:SharpDX.Direct3D11.EffectPass.#ctor(System.IntPtr)">
             <summary>
             Initializes a new instance of the <see cref="T:SharpDX.Direct3D11.EffectPass"/> class.

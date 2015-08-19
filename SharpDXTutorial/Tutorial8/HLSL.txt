@@ -1,4 +1,4 @@
-﻿struct VS_INPUT
+struct VS_INPUT
 {
     float4 Pos : POSITION;
 };
@@ -14,7 +14,7 @@ struct PS_INPUT
     float2 tex:TEXCOORD;
 };
 
-cbuffer data :register(c0)
+cbuffer data :register(b0)
 {
 	float4x4 world;
 	float4x4 viewProj;

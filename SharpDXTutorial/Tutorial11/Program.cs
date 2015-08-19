@@ -93,7 +93,7 @@ namespace Tutorial11
                         nFactor--;
                     if (e.KeyCode == Keys.W)
                         device.SetWireframeRasterState();
-                    if (e.KeyCode == Keys.F)
+                    if (e.KeyCode == Keys.S)
                         device.SetDefaultRasterState();
                 };
 

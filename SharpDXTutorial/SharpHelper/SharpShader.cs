@@ -104,7 +104,7 @@ namespace SharpHelper
             // Compile Vertex and Pixel shaders
             var vertexShaderByteCode = ShaderBytecode.CompileFromFile(filename, description.VertexShaderFunction, "vs_5_0");
             VertexShader = new VertexShader(Device.Device, vertexShaderByteCode);
-
+            
             //create pixel shader
             if (!string.IsNullOrEmpty(description.PixelShaderFunction))
             {

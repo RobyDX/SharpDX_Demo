@@ -61,7 +61,7 @@ namespace Tutorial10
                 //init shader
                 SharpShader phongShader = new SharpShader(device, "../../HLSL.txt",
                     new SharpShaderDescription() { VertexShaderFunction = "VS", PixelShaderFunction = "PS" },
-                    new InputElement[] {  
+                    new InputElement[] {
                         new InputElement("POSITION", 0, Format.R32G32B32_Float, 0, 0),
                         new InputElement("NORMAL", 0, Format.R32G32B32_Float, 12, 0),
                         new InputElement("TANGENT", 0, Format.R32G32B32_Float, 24, 0),
@@ -71,7 +71,7 @@ namespace Tutorial10
 
                 SharpShader renderTargetShader = new SharpShader(device, "../../HLSL_RT.txt",
                     new SharpShaderDescription() { VertexShaderFunction = "VS", PixelShaderFunction = "PS" },
-                    new InputElement[] {  
+                    new InputElement[] {
                         new InputElement("POSITION", 0, Format.R32G32B32_Float, 0, 0),
                         new InputElement("NORMAL", 0, Format.R32G32B32_Float, 12, 0),
                         new InputElement("TEXCOORD", 0, Format.R32G32_Float, 24, 0)
@@ -169,7 +169,6 @@ namespace Tutorial10
                     }
 
 
-
                     //RENDERING TO DEVICE
 
                     //Set original targets
@@ -179,7 +178,8 @@ namespace Tutorial10
                     renderTargetShader.Apply();
 
                     Matrix WVP =
-                        Matrix.LookAtLH(new Vector3(7, 5, -13), new Vector3(), Vector3.UnitY) *
+                        Matrix.RotationY(Environment.TickCount / 2000.0F) *
+                        Matrix.LookAtLH(new Vector3(7, 10, -13), new Vector3(), Vector3.UnitY) *
                         projection;
                     device.UpdateData<RenderTargetData>(renderTargetConstantBuffer, new RenderTargetData() { worldViewProjection = WVP, data = new Vector4(mode, 0, 0, 0) });
 

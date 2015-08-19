@@ -160,6 +160,7 @@ namespace Tutorial17
                     device.DeviceContext.End(pipelineQuery);
 
                     //get result
+                    
                     while (!device.DeviceContext.GetData<QueryDataPipelineStatistics>(pipelineQuery, AsynchronousFlags.None, out stats))
                     {
                     }
@@ -177,6 +178,7 @@ namespace Tutorial17
                     font.DrawString(string.Format("Vertex Count Count: {0}", stats.IAVerticeCount), 0, 90, Color.White);
                     font.DrawString(string.Format("Vertex Shader Execution: {0}", stats.VSInvocationCount), 0, 120, Color.White);
                     font.DrawString(string.Format("Pixel Shader Execution: {0}", stats.PSInvocationCount), 0, 150, Color.White);
+                    
 
                     //flush text to view
                     font.End();

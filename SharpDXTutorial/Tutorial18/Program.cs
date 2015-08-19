@@ -89,11 +89,15 @@ namespace Tutorial18
                         g.Shader = skinShader;
                     else
                         g.Shader = staticShader;
-                    g.Material.DiffuseTexture = ShaderResourceView.FromFile(device.Device, path + g.Material.DiffuseTextureName);
 
-                    g.Material.NormalTextureName = Path.GetFileNameWithoutExtension(g.Material.DiffuseTextureName) + "N.dds";
+                    if (!string.IsNullOrEmpty(g.Material.DiffuseTextureName))
+                    {
+                        g.Material.DiffuseTexture = ShaderResourceView.FromFile(device.Device, path + g.Material.DiffuseTextureName);
 
-                    g.Material.NormalTexture = ShaderResourceView.FromFile(device.Device, path + g.Material.NormalTextureName);
+                        g.Material.NormalTextureName = Path.GetFileNameWithoutExtension(g.Material.DiffuseTextureName) + "N.dds";
+
+                        g.Material.NormalTexture = ShaderResourceView.FromFile(device.Device, path + g.Material.NormalTextureName);
+                    }
                 }
 
                 fpsCounter.Reset();
@@ -140,14 +144,14 @@ namespace Tutorial18
                     Matrix view = Matrix.LookAtLH(new Vector3(0, -100, 50), new Vector3(0, 0, 50), Vector3.UnitZ);
                     Matrix world = Matrix.Identity;
 
-                    float angle = 0.2F;
+                    float angle = Environment.TickCount / 2000.0F;
                     Vector3 light = new Vector3((float)Math.Sin(angle), (float)Math.Cos(angle), 0);
                     light.Normalize();
                     device.UpdateData<Vector4>(lightBuffer, new Vector4(light, 1));
                     device.DeviceContext.VertexShader.SetConstantBuffer(2, lightBuffer);
 
 
-                    
+
                     float animationTime = (Environment.TickCount - lastTick) / 1000.0F;
 
                     if (animationTime >= model.Animations.First().Duration)
@@ -155,14 +159,14 @@ namespace Tutorial18
                         lastTick = Environment.TickCount;
                         animationTime = 0;
                     }
-                    
+
                     model.SetTime(animationTime);
 
                     model.Draw(device, new SkinShaderInformation()
-                        {
-                            Trasform = world * view * projection,
-                            World = world
-                        });
+                    {
+                        Trasform = world * view * projection,
+                        World = world
+                    });
 
                     font.Begin();
 

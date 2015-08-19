@@ -1,4 +1,4 @@
-﻿
+
 cbuffer data :register(b0)
 {
 	float4x4 transform;

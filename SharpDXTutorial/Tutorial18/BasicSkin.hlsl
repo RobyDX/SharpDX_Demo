@@ -1,4 +1,4 @@
-﻿cbuffer data :register(b0)
+cbuffer data :register(b0)
 {
 	float4x4 transform;
 	float4x4 world;
@@ -9,7 +9,7 @@ cbuffer PaletteMatrices:register(b1)
 	float4x4 palette[256];
 };
 
-cbuffer Data
+cbuffer Data:register(b2)
 {
 	float4 lightDirection;
 };
@@ -42,16 +42,16 @@ VS_OUTPUT VSMain( VS_INPUT input )
 		palette[input.joint.w] * input.weight.w;
 
 	float4 pos = mul(mat , input.position);
-		float3 N = mul(mat , input.normal);
-		float3 T= mul(mat , input.tangent);
-		float3 B = mul(mat , input.binormal);
+	float3 N = mul(mat , input.normal);
+	float3 T= mul(mat , input.tangent);
+	float3 B = mul(mat , input.binormal);
 
-		B=mul(world,B);
+	B=mul(world,B);
 	T=mul(world,T);
 	N=mul(world,N);
 
 	float3x3 Tangent={T,B,N};
-		Output.lightDirection=mul(lightDirection.xyz,Tangent);
+	Output.lightDirection=mul(Tangent,lightDirection.xyz);
 
 
 	Output.position = mul(transform,pos);
@@ -59,21 +59,18 @@ VS_OUTPUT VSMain( VS_INPUT input )
 	return Output;
 }
 
-
-Texture2D textureMap;
 SamplerState textureSampler;
-
-Texture2D normalMap;
+Texture2D textureMap:register(t0);
+Texture2D normalMap:register(t1);
 
 
 float4 PSMain( VS_OUTPUT input ) : SV_TARGET
 {
-	float3 L=normalize(input.lightDirection);
-
-		float4 D=textureMap.Sample( textureSampler, input.texcoord);
-		float3 N=normalMap.Sample( textureSampler, input.texcoord).xyz*2.0f-1.0f;
-		N=normalize(N);
-	L=normalize(L);
+	float3 L=-normalize(input.lightDirection);
+	float4 D=textureMap.Sample( textureSampler, input.texcoord);
+	float3 N=normalMap.Sample( textureSampler, input.texcoord).xyz*2.0f-1.0f;
+	N=normalize(N);
+	
 	return saturate(dot(N,L))*D+0.2F;
 }
 

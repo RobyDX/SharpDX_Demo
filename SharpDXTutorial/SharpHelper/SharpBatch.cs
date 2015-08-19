@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using SharpDX;
 using SharpDX.Toolkit;
 using SharpDX.Toolkit.Graphics;
+using SharpDX.Direct2D1;
 
 namespace SharpHelper
 {

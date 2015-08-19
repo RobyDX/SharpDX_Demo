@@ -30,7 +30,7 @@ struct PS_INPUT
     float3 Nrm : NORMAL;
 };
 
-cbuffer data :register(c0)
+cbuffer data :register(b0)
 {
 	float4x4 world;
 	float4x4 viewProj;

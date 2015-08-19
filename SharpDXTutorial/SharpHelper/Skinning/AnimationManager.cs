@@ -247,6 +247,7 @@ namespace SharpHelper.Skinning
             Vector3 t = p0 * start.Translation + p1 * tangent_out.Translation + p2 * tangent_in.Translation + p3 * end.Translation;
 
             return Matrix.Scaling(s) * Matrix.RotationQuaternion(q) * Matrix.Translation(t);
+            
         }
     }
 

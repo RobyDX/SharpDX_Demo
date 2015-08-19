@@ -10142,6 +10142,15 @@
             <unmanaged>D3DCAPS3_DXVAHD</unmanaged>	
             <unmanaged-short>D3DCAPS3_DXVAHD</unmanaged-short>	
         </member>
+        <member name="F:SharpDX.Direct3D9.Caps3.DxvahdLimited">
+            <summary>	
+            No documentation.	
+            </summary>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DCAPS3_DXVAHD_LIMITED']/*"/>	
+            <msdn-id>bb172512</msdn-id>	
+            <unmanaged>D3DCAPS3_DXVAHD_LIMITED</unmanaged>	
+            <unmanaged-short>D3DCAPS3_DXVAHD_LIMITED</unmanaged-short>	
+        </member>
         <member name="F:SharpDX.Direct3D9.Caps3.None">
             <summary>	
             None.	
@@ -11030,6 +11039,45 @@
             <msdn-id>bb172530</msdn-id>	
             <unmanaged>D3DCURSORCAPS_LOWRES</unmanaged>	
             <unmanaged-short>D3DCURSORCAPS_LOWRES</unmanaged-short>	
+        </member>
+        <member name="T:SharpDX.Direct3D9.D3DSHADERMinimumPrecision">
+            <summary>	
+            <p>Values that indicate the minimum desired interpolation precision.</p>	
+            </summary>	
+            <remarks>	
+            <p>For more info, see <strong>Scalar Types</strong> and Using HLSL minimum precision.</p>	
+            </remarks>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DSHADER_MIN_PRECISION']/*"/>	
+            <msdn-id>jj247572</msdn-id>	
+            <unmanaged>D3DSHADER_MIN_PRECISION</unmanaged>	
+            <unmanaged-short>D3DSHADER_MIN_PRECISION</unmanaged-short>	
+        </member>
+        <member name="F:SharpDX.Direct3D9.D3DSHADERMinimumPrecision.D3DMPDefault">
+            <summary>	
+            <dd> <p>Default minimum precision, which is 32-bit precision.</p> </dd>	
+            </summary>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DMP_DEFAULT']/*"/>	
+            <msdn-id>jj247572</msdn-id>	
+            <unmanaged>D3DMP_DEFAULT</unmanaged>	
+            <unmanaged-short>D3DMP_DEFAULT</unmanaged-short>	
+        </member>
+        <member name="F:SharpDX.Direct3D9.D3DSHADERMinimumPrecision.D3DMP16">
+            <summary>	
+            <dd> <p>Minimum precision is min16float, which is 16-bit floating point. </p> </dd>	
+            </summary>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DMP_16']/*"/>	
+            <msdn-id>jj247572</msdn-id>	
+            <unmanaged>D3DMP_16</unmanaged>	
+            <unmanaged-short>D3DMP_16</unmanaged-short>	
+        </member>
+        <member name="F:SharpDX.Direct3D9.D3DSHADERMinimumPrecision.D3DMP28">
+            <summary>	
+            <dd> <p>Minimum precision is min10float, which is 10-bit floating point. </p> </dd>	
+            </summary>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DMP_2_8']/*"/>	
+            <msdn-id>jj247572</msdn-id>	
+            <unmanaged>D3DMP_2_8</unmanaged>	
+            <unmanaged-short>D3DMP_2_8</unmanaged-short>	
         </member>
         <member name="T:SharpDX.Direct3D9.DebugMonitorTokens">
             <summary>	
@@ -20018,7 +20066,7 @@
             </summary>	
             <param name="col"><dd> <p>A <strong><c>null</c></strong>-terminated <strong>UNICODE</strong> string that contains the name of the event. The name is not relevant to the operating system. You can choose a name that is meaningful when the calling application is running under the Direct3D profiling tool.A <strong><c>null</c></strong> reference produces undefined results.</p> </dd></param>	
             <param name="wszName">No documentation.</param>	
-            <returns><p>Returns the number of previous calls to <strong>BeginEvent</strong> that have not yet been finalized by calls to the <strong>ID3DUserDefinedAnnotation::EndEvent</strong> method.</p><p>The return value is ?1 if the calling application is not running under a Direct3D profiling tool.</p></returns>	
+            <returns><p>Returns the number of previous calls to <strong>BeginEvent</strong> that have not yet been finalized by calls to the <strong><see cref="!:SharpDX.Direct3D11.UserDefinedAnnotation.EndEvent"/></strong> method.</p><p>The return value is ?1 if the calling application is not running under a Direct3D profiling tool.</p></returns>	
             <remarks>	
             <p>You call the <strong>EndEvent</strong> method to mark the end of the section of event code.</p><p>A user can visualize the event when the calling application is running under an enabled Direct3D profiling tool such as Microsoft Visual Studio Ultimate?2012.</p><p><strong>BeginEvent</strong> has no effect if the calling application is not running under an enabled Direct3D profiling tool.</p>	
             </remarks>	
@@ -20136,19 +20184,6 @@
             <unmanaged>HRESULT D3DXSaveMeshHierarchyToFileW([In] const wchar_t* Filename,[In] unsigned int XFormat,[In] const D3DXFRAME* pFrameRoot,[In] ID3DXAnimationController* pAnimController,[In] ID3DXSaveUserData* pUserDataSaver)</unmanaged>	
             <unmanaged-short>D3DXSaveMeshHierarchyToFileW</unmanaged-short>	
         </member>
-        <member name="M:SharpDX.Direct3D9.D3DX9.FrameCalculateBoundingSphere(SharpDX.Direct3D9.Frame@,SharpDX.Vector3,System.Single)">
-            <summary>	
-            <p>Computes the bounding sphere of all the meshes in the frame hierarchy.</p>	
-            </summary>	
-            <param name="frameRootRef"><dd>  <p>Pointer to the root node.</p> </dd></param>	
-            <param name="objectCenterRef"><dd>  <p>Returns the center of the bounding sphere.</p> </dd></param>	
-            <param name="objectRadiusRef"><dd>  <p>Returns the radius of the bounding sphere.</p> </dd></param>	
-            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Direct3D9.ResultCode.Success"/>. If the function fails, the return value can be one of the following values: <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>, E_OUTOFMEMORY.</p></returns>	
-            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXFrameCalculateBoundingSphere']/*"/>	
-            <msdn-id>bb172847</msdn-id>	
-            <unmanaged>HRESULT D3DXFrameCalculateBoundingSphere([In] const D3DXFRAME* pFrameRoot,[In] D3DXVECTOR3* pObjectCenter,[In] float* pObjectRadius)</unmanaged>	
-            <unmanaged-short>D3DXFrameCalculateBoundingSphere</unmanaged-short>	
-        </member>
         <member name="M:SharpDX.Direct3D9.D3DX9.CreateAnimationController(System.Int32,System.Int32,System.Int32,System.Int32,SharpDX.Direct3D9.AnimationController@)">
             <summary>	
             <p>Creates an animation controller object.</p>	
@@ -20166,6 +20201,19 @@
             <msdn-id>bb172751</msdn-id>	
             <unmanaged>HRESULT D3DXCreateAnimationController([In] unsigned int MaxNumMatrices,[In] unsigned int MaxNumAnimationSets,[In] unsigned int MaxNumTracks,[In] unsigned int MaxNumEvents,[In] ID3DXAnimationController** ppAnimController)</unmanaged>	
             <unmanaged-short>D3DXCreateAnimationController</unmanaged-short>	
+        </member>
+        <member name="M:SharpDX.Direct3D9.D3DX9.FrameCalculateBoundingSphere(SharpDX.Direct3D9.Frame@,SharpDX.Vector3,System.Single)">
+            <summary>	
+            <p>Computes the bounding sphere of all the meshes in the frame hierarchy.</p>	
+            </summary>	
+            <param name="frameRootRef"><dd>  <p>Pointer to the root node.</p> </dd></param>	
+            <param name="objectCenterRef"><dd>  <p>Returns the center of the bounding sphere.</p> </dd></param>	
+            <param name="objectRadiusRef"><dd>  <p>Returns the radius of the bounding sphere.</p> </dd></param>	
+            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Direct3D9.ResultCode.Success"/>. If the function fails, the return value can be one of the following values: <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>, E_OUTOFMEMORY.</p></returns>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXFrameCalculateBoundingSphere']/*"/>	
+            <msdn-id>bb172847</msdn-id>	
+            <unmanaged>HRESULT D3DXFrameCalculateBoundingSphere([In] const D3DXFRAME* pFrameRoot,[In] D3DXVECTOR3* pObjectCenter,[In] float* pObjectRadius)</unmanaged>	
+            <unmanaged-short>D3DXFrameCalculateBoundingSphere</unmanaged-short>	
         </member>
         <member name="M:SharpDX.Direct3D9.D3DX9.FrameFind(SharpDX.Direct3D9.Frame@,System.String)">
             <summary>	
@@ -20605,6 +20653,18 @@
             <unmanaged>HRESULT D3DXSaveMeshToXW([In] const wchar_t* pFilename,[In] ID3DXMesh* pMesh,[In] const unsigned int* pAdjacency,[In] const D3DXMATERIAL* pMaterials,[In] const D3DXEFFECTINSTANCE* pEffectInstances,[In] unsigned int NumMaterials,[In] unsigned int Format)</unmanaged>	
             <unmanaged-short>D3DXSaveMeshToXW</unmanaged-short>	
         </member>
+        <member name="M:SharpDX.Direct3D9.D3DX9.CreateNPatchMesh(SharpDX.Direct3D9.Mesh,SharpDX.Direct3D9.PatchMesh@)">
+            <summary>	
+            <p>Creates an N-patch mesh from a triangle mesh.</p>	
+            </summary>	
+            <param name="meshSysMemRef"><dd>  <p>Address of a reference to an <strong><see cref="T:SharpDX.Direct3D9.Mesh"/></strong> interface that represents the triangle mesh object.</p> </dd></param>	
+            <param name="patchMeshRef"><dd>  <p>Address of a reference to an <strong><see cref="T:SharpDX.Direct3D9.PatchMesh"/></strong> interface that represents the created patch mesh object.</p> </dd></param>	
+            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Direct3D9.ResultCode.Success"/>. If the function fails, the return value can be one of the following: <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>, E_OUTOFMEMORY.</p></returns>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXCreateNPatchMesh']/*"/>	
+            <msdn-id>bb172782</msdn-id>	
+            <unmanaged>HRESULT D3DXCreateNPatchMesh([In] ID3DXMesh* pMeshSysMem,[In] ID3DXPatchMesh** pPatchMesh)</unmanaged>	
+            <unmanaged-short>D3DXCreateNPatchMesh</unmanaged-short>	
+        </member>
         <member name="M:SharpDX.Direct3D9.D3DX9.DeclaratorFromFVF(SharpDX.Direct3D9.VertexFormat,SharpDX.Direct3D9.VertexElement[])">
             <summary>	
             <p>Returns a declarator from a flexible vertex format (FVF) code.</p>	
@@ -20617,21 +20677,36 @@
             <unmanaged>HRESULT D3DXDeclaratorFromFVF([In] D3DFVF FVF,[In, Buffer] D3DVERTEXELEMENT9* pDeclarator)</unmanaged>	
             <unmanaged-short>D3DXDeclaratorFromFVF</unmanaged-short>	
         </member>
-        <member name="M:SharpDX.Direct3D9.D3DX9.ComputeTangentFrame(SharpDX.Direct3D9.Mesh,System.Int32)">
+        <member name="M:SharpDX.Direct3D9.D3DX9.ComputeBoundingBox(SharpDX.Vector3,System.Int32,System.Int32,SharpDX.Vector3,SharpDX.Vector3)">
             <summary>	
-            <p> Compute tangent, binormal, and normal vectors for a mesh.</p>	
+            <p>Computes a coordinate-axis oriented bounding box.</p>	
             </summary>	
-            <param name="meshRef"><dd>  <p>Pointer to an input <strong><see cref="T:SharpDX.Direct3D9.Mesh"/></strong> mesh object.</p> </dd></param>	
-            <param name="dwOptions"><dd>  <p>Combination of one or more <strong><see cref="T:SharpDX.Direct3D9.TangentOptions"/></strong> flags.  </p> <p>Use <strong><c>null</c></strong> to specify the following options:</p> <ul> <li>Weight the normal vector length by the angle, in radians, subtended by the two edges leaving the vertex.</li> <li>Compute orthogonal Cartesian coordinates from the UV texture coordinates.</li> <li>Textures are not wrapped in either U or V directions</li> <li>Partial derivatives with respect to texture coordinates are normalized.</li> <li>Vertices are ordered in a counterclockwise direction around each triangle.</li> <li>Use per-vertex normal vectors already present in the input mesh.</li> <li>The results will be stored in the original input mesh. The function will fail if new vertices need to be created.</li> </ul> </dd></param>	
-            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Result.Ok"/>. If the function fails, the return value can be one of the following: <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>, D3DXERR_INVALIDDATA, E_OUTOFMEMORY.</p></returns>	
-            <remarks>	
-            <p>This function simply calls <strong><see cref="M:SharpDX.Direct3D9.D3DX9.ComputeTangentFrameEx(SharpDX.Direct3D9.Mesh,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Single,SharpDX.Direct3D9.Mesh@,SharpDX.Direct3D.Blob@)"/></strong> with the following input parameters:</p><pre> <see cref="M:SharpDX.Direct3D9.D3DX9.ComputeTangentFrameEx(SharpDX.Direct3D9.Mesh,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Single,SharpDX.Direct3D9.Mesh@,SharpDX.Direct3D.Blob@)"/>(pMesh, <see cref="F:SharpDX.Direct3D9.DeclarationUsage.TextureCoordinate"/>, 0,    <see cref="F:SharpDX.Direct3D9.DeclarationUsage.Binormal"/>, 0, <see cref="F:SharpDX.Direct3D9.DeclarationUsage.Tangent"/>, 0,  <see cref="F:SharpDX.Direct3D9.DeclarationUsage.Normal"/>, 0,  dwOptions | <see cref="F:SharpDX.Direct3D9.TangentOptions.GenerateInPlace"/>, <c>null</c>, 0.01f, 0.25f, 0.01f, <c>null</c>, <c>null</c>);	
-            </pre><p>Singularities are handled as required by grouping edges and splitting vertices. If any vertices need to be split, the function will fail. The computed normal vector at each vertex is always normalized to have unit length.</p><p>The most robust solution for computing orthogonal Cartesian coordinates is to not set flags <see cref="F:SharpDX.Direct3D9.TangentOptions.OrthogonalizeFromU"/> and <see cref="F:SharpDX.Direct3D9.TangentOptions.OrthogonalizeFromV"/>, so that orthogonal coordinates are computed from both UV texture coordinates. However, in this case, if either U or V is zero, then the function will compute orthogonal coordinates using <see cref="F:SharpDX.Direct3D9.TangentOptions.OrthogonalizeFromV"/> or <see cref="F:SharpDX.Direct3D9.TangentOptions.OrthogonalizeFromU"/> respectively.</p>	
-            </remarks>	
-            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXComputeTangentFrame']/*"/>	
-            <msdn-id>bb172744</msdn-id>	
-            <unmanaged>HRESULT D3DXComputeTangentFrame([In] ID3DXMesh* pMesh,[In] unsigned int dwOptions)</unmanaged>	
-            <unmanaged-short>D3DXComputeTangentFrame</unmanaged-short>	
+            <param name="firstPositionRef"><dd>  <p>Pointer to the first position.</p> </dd></param>	
+            <param name="numVertices"><dd>  <p>Number of vertices.</p> </dd></param>	
+            <param name="dwStride"><dd>  <p>Count or number of bytes between vertices.</p> </dd></param>	
+            <param name="minRef"><dd>  <p>Pointer to a <strong><see cref="T:SharpDX.Vector3"/></strong> structure, describing the returned lower-left corner of the bounding box.</p> </dd></param>	
+            <param name="maxRef"><dd>  <p>Pointer to a <strong><see cref="T:SharpDX.Vector3"/></strong> structure, describing the returned upper-right corner of the bounding box.</p> <p></p> </dd></param>	
+            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Direct3D9.ResultCode.Success"/>. If the function fails, the return value can be one of the following: <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>.</p></returns>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXComputeBoundingBox']/*"/>	
+            <msdn-id>bb204920</msdn-id>	
+            <unmanaged>HRESULT D3DXComputeBoundingBox([In] const D3DXVECTOR3* pFirstPosition,[In] unsigned int NumVertices,[In] unsigned int dwStride,[In] D3DXVECTOR3* pMin,[In] D3DXVECTOR3* pMax)</unmanaged>	
+            <unmanaged-short>D3DXComputeBoundingBox</unmanaged-short>	
+        </member>
+        <member name="M:SharpDX.Direct3D9.D3DX9.CreateMeshFVF(System.Int32,System.Int32,System.Int32,SharpDX.Direct3D9.VertexFormat,SharpDX.Direct3D9.Device,SharpDX.Direct3D9.Mesh@)">
+            <summary>	
+            <p>Creates a mesh object using a flexible vertex format (FVF) code.</p>	
+            </summary>	
+            <param name="numFaces"><dd>  <p>Number of faces for the mesh. The valid range for this number is greater than 0, and one less than the max DWORD value, typically 232 - 1, because the last index is reserved.</p> </dd></param>	
+            <param name="numVertices"><dd>  <p>Number of vertices for the mesh. This parameter must be greater than 0.</p> </dd></param>	
+            <param name="options"><dd>  <p>Combination of one or more flags from the  <strong>D3DXMESH</strong> enumeration, specifying creation options for the mesh. </p> </dd></param>	
+            <param name="fvf"><dd>  <p>Combination of <see cref="T:SharpDX.Direct3D9.VertexFormat"/> that describes the vertex format for the returned mesh. This function does not support <see cref="F:SharpDX.Direct3D9.VertexFormat.PositionRhw"/>.</p> </dd></param>	
+            <param name="d3DDeviceRef"><dd>  <p>Pointer to an <strong><see cref="T:SharpDX.Direct3D9.Device"/></strong> interface, the device object to be associated with the mesh.</p> </dd></param>	
+            <param name="meshOut"><dd>  <p>Address of a reference to an <strong><see cref="T:SharpDX.Direct3D9.Mesh"/></strong> interface, representing the created mesh object.</p> </dd></param>	
+            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Direct3D9.ResultCode.Success"/>. If the function fails, the return value can be one of the following: <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>, E_OUTOFMEMORY.</p></returns>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXCreateMeshFVF']/*"/>	
+            <msdn-id>bb172781</msdn-id>	
+            <unmanaged>HRESULT D3DXCreateMeshFVF([In] unsigned int NumFaces,[In] unsigned int NumVertices,[In] unsigned int Options,[In] D3DFVF FVF,[In] IDirect3DDevice9* pD3DDevice,[In] ID3DXMesh** ppMesh)</unmanaged>	
+            <unmanaged-short>D3DXCreateMeshFVF</unmanaged-short>	
         </member>
         <member name="M:SharpDX.Direct3D9.D3DX9.OptimizeFaces(System.IntPtr,System.Int32,System.Int32,SharpDX.Bool,System.Int32[])">
             <summary>	
@@ -20741,24 +20816,6 @@
             <msdn-id>bb205469</msdn-id>	
             <unmanaged>HRESULT D3DXTessellateNPatches([In] ID3DXMesh* pMeshIn,[In] const unsigned int* pAdjacencyIn,[In] float NumSegs,[In] BOOL QuadraticInterpNormals,[In] ID3DXMesh** ppMeshOut,[In] ID3DXBuffer** ppAdjacencyOut)</unmanaged>	
             <unmanaged-short>D3DXTessellateNPatches</unmanaged-short>	
-        </member>
-        <member name="M:SharpDX.Direct3D9.D3DX9.OptimizeVertices(System.IntPtr,System.Int32,System.Int32,SharpDX.Bool,System.Int32[])">
-            <summary>	
-            <p>Generates an optimized vertex remapping for a triangle list. This function is commonly used after applying the face remapping generated by <strong><see cref="M:SharpDX.Direct3D9.D3DX9.OptimizeFaces(System.IntPtr,System.Int32,System.Int32,SharpDX.Bool,System.Int32[])"/></strong>.</p>	
-            </summary>	
-            <param name="bIndicesRef">No documentation.</param>	
-            <param name="cFaces">No documentation.</param>	
-            <param name="cVertices">No documentation.</param>	
-            <param name="b32BitIndices">No documentation.</param>	
-            <param name="vertexRemapRef">No documentation.</param>	
-            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Direct3D9.ResultCode.Success"/>. If the function fails, the return value can be one of the following: <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>, E_OUTOFMEMORY.</p></returns>	
-            <remarks>	
-            <p>By default, a mesh uses 16 bit indices when it is created unless the application specifies otherwise. To check whether an existing mesh uses 16-bit or 32-bit indices, call <strong><see cref="M:SharpDX.Direct3D9.BaseMesh.GetOptions"/></strong> and check for the <see cref="F:SharpDX.Direct3D9.MeshFlags.Use32Bit"/> flag.</p>	
-            </remarks>	
-            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXOptimizeVertices']/*"/>	
-            <msdn-id>bb205377</msdn-id>	
-            <unmanaged>HRESULT D3DXOptimizeVertices([In] const void* pbIndices,[In] unsigned int cFaces,[In] unsigned int cVertices,[In] BOOL b32BitIndices,[In, Buffer] int* pVertexRemap)</unmanaged>	
-            <unmanaged-short>D3DXOptimizeVertices</unmanaged-short>	
         </member>
         <member name="M:SharpDX.Direct3D9.D3DX9.ComputeIMTFromSignal(SharpDX.Direct3D9.Mesh,System.Int32,System.Int32,System.Single,System.Int32,SharpDX.FunctionCallback,System.IntPtr,SharpDX.FunctionCallback,System.IntPtr,SharpDX.Direct3D.Blob@)">
             <summary>	
@@ -20913,39 +20970,6 @@
             <unmanaged>HRESULT D3DXIntersect([In] ID3DXBaseMesh* pMesh,[In] const D3DXVECTOR3* pRayPos,[In] const D3DXVECTOR3* pRayDir,[In] BOOL* pHit,[In] unsigned int* pFaceIndex,[In] float* pU,[In] float* pV,[In] float* pDist,[In] ID3DXBuffer** ppAllHits,[In] unsigned int* pCountOfHits)</unmanaged>	
             <unmanaged-short>D3DXIntersect</unmanaged-short>	
         </member>
-        <member name="M:SharpDX.Direct3D9.D3DX9.UVAtlasPack(SharpDX.Direct3D9.Mesh,System.Int32,System.Int32,System.Single,System.Int32,System.Int32,SharpDX.FunctionCallback,System.Single,System.IntPtr,System.Int32,SharpDX.Direct3D.Blob)">
-            <summary>	
-            <p>Pack mesh partitioning data into an atlas.</p>	
-            </summary>	
-            <param name="meshRef"><dd>  <p>Pointer to an input mesh (see <strong><see cref="T:SharpDX.Direct3D9.Mesh"/></strong>) which contains the object geometry for calculating the atlas. At a minimum, the mesh must contain position data and 2D texture coordinates.</p> </dd></param>	
-            <param name="uWidth"><dd>  <p>Texture width.</p> </dd></param>	
-            <param name="uHeight"><dd>  <p>Texture height.</p> </dd></param>	
-            <param name="fGutter"><dd>  <p>The minimum distance, in texels, between two charts on the atlas. The gutter is always scaled by the width; so, if a gutter of 2.5 is used on a 512x512 texture, then the minimum distance between two charts is 2.5 / 512.0 texels.</p> </dd></param>	
-            <param name="dwTextureIndex"><dd>  <p>Zero-based texture coordinate index that identifies which set of texture coordinates to use.</p> </dd></param>	
-            <param name="dwPartitionResultAdjacencyRef"><dd>  <p>Pointer to an array of three DWORDs per face that specify the three neighbors for each face in the mesh. It should be derived from the ppPartitionResultAdjacency returned from <strong><see cref="M:SharpDX.Direct3D9.D3DX9.UVAtlasPartition(SharpDX.Direct3D9.Mesh,System.Int32,System.Single,System.Int32,System.Int32,System.Int32,System.Single,SharpDX.FunctionCallback,System.Single,System.IntPtr,System.Int32,SharpDX.Direct3D9.Mesh@,SharpDX.Direct3D.Blob@,SharpDX.Direct3D.Blob@,SharpDX.Direct3D.Blob@,System.Single,System.Int32)"/></strong>. This value cannot be <strong><c>null</c></strong>, because Pack needs to know where charts were cut in the partition step in order to find the edges of each chart.</p> </dd></param>	
-            <param name="statusCallbackRef"><dd>  <p>A reference to a callback function (see LPD3DXUVATLASCB) that is useful for monitoring progress.</p> </dd></param>	
-            <param name="fCallbackFrequency"><dd>  <p>Specify how often D3DX will call the callback; a reasonable default value is 0.0001f.</p> </dd></param>	
-            <param name="userContextRef"><dd>  <p>A void reference to be passed back to the callback function.</p> </dd></param>	
-            <param name="dwOptions"><dd>  <p>This options parameter is currently reserved.</p> </dd></param>	
-            <param name="facePartitioningRef"><dd>  <p>A reference to an <strong><see cref="T:SharpDX.Direct3D.Blob"/></strong> containing the array of the final face-partitioning. Each element contains one DWORD per face.</p> </dd></param>	
-            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Direct3D9.ResultCode.Success"/>; otherwise, the value is <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>.</p></returns>	
-            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXUVAtlasPack']/*"/>	
-            <msdn-id>bb205480</msdn-id>	
-            <unmanaged>HRESULT D3DXUVAtlasPack([In] ID3DXMesh* pMesh,[In] unsigned int uWidth,[In] unsigned int uHeight,[In] float fGutter,[In] unsigned int dwTextureIndex,[In] const unsigned int* pdwPartitionResultAdjacency,[In] __function__stdcall* pStatusCallback,[In] float fCallbackFrequency,[In] void* pUserContext,[In] unsigned int dwOptions,[In] ID3DXBuffer* pFacePartitioning)</unmanaged>	
-            <unmanaged-short>D3DXUVAtlasPack</unmanaged-short>	
-        </member>
-        <member name="M:SharpDX.Direct3D9.D3DX9.CreateNPatchMesh(SharpDX.Direct3D9.Mesh,SharpDX.Direct3D9.PatchMesh@)">
-            <summary>	
-            <p>Creates an N-patch mesh from a triangle mesh.</p>	
-            </summary>	
-            <param name="meshSysMemRef"><dd>  <p>Address of a reference to an <strong><see cref="T:SharpDX.Direct3D9.Mesh"/></strong> interface that represents the triangle mesh object.</p> </dd></param>	
-            <param name="patchMeshRef"><dd>  <p>Address of a reference to an <strong><see cref="T:SharpDX.Direct3D9.PatchMesh"/></strong> interface that represents the created patch mesh object.</p> </dd></param>	
-            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Direct3D9.ResultCode.Success"/>. If the function fails, the return value can be one of the following: <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>, E_OUTOFMEMORY.</p></returns>	
-            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXCreateNPatchMesh']/*"/>	
-            <msdn-id>bb172782</msdn-id>	
-            <unmanaged>HRESULT D3DXCreateNPatchMesh([In] ID3DXMesh* pMeshSysMem,[In] ID3DXPatchMesh** pPatchMesh)</unmanaged>	
-            <unmanaged-short>D3DXCreateNPatchMesh</unmanaged-short>	
-        </member>
         <member name="M:SharpDX.Direct3D9.D3DX9.LoadSkinMeshFromXof(SharpDX.Direct3D9.XFileData,System.Int32,SharpDX.Direct3D9.Device,SharpDX.Direct3D.Blob@,SharpDX.Direct3D.Blob@,SharpDX.Direct3D.Blob@,System.Int32,SharpDX.Direct3D9.SkinInfo@,SharpDX.Direct3D9.Mesh@)">
             <summary>	
             <p>Loads a skin mesh from a DirectX .x file data object.</p>	
@@ -20967,6 +20991,19 @@
             <msdn-id>bb172899</msdn-id>	
             <unmanaged>HRESULT D3DXLoadSkinMeshFromXof([In] ID3DXFileData* pxofMesh,[In] unsigned int Options,[In] IDirect3DDevice9* pD3DDevice,[In] ID3DXBuffer** ppAdjacency,[In] ID3DXBuffer** ppMaterials,[In] ID3DXBuffer** ppEffectInstances,[In] unsigned int* pMatOut,[In] ID3DXSkinInfo** ppSkinInfo,[In] ID3DXMesh** ppMesh)</unmanaged>	
             <unmanaged-short>D3DXLoadSkinMeshFromXof</unmanaged-short>	
+        </member>
+        <member name="M:SharpDX.Direct3D9.D3DX9.TriPatchSize(System.Single,System.Int32@,System.Int32@)">
+            <summary>	
+            <p>Gets the size of the triangle patch.</p>	
+            </summary>	
+            <param name="fNumSegsRef"><dd>  <p>Number of segments per edge to tessellate.</p> </dd></param>	
+            <param name="dwTrianglesRef"><dd>  <p>Pointer to a DWORD that contains the number of triangles in the patch.</p> </dd></param>	
+            <param name="dwVerticesRef"><dd>  <p>Pointer to a DWORD that contains the number of vertices in the triangle patch.</p> </dd></param>	
+            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Direct3D9.ResultCode.Success"/>. If the function fails, the return value can be one of the following: <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>, E_OUTOFMEMORY.</p></returns>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXTriPatchSize']/*"/>	
+            <msdn-id>bb205476</msdn-id>	
+            <unmanaged>HRESULT D3DXTriPatchSize([In] const float* pfNumSegs,[Out] unsigned int* pdwTriangles,[Out] unsigned int* pdwVertices)</unmanaged>	
+            <unmanaged-short>D3DXTriPatchSize</unmanaged-short>	
         </member>
         <member name="M:SharpDX.Direct3D9.D3DX9.CreateSkinInfoFVF(System.Int32,SharpDX.Direct3D9.VertexFormat,System.Int32,SharpDX.Direct3D9.SkinInfo@)">
             <summary>	
@@ -21089,6 +21126,27 @@
             <unmanaged>HRESULT D3DXConvertMeshSubsetToSingleStrip([In] ID3DXBaseMesh* MeshIn,[In] unsigned int AttribId,[In] unsigned int IBOptions,[In] IDirect3DIndexBuffer9** ppIndexBuffer,[In] unsigned int* pNumIndices)</unmanaged>	
             <unmanaged-short>D3DXConvertMeshSubsetToSingleStrip</unmanaged-short>	
         </member>
+        <member name="M:SharpDX.Direct3D9.D3DX9.UVAtlasPack(SharpDX.Direct3D9.Mesh,System.Int32,System.Int32,System.Single,System.Int32,System.Int32,SharpDX.FunctionCallback,System.Single,System.IntPtr,System.Int32,SharpDX.Direct3D.Blob)">
+            <summary>	
+            <p>Pack mesh partitioning data into an atlas.</p>	
+            </summary>	
+            <param name="meshRef"><dd>  <p>Pointer to an input mesh (see <strong><see cref="T:SharpDX.Direct3D9.Mesh"/></strong>) which contains the object geometry for calculating the atlas. At a minimum, the mesh must contain position data and 2D texture coordinates.</p> </dd></param>	
+            <param name="uWidth"><dd>  <p>Texture width.</p> </dd></param>	
+            <param name="uHeight"><dd>  <p>Texture height.</p> </dd></param>	
+            <param name="fGutter"><dd>  <p>The minimum distance, in texels, between two charts on the atlas. The gutter is always scaled by the width; so, if a gutter of 2.5 is used on a 512x512 texture, then the minimum distance between two charts is 2.5 / 512.0 texels.</p> </dd></param>	
+            <param name="dwTextureIndex"><dd>  <p>Zero-based texture coordinate index that identifies which set of texture coordinates to use.</p> </dd></param>	
+            <param name="dwPartitionResultAdjacencyRef"><dd>  <p>Pointer to an array of three DWORDs per face that specify the three neighbors for each face in the mesh. It should be derived from the ppPartitionResultAdjacency returned from <strong><see cref="M:SharpDX.Direct3D9.D3DX9.UVAtlasPartition(SharpDX.Direct3D9.Mesh,System.Int32,System.Single,System.Int32,System.Int32,System.Int32,System.Single,SharpDX.FunctionCallback,System.Single,System.IntPtr,System.Int32,SharpDX.Direct3D9.Mesh@,SharpDX.Direct3D.Blob@,SharpDX.Direct3D.Blob@,SharpDX.Direct3D.Blob@,System.Single,System.Int32)"/></strong>. This value cannot be <strong><c>null</c></strong>, because Pack needs to know where charts were cut in the partition step in order to find the edges of each chart.</p> </dd></param>	
+            <param name="statusCallbackRef"><dd>  <p>A reference to a callback function (see LPD3DXUVATLASCB) that is useful for monitoring progress.</p> </dd></param>	
+            <param name="fCallbackFrequency"><dd>  <p>Specify how often D3DX will call the callback; a reasonable default value is 0.0001f.</p> </dd></param>	
+            <param name="userContextRef"><dd>  <p>A void reference to be passed back to the callback function.</p> </dd></param>	
+            <param name="dwOptions"><dd>  <p>This options parameter is currently reserved.</p> </dd></param>	
+            <param name="facePartitioningRef"><dd>  <p>A reference to an <strong><see cref="T:SharpDX.Direct3D.Blob"/></strong> containing the array of the final face-partitioning. Each element contains one DWORD per face.</p> </dd></param>	
+            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Direct3D9.ResultCode.Success"/>; otherwise, the value is <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>.</p></returns>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXUVAtlasPack']/*"/>	
+            <msdn-id>bb205480</msdn-id>	
+            <unmanaged>HRESULT D3DXUVAtlasPack([In] ID3DXMesh* pMesh,[In] unsigned int uWidth,[In] unsigned int uHeight,[In] float fGutter,[In] unsigned int dwTextureIndex,[In] const unsigned int* pdwPartitionResultAdjacency,[In] __function__stdcall* pStatusCallback,[In] float fCallbackFrequency,[In] void* pUserContext,[In] unsigned int dwOptions,[In] ID3DXBuffer* pFacePartitioning)</unmanaged>	
+            <unmanaged-short>D3DXUVAtlasPack</unmanaged-short>	
+        </member>
         <member name="M:SharpDX.Direct3D9.D3DX9.CreateSkinInfo(System.Int32,SharpDX.Direct3D9.VertexElement,System.Int32,SharpDX.Direct3D9.SkinInfo@)">
             <summary>	
             <p>Creates an empty skin mesh object using a declarator.</p>	
@@ -21117,6 +21175,38 @@
             <msdn-id>bb172864</msdn-id>	
             <unmanaged>unsigned int D3DXGetDeclVertexSize([In, Buffer] const D3DVERTEXELEMENT9* pDecl,[In] unsigned int Stream)</unmanaged>	
             <unmanaged-short>D3DXGetDeclVertexSize</unmanaged-short>	
+        </member>
+        <member name="M:SharpDX.Direct3D9.D3DX9.UVAtlasCreate(SharpDX.Direct3D9.Mesh,System.Int32,System.Single,System.Int32,System.Int32,System.Single,System.Int32,System.Int32,System.Int32,System.Single,SharpDX.FunctionCallback,System.Single,System.IntPtr,System.Int32,SharpDX.Direct3D9.Mesh@,SharpDX.Direct3D.Blob@,SharpDX.Direct3D.Blob@,System.Single,System.Int32)">
+            <summary>	
+            <p>Create a UV atlas for a mesh.</p>	
+            </summary>	
+            <param name="meshRef"><dd>  <p>Pointer to an input mesh (see <strong><see cref="T:SharpDX.Direct3D9.Mesh"/></strong>) which contains the object geometry for calculating the atlas. At a minimum, the mesh must contain position data and 2D texture coordinates.</p> </dd></param>	
+            <param name="uMaxChartNumber"><dd>  <p>The maximum number of charts to partition the mesh into. See remarks about the partitioning modes. Use 0 to tell D3DX that the atlas should be parameterized based on stretch.</p> </dd></param>	
+            <param name="fMaxStretch"><dd>  <p>The amount of stretching allowed. 0 means no stretching is allowed, 1 means any amount of stretching can be used.</p> </dd></param>	
+            <param name="uWidth"><dd>  <p>Texture width.</p> </dd></param>	
+            <param name="uHeight"><dd>  <p>Texture height.</p> </dd></param>	
+            <param name="fGutter"><dd>  <p>The minimum distance, in texels, between two charts on the atlas. The gutter is always scaled by the width; so, if a gutter of 2.5 is used on a 512x512 texture, then the minimum distance between two charts is 2.5 / 512.0 texels.</p> </dd></param>	
+            <param name="dwTextureIndex"><dd>  <p>Zero-based texture coordinate index that identifies which set of texture coordinates to use.</p> </dd></param>	
+            <param name="dwAdjacencyRef"><dd>  <p>A reference to an array of adjacency data. with 3 DWORDs per face, indicating which triangles are adjacent to each other (see <strong><see cref="M:SharpDX.Direct3D9.BaseMesh.GenerateAdjacency(System.Single,System.Int32)"/></strong>).</p> </dd></param>	
+            <param name="dwFalseEdgeAdjacencyRef"><dd>  <p>An array with 3 DWORDS per face. Each face indicates if an edge is false or not. A non-false edge is indicated by -1, a false edge is indicated by any other value. This enables the parameterization of a mesh of quads where the edges down the middle of each quad will not be cut.</p> </dd></param>	
+            <param name="fIMTArrayRef"><dd>  <p>A reference to an array of integrated metric tensors that describes how to stretch a triangle (see IntegratedMetricTensor).</p> </dd></param>	
+            <param name="statusCallbackRef"><dd>  <p>A reference to a callback function (see LPD3DXUVATLASCB) that is useful for monitoring progress.</p> </dd></param>	
+            <param name="fCallbackFrequency"><dd>  <p>Specify how often D3DX will call the callback; a reasonable default value is 0.0001f.</p> </dd></param>	
+            <param name="userContextRef"><dd>  <p>Pointer to a user-defined value which is passed to the callback function; typically used by an application to pass a reference to a data structure that provides context information for the callback function.</p> </dd></param>	
+            <param name="dwOptions"><dd>  <p>Specify the quality of the charts generated. See <strong>D3DXUVATLAS</strong>.</p> </dd></param>	
+            <param name="meshOutOut"><dd>  <p>Pointer to the created mesh with the atlas (see <strong><see cref="T:SharpDX.Direct3D9.Mesh"/></strong>).</p> </dd></param>	
+            <param name="facePartitioningOut"><dd>  <p>A reference to an array of the final face-partitioning data. Each element contains one DWORD per face (see <strong><see cref="T:SharpDX.Direct3D.Blob"/></strong>).</p> </dd></param>	
+            <param name="vertexRemapArrayOut"><dd>  <p>A reference to an array of remapped vertices. Each array element identifies the original vertex that each final vertex came from (if the vertex was split during remapping). Each array element contains one DWORD per vertex.</p> </dd></param>	
+            <param name="fMaxStretchOutRef"><dd>  <p>A reference to the maximum stretch value generated by the atlas algorithm. The range is between 0.0 and 1.0.</p> </dd></param>	
+            <param name="uNumChartsOutRef"><dd>  <p>A reference to the number of charts created by the atlas algorithm. If dwMaxChartNumber is too low, this parameter will return the minimum number of charts required to create an atlas.</p> </dd></param>	
+            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Direct3D9.ResultCode.Success"/>; otherwise, the value is <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>.</p></returns>	
+            <remarks>	
+            <p><see cref="M:SharpDX.Direct3D9.D3DX9.UVAtlasCreate(SharpDX.Direct3D9.Mesh,System.Int32,System.Single,System.Int32,System.Int32,System.Single,System.Int32,System.Int32,System.Int32,System.Single,SharpDX.FunctionCallback,System.Single,System.IntPtr,System.Int32,SharpDX.Direct3D9.Mesh@,SharpDX.Direct3D.Blob@,SharpDX.Direct3D.Blob@,System.Single,System.Int32)"/> can partition mesh geometry two ways:</p><ul> <li>Based on the number of charts</li> <li>Based on the maximum allowed stretch. If the maximum allowed stretch is 0, each triangle will likely be in its own chart.</li> </ul>	
+            </remarks>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXUVAtlasCreate']/*"/>	
+            <msdn-id>bb205479</msdn-id>	
+            <unmanaged>HRESULT D3DXUVAtlasCreate([In] ID3DXMesh* pMesh,[In] unsigned int uMaxChartNumber,[In] float fMaxStretch,[In] unsigned int uWidth,[In] unsigned int uHeight,[In] float fGutter,[In] unsigned int dwTextureIndex,[In] const unsigned int* pdwAdjacency,[In] const unsigned int* pdwFalseEdgeAdjacency,[In] const float* pfIMTArray,[In] __function__stdcall* pStatusCallback,[In] float fCallbackFrequency,[In] void* pUserContext,[In] unsigned int dwOptions,[In] ID3DXMesh** ppMeshOut,[In] ID3DXBuffer** ppFacePartitioning,[In] ID3DXBuffer** ppVertexRemapArray,[In] float* pfMaxStretchOut,[In] unsigned int* puNumChartsOut)</unmanaged>	
+            <unmanaged-short>D3DXUVAtlasCreate</unmanaged-short>	
         </member>
         <member name="M:SharpDX.Direct3D9.D3DX9.GeneratePMesh(SharpDX.Direct3D9.Mesh,System.Int32,SharpDX.Direct3D9.AttributeWeights@,System.Single,System.Int32,System.Int32,SharpDX.Direct3D9.ProgressiveMesh@)">
             <summary>	
@@ -21166,21 +21256,6 @@
             <unmanaged>HRESULT D3DXFVFFromDeclarator([In, Buffer] const D3DVERTEXELEMENT9* pDeclarator,[Out] D3DFVF* pFVF)</unmanaged>	
             <unmanaged-short>D3DXFVFFromDeclarator</unmanaged-short>	
         </member>
-        <member name="M:SharpDX.Direct3D9.D3DX9.ComputeBoundingBox(SharpDX.Vector3,System.Int32,System.Int32,SharpDX.Vector3,SharpDX.Vector3)">
-            <summary>	
-            <p>Computes a coordinate-axis oriented bounding box.</p>	
-            </summary>	
-            <param name="firstPositionRef"><dd>  <p>Pointer to the first position.</p> </dd></param>	
-            <param name="numVertices"><dd>  <p>Number of vertices.</p> </dd></param>	
-            <param name="dwStride"><dd>  <p>Count or number of bytes between vertices.</p> </dd></param>	
-            <param name="minRef"><dd>  <p>Pointer to a <strong><see cref="T:SharpDX.Vector3"/></strong> structure, describing the returned lower-left corner of the bounding box.</p> </dd></param>	
-            <param name="maxRef"><dd>  <p>Pointer to a <strong><see cref="T:SharpDX.Vector3"/></strong> structure, describing the returned upper-right corner of the bounding box.</p> <p></p> </dd></param>	
-            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Direct3D9.ResultCode.Success"/>. If the function fails, the return value can be one of the following: <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>.</p></returns>	
-            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXComputeBoundingBox']/*"/>	
-            <msdn-id>bb204920</msdn-id>	
-            <unmanaged>HRESULT D3DXComputeBoundingBox([In] const D3DXVECTOR3* pFirstPosition,[In] unsigned int NumVertices,[In] unsigned int dwStride,[In] D3DXVECTOR3* pMin,[In] D3DXVECTOR3* pMax)</unmanaged>	
-            <unmanaged-short>D3DXComputeBoundingBox</unmanaged-short>	
-        </member>
         <member name="M:SharpDX.Direct3D9.D3DX9.CreateSkinInfoFromBlendedMesh(SharpDX.Direct3D9.BaseMesh,System.Int32,SharpDX.Direct3D9.BoneCombination,SharpDX.Direct3D9.SkinInfo@)">
             <summary>	
             <p>Creates a skin mesh from another mesh.</p>	
@@ -21223,55 +21298,6 @@
             <msdn-id>bb172745</msdn-id>	
             <unmanaged>HRESULT D3DXComputeTangentFrameEx([In] ID3DXMesh* pMesh,[In] unsigned int dwTextureInSemantic,[In] unsigned int dwTextureInIndex,[In] unsigned int dwUPartialOutSemantic,[In] unsigned int dwUPartialOutIndex,[In] unsigned int dwVPartialOutSemantic,[In] unsigned int dwVPartialOutIndex,[In] unsigned int dwNormalOutSemantic,[In] unsigned int dwNormalOutIndex,[In] unsigned int dwOptions,[In] const unsigned int* pdwAdjacency,[In] float fPartialEdgeThreshold,[In] float fSingularPointThreshold,[In] float fNormalEdgeThreshold,[In] ID3DXMesh** ppMeshOut,[In] ID3DXBuffer** ppVertexMapping)</unmanaged>	
             <unmanaged-short>D3DXComputeTangentFrameEx</unmanaged-short>	
-        </member>
-        <member name="M:SharpDX.Direct3D9.D3DX9.SphereBoundProbe(SharpDX.Vector3,System.Single,SharpDX.Vector3,SharpDX.Vector3)">
-            <summary>	
-            <p>Determines if a ray intersects the volume of a sphere's bounding box.</p>	
-            </summary>	
-            <param name="centerRef"><dd>  <p>Pointer to a <strong><see cref="T:SharpDX.Vector3"/></strong> structure, specifying the center coordinate of the sphere.</p> </dd></param>	
-            <param name="radius"><dd>  <p>Radius of the sphere.</p> </dd></param>	
-            <param name="rayPositionRef"><dd>  <p>Pointer to a <strong><see cref="T:SharpDX.Vector3"/></strong> structure, specifying the origin coordinate of the ray.</p> </dd></param>	
-            <param name="rayDirectionRef"><dd>  <p>Pointer to a <strong><see cref="T:SharpDX.Vector3"/></strong> structure, specifying the direction of the ray. This vector should not be (0,0,0) but does not need to be normalized.</p> </dd></param>	
-            <returns><p>Returns <strong>TRUE</strong> if the ray intersects the volume of the sphere's bounding box. Otherwise, returns <strong><see cref="F:SharpDX.Result.False"/></strong>.</p></returns>	
-            <remarks>	
-            <p><strong><see cref="M:SharpDX.Direct3D9.D3DX9.SphereBoundProbe(SharpDX.Vector3,System.Single,SharpDX.Vector3,SharpDX.Vector3)"/></strong> determines if the ray intersects the volume of the sphere's bounding box, not just the surface of the sphere.</p>	
-            </remarks>	
-            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXSphereBoundProbe']/*"/>	
-            <msdn-id>bb204995</msdn-id>	
-            <unmanaged>BOOL D3DXSphereBoundProbe([In] const D3DXVECTOR3* pCenter,[In] float Radius,[In] const D3DXVECTOR3* pRayPosition,[In] const D3DXVECTOR3* pRayDirection)</unmanaged>	
-            <unmanaged-short>D3DXSphereBoundProbe</unmanaged-short>	
-        </member>
-        <member name="M:SharpDX.Direct3D9.D3DX9.UVAtlasCreate(SharpDX.Direct3D9.Mesh,System.Int32,System.Single,System.Int32,System.Int32,System.Single,System.Int32,System.Int32,System.Int32,System.Single,SharpDX.FunctionCallback,System.Single,System.IntPtr,System.Int32,SharpDX.Direct3D9.Mesh@,SharpDX.Direct3D.Blob@,SharpDX.Direct3D.Blob@,System.Single,System.Int32)">
-            <summary>	
-            <p>Create a UV atlas for a mesh.</p>	
-            </summary>	
-            <param name="meshRef"><dd>  <p>Pointer to an input mesh (see <strong><see cref="T:SharpDX.Direct3D9.Mesh"/></strong>) which contains the object geometry for calculating the atlas. At a minimum, the mesh must contain position data and 2D texture coordinates.</p> </dd></param>	
-            <param name="uMaxChartNumber"><dd>  <p>The maximum number of charts to partition the mesh into. See remarks about the partitioning modes. Use 0 to tell D3DX that the atlas should be parameterized based on stretch.</p> </dd></param>	
-            <param name="fMaxStretch"><dd>  <p>The amount of stretching allowed. 0 means no stretching is allowed, 1 means any amount of stretching can be used.</p> </dd></param>	
-            <param name="uWidth"><dd>  <p>Texture width.</p> </dd></param>	
-            <param name="uHeight"><dd>  <p>Texture height.</p> </dd></param>	
-            <param name="fGutter"><dd>  <p>The minimum distance, in texels, between two charts on the atlas. The gutter is always scaled by the width; so, if a gutter of 2.5 is used on a 512x512 texture, then the minimum distance between two charts is 2.5 / 512.0 texels.</p> </dd></param>	
-            <param name="dwTextureIndex"><dd>  <p>Zero-based texture coordinate index that identifies which set of texture coordinates to use.</p> </dd></param>	
-            <param name="dwAdjacencyRef"><dd>  <p>A reference to an array of adjacency data. with 3 DWORDs per face, indicating which triangles are adjacent to each other (see <strong><see cref="M:SharpDX.Direct3D9.BaseMesh.GenerateAdjacency(System.Single,System.Int32)"/></strong>).</p> </dd></param>	
-            <param name="dwFalseEdgeAdjacencyRef"><dd>  <p>An array with 3 DWORDS per face. Each face indicates if an edge is false or not. A non-false edge is indicated by -1, a false edge is indicated by any other value. This enables the parameterization of a mesh of quads where the edges down the middle of each quad will not be cut.</p> </dd></param>	
-            <param name="fIMTArrayRef"><dd>  <p>A reference to an array of integrated metric tensors that describes how to stretch a triangle (see IntegratedMetricTensor).</p> </dd></param>	
-            <param name="statusCallbackRef"><dd>  <p>A reference to a callback function (see LPD3DXUVATLASCB) that is useful for monitoring progress.</p> </dd></param>	
-            <param name="fCallbackFrequency"><dd>  <p>Specify how often D3DX will call the callback; a reasonable default value is 0.0001f.</p> </dd></param>	
-            <param name="userContextRef"><dd>  <p>Pointer to a user-defined value which is passed to the callback function; typically used by an application to pass a reference to a data structure that provides context information for the callback function.</p> </dd></param>	
-            <param name="dwOptions"><dd>  <p>Specify the quality of the charts generated. See <strong>D3DXUVATLAS</strong>.</p> </dd></param>	
-            <param name="meshOutOut"><dd>  <p>Pointer to the created mesh with the atlas (see <strong><see cref="T:SharpDX.Direct3D9.Mesh"/></strong>).</p> </dd></param>	
-            <param name="facePartitioningOut"><dd>  <p>A reference to an array of the final face-partitioning data. Each element contains one DWORD per face (see <strong><see cref="T:SharpDX.Direct3D.Blob"/></strong>).</p> </dd></param>	
-            <param name="vertexRemapArrayOut"><dd>  <p>A reference to an array of remapped vertices. Each array element identifies the original vertex that each final vertex came from (if the vertex was split during remapping). Each array element contains one DWORD per vertex.</p> </dd></param>	
-            <param name="fMaxStretchOutRef"><dd>  <p>A reference to the maximum stretch value generated by the atlas algorithm. The range is between 0.0 and 1.0.</p> </dd></param>	
-            <param name="uNumChartsOutRef"><dd>  <p>A reference to the number of charts created by the atlas algorithm. If dwMaxChartNumber is too low, this parameter will return the minimum number of charts required to create an atlas.</p> </dd></param>	
-            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Direct3D9.ResultCode.Success"/>; otherwise, the value is <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>.</p></returns>	
-            <remarks>	
-            <p><see cref="M:SharpDX.Direct3D9.D3DX9.UVAtlasCreate(SharpDX.Direct3D9.Mesh,System.Int32,System.Single,System.Int32,System.Int32,System.Single,System.Int32,System.Int32,System.Int32,System.Single,SharpDX.FunctionCallback,System.Single,System.IntPtr,System.Int32,SharpDX.Direct3D9.Mesh@,SharpDX.Direct3D.Blob@,SharpDX.Direct3D.Blob@,System.Single,System.Int32)"/> can partition mesh geometry two ways:</p><ul> <li>Based on the number of charts</li> <li>Based on the maximum allowed stretch. If the maximum allowed stretch is 0, each triangle will likely be in its own chart.</li> </ul>	
-            </remarks>	
-            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXUVAtlasCreate']/*"/>	
-            <msdn-id>bb205479</msdn-id>	
-            <unmanaged>HRESULT D3DXUVAtlasCreate([In] ID3DXMesh* pMesh,[In] unsigned int uMaxChartNumber,[In] float fMaxStretch,[In] unsigned int uWidth,[In] unsigned int uHeight,[In] float fGutter,[In] unsigned int dwTextureIndex,[In] const unsigned int* pdwAdjacency,[In] const unsigned int* pdwFalseEdgeAdjacency,[In] const float* pfIMTArray,[In] __function__stdcall* pStatusCallback,[In] float fCallbackFrequency,[In] void* pUserContext,[In] unsigned int dwOptions,[In] ID3DXMesh** ppMeshOut,[In] ID3DXBuffer** ppFacePartitioning,[In] ID3DXBuffer** ppVertexRemapArray,[In] float* pfMaxStretchOut,[In] unsigned int* puNumChartsOut)</unmanaged>	
-            <unmanaged-short>D3DXUVAtlasCreate</unmanaged-short>	
         </member>
         <member name="M:SharpDX.Direct3D9.D3DX9.CreatePMeshFromStream(System.IntPtr,System.Int32,SharpDX.Direct3D9.Device,SharpDX.Direct3D.Blob@,SharpDX.Direct3D.Blob@,System.Int32,SharpDX.Direct3D9.ProgressiveMesh@)">
             <summary>	
@@ -21423,22 +21449,6 @@
             <unmanaged>HRESULT D3DXSimplifyMesh([In] ID3DXMesh* pMesh,[In] const unsigned int* pAdjacency,[In] const D3DXATTRIBUTEWEIGHTS* pVertexAttributeWeights,[In] const float* pVertexWeights,[In] unsigned int MinValue,[In] unsigned int Options,[In] ID3DXMesh** ppMesh)</unmanaged>	
             <unmanaged-short>D3DXSimplifyMesh</unmanaged-short>	
         </member>
-        <member name="M:SharpDX.Direct3D9.D3DX9.CreateMeshFVF(System.Int32,System.Int32,System.Int32,SharpDX.Direct3D9.VertexFormat,SharpDX.Direct3D9.Device,SharpDX.Direct3D9.Mesh@)">
-            <summary>	
-            <p>Creates a mesh object using a flexible vertex format (FVF) code.</p>	
-            </summary>	
-            <param name="numFaces"><dd>  <p>Number of faces for the mesh. The valid range for this number is greater than 0, and one less than the max DWORD value, typically 232 - 1, because the last index is reserved.</p> </dd></param>	
-            <param name="numVertices"><dd>  <p>Number of vertices for the mesh. This parameter must be greater than 0.</p> </dd></param>	
-            <param name="options"><dd>  <p>Combination of one or more flags from the  <strong>D3DXMESH</strong> enumeration, specifying creation options for the mesh. </p> </dd></param>	
-            <param name="fvf"><dd>  <p>Combination of <see cref="T:SharpDX.Direct3D9.VertexFormat"/> that describes the vertex format for the returned mesh. This function does not support <see cref="F:SharpDX.Direct3D9.VertexFormat.PositionRhw"/>.</p> </dd></param>	
-            <param name="d3DDeviceRef"><dd>  <p>Pointer to an <strong><see cref="T:SharpDX.Direct3D9.Device"/></strong> interface, the device object to be associated with the mesh.</p> </dd></param>	
-            <param name="meshOut"><dd>  <p>Address of a reference to an <strong><see cref="T:SharpDX.Direct3D9.Mesh"/></strong> interface, representing the created mesh object.</p> </dd></param>	
-            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Direct3D9.ResultCode.Success"/>. If the function fails, the return value can be one of the following: <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>, E_OUTOFMEMORY.</p></returns>	
-            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXCreateMeshFVF']/*"/>	
-            <msdn-id>bb172781</msdn-id>	
-            <unmanaged>HRESULT D3DXCreateMeshFVF([In] unsigned int NumFaces,[In] unsigned int NumVertices,[In] unsigned int Options,[In] D3DFVF FVF,[In] IDirect3DDevice9* pD3DDevice,[In] ID3DXMesh** ppMesh)</unmanaged>	
-            <unmanaged-short>D3DXCreateMeshFVF</unmanaged-short>	
-        </member>
         <member name="M:SharpDX.Direct3D9.D3DX9.ComputeIMTFromPerVertexSignal(SharpDX.Direct3D9.Mesh,System.Single,System.Int32,System.Int32,System.Int32,SharpDX.FunctionCallback,System.IntPtr,SharpDX.Direct3D.Blob@)">
             <summary>	
             <p>Calculate per-triangle IMT's from from per-vertex data. This function allows you to calculate the IMT based off of any value in a mesh (color, normal, etc).</p>	
@@ -21456,6 +21466,24 @@
             <msdn-id>bb172738</msdn-id>	
             <unmanaged>HRESULT D3DXComputeIMTFromPerVertexSignal([In] ID3DXMesh* pMesh,[In] const float* pfVertexSignal,[In] unsigned int uSignalDimension,[In] unsigned int uSignalStride,[In] unsigned int dwOptions,[In] __function__stdcall* pStatusCallback,[In] void* pUserContext,[In] ID3DXBuffer** ppIMTData)</unmanaged>	
             <unmanaged-short>D3DXComputeIMTFromPerVertexSignal</unmanaged-short>	
+        </member>
+        <member name="M:SharpDX.Direct3D9.D3DX9.OptimizeVertices(System.IntPtr,System.Int32,System.Int32,SharpDX.Bool,System.Int32[])">
+            <summary>	
+            <p>Generates an optimized vertex remapping for a triangle list. This function is commonly used after applying the face remapping generated by <strong><see cref="M:SharpDX.Direct3D9.D3DX9.OptimizeFaces(System.IntPtr,System.Int32,System.Int32,SharpDX.Bool,System.Int32[])"/></strong>.</p>	
+            </summary>	
+            <param name="bIndicesRef">No documentation.</param>	
+            <param name="cFaces">No documentation.</param>	
+            <param name="cVertices">No documentation.</param>	
+            <param name="b32BitIndices">No documentation.</param>	
+            <param name="vertexRemapRef">No documentation.</param>	
+            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Direct3D9.ResultCode.Success"/>. If the function fails, the return value can be one of the following: <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>, E_OUTOFMEMORY.</p></returns>	
+            <remarks>	
+            <p>By default, a mesh uses 16 bit indices when it is created unless the application specifies otherwise. To check whether an existing mesh uses 16-bit or 32-bit indices, call <strong><see cref="M:SharpDX.Direct3D9.BaseMesh.GetOptions"/></strong> and check for the <see cref="F:SharpDX.Direct3D9.MeshFlags.Use32Bit"/> flag.</p>	
+            </remarks>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXOptimizeVertices']/*"/>	
+            <msdn-id>bb205377</msdn-id>	
+            <unmanaged>HRESULT D3DXOptimizeVertices([In] const void* pbIndices,[In] unsigned int cFaces,[In] unsigned int cVertices,[In] BOOL b32BitIndices,[In, Buffer] int* pVertexRemap)</unmanaged>	
+            <unmanaged-short>D3DXOptimizeVertices</unmanaged-short>	
         </member>
         <member name="M:SharpDX.Direct3D9.D3DX9.LoadMeshFromXof(SharpDX.Direct3D9.XFileData,System.Int32,SharpDX.Direct3D9.Device,SharpDX.Direct3D.Blob@,SharpDX.Direct3D.Blob@,SharpDX.Direct3D.Blob@,System.Int32,SharpDX.Direct3D9.Mesh@)">
             <summary>	
@@ -21527,6 +21555,23 @@
             <unmanaged>HRESULT D3DXRectPatchSize([In] const float* pfNumSegs,[Out] unsigned int* pdwTriangles,[Out] unsigned int* pdwVertices)</unmanaged>	
             <unmanaged-short>D3DXRectPatchSize</unmanaged-short>	
         </member>
+        <member name="M:SharpDX.Direct3D9.D3DX9.SphereBoundProbe(SharpDX.Vector3,System.Single,SharpDX.Vector3,SharpDX.Vector3)">
+            <summary>	
+            <p>Determines if a ray intersects the volume of a sphere's bounding box.</p>	
+            </summary>	
+            <param name="centerRef"><dd>  <p>Pointer to a <strong><see cref="T:SharpDX.Vector3"/></strong> structure, specifying the center coordinate of the sphere.</p> </dd></param>	
+            <param name="radius"><dd>  <p>Radius of the sphere.</p> </dd></param>	
+            <param name="rayPositionRef"><dd>  <p>Pointer to a <strong><see cref="T:SharpDX.Vector3"/></strong> structure, specifying the origin coordinate of the ray.</p> </dd></param>	
+            <param name="rayDirectionRef"><dd>  <p>Pointer to a <strong><see cref="T:SharpDX.Vector3"/></strong> structure, specifying the direction of the ray. This vector should not be (0,0,0) but does not need to be normalized.</p> </dd></param>	
+            <returns><p>Returns <strong>TRUE</strong> if the ray intersects the volume of the sphere's bounding box. Otherwise, returns <strong><see cref="F:SharpDX.Result.False"/></strong>.</p></returns>	
+            <remarks>	
+            <p><strong><see cref="M:SharpDX.Direct3D9.D3DX9.SphereBoundProbe(SharpDX.Vector3,System.Single,SharpDX.Vector3,SharpDX.Vector3)"/></strong> determines if the ray intersects the volume of the sphere's bounding box, not just the surface of the sphere.</p>	
+            </remarks>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXSphereBoundProbe']/*"/>	
+            <msdn-id>bb204995</msdn-id>	
+            <unmanaged>BOOL D3DXSphereBoundProbe([In] const D3DXVECTOR3* pCenter,[In] float Radius,[In] const D3DXVECTOR3* pRayPosition,[In] const D3DXVECTOR3* pRayDirection)</unmanaged>	
+            <unmanaged-short>D3DXSphereBoundProbe</unmanaged-short>	
+        </member>
         <member name="M:SharpDX.Direct3D9.D3DX9.TessellateTriPatch(SharpDX.Direct3D9.VertexBuffer,System.Single,SharpDX.Direct3D9.VertexElement,SharpDX.Direct3D9.TrianglePatchInfo,SharpDX.Direct3D9.Mesh)">
             <summary>	
             <p>Tessellates a triangular higher-order surface patch into a triangle mesh.</p>	
@@ -21544,6 +21589,22 @@
             <msdn-id>bb205471</msdn-id>	
             <unmanaged>HRESULT D3DXTessellateTriPatch([In] IDirect3DVertexBuffer9* pVB,[In] const float* pNumSegs,[In] const D3DVERTEXELEMENT9* pInDecl,[In] const D3DTRIPATCH_INFO* pTriPatchInfo,[In] ID3DXMesh* pMesh)</unmanaged>	
             <unmanaged-short>D3DXTessellateTriPatch</unmanaged-short>	
+        </member>
+        <member name="M:SharpDX.Direct3D9.D3DX9.ComputeTangentFrame(SharpDX.Direct3D9.Mesh,System.Int32)">
+            <summary>	
+            <p> Compute tangent, binormal, and normal vectors for a mesh.</p>	
+            </summary>	
+            <param name="meshRef"><dd>  <p>Pointer to an input <strong><see cref="T:SharpDX.Direct3D9.Mesh"/></strong> mesh object.</p> </dd></param>	
+            <param name="dwOptions"><dd>  <p>Combination of one or more <strong><see cref="T:SharpDX.Direct3D9.TangentOptions"/></strong> flags.  </p> <p>Use <strong><c>null</c></strong> to specify the following options:</p> <ul> <li>Weight the normal vector length by the angle, in radians, subtended by the two edges leaving the vertex.</li> <li>Compute orthogonal Cartesian coordinates from the UV texture coordinates.</li> <li>Textures are not wrapped in either U or V directions</li> <li>Partial derivatives with respect to texture coordinates are normalized.</li> <li>Vertices are ordered in a counterclockwise direction around each triangle.</li> <li>Use per-vertex normal vectors already present in the input mesh.</li> <li>The results will be stored in the original input mesh. The function will fail if new vertices need to be created.</li> </ul> </dd></param>	
+            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Result.Ok"/>. If the function fails, the return value can be one of the following: <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>, D3DXERR_INVALIDDATA, E_OUTOFMEMORY.</p></returns>	
+            <remarks>	
+            <p>This function simply calls <strong><see cref="M:SharpDX.Direct3D9.D3DX9.ComputeTangentFrameEx(SharpDX.Direct3D9.Mesh,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Single,SharpDX.Direct3D9.Mesh@,SharpDX.Direct3D.Blob@)"/></strong> with the following input parameters:</p><pre> <see cref="M:SharpDX.Direct3D9.D3DX9.ComputeTangentFrameEx(SharpDX.Direct3D9.Mesh,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Single,SharpDX.Direct3D9.Mesh@,SharpDX.Direct3D.Blob@)"/>(pMesh, <see cref="F:SharpDX.Direct3D9.DeclarationUsage.TextureCoordinate"/>, 0,    <see cref="F:SharpDX.Direct3D9.DeclarationUsage.Binormal"/>, 0, <see cref="F:SharpDX.Direct3D9.DeclarationUsage.Tangent"/>, 0,  <see cref="F:SharpDX.Direct3D9.DeclarationUsage.Normal"/>, 0,  dwOptions | <see cref="F:SharpDX.Direct3D9.TangentOptions.GenerateInPlace"/>, <c>null</c>, 0.01f, 0.25f, 0.01f, <c>null</c>, <c>null</c>);	
+            </pre><p>Singularities are handled as required by grouping edges and splitting vertices. If any vertices need to be split, the function will fail. The computed normal vector at each vertex is always normalized to have unit length.</p><p>The most robust solution for computing orthogonal Cartesian coordinates is to not set flags <see cref="F:SharpDX.Direct3D9.TangentOptions.OrthogonalizeFromU"/> and <see cref="F:SharpDX.Direct3D9.TangentOptions.OrthogonalizeFromV"/>, so that orthogonal coordinates are computed from both UV texture coordinates. However, in this case, if either U or V is zero, then the function will compute orthogonal coordinates using <see cref="F:SharpDX.Direct3D9.TangentOptions.OrthogonalizeFromV"/> or <see cref="F:SharpDX.Direct3D9.TangentOptions.OrthogonalizeFromU"/> respectively.</p>	
+            </remarks>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXComputeTangentFrame']/*"/>	
+            <msdn-id>bb172744</msdn-id>	
+            <unmanaged>HRESULT D3DXComputeTangentFrame([In] ID3DXMesh* pMesh,[In] unsigned int dwOptions)</unmanaged>	
+            <unmanaged-short>D3DXComputeTangentFrame</unmanaged-short>	
         </member>
         <member name="M:SharpDX.Direct3D9.D3DX9.ComputeBoundingSphere(SharpDX.Vector3,System.Int32,System.Int32,SharpDX.Vector3,System.Single)">
             <summary>	
@@ -21644,19 +21705,6 @@
             <unmanaged>HRESULT D3DXComputeIMTFromPerTexelSignal([In] ID3DXMesh* pMesh,[In] unsigned int dwTextureIndex,[In] float* pfTexelSignal,[In] unsigned int uWidth,[In] unsigned int uHeight,[In] unsigned int uSignalDimension,[In] unsigned int uComponents,[In] unsigned int dwOptions,[In] __function__stdcall* pStatusCallback,[In] void* pUserContext,[In] ID3DXBuffer** ppIMTData)</unmanaged>	
             <unmanaged-short>D3DXComputeIMTFromPerTexelSignal</unmanaged-short>	
         </member>
-        <member name="M:SharpDX.Direct3D9.D3DX9.TriPatchSize(System.Single,System.Int32@,System.Int32@)">
-            <summary>	
-            <p>Gets the size of the triangle patch.</p>	
-            </summary>	
-            <param name="fNumSegsRef"><dd>  <p>Number of segments per edge to tessellate.</p> </dd></param>	
-            <param name="dwTrianglesRef"><dd>  <p>Pointer to a DWORD that contains the number of triangles in the patch.</p> </dd></param>	
-            <param name="dwVerticesRef"><dd>  <p>Pointer to a DWORD that contains the number of vertices in the triangle patch.</p> </dd></param>	
-            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Direct3D9.ResultCode.Success"/>. If the function fails, the return value can be one of the following: <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>, E_OUTOFMEMORY.</p></returns>	
-            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXTriPatchSize']/*"/>	
-            <msdn-id>bb205476</msdn-id>	
-            <unmanaged>HRESULT D3DXTriPatchSize([In] const float* pfNumSegs,[Out] unsigned int* pdwTriangles,[Out] unsigned int* pdwVertices)</unmanaged>	
-            <unmanaged-short>D3DXTriPatchSize</unmanaged-short>	
-        </member>
         <member name="M:SharpDX.Direct3D9.D3DX9.ComputeNormals(SharpDX.Direct3D9.BaseMesh,System.Int32)">
             <summary>	
             <p>Computes unit normals for each vertex in a mesh. Provided to support legacy applications. Use <strong><see cref="M:SharpDX.Direct3D9.D3DX9.ComputeTangentFrameEx(SharpDX.Direct3D9.Mesh,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Single,SharpDX.Direct3D9.Mesh@,SharpDX.Direct3D.Blob@)"/></strong> for better results.</p>	
@@ -21707,18 +21755,6 @@
             <msdn-id>bb172732</msdn-id>	
             <unmanaged>HRESULT D3DXCompileShaderFromFileW([In] const wchar_t* pSrcFile,[In, Buffer, Optional] const D3DXMACRO* pDefines,[In] ID3DXInclude* pInclude,[In] const char* pFunctionName,[In] const char* pProfile,[In] unsigned int Flags,[In] ID3DXBuffer** ppShader,[In] ID3DXBuffer** ppErrorMsgs,[In] ID3DXConstantTable** ppConstantTable)</unmanaged>	
             <unmanaged-short>D3DXCompileShaderFromFileW</unmanaged-short>	
-        </member>
-        <member name="M:SharpDX.Direct3D9.D3DX9.CreateTextureShader(System.Int32,SharpDX.Direct3D9.TextureShader@)">
-            <summary>	
-            <p>Creates a texture shader object from the compiled shader.</p>	
-            </summary>	
-            <param name="functionRef"><dd>  <p>Pointer to the function DWORD stream.</p> </dd></param>	
-            <param name="textureShaderOut"><dd>  <p>Returns an <strong><see cref="T:SharpDX.Direct3D9.TextureShader"/></strong> object which can be used to procedurally fill the contents of a texture using the <strong><see cref="M:SharpDX.Direct3D9.D3DX9.FillTextureTX(SharpDX.Direct3D9.Texture,SharpDX.Direct3D9.TextureShader)"/></strong> functions.</p> </dd></param>	
-            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Direct3D9.ResultCode.Success"/>. If the function fails, the return value can be one of the following: <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>, D3DXERR_INVALIDDATA, E_OUTOFMEMORY.</p></returns>	
-            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXCreateTextureShader']/*"/>	
-            <msdn-id>bb172808</msdn-id>	
-            <unmanaged>HRESULT D3DXCreateTextureShader([In] const unsigned int* pFunction,[In] ID3DXTextureShader** ppTextureShader)</unmanaged>	
-            <unmanaged-short>D3DXCreateTextureShader</unmanaged-short>	
         </member>
         <member name="M:SharpDX.Direct3D9.D3DX9.GetShaderOutputSemantics(System.IntPtr,SharpDX.Direct3D9.ShaderSemantic[],System.Int32@)">
             <summary>	
@@ -21833,6 +21869,18 @@
             <msdn-id>bb172731</msdn-id>	
             <unmanaged>HRESULT D3DXCompileShader([In] const void* pSrcData,[In] unsigned int SrcDataLen,[In, Buffer, Optional] const D3DXMACRO* pDefines,[In] ID3DXInclude* pInclude,[In] const char* pFunctionName,[In] const char* pProfile,[In] unsigned int Flags,[In] ID3DXBuffer** ppShader,[In] ID3DXBuffer** ppErrorMsgs,[In] ID3DXConstantTable** ppConstantTable)</unmanaged>	
             <unmanaged-short>D3DXCompileShader</unmanaged-short>	
+        </member>
+        <member name="M:SharpDX.Direct3D9.D3DX9.CreateTextureShader(System.Int32,SharpDX.Direct3D9.TextureShader@)">
+            <summary>	
+            <p>Creates a texture shader object from the compiled shader.</p>	
+            </summary>	
+            <param name="functionRef"><dd>  <p>Pointer to the function DWORD stream.</p> </dd></param>	
+            <param name="textureShaderOut"><dd>  <p>Returns an <strong><see cref="T:SharpDX.Direct3D9.TextureShader"/></strong> object which can be used to procedurally fill the contents of a texture using the <strong><see cref="M:SharpDX.Direct3D9.D3DX9.FillTextureTX(SharpDX.Direct3D9.Texture,SharpDX.Direct3D9.TextureShader)"/></strong> functions.</p> </dd></param>	
+            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Direct3D9.ResultCode.Success"/>. If the function fails, the return value can be one of the following: <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>, D3DXERR_INVALIDDATA, E_OUTOFMEMORY.</p></returns>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXCreateTextureShader']/*"/>	
+            <msdn-id>bb172808</msdn-id>	
+            <unmanaged>HRESULT D3DXCreateTextureShader([In] const unsigned int* pFunction,[In] ID3DXTextureShader** ppTextureShader)</unmanaged>	
+            <unmanaged-short>D3DXCreateTextureShader</unmanaged-short>	
         </member>
         <member name="M:SharpDX.Direct3D9.D3DX9.GetShaderSamplers(System.IntPtr,System.IntPtr,System.Int32@)">
             <summary>	
@@ -21997,27 +22045,6 @@
             <unmanaged>unsigned int D3DXGetShaderVersion([In] const void* pFunction)</unmanaged>	
             <unmanaged-short>D3DXGetShaderVersion</unmanaged-short>	
         </member>
-        <member name="M:SharpDX.Direct3D9.D3DX9.CreateCylinder(SharpDX.Direct3D9.Device,System.Single,System.Single,System.Single,System.Int32,System.Int32,SharpDX.Direct3D9.Mesh@,SharpDX.Direct3D.Blob@)">
-            <summary>	
-            <p>Uses a left-handed coordinate system to create a mesh containing a cylinder.</p>	
-            </summary>	
-            <param name="deviceRef"><dd>  <p>Pointer to an <strong><see cref="T:SharpDX.Direct3D9.Device"/></strong> interface, representing the device associated with the created cylinder mesh.</p> </dd></param>	
-            <param name="radius1"><dd>  <p>Radius at the negative Z end. Value should be greater than or equal to 0.0f.</p> </dd></param>	
-            <param name="radius2"><dd>  <p>Radius at the positive Z end. Value should be greater than or equal to 0.0f.</p> </dd></param>	
-            <param name="length"><dd>  <p>Length of the cylinder along the z-axis.</p> </dd></param>	
-            <param name="slices"><dd>  <p>Number of slices about the main axis.</p> </dd></param>	
-            <param name="stacks"><dd>  <p>Number of stacks along the main axis.</p> </dd></param>	
-            <param name="meshOut"><dd>  <p>Address of a reference to the output shape, an <strong><see cref="T:SharpDX.Direct3D9.Mesh"/></strong> interface.</p> </dd></param>	
-            <param name="adjacencyOut"><dd>  <p>Address of a reference to an <strong><see cref="T:SharpDX.Direct3D.Blob"/></strong> interface. When the method returns, this parameter is filled with an array of three  DWORDs per face that specify the three neighbors for each face in the mesh. <strong><c>null</c></strong> can be specified.</p> </dd></param>	
-            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Direct3D9.ResultCode.Success"/>. If the function fails, the return value can be one of the following: <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>, D3DXERR_INVALIDDATA, E_OUTOFMEMORY.</p></returns>	
-            <remarks>	
-            <p>The created cylinder is centered at the origin, and its axis is aligned with the z-axis.</p><p>This function creates a mesh with the <see cref="F:SharpDX.Direct3D9.MeshFlags.Managed"/> creation option and <see cref="F:SharpDX.Direct3D9.VertexFormat.Position"/> | <see cref="F:SharpDX.Direct3D9.VertexFormat.Normal"/> flexible vertex format (FVF).</p>	
-            </remarks>	
-            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXCreateCylinder']/*"/>	
-            <msdn-id>bb172762</msdn-id>	
-            <unmanaged>HRESULT D3DXCreateCylinder([In] IDirect3DDevice9* pDevice,[In] float Radius1,[In] float Radius2,[In] float Length,[In] unsigned int Slices,[In] unsigned int Stacks,[In] ID3DXMesh** ppMesh,[In] ID3DXBuffer** ppAdjacency)</unmanaged>	
-            <unmanaged-short>D3DXCreateCylinder</unmanaged-short>	
-        </member>
         <member name="M:SharpDX.Direct3D9.D3DX9.CreateTorus(SharpDX.Direct3D9.Device,System.Single,System.Single,System.Int32,System.Int32,SharpDX.Direct3D9.Mesh@,SharpDX.Direct3D.Blob@)">
             <summary>	
             <p>Uses a left-handed coordinate system to create a mesh containing a torus.</p>	
@@ -22132,6 +22159,27 @@
             <unmanaged>HRESULT D3DXCreateTextW([In] IDirect3DDevice9* pDevice,[In] HDC hDC,[In] const wchar_t* pText,[In] float Deviation,[In] float Extrusion,[In] ID3DXMesh** ppMesh,[In] ID3DXBuffer** ppAdjacency,[In] LPGLYPHMETRICSFLOAT pGlyphMetrics)</unmanaged>	
             <unmanaged-short>D3DXCreateTextW</unmanaged-short>	
         </member>
+        <member name="M:SharpDX.Direct3D9.D3DX9.CreateCylinder(SharpDX.Direct3D9.Device,System.Single,System.Single,System.Single,System.Int32,System.Int32,SharpDX.Direct3D9.Mesh@,SharpDX.Direct3D.Blob@)">
+            <summary>	
+            <p>Uses a left-handed coordinate system to create a mesh containing a cylinder.</p>	
+            </summary>	
+            <param name="deviceRef"><dd>  <p>Pointer to an <strong><see cref="T:SharpDX.Direct3D9.Device"/></strong> interface, representing the device associated with the created cylinder mesh.</p> </dd></param>	
+            <param name="radius1"><dd>  <p>Radius at the negative Z end. Value should be greater than or equal to 0.0f.</p> </dd></param>	
+            <param name="radius2"><dd>  <p>Radius at the positive Z end. Value should be greater than or equal to 0.0f.</p> </dd></param>	
+            <param name="length"><dd>  <p>Length of the cylinder along the z-axis.</p> </dd></param>	
+            <param name="slices"><dd>  <p>Number of slices about the main axis.</p> </dd></param>	
+            <param name="stacks"><dd>  <p>Number of stacks along the main axis.</p> </dd></param>	
+            <param name="meshOut"><dd>  <p>Address of a reference to the output shape, an <strong><see cref="T:SharpDX.Direct3D9.Mesh"/></strong> interface.</p> </dd></param>	
+            <param name="adjacencyOut"><dd>  <p>Address of a reference to an <strong><see cref="T:SharpDX.Direct3D.Blob"/></strong> interface. When the method returns, this parameter is filled with an array of three  DWORDs per face that specify the three neighbors for each face in the mesh. <strong><c>null</c></strong> can be specified.</p> </dd></param>	
+            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Direct3D9.ResultCode.Success"/>. If the function fails, the return value can be one of the following: <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>, D3DXERR_INVALIDDATA, E_OUTOFMEMORY.</p></returns>	
+            <remarks>	
+            <p>The created cylinder is centered at the origin, and its axis is aligned with the z-axis.</p><p>This function creates a mesh with the <see cref="F:SharpDX.Direct3D9.MeshFlags.Managed"/> creation option and <see cref="F:SharpDX.Direct3D9.VertexFormat.Position"/> | <see cref="F:SharpDX.Direct3D9.VertexFormat.Normal"/> flexible vertex format (FVF).</p>	
+            </remarks>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXCreateCylinder']/*"/>	
+            <msdn-id>bb172762</msdn-id>	
+            <unmanaged>HRESULT D3DXCreateCylinder([In] IDirect3DDevice9* pDevice,[In] float Radius1,[In] float Radius2,[In] float Length,[In] unsigned int Slices,[In] unsigned int Stacks,[In] ID3DXMesh** ppMesh,[In] ID3DXBuffer** ppAdjacency)</unmanaged>	
+            <unmanaged-short>D3DXCreateCylinder</unmanaged-short>	
+        </member>
         <member name="M:SharpDX.Direct3D9.D3DX9.GetImageInfoFromFileInMemory(System.IntPtr,System.Int32)">
             <summary>	
             <p>Retrieves information about a given image file in memory.</p>	
@@ -22243,6 +22291,24 @@
             <unmanaged>HRESULT D3DXCheckCubeTextureRequirements([In] IDirect3DDevice9* pDevice,[InOut] unsigned int* pSize,[InOut] unsigned int* pNumMipLevels,[In] unsigned int Usage,[InOut] D3DFORMAT* pFormat,[In] D3DPOOL Pool)</unmanaged>	
             <unmanaged-short>D3DXCheckCubeTextureRequirements</unmanaged-short>	
         </member>
+        <member name="M:SharpDX.Direct3D9.D3DX9.LoadSurfaceFromFileInMemory(SharpDX.Direct3D9.Surface,SharpDX.Direct3D9.PaletteEntry[],System.IntPtr,System.IntPtr,System.Int32,System.IntPtr,SharpDX.Direct3D9.Filter,System.Int32,System.IntPtr)">
+            <summary>	
+            No documentation.	
+            </summary>	
+            <param name="destSurfaceRef">No documentation.</param>	
+            <param name="destPaletteRef">No documentation.</param>	
+            <param name="destRectRef">No documentation.</param>	
+            <param name="srcDataRef">No documentation.</param>	
+            <param name="srcDataSize">No documentation.</param>	
+            <param name="srcRectRef">No documentation.</param>	
+            <param name="filter">No documentation.</param>	
+            <param name="colorKey">No documentation.</param>	
+            <param name="srcInfoRef">No documentation.</param>	
+            <returns>No documentation.</returns>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXLoadSurfaceFromFileInMemory']/*"/>	
+            <unmanaged>HRESULT D3DXLoadSurfaceFromFileInMemory([In] IDirect3DSurface9* pDestSurface,[Out, Buffer] const PALETTEENTRY* pDestPalette,[In] const void* pDestRect,[In] const void* pSrcData,[In] unsigned int SrcDataSize,[In] const void* pSrcRect,[In] D3DX_FILTER Filter,[In] int ColorKey,[In] void* pSrcInfo)</unmanaged>	
+            <unmanaged-short>D3DXLoadSurfaceFromFileInMemory</unmanaged-short>	
+        </member>
         <member name="M:SharpDX.Direct3D9.D3DX9.CreateTextureFromFileW(SharpDX.Direct3D9.Device,System.String,SharpDX.Direct3D9.Texture@)">
             <summary>	
             <p>Creates a texture from a file.</p>	
@@ -22279,6 +22345,30 @@
             <msdn-id>bb172900</msdn-id>	
             <unmanaged>HRESULT D3DXLoadSurfaceFromFileW([In] IDirect3DSurface9* pDestSurface,[Out, Buffer] const PALETTEENTRY* pDestPalette,[In] const void* pDestRect,[In] const wchar_t* pSrcFile,[In] const void* pSrcRect,[In] D3DX_FILTER Filter,[In] int ColorKey,[In] void* pSrcInfo)</unmanaged>	
             <unmanaged-short>D3DXLoadSurfaceFromFileW</unmanaged-short>	
+        </member>
+        <member name="M:SharpDX.Direct3D9.D3DX9.FillCubeTexture(SharpDX.Direct3D9.CubeTexture,SharpDX.FunctionCallback,System.IntPtr)">
+            <summary>	
+            <p>Uses a user-provided function to fill each texel of each mip level of a given cube texture.</p>	
+            </summary>	
+            <param name="cubeTextureRef"><dd>  <p>Pointer to an <strong><see cref="T:SharpDX.Direct3D9.CubeTexture"/></strong> interface, representing the filled texture.</p> </dd></param>	
+            <param name="functionRef"><dd>  <p>Pointer to a user-provided evaluator function, which will be used to compute the value of each texel. The function follows the prototype of LPD3DXFILL3D.</p> </dd></param>	
+            <param name="dataRef"><dd>  <p>Pointer to an arbitrary block of user-defined data. This reference will be passed to the function provided in <em>pFunction</em>.</p> </dd></param>	
+            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Direct3D9.ResultCode.Success"/>. If the function fails, the return value can be one of the following values: <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>.</p></returns>	
+            <remarks>	
+            <p>Here is an example that creates a function called ColorCubeFill, which relies on <see cref="M:SharpDX.Direct3D9.D3DX9.FillCubeTexture(SharpDX.Direct3D9.CubeTexture,SharpDX.FunctionCallback,System.IntPtr)"/>.</p><pre> // Define a function that matches the prototype of LPD3DXFILL3D	
+            VOID WINAPI ColorCubeFill (<see cref="T:SharpDX.Vector4"/>* pOut, const <see cref="T:SharpDX.Vector3"/>* pTexCoord, 	
+            const <see cref="T:SharpDX.Vector3"/>* pTexelSize, LPVOID pData)	
+            { *pOut = <see cref="T:SharpDX.Vector4"/>(pTexCoord-&gt;x, pTexCoord-&gt;y, pTexCoord-&gt;z, 0.0f);	
+            } // Fill the texture using <see cref="M:SharpDX.Direct3D9.D3DX9.FillCubeTexture(SharpDX.Direct3D9.CubeTexture,SharpDX.FunctionCallback,System.IntPtr)"/>	
+            if (FAILED (hr = <see cref="M:SharpDX.Direct3D9.D3DX9.FillCubeTexture(SharpDX.Direct3D9.CubeTexture,SharpDX.FunctionCallback,System.IntPtr)"/> (m_pTexture, ColorCubeFill, <c>null</c>)))	
+            { return hr;	
+            }	
+            </pre>	
+            </remarks>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXFillCubeTexture']/*"/>	
+            <msdn-id>bb172831</msdn-id>	
+            <unmanaged>HRESULT D3DXFillCubeTexture([In] IDirect3DCubeTexture9* pCubeTexture,[In] __function__stdcall* pFunction,[In] void* pData)</unmanaged>	
+            <unmanaged-short>D3DXFillCubeTexture</unmanaged-short>	
         </member>
         <member name="M:SharpDX.Direct3D9.D3DX9.CreateVolumeTexture(SharpDX.Direct3D9.Device,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,SharpDX.Direct3D9.Format,SharpDX.Direct3D9.Pool,SharpDX.Direct3D9.VolumeTexture@)">
             <summary>	
@@ -22341,19 +22431,32 @@
             <unmanaged>HRESULT D3DXLoadSurfaceFromResourceW([In] IDirect3DSurface9* pDestSurface,[Out, Buffer] const PALETTEENTRY* pDestPalette,[In] const void* pDestRect,[In] HINSTANCE hSrcModule,[In] const wchar_t* pSrcResource,[In] const void* pSrcRect,[In] D3DX_FILTER Filter,[In] int ColorKey,[In] void* pSrcInfo)</unmanaged>	
             <unmanaged-short>D3DXLoadSurfaceFromResourceW</unmanaged-short>	
         </member>
-        <member name="M:SharpDX.Direct3D9.D3DX9.GetImageInfoFromFileW(System.String)">
+        <member name="M:SharpDX.Direct3D9.D3DX9.CreateTextureFromFileExW(SharpDX.Direct3D9.Device,System.String,System.Int32,System.Int32,System.Int32,System.Int32,SharpDX.Direct3D9.Format,SharpDX.Direct3D9.Pool,System.Int32,System.Int32,SharpDX.ColorBGRA,System.IntPtr,SharpDX.Direct3D9.PaletteEntry[],SharpDX.Direct3D9.Texture@)">
             <summary>	
-            <p>Retrieves information about a given image file.</p>	
+            <p>Creates a texture from a file. This is a more advanced function than <strong><see cref="M:SharpDX.Direct3D9.D3DX9.CreateTextureFromFileW(SharpDX.Direct3D9.Device,System.String,SharpDX.Direct3D9.Texture@)"/></strong>.</p>	
             </summary>	
-            <param name="srcFileRef"><dd>  <p>File name of image to retrieve information about. If UNICODE or _UNICODE are defined, this parameter type is LPCWSTR, otherwise, the type is LPCSTR.</p> </dd></param>	
-            <returns><dd>  <p>Pointer to a <strong><see cref="T:SharpDX.Direct3D9.ImageInformation"/></strong> structure to be filled with the description of the data in the source file.</p> </dd></returns>	
+            <param name="deviceRef">No documentation.</param>	
+            <param name="srcFileRef">No documentation.</param>	
+            <param name="width">No documentation.</param>	
+            <param name="height">No documentation.</param>	
+            <param name="mipLevels">No documentation.</param>	
+            <param name="usage">No documentation.</param>	
+            <param name="format">No documentation.</param>	
+            <param name="pool">No documentation.</param>	
+            <param name="filter">No documentation.</param>	
+            <param name="mipFilter">No documentation.</param>	
+            <param name="colorKey">No documentation.</param>	
+            <param name="srcInfoRef">No documentation.</param>	
+            <param name="paletteRef">No documentation.</param>	
+            <param name="textureOut">No documentation.</param>	
+            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Direct3D9.ResultCode.Success"/>. If the function fails, the return value can be one of the following: <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>, <see cref="F:SharpDX.Direct3D9.ResultCode.NotAvailable"/>, <see cref="F:SharpDX.Direct3D9.ResultCode.OutOfVideoMemory"/>, D3DXERR_INVALIDDATA, E_OUTOFMEMORY.</p></returns>	
             <remarks>	
-            <p>This function supports both Unicode and ANSI strings.</p>	
+            <p>The compiler setting also determines the function version. If Unicode is defined, the function call resolves to <see cref="M:SharpDX.Direct3D9.D3DX9.CreateTextureFromFileExW(SharpDX.Direct3D9.Device,System.String,System.Int32,System.Int32,System.Int32,System.Int32,SharpDX.Direct3D9.Format,SharpDX.Direct3D9.Pool,System.Int32,System.Int32,SharpDX.ColorBGRA,System.IntPtr,SharpDX.Direct3D9.PaletteEntry[],SharpDX.Direct3D9.Texture@)"/>. Otherwise, the function call resolves to D3DXCreateTextureFromFileExA because ANSI strings are being used.</p><p>Use <strong><see cref="M:SharpDX.Direct3D9.D3DX9.CheckTextureRequirements(SharpDX.Direct3D9.Device,System.Int32@,System.Int32@,System.Int32@,System.Int32,SharpDX.Direct3D9.Format@,SharpDX.Direct3D9.Pool)"/></strong> to determine if your device can support the texture given the current state.</p><p>This function supports the following file formats: .bmp, .dds, .dib, .hdr, .jpg, .pfm, .png, .ppm, and .tga. See <strong><see cref="T:SharpDX.Direct3D9.ImageFileFormat"/></strong>.</p><p>Mipmapped textures automatically have each level filled with the loaded texture. When loading images into mipmapped textures, some devices are unable to go to a 1x1 image and this function will fail. If this happens, then the images need to be loaded manually.</p><p>For the best performance when using <strong><see cref="M:SharpDX.Direct3D9.D3DX9.CreateTextureFromFileExW(SharpDX.Direct3D9.Device,System.String,System.Int32,System.Int32,System.Int32,System.Int32,SharpDX.Direct3D9.Format,SharpDX.Direct3D9.Pool,System.Int32,System.Int32,SharpDX.ColorBGRA,System.IntPtr,SharpDX.Direct3D9.PaletteEntry[],SharpDX.Direct3D9.Texture@)"/></strong>:</p><ol> <li>Doing image scaling and format conversion at load time can be slow. Store images in the format and resolution they will be used. If the target hardware requires power of 2 dimensions, then create and store images using power of 2 dimensions.</li> <li>For mipmap image creation at load time, filter using <see cref="F:SharpDX.Direct3D9.Filter.Box"/>. A box filter is much faster than other filter types such as <see cref="F:SharpDX.Direct3D9.Filter.Triangle"/>.</li> <li>Consider using DDS files. Since DDS files can be used to represent any Direct3D 9 texture format, they are very easy for D3DX to read. Also, they can store mipmaps, so any mipmap-generation algorithms can be used to author the images.</li> </ol><p>When skipping mipmap levels while loading a .dds file, use the D3DX_SKIP_DDS_MIP_LEVELS macro to generate the MipFilter value. This macro takes the number of levels to skip and the filter type and returns the filter value, which would then be passed into the MipFilter parameter.</p>	
             </remarks>	
-            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXGetImageInfoFromFileW']/*"/>	
-            <msdn-id>bb172867</msdn-id>	
-            <unmanaged>HRESULT D3DXGetImageInfoFromFileW([In] const wchar_t* pSrcFile,[Out] D3DXIMAGE_INFO* pSrcInfo)</unmanaged>	
-            <unmanaged-short>D3DXGetImageInfoFromFileW</unmanaged-short>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXCreateTextureFromFileExW']/*"/>	
+            <msdn-id>bb172802</msdn-id>	
+            <unmanaged>HRESULT D3DXCreateTextureFromFileExW([In] IDirect3DDevice9* pDevice,[In] const wchar_t* pSrcFile,[In] unsigned int Width,[In] unsigned int Height,[In] unsigned int MipLevels,[In] unsigned int Usage,[In] D3DFORMAT Format,[In] D3DPOOL Pool,[In] unsigned int Filter,[In] unsigned int MipFilter,[In] D3DCOLOR ColorKey,[In] void* pSrcInfo,[Out, Buffer] PALETTEENTRY* pPalette,[In] IDirect3DTexture9** ppTexture)</unmanaged>	
+            <unmanaged-short>D3DXCreateTextureFromFileExW</unmanaged-short>	
         </member>
         <member name="M:SharpDX.Direct3D9.D3DX9.ComputeNormalMap(SharpDX.Direct3D9.Texture,SharpDX.Direct3D9.Texture,SharpDX.Direct3D9.PaletteEntry[],System.Int32,System.Int32,System.Single)">
             <summary>	
@@ -22374,24 +22477,6 @@
             <unmanaged>HRESULT D3DXComputeNormalMap([In] IDirect3DTexture9* pTexture,[In] IDirect3DTexture9* pSrcTexture,[Out, Buffer] const PALETTEENTRY* pSrcPalette,[In] unsigned int Flags,[In] unsigned int Channel,[In] float Amplitude)</unmanaged>	
             <unmanaged-short>D3DXComputeNormalMap</unmanaged-short>	
         </member>
-        <member name="M:SharpDX.Direct3D9.D3DX9.LoadSurfaceFromFileInMemory(SharpDX.Direct3D9.Surface,SharpDX.Direct3D9.PaletteEntry[],System.IntPtr,System.IntPtr,System.Int32,System.IntPtr,SharpDX.Direct3D9.Filter,System.Int32,System.IntPtr)">
-            <summary>	
-            No documentation.	
-            </summary>	
-            <param name="destSurfaceRef">No documentation.</param>	
-            <param name="destPaletteRef">No documentation.</param>	
-            <param name="destRectRef">No documentation.</param>	
-            <param name="srcDataRef">No documentation.</param>	
-            <param name="srcDataSize">No documentation.</param>	
-            <param name="srcRectRef">No documentation.</param>	
-            <param name="filter">No documentation.</param>	
-            <param name="colorKey">No documentation.</param>	
-            <param name="srcInfoRef">No documentation.</param>	
-            <returns>No documentation.</returns>	
-            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXLoadSurfaceFromFileInMemory']/*"/>	
-            <unmanaged>HRESULT D3DXLoadSurfaceFromFileInMemory([In] IDirect3DSurface9* pDestSurface,[Out, Buffer] const PALETTEENTRY* pDestPalette,[In] const void* pDestRect,[In] const void* pSrcData,[In] unsigned int SrcDataSize,[In] const void* pSrcRect,[In] D3DX_FILTER Filter,[In] int ColorKey,[In] void* pSrcInfo)</unmanaged>	
-            <unmanaged-short>D3DXLoadSurfaceFromFileInMemory</unmanaged-short>	
-        </member>
         <member name="M:SharpDX.Direct3D9.D3DX9.CreateTextureFromFileInMemory(SharpDX.Direct3D9.Device,System.IntPtr,System.Int32,SharpDX.Direct3D9.Texture@)">
             <summary>	
             <p>Creates a texture from a file in memory.</p>	
@@ -22408,6 +22493,34 @@
             <msdn-id>bb172803</msdn-id>	
             <unmanaged>HRESULT D3DXCreateTextureFromFileInMemory([In] IDirect3DDevice9* pDevice,[In] const void* pSrcData,[In] unsigned int SrcDataSize,[In] IDirect3DTexture9** ppTexture)</unmanaged>	
             <unmanaged-short>D3DXCreateTextureFromFileInMemory</unmanaged-short>	
+        </member>
+        <member name="M:SharpDX.Direct3D9.D3DX9.CreateVolumeTextureFromFileExW(SharpDX.Direct3D9.Device,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,SharpDX.Direct3D9.Format,SharpDX.Direct3D9.Pool,System.Int32,System.Int32,SharpDX.ColorBGRA,System.IntPtr,SharpDX.Direct3D9.PaletteEntry[],SharpDX.Direct3D9.VolumeTexture@)">
+            <summary>	
+            <p>Creates a volume texture from a file.</p>	
+            </summary>	
+            <param name="deviceRef"><dd>  <p>Pointer to an <strong><see cref="T:SharpDX.Direct3D9.Device"/></strong> interface, representing the device to be associated with the texture.</p> </dd></param>	
+            <param name="srcFileRef"><dd>  <p>Pointer to a string that specifies the filename. If the compiler settings require Unicode, the data type LPCTSTR resolves to LPCWSTR. Otherwise, the string data type resolves to LPCSTR. See Remarks.</p> </dd></param>	
+            <param name="width"><dd>  <p>Width in pixels. If this value is zero or D3DX_DEFAULT, the dimensions are taken from the file. The maximum dimension that a driver supports (for width, height, and depth) can be found in MaxVolumeExtent in <strong><see cref="T:SharpDX.Direct3D9.Capabilities"/></strong>.</p> </dd></param>	
+            <param name="height"><dd>  <p>Height, in pixels. If this value is zero or D3DX_DEFAULT, the dimensions are taken from the file. The maximum dimension that a driver supports (for width, height, and depth) can be found in MaxVolumeExtent in <strong><see cref="T:SharpDX.Direct3D9.Capabilities"/></strong>.</p> </dd></param>	
+            <param name="depth"><dd>  <p>Depth, in pixels. If this value is zero or D3DX_DEFAULT, the dimensions are taken from the file. The maximum dimension that a driver supports (for width, height, and depth) can be found in MaxVolumeExtent in <strong><see cref="T:SharpDX.Direct3D9.Capabilities"/></strong>.</p> </dd></param>	
+            <param name="mipLevels"><dd>  <p>Number of mip levels requested. If this value is zero or D3DX_DEFAULT, a complete mipmap chain is created.</p> </dd></param>	
+            <param name="usage"><dd>  <p>0, <see cref="F:SharpDX.Direct3D9.Usage.RenderTarget"/>, or <see cref="F:SharpDX.Direct3D9.Usage.Dynamic"/>. Setting this flag to <see cref="F:SharpDX.Direct3D9.Usage.RenderTarget"/> indicates that the surface is to be used as a render target. The resource can then be passed to the  <em>pNewRenderTarget</em> parameter of the <strong>SetRenderTarget</strong> method. If either <see cref="F:SharpDX.Direct3D9.Usage.RenderTarget"/> or <see cref="F:SharpDX.Direct3D9.Usage.Dynamic"/> is specified,  <em>Pool</em> must be set to <see cref="F:SharpDX.Direct3D9.Pool.Default"/>, and the application should check that the device supports this operation by calling <strong>CheckDeviceFormat</strong>. <see cref="F:SharpDX.Direct3D9.Usage.Dynamic"/> indicates that the surface should be handled dynamically. For more information about using dynamic textures, see Using Dynamic Textures.</p> </dd></param>	
+            <param name="format"><dd>  <p>Member of the <see cref="T:SharpDX.Direct3D9.Format"/> enumerated type, describing the requested pixel format for the texture. The returned texture might have a different format from that specified by <em>Format</em>. Applications should check the format of the returned texture. If <see cref="F:SharpDX.Direct3D9.Format.Unknown"/>, the format is taken from the file. If D3DFMT_FROM_FILE, the format is taken exactly as it is in the file, and the call will fail if this violates device capabilities.</p> </dd></param>	
+            <param name="pool"><dd>  <p>Member of the <strong><see cref="T:SharpDX.Direct3D9.Pool"/></strong> enumerated type, describing the memory class into which the texture should be placed.</p> </dd></param>	
+            <param name="filter"><dd>  <p>A combination of one or more <see cref="T:SharpDX.Direct3D9.Filter"/> controlling how the image is filtered. Specifying D3DX_DEFAULT for this parameter is the equivalent of specifying <see cref="F:SharpDX.Direct3D9.Filter.Triangle"/> | <see cref="F:SharpDX.Direct3D9.Filter.Dither"/>.</p> </dd></param>	
+            <param name="mipFilter"><dd>  <p>A combination of one or more <see cref="T:SharpDX.Direct3D9.Filter"/> controlling how the image is filtered. Specifying D3DX_DEFAULT for this parameter is the equivalent of specifying <see cref="F:SharpDX.Direct3D9.Filter.Box"/>. In addition, use bits 27-31 to specify the number of mip levels to be skipped (from the top of the mipmap chain) when a .dds texture is loaded into memory; this allows you to skip up to 32 levels.</p> </dd></param>	
+            <param name="colorKey"><dd>  <p> <strong><see cref="T:SharpDX.ColorBGRA"/></strong> value to replace with transparent black, or 0 to disable the colorkey. This is always a 32-bit ARGB color, independent of the source image format. Alpha is significant and should usually be set to FF for opaque color keys. Thus, for opaque black, the value would be equal to 0xFF000000.</p> </dd></param>	
+            <param name="srcInfoRef"><dd>  <p>Pointer to a <strong><see cref="T:SharpDX.Direct3D9.ImageInformation"/></strong> structure to be filled in with a description of the data in the source image file, or <strong><c>null</c></strong>.</p> </dd></param>	
+            <param name="paletteRef"><dd>  <p>Pointer to a  <strong><see cref="T:SharpDX.Direct3D9.PaletteEntry"/></strong> structure, representing a 256-color palette to fill in, or <strong><c>null</c></strong>.</p> </dd></param>	
+            <param name="volumeTextureOut"><dd>  <p>Address of a reference to an <strong><see cref="T:SharpDX.Direct3D9.VolumeTexture"/></strong> interface, representing the created texture object.</p> </dd></param>	
+            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Direct3D9.ResultCode.Success"/>. If the function fails, the return value can be one of the following: <see cref="F:SharpDX.Direct3D9.ResultCode.NotAvailable"/>, <see cref="F:SharpDX.Direct3D9.ResultCode.OutOfVideoMemory"/>, <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>, D3DXERR_INVALIDDATA, E_OUTOFMEMORY.</p></returns>	
+            <remarks>	
+            <p>The compiler setting also determines the function version. If Unicode is defined, the function call resolves to <see cref="M:SharpDX.Direct3D9.D3DX9.CreateVolumeTextureFromFileExW(SharpDX.Direct3D9.Device,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,SharpDX.Direct3D9.Format,SharpDX.Direct3D9.Pool,System.Int32,System.Int32,SharpDX.ColorBGRA,System.IntPtr,SharpDX.Direct3D9.PaletteEntry[],SharpDX.Direct3D9.VolumeTexture@)"/>. Otherwise, the function call resolves to D3DXCreateVolumeTextureFromFileExA because ANSI strings are being used.</p><p>This function supports the following file formats: .bmp, .dds, .dib, .hdr, .jpg, .pfm, .png, .ppm, and .tga. See <strong><see cref="T:SharpDX.Direct3D9.ImageFileFormat"/></strong>.</p><p>Mipmapped textures automatically have each level filled with the loaded volume texture. When loading images into mipmapped textures, some devices are unable to go to a 1x1 image and this function will fail. If this happens, then the images need to be loaded manually.</p><p>When skipping mipmap levels while loading a .dds file, use the D3DX_SKIP_DDS_MIP_LEVELS macro to generate the <em>MipFilter</em> value. This macro takes the number of levels to skip and the filter type and returns the filter value, which would then be passed into the <em>MipFilter</em> parameter.</p>	
+            </remarks>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXCreateVolumeTextureFromFileExW']/*"/>	
+            <msdn-id>bb172812</msdn-id>	
+            <unmanaged>HRESULT D3DXCreateVolumeTextureFromFileExW([In] IDirect3DDevice9* pDevice,[In] const wchar_t* pSrcFile,[In] unsigned int Width,[In] unsigned int Height,[In] unsigned int Depth,[In] unsigned int MipLevels,[In] unsigned int Usage,[In] D3DFORMAT Format,[In] D3DPOOL Pool,[In] unsigned int Filter,[In] unsigned int MipFilter,[In] D3DCOLOR ColorKey,[In] void* pSrcInfo,[Out, Buffer] PALETTEENTRY* pPalette,[In] IDirect3DVolumeTexture9** ppVolumeTexture)</unmanaged>	
+            <unmanaged-short>D3DXCreateVolumeTextureFromFileExW</unmanaged-short>	
         </member>
         <member name="M:SharpDX.Direct3D9.D3DX9.CreateVolumeTextureFromFileInMemory(SharpDX.Direct3D9.Device,System.IntPtr,System.Int32,SharpDX.Direct3D9.VolumeTexture@)">
             <summary>	
@@ -22426,26 +22539,29 @@
             <unmanaged>HRESULT D3DXCreateVolumeTextureFromFileInMemory([In] IDirect3DDevice9* pDevice,[In] const void* pSrcData,[In] unsigned int SrcDataSize,[In] IDirect3DVolumeTexture9** ppVolumeTexture)</unmanaged>	
             <unmanaged-short>D3DXCreateVolumeTextureFromFileInMemory</unmanaged-short>	
         </member>
-        <member name="M:SharpDX.Direct3D9.D3DX9.LoadVolumeFromVolume(SharpDX.Direct3D9.Volume,SharpDX.Direct3D9.PaletteEntry[],System.IntPtr,SharpDX.Direct3D9.Volume,SharpDX.Direct3D9.PaletteEntry[],System.IntPtr,SharpDX.Direct3D9.Filter,System.Int32)">
+        <member name="M:SharpDX.Direct3D9.D3DX9.FillTexture(SharpDX.Direct3D9.Texture,SharpDX.FunctionCallback,System.IntPtr)">
             <summary>	
-            <p>Loads a volume from another volume.</p>	
+            <p>Uses a user-provided function to fill each texel of each mip level of a given texture.</p>	
             </summary>	
-            <param name="destVolumeRef"><dd>  <p>Pointer to an <strong><see cref="T:SharpDX.Direct3D9.Volume"/></strong> interface. Specifies the destination volume, which receives the image.</p> </dd></param>	
-            <param name="destPaletteRef"><dd>  <p>Pointer to a <strong><see cref="T:SharpDX.Direct3D9.PaletteEntry"/></strong> structure, the destination palette of 256 colors or <strong><c>null</c></strong>.</p> </dd></param>	
-            <param name="destBoxRef"><dd>  <p>Pointer to a <strong><see cref="T:SharpDX.Direct3D9.Box"/></strong> structure. Specifies the destination box. Set this parameter to <strong><c>null</c></strong> to specify the entire volume.</p> </dd></param>	
-            <param name="srcVolumeRef"><dd>  <p>A Pointer to an <strong><see cref="T:SharpDX.Direct3D9.Volume"/></strong> interface. Specifies the source volume.</p> </dd></param>	
-            <param name="srcPaletteRef"><dd>  <p>Pointer to a <strong><see cref="T:SharpDX.Direct3D9.PaletteEntry"/></strong> structure, the source palette of 256 colors or <strong><c>null</c></strong>.</p> </dd></param>	
-            <param name="srcBoxRef"><dd>  <p>Pointer to a <strong><see cref="T:SharpDX.Direct3D9.Box"/></strong> structure. Specifies the source box. Set this parameter to <strong><c>null</c></strong> to specify the entire volume.</p> </dd></param>	
-            <param name="filter"><dd>  <p>A combination of one or more <see cref="T:SharpDX.Direct3D9.Filter"/>, controlling how the image is filtered. Specifying D3DX_DEFAULT for this parameter is the equivalent of specifying <see cref="F:SharpDX.Direct3D9.Filter.Triangle"/> | <see cref="F:SharpDX.Direct3D9.Filter.Dither"/>.</p> </dd></param>	
-            <param name="colorKey"><dd>  <p> <strong><see cref="T:SharpDX.ColorBGRA"/></strong> value to replace with transparent black, or 0 to disable the colorkey. This is always a 32-bit ARGB color, independent of the source image format. Alpha is significant and should usually be set to FF for opaque color keys. Thus, for opaque black, the value would be equal to 0xFF000000.</p> </dd></param>	
-            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Direct3D9.ResultCode.Success"/>. If the function fails, the return value can be one of the following: <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>, D3DXERR_INVALIDDATA.</p></returns>	
+            <param name="textureRef"><dd>  <p>Pointer to an <strong><see cref="T:SharpDX.Direct3D9.Texture"/></strong> interface, representing the filled texture.</p> </dd></param>	
+            <param name="functionRef"><dd>  <p>Pointer to a user-provided evaluator function, which will be used to compute the value of each texel. The function follows the prototype of LPD3DXFILL2D.</p> </dd></param>	
+            <param name="dataRef"><dd>  <p>Pointer to an arbitrary block of user-defined data. This reference will be passed to the function provided in <em>pFunction</em>.</p> </dd></param>	
+            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Direct3D9.ResultCode.Success"/>. If the function fails, the return value can be one of the following values: <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>.</p></returns>	
             <remarks>	
-            <p>Writing to a non-level-zero surface of the volume texture will not cause the dirty rectangle to be updated. If <strong><see cref="M:SharpDX.Direct3D9.D3DX9.LoadVolumeFromVolume(SharpDX.Direct3D9.Volume,SharpDX.Direct3D9.PaletteEntry[],System.IntPtr,SharpDX.Direct3D9.Volume,SharpDX.Direct3D9.PaletteEntry[],System.IntPtr,SharpDX.Direct3D9.Filter,System.Int32)"/></strong> is called and the surface was not already dirty (this is unlikely under normal usage scenarios), the application needs to explicitly call <strong><see cref="M:SharpDX.Direct3D9.VolumeTexture.AddDirtyBox(System.IntPtr)"/></strong> on the surface.</p>	
+            <p>Here is an example that creates a function called ColorFill, which relies on <see cref="M:SharpDX.Direct3D9.D3DX9.FillTexture(SharpDX.Direct3D9.Texture,SharpDX.FunctionCallback,System.IntPtr)"/>.</p><pre> // Define a function that matches the prototype of LPD3DXFILL3D	
+            VOID WINAPI ColorFill (<see cref="T:SharpDX.Vector4"/>* pOut, const <see cref="T:SharpDX.Vector2"/>* pTexCoord, 	
+            const <see cref="T:SharpDX.Vector2"/>* pTexelSize, LPVOID pData)	
+            { *pOut = <see cref="T:SharpDX.Vector4"/>(pTexCoord-&gt;x, pTexCoord-&gt;y, 0.0f, 0.0f);	
+            } // Fill the texture using <see cref="M:SharpDX.Direct3D9.D3DX9.FillTexture(SharpDX.Direct3D9.Texture,SharpDX.FunctionCallback,System.IntPtr)"/>	
+            if (FAILED (hr = <see cref="M:SharpDX.Direct3D9.D3DX9.FillTexture(SharpDX.Direct3D9.Texture,SharpDX.FunctionCallback,System.IntPtr)"/> (m_pTexture, ColorFill, <c>null</c>)))	
+            { return hr;	
+            }	
+            </pre>	
             </remarks>	
-            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXLoadVolumeFromVolume']/*"/>	
-            <msdn-id>bb172909</msdn-id>	
-            <unmanaged>HRESULT D3DXLoadVolumeFromVolume([In] IDirect3DVolume9* pDestVolume,[Out, Buffer] const PALETTEENTRY* pDestPalette,[In] const void* pDestBox,[In] IDirect3DVolume9* pSrcVolume,[In, Buffer] const PALETTEENTRY* pSrcPalette,[In] const void* pSrcBox,[In] D3DX_FILTER Filter,[In] int ColorKey)</unmanaged>	
-            <unmanaged-short>D3DXLoadVolumeFromVolume</unmanaged-short>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXFillTexture']/*"/>	
+            <msdn-id>bb172833</msdn-id>	
+            <unmanaged>HRESULT D3DXFillTexture([In] IDirect3DTexture9* pTexture,[In] __function__stdcall* pFunction,[In] void* pData)</unmanaged>	
+            <unmanaged-short>D3DXFillTexture</unmanaged-short>	
         </member>
         <member name="M:SharpDX.Direct3D9.D3DX9.SaveTextureToFileW(System.String,SharpDX.Direct3D9.ImageFileFormat,SharpDX.Direct3D9.BaseTexture,SharpDX.Direct3D9.PaletteEntry[])">
             <summary>	
@@ -22535,29 +22651,19 @@
             <unmanaged>HRESULT D3DXCreateTextureFromResourceExW([In] IDirect3DDevice9* pDevice,[In] HINSTANCE hSrcModule,[In] const wchar_t* pSrcResource,[In] unsigned int Width,[In] unsigned int Height,[In] unsigned int MipLevels,[In] unsigned int Usage,[In] D3DFORMAT Format,[In] D3DPOOL Pool,[In] unsigned int Filter,[In] unsigned int MipFilter,[In] D3DCOLOR ColorKey,[In] D3DXIMAGE_INFO* pSrcInfo,[In] PALETTEENTRY* pPalette,[In] IDirect3DTexture9** ppTexture)</unmanaged>	
             <unmanaged-short>D3DXCreateTextureFromResourceExW</unmanaged-short>	
         </member>
-        <member name="M:SharpDX.Direct3D9.D3DX9.FillCubeTexture(SharpDX.Direct3D9.CubeTexture,SharpDX.FunctionCallback,System.IntPtr)">
+        <member name="M:SharpDX.Direct3D9.D3DX9.GetImageInfoFromFileW(System.String)">
             <summary>	
-            <p>Uses a user-provided function to fill each texel of each mip level of a given cube texture.</p>	
+            <p>Retrieves information about a given image file.</p>	
             </summary>	
-            <param name="cubeTextureRef"><dd>  <p>Pointer to an <strong><see cref="T:SharpDX.Direct3D9.CubeTexture"/></strong> interface, representing the filled texture.</p> </dd></param>	
-            <param name="functionRef"><dd>  <p>Pointer to a user-provided evaluator function, which will be used to compute the value of each texel. The function follows the prototype of LPD3DXFILL3D.</p> </dd></param>	
-            <param name="dataRef"><dd>  <p>Pointer to an arbitrary block of user-defined data. This reference will be passed to the function provided in <em>pFunction</em>.</p> </dd></param>	
-            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Direct3D9.ResultCode.Success"/>. If the function fails, the return value can be one of the following values: <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>.</p></returns>	
+            <param name="srcFileRef"><dd>  <p>File name of image to retrieve information about. If UNICODE or _UNICODE are defined, this parameter type is LPCWSTR, otherwise, the type is LPCSTR.</p> </dd></param>	
+            <returns><dd>  <p>Pointer to a <strong><see cref="T:SharpDX.Direct3D9.ImageInformation"/></strong> structure to be filled with the description of the data in the source file.</p> </dd></returns>	
             <remarks>	
-            <p>Here is an example that creates a function called ColorCubeFill, which relies on <see cref="M:SharpDX.Direct3D9.D3DX9.FillCubeTexture(SharpDX.Direct3D9.CubeTexture,SharpDX.FunctionCallback,System.IntPtr)"/>.</p><pre> // Define a function that matches the prototype of LPD3DXFILL3D	
-            VOID WINAPI ColorCubeFill (<see cref="T:SharpDX.Vector4"/>* pOut, const <see cref="T:SharpDX.Vector3"/>* pTexCoord, 	
-            const <see cref="T:SharpDX.Vector3"/>* pTexelSize, LPVOID pData)	
-            { *pOut = <see cref="T:SharpDX.Vector4"/>(pTexCoord-&gt;x, pTexCoord-&gt;y, pTexCoord-&gt;z, 0.0f);	
-            } // Fill the texture using <see cref="M:SharpDX.Direct3D9.D3DX9.FillCubeTexture(SharpDX.Direct3D9.CubeTexture,SharpDX.FunctionCallback,System.IntPtr)"/>	
-            if (FAILED (hr = <see cref="M:SharpDX.Direct3D9.D3DX9.FillCubeTexture(SharpDX.Direct3D9.CubeTexture,SharpDX.FunctionCallback,System.IntPtr)"/> (m_pTexture, ColorCubeFill, <c>null</c>)))	
-            { return hr;	
-            }	
-            </pre>	
+            <p>This function supports both Unicode and ANSI strings.</p>	
             </remarks>	
-            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXFillCubeTexture']/*"/>	
-            <msdn-id>bb172831</msdn-id>	
-            <unmanaged>HRESULT D3DXFillCubeTexture([In] IDirect3DCubeTexture9* pCubeTexture,[In] __function__stdcall* pFunction,[In] void* pData)</unmanaged>	
-            <unmanaged-short>D3DXFillCubeTexture</unmanaged-short>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXGetImageInfoFromFileW']/*"/>	
+            <msdn-id>bb172867</msdn-id>	
+            <unmanaged>HRESULT D3DXGetImageInfoFromFileW([In] const wchar_t* pSrcFile,[Out] D3DXIMAGE_INFO* pSrcInfo)</unmanaged>	
+            <unmanaged-short>D3DXGetImageInfoFromFileW</unmanaged-short>	
         </member>
         <member name="M:SharpDX.Direct3D9.D3DX9.FilterTexture(SharpDX.Direct3D9.BaseTexture,SharpDX.Direct3D9.PaletteEntry[],System.Int32,SharpDX.Direct3D9.Filter)">
             <summary>	
@@ -22712,6 +22818,23 @@
             <unmanaged>HRESULT D3DXSaveSurfaceToFileW([In] const wchar_t* pDestFile,[In] D3DXIMAGE_FILEFORMAT DestFormat,[In] IDirect3DSurface9* pSrcSurface,[In, Buffer] const PALETTEENTRY* pSrcPalette,[In] const void* pSrcRect)</unmanaged>	
             <unmanaged-short>D3DXSaveSurfaceToFileW</unmanaged-short>	
         </member>
+        <member name="M:SharpDX.Direct3D9.D3DX9.CreateCubeTextureFromFileInMemory(SharpDX.Direct3D9.Device,System.IntPtr,System.Int32,SharpDX.Direct3D9.CubeTexture@)">
+            <summary>	
+            <p>Creates a cube texture from a file in memory.</p>	
+            </summary>	
+            <param name="deviceRef"><dd>  <p>Pointer to an <strong><see cref="T:SharpDX.Direct3D9.Device"/></strong> interface, representing the device to be associated with the cube texture.</p> </dd></param>	
+            <param name="srcDataRef"><dd>  <p>Pointer to the file in memory from which to create the cubemap. See Remarks.</p> </dd></param>	
+            <param name="srcDataSize"><dd>  <p>Size of the file in memory, in bytes.</p> </dd></param>	
+            <param name="cubeTextureOut"><dd>  <p>Address of a reference to an <strong><see cref="T:SharpDX.Direct3D9.CubeTexture"/></strong> interface, representing the created cube texture object.</p> </dd></param>	
+            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Direct3D9.ResultCode.Success"/>. If the function fails, the return value can be one of the following: <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>, <see cref="F:SharpDX.Direct3D9.ResultCode.NotAvailable"/>, <see cref="F:SharpDX.Direct3D9.ResultCode.OutOfVideoMemory"/>, D3DXERR_INVALIDDATA, E_OUTOFMEMORY.</p></returns>	
+            <remarks>	
+            <p>This function supports the following file formats: .bmp, .dds, .dib, .hdr, .jpg, .pfm, .png, .ppm, and .tga. See <strong><see cref="T:SharpDX.Direct3D9.ImageFileFormat"/></strong>.</p><p>The function is equivalent to <see cref="M:SharpDX.Direct3D9.D3DX9.CreateCubeTextureFromFileInMemoryEx(SharpDX.Direct3D9.Device,System.IntPtr,System.Int32,System.Int32,System.Int32,System.Int32,SharpDX.Direct3D9.Format,SharpDX.Direct3D9.Pool,System.Int32,System.Int32,SharpDX.ColorBGRA,System.IntPtr,SharpDX.Direct3D9.PaletteEntry[],SharpDX.Direct3D9.CubeTexture@)"/>(pDevice, pSrcData, SrcDataSize, D3DX_DEFAULT, D3DX_DEFAULT, 0, <see cref="F:SharpDX.Direct3D9.Format.Unknown"/>, <see cref="F:SharpDX.Direct3D9.Pool.Managed"/>, D3DX_DEFAULT, D3DX_DEFAULT, 0, <strong><c>null</c></strong>, <strong><c>null</c></strong>, ppCubeTexture).</p><p>Note that a resource created with this function when called from a <see cref="T:SharpDX.Direct3D9.Device"/> object will be placed in the memory class denoted by <see cref="F:SharpDX.Direct3D9.Pool.Managed"/>.  When this method is called from a <see cref="T:SharpDX.Direct3D9.DeviceEx"/> object the resource will be placed in the memory class denoted by <see cref="F:SharpDX.Direct3D9.Pool.Default"/>.</p><p>This method is designed to be used for loading image files stored as RT_RCDATA, which is an application-defined resource (raw data). Otherwise this method will fail.</p><p>Filtering is automatically applied to a texture created using this method. The filtering is equivalent to <see cref="F:SharpDX.Direct3D9.Filter.Triangle"/> | <see cref="F:SharpDX.Direct3D9.Filter.Dither"/> in <see cref="T:SharpDX.Direct3D9.Filter"/>.</p><p><strong><see cref="M:SharpDX.Direct3D9.D3DX9.CreateCubeTextureFromFileInMemory(SharpDX.Direct3D9.Device,System.IntPtr,System.Int32,SharpDX.Direct3D9.CubeTexture@)"/></strong> uses the DirectDraw surface (DDS) file format. The DirectX Texture Editor (Dxtex.exe) enables you to generate a cube map from other file formats and save it in the DDS file format.</p>	
+            </remarks>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXCreateCubeTextureFromFileInMemory']/*"/>	
+            <msdn-id>bb172758</msdn-id>	
+            <unmanaged>HRESULT D3DXCreateCubeTextureFromFileInMemory([In] IDirect3DDevice9* pDevice,[In] const void* pSrcData,[In] unsigned int SrcDataSize,[In] IDirect3DCubeTexture9** ppCubeTexture)</unmanaged>	
+            <unmanaged-short>D3DXCreateCubeTextureFromFileInMemory</unmanaged-short>	
+        </member>
         <member name="M:SharpDX.Direct3D9.D3DX9.CreateCubeTextureFromFileExW(SharpDX.Direct3D9.Device,System.String,System.Int32,System.Int32,System.Int32,SharpDX.Direct3D9.Format,SharpDX.Direct3D9.Pool,System.Int32,System.Int32,SharpDX.ColorBGRA,System.IntPtr,SharpDX.Direct3D9.PaletteEntry[],SharpDX.Direct3D9.CubeTexture@)">
             <summary>	
             <p>Creates a cube texture from a file. This is a more advanced function than <strong><see cref="M:SharpDX.Direct3D9.D3DX9.CreateCubeTextureFromFileW(SharpDX.Direct3D9.Device,System.String,SharpDX.Direct3D9.CubeTexture@)"/></strong>.</p>	
@@ -22788,30 +22911,6 @@
             <msdn-id>bb172718</msdn-id>	
             <unmanaged>HRESULT D3DXCheckVolumeTextureRequirements([In] IDirect3DDevice9* pDevice,[InOut] unsigned int* pWidth,[InOut] unsigned int* pHeight,[InOut] unsigned int* pDepth,[InOut] unsigned int* pNumMipLevels,[In] unsigned int Usage,[InOut] D3DFORMAT* pFormat,[In] D3DPOOL Pool)</unmanaged>	
             <unmanaged-short>D3DXCheckVolumeTextureRequirements</unmanaged-short>	
-        </member>
-        <member name="M:SharpDX.Direct3D9.D3DX9.FillTexture(SharpDX.Direct3D9.Texture,SharpDX.FunctionCallback,System.IntPtr)">
-            <summary>	
-            <p>Uses a user-provided function to fill each texel of each mip level of a given texture.</p>	
-            </summary>	
-            <param name="textureRef"><dd>  <p>Pointer to an <strong><see cref="T:SharpDX.Direct3D9.Texture"/></strong> interface, representing the filled texture.</p> </dd></param>	
-            <param name="functionRef"><dd>  <p>Pointer to a user-provided evaluator function, which will be used to compute the value of each texel. The function follows the prototype of LPD3DXFILL2D.</p> </dd></param>	
-            <param name="dataRef"><dd>  <p>Pointer to an arbitrary block of user-defined data. This reference will be passed to the function provided in <em>pFunction</em>.</p> </dd></param>	
-            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Direct3D9.ResultCode.Success"/>. If the function fails, the return value can be one of the following values: <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>.</p></returns>	
-            <remarks>	
-            <p>Here is an example that creates a function called ColorFill, which relies on <see cref="M:SharpDX.Direct3D9.D3DX9.FillTexture(SharpDX.Direct3D9.Texture,SharpDX.FunctionCallback,System.IntPtr)"/>.</p><pre> // Define a function that matches the prototype of LPD3DXFILL3D	
-            VOID WINAPI ColorFill (<see cref="T:SharpDX.Vector4"/>* pOut, const <see cref="T:SharpDX.Vector2"/>* pTexCoord, 	
-            const <see cref="T:SharpDX.Vector2"/>* pTexelSize, LPVOID pData)	
-            { *pOut = <see cref="T:SharpDX.Vector4"/>(pTexCoord-&gt;x, pTexCoord-&gt;y, 0.0f, 0.0f);	
-            } // Fill the texture using <see cref="M:SharpDX.Direct3D9.D3DX9.FillTexture(SharpDX.Direct3D9.Texture,SharpDX.FunctionCallback,System.IntPtr)"/>	
-            if (FAILED (hr = <see cref="M:SharpDX.Direct3D9.D3DX9.FillTexture(SharpDX.Direct3D9.Texture,SharpDX.FunctionCallback,System.IntPtr)"/> (m_pTexture, ColorFill, <c>null</c>)))	
-            { return hr;	
-            }	
-            </pre>	
-            </remarks>	
-            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXFillTexture']/*"/>	
-            <msdn-id>bb172833</msdn-id>	
-            <unmanaged>HRESULT D3DXFillTexture([In] IDirect3DTexture9* pTexture,[In] __function__stdcall* pFunction,[In] void* pData)</unmanaged>	
-            <unmanaged-short>D3DXFillTexture</unmanaged-short>	
         </member>
         <member name="M:SharpDX.Direct3D9.D3DX9.SaveSurfaceToFileInMemory(SharpDX.Direct3D.Blob@,SharpDX.Direct3D9.ImageFileFormat,SharpDX.Direct3D9.Surface,SharpDX.Direct3D9.PaletteEntry[],System.IntPtr)">
             <summary>	
@@ -22915,34 +23014,6 @@
             <unmanaged>HRESULT D3DXLoadVolumeFromMemory([In] IDirect3DVolume9* pDestVolume,[Out, Buffer] const PALETTEENTRY* pDestPalette,[In] const void* pDestBox,[In] const void* pSrcMemory,[In] D3DFORMAT SrcFormat,[In] unsigned int SrcRowPitch,[In] unsigned int SrcSlicePitch,[In, Buffer] const PALETTEENTRY* pSrcPalette,[In] const void* pSrcBox,[In] D3DX_FILTER Filter,[In] int ColorKey)</unmanaged>	
             <unmanaged-short>D3DXLoadVolumeFromMemory</unmanaged-short>	
         </member>
-        <member name="M:SharpDX.Direct3D9.D3DX9.CreateVolumeTextureFromFileExW(SharpDX.Direct3D9.Device,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,SharpDX.Direct3D9.Format,SharpDX.Direct3D9.Pool,System.Int32,System.Int32,SharpDX.ColorBGRA,System.IntPtr,SharpDX.Direct3D9.PaletteEntry[],SharpDX.Direct3D9.VolumeTexture@)">
-            <summary>	
-            <p>Creates a volume texture from a file.</p>	
-            </summary>	
-            <param name="deviceRef"><dd>  <p>Pointer to an <strong><see cref="T:SharpDX.Direct3D9.Device"/></strong> interface, representing the device to be associated with the texture.</p> </dd></param>	
-            <param name="srcFileRef"><dd>  <p>Pointer to a string that specifies the filename. If the compiler settings require Unicode, the data type LPCTSTR resolves to LPCWSTR. Otherwise, the string data type resolves to LPCSTR. See Remarks.</p> </dd></param>	
-            <param name="width"><dd>  <p>Width in pixels. If this value is zero or D3DX_DEFAULT, the dimensions are taken from the file. The maximum dimension that a driver supports (for width, height, and depth) can be found in MaxVolumeExtent in <strong><see cref="T:SharpDX.Direct3D9.Capabilities"/></strong>.</p> </dd></param>	
-            <param name="height"><dd>  <p>Height, in pixels. If this value is zero or D3DX_DEFAULT, the dimensions are taken from the file. The maximum dimension that a driver supports (for width, height, and depth) can be found in MaxVolumeExtent in <strong><see cref="T:SharpDX.Direct3D9.Capabilities"/></strong>.</p> </dd></param>	
-            <param name="depth"><dd>  <p>Depth, in pixels. If this value is zero or D3DX_DEFAULT, the dimensions are taken from the file. The maximum dimension that a driver supports (for width, height, and depth) can be found in MaxVolumeExtent in <strong><see cref="T:SharpDX.Direct3D9.Capabilities"/></strong>.</p> </dd></param>	
-            <param name="mipLevels"><dd>  <p>Number of mip levels requested. If this value is zero or D3DX_DEFAULT, a complete mipmap chain is created.</p> </dd></param>	
-            <param name="usage"><dd>  <p>0, <see cref="F:SharpDX.Direct3D9.Usage.RenderTarget"/>, or <see cref="F:SharpDX.Direct3D9.Usage.Dynamic"/>. Setting this flag to <see cref="F:SharpDX.Direct3D9.Usage.RenderTarget"/> indicates that the surface is to be used as a render target. The resource can then be passed to the  <em>pNewRenderTarget</em> parameter of the <strong>SetRenderTarget</strong> method. If either <see cref="F:SharpDX.Direct3D9.Usage.RenderTarget"/> or <see cref="F:SharpDX.Direct3D9.Usage.Dynamic"/> is specified,  <em>Pool</em> must be set to <see cref="F:SharpDX.Direct3D9.Pool.Default"/>, and the application should check that the device supports this operation by calling <strong>CheckDeviceFormat</strong>. <see cref="F:SharpDX.Direct3D9.Usage.Dynamic"/> indicates that the surface should be handled dynamically. For more information about using dynamic textures, see Using Dynamic Textures.</p> </dd></param>	
-            <param name="format"><dd>  <p>Member of the <see cref="T:SharpDX.Direct3D9.Format"/> enumerated type, describing the requested pixel format for the texture. The returned texture might have a different format from that specified by <em>Format</em>. Applications should check the format of the returned texture. If <see cref="F:SharpDX.Direct3D9.Format.Unknown"/>, the format is taken from the file. If D3DFMT_FROM_FILE, the format is taken exactly as it is in the file, and the call will fail if this violates device capabilities.</p> </dd></param>	
-            <param name="pool"><dd>  <p>Member of the <strong><see cref="T:SharpDX.Direct3D9.Pool"/></strong> enumerated type, describing the memory class into which the texture should be placed.</p> </dd></param>	
-            <param name="filter"><dd>  <p>A combination of one or more <see cref="T:SharpDX.Direct3D9.Filter"/> controlling how the image is filtered. Specifying D3DX_DEFAULT for this parameter is the equivalent of specifying <see cref="F:SharpDX.Direct3D9.Filter.Triangle"/> | <see cref="F:SharpDX.Direct3D9.Filter.Dither"/>.</p> </dd></param>	
-            <param name="mipFilter"><dd>  <p>A combination of one or more <see cref="T:SharpDX.Direct3D9.Filter"/> controlling how the image is filtered. Specifying D3DX_DEFAULT for this parameter is the equivalent of specifying <see cref="F:SharpDX.Direct3D9.Filter.Box"/>. In addition, use bits 27-31 to specify the number of mip levels to be skipped (from the top of the mipmap chain) when a .dds texture is loaded into memory; this allows you to skip up to 32 levels.</p> </dd></param>	
-            <param name="colorKey"><dd>  <p> <strong><see cref="T:SharpDX.ColorBGRA"/></strong> value to replace with transparent black, or 0 to disable the colorkey. This is always a 32-bit ARGB color, independent of the source image format. Alpha is significant and should usually be set to FF for opaque color keys. Thus, for opaque black, the value would be equal to 0xFF000000.</p> </dd></param>	
-            <param name="srcInfoRef"><dd>  <p>Pointer to a <strong><see cref="T:SharpDX.Direct3D9.ImageInformation"/></strong> structure to be filled in with a description of the data in the source image file, or <strong><c>null</c></strong>.</p> </dd></param>	
-            <param name="paletteRef"><dd>  <p>Pointer to a  <strong><see cref="T:SharpDX.Direct3D9.PaletteEntry"/></strong> structure, representing a 256-color palette to fill in, or <strong><c>null</c></strong>.</p> </dd></param>	
-            <param name="volumeTextureOut"><dd>  <p>Address of a reference to an <strong><see cref="T:SharpDX.Direct3D9.VolumeTexture"/></strong> interface, representing the created texture object.</p> </dd></param>	
-            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Direct3D9.ResultCode.Success"/>. If the function fails, the return value can be one of the following: <see cref="F:SharpDX.Direct3D9.ResultCode.NotAvailable"/>, <see cref="F:SharpDX.Direct3D9.ResultCode.OutOfVideoMemory"/>, <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>, D3DXERR_INVALIDDATA, E_OUTOFMEMORY.</p></returns>	
-            <remarks>	
-            <p>The compiler setting also determines the function version. If Unicode is defined, the function call resolves to <see cref="M:SharpDX.Direct3D9.D3DX9.CreateVolumeTextureFromFileExW(SharpDX.Direct3D9.Device,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,SharpDX.Direct3D9.Format,SharpDX.Direct3D9.Pool,System.Int32,System.Int32,SharpDX.ColorBGRA,System.IntPtr,SharpDX.Direct3D9.PaletteEntry[],SharpDX.Direct3D9.VolumeTexture@)"/>. Otherwise, the function call resolves to D3DXCreateVolumeTextureFromFileExA because ANSI strings are being used.</p><p>This function supports the following file formats: .bmp, .dds, .dib, .hdr, .jpg, .pfm, .png, .ppm, and .tga. See <strong><see cref="T:SharpDX.Direct3D9.ImageFileFormat"/></strong>.</p><p>Mipmapped textures automatically have each level filled with the loaded volume texture. When loading images into mipmapped textures, some devices are unable to go to a 1x1 image and this function will fail. If this happens, then the images need to be loaded manually.</p><p>When skipping mipmap levels while loading a .dds file, use the D3DX_SKIP_DDS_MIP_LEVELS macro to generate the <em>MipFilter</em> value. This macro takes the number of levels to skip and the filter type and returns the filter value, which would then be passed into the <em>MipFilter</em> parameter.</p>	
-            </remarks>	
-            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXCreateVolumeTextureFromFileExW']/*"/>	
-            <msdn-id>bb172812</msdn-id>	
-            <unmanaged>HRESULT D3DXCreateVolumeTextureFromFileExW([In] IDirect3DDevice9* pDevice,[In] const wchar_t* pSrcFile,[In] unsigned int Width,[In] unsigned int Height,[In] unsigned int Depth,[In] unsigned int MipLevels,[In] unsigned int Usage,[In] D3DFORMAT Format,[In] D3DPOOL Pool,[In] unsigned int Filter,[In] unsigned int MipFilter,[In] D3DCOLOR ColorKey,[In] void* pSrcInfo,[Out, Buffer] PALETTEENTRY* pPalette,[In] IDirect3DVolumeTexture9** ppVolumeTexture)</unmanaged>	
-            <unmanaged-short>D3DXCreateVolumeTextureFromFileExW</unmanaged-short>	
-        </member>
         <member name="M:SharpDX.Direct3D9.D3DX9.CreateTextureFromFileInMemoryEx(SharpDX.Direct3D9.Device,System.IntPtr,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,SharpDX.Direct3D9.Format,SharpDX.Direct3D9.Pool,System.Int32,System.Int32,SharpDX.ColorBGRA,System.IntPtr,SharpDX.Direct3D9.PaletteEntry[],SharpDX.Direct3D9.Texture@)">
             <summary>	
             <p>Creates a texture from a file in memory. This is a more advanced function than <strong><see cref="M:SharpDX.Direct3D9.D3DX9.CreateTextureFromFileInMemory(SharpDX.Direct3D9.Device,System.IntPtr,System.Int32,SharpDX.Direct3D9.Texture@)"/></strong>.</p>	
@@ -23002,23 +23073,6 @@
             <msdn-id>bb172815</msdn-id>	
             <unmanaged>HRESULT D3DXCreateVolumeTextureFromResourceW([In] IDirect3DDevice9* pDevice,[In] HINSTANCE hSrcModule,[In] const wchar_t* pSrcResource,[In] IDirect3DVolumeTexture9** ppVolumeTexture)</unmanaged>	
             <unmanaged-short>D3DXCreateVolumeTextureFromResourceW</unmanaged-short>	
-        </member>
-        <member name="M:SharpDX.Direct3D9.D3DX9.CreateCubeTextureFromFileInMemory(SharpDX.Direct3D9.Device,System.IntPtr,System.Int32,SharpDX.Direct3D9.CubeTexture@)">
-            <summary>	
-            <p>Creates a cube texture from a file in memory.</p>	
-            </summary>	
-            <param name="deviceRef"><dd>  <p>Pointer to an <strong><see cref="T:SharpDX.Direct3D9.Device"/></strong> interface, representing the device to be associated with the cube texture.</p> </dd></param>	
-            <param name="srcDataRef"><dd>  <p>Pointer to the file in memory from which to create the cubemap. See Remarks.</p> </dd></param>	
-            <param name="srcDataSize"><dd>  <p>Size of the file in memory, in bytes.</p> </dd></param>	
-            <param name="cubeTextureOut"><dd>  <p>Address of a reference to an <strong><see cref="T:SharpDX.Direct3D9.CubeTexture"/></strong> interface, representing the created cube texture object.</p> </dd></param>	
-            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Direct3D9.ResultCode.Success"/>. If the function fails, the return value can be one of the following: <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>, <see cref="F:SharpDX.Direct3D9.ResultCode.NotAvailable"/>, <see cref="F:SharpDX.Direct3D9.ResultCode.OutOfVideoMemory"/>, D3DXERR_INVALIDDATA, E_OUTOFMEMORY.</p></returns>	
-            <remarks>	
-            <p>This function supports the following file formats: .bmp, .dds, .dib, .hdr, .jpg, .pfm, .png, .ppm, and .tga. See <strong><see cref="T:SharpDX.Direct3D9.ImageFileFormat"/></strong>.</p><p>The function is equivalent to <see cref="M:SharpDX.Direct3D9.D3DX9.CreateCubeTextureFromFileInMemoryEx(SharpDX.Direct3D9.Device,System.IntPtr,System.Int32,System.Int32,System.Int32,System.Int32,SharpDX.Direct3D9.Format,SharpDX.Direct3D9.Pool,System.Int32,System.Int32,SharpDX.ColorBGRA,System.IntPtr,SharpDX.Direct3D9.PaletteEntry[],SharpDX.Direct3D9.CubeTexture@)"/>(pDevice, pSrcData, SrcDataSize, D3DX_DEFAULT, D3DX_DEFAULT, 0, <see cref="F:SharpDX.Direct3D9.Format.Unknown"/>, <see cref="F:SharpDX.Direct3D9.Pool.Managed"/>, D3DX_DEFAULT, D3DX_DEFAULT, 0, <strong><c>null</c></strong>, <strong><c>null</c></strong>, ppCubeTexture).</p><p>Note that a resource created with this function when called from a <see cref="T:SharpDX.Direct3D9.Device"/> object will be placed in the memory class denoted by <see cref="F:SharpDX.Direct3D9.Pool.Managed"/>.  When this method is called from a <see cref="T:SharpDX.Direct3D9.DeviceEx"/> object the resource will be placed in the memory class denoted by <see cref="F:SharpDX.Direct3D9.Pool.Default"/>.</p><p>This method is designed to be used for loading image files stored as RT_RCDATA, which is an application-defined resource (raw data). Otherwise this method will fail.</p><p>Filtering is automatically applied to a texture created using this method. The filtering is equivalent to <see cref="F:SharpDX.Direct3D9.Filter.Triangle"/> | <see cref="F:SharpDX.Direct3D9.Filter.Dither"/> in <see cref="T:SharpDX.Direct3D9.Filter"/>.</p><p><strong><see cref="M:SharpDX.Direct3D9.D3DX9.CreateCubeTextureFromFileInMemory(SharpDX.Direct3D9.Device,System.IntPtr,System.Int32,SharpDX.Direct3D9.CubeTexture@)"/></strong> uses the DirectDraw surface (DDS) file format. The DirectX Texture Editor (Dxtex.exe) enables you to generate a cube map from other file formats and save it in the DDS file format.</p>	
-            </remarks>	
-            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXCreateCubeTextureFromFileInMemory']/*"/>	
-            <msdn-id>bb172758</msdn-id>	
-            <unmanaged>HRESULT D3DXCreateCubeTextureFromFileInMemory([In] IDirect3DDevice9* pDevice,[In] const void* pSrcData,[In] unsigned int SrcDataSize,[In] IDirect3DCubeTexture9** ppCubeTexture)</unmanaged>	
-            <unmanaged-short>D3DXCreateCubeTextureFromFileInMemory</unmanaged-short>	
         </member>
         <member name="M:SharpDX.Direct3D9.D3DX9.CreateTexture(SharpDX.Direct3D9.Device,System.Int32,System.Int32,System.Int32,System.Int32,SharpDX.Direct3D9.Format,SharpDX.Direct3D9.Pool,SharpDX.Direct3D9.Texture@)">
             <summary>	
@@ -23109,6 +23163,27 @@
             <unmanaged>HRESULT D3DXLoadSurfaceFromSurface([In] IDirect3DSurface9* pDestSurface,[Out, Buffer] const PALETTEENTRY* pDestPalette,[In] const void* pDestRect,[In] IDirect3DSurface9* pSrcSurface,[In, Buffer] const PALETTEENTRY* pSrcPalette,[In] const void* pSrcRect,[In] D3DX_FILTER Filter,[In] int ColorKey)</unmanaged>	
             <unmanaged-short>D3DXLoadSurfaceFromSurface</unmanaged-short>	
         </member>
+        <member name="M:SharpDX.Direct3D9.D3DX9.LoadVolumeFromVolume(SharpDX.Direct3D9.Volume,SharpDX.Direct3D9.PaletteEntry[],System.IntPtr,SharpDX.Direct3D9.Volume,SharpDX.Direct3D9.PaletteEntry[],System.IntPtr,SharpDX.Direct3D9.Filter,System.Int32)">
+            <summary>	
+            <p>Loads a volume from another volume.</p>	
+            </summary>	
+            <param name="destVolumeRef"><dd>  <p>Pointer to an <strong><see cref="T:SharpDX.Direct3D9.Volume"/></strong> interface. Specifies the destination volume, which receives the image.</p> </dd></param>	
+            <param name="destPaletteRef"><dd>  <p>Pointer to a <strong><see cref="T:SharpDX.Direct3D9.PaletteEntry"/></strong> structure, the destination palette of 256 colors or <strong><c>null</c></strong>.</p> </dd></param>	
+            <param name="destBoxRef"><dd>  <p>Pointer to a <strong><see cref="T:SharpDX.Direct3D9.Box"/></strong> structure. Specifies the destination box. Set this parameter to <strong><c>null</c></strong> to specify the entire volume.</p> </dd></param>	
+            <param name="srcVolumeRef"><dd>  <p>A Pointer to an <strong><see cref="T:SharpDX.Direct3D9.Volume"/></strong> interface. Specifies the source volume.</p> </dd></param>	
+            <param name="srcPaletteRef"><dd>  <p>Pointer to a <strong><see cref="T:SharpDX.Direct3D9.PaletteEntry"/></strong> structure, the source palette of 256 colors or <strong><c>null</c></strong>.</p> </dd></param>	
+            <param name="srcBoxRef"><dd>  <p>Pointer to a <strong><see cref="T:SharpDX.Direct3D9.Box"/></strong> structure. Specifies the source box. Set this parameter to <strong><c>null</c></strong> to specify the entire volume.</p> </dd></param>	
+            <param name="filter"><dd>  <p>A combination of one or more <see cref="T:SharpDX.Direct3D9.Filter"/>, controlling how the image is filtered. Specifying D3DX_DEFAULT for this parameter is the equivalent of specifying <see cref="F:SharpDX.Direct3D9.Filter.Triangle"/> | <see cref="F:SharpDX.Direct3D9.Filter.Dither"/>.</p> </dd></param>	
+            <param name="colorKey"><dd>  <p> <strong><see cref="T:SharpDX.ColorBGRA"/></strong> value to replace with transparent black, or 0 to disable the colorkey. This is always a 32-bit ARGB color, independent of the source image format. Alpha is significant and should usually be set to FF for opaque color keys. Thus, for opaque black, the value would be equal to 0xFF000000.</p> </dd></param>	
+            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Direct3D9.ResultCode.Success"/>. If the function fails, the return value can be one of the following: <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>, D3DXERR_INVALIDDATA.</p></returns>	
+            <remarks>	
+            <p>Writing to a non-level-zero surface of the volume texture will not cause the dirty rectangle to be updated. If <strong><see cref="M:SharpDX.Direct3D9.D3DX9.LoadVolumeFromVolume(SharpDX.Direct3D9.Volume,SharpDX.Direct3D9.PaletteEntry[],System.IntPtr,SharpDX.Direct3D9.Volume,SharpDX.Direct3D9.PaletteEntry[],System.IntPtr,SharpDX.Direct3D9.Filter,System.Int32)"/></strong> is called and the surface was not already dirty (this is unlikely under normal usage scenarios), the application needs to explicitly call <strong><see cref="M:SharpDX.Direct3D9.VolumeTexture.AddDirtyBox(System.IntPtr)"/></strong> on the surface.</p>	
+            </remarks>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXLoadVolumeFromVolume']/*"/>	
+            <msdn-id>bb172909</msdn-id>	
+            <unmanaged>HRESULT D3DXLoadVolumeFromVolume([In] IDirect3DVolume9* pDestVolume,[Out, Buffer] const PALETTEENTRY* pDestPalette,[In] const void* pDestBox,[In] IDirect3DVolume9* pSrcVolume,[In, Buffer] const PALETTEENTRY* pSrcPalette,[In] const void* pSrcBox,[In] D3DX_FILTER Filter,[In] int ColorKey)</unmanaged>	
+            <unmanaged-short>D3DXLoadVolumeFromVolume</unmanaged-short>	
+        </member>
         <member name="M:SharpDX.Direct3D9.D3DX9.LoadVolumeFromFileInMemory(SharpDX.Direct3D9.Volume,SharpDX.Direct3D9.PaletteEntry[],System.IntPtr,System.IntPtr,System.Int32,System.IntPtr,SharpDX.Direct3D9.Filter,System.Int32,System.IntPtr)">
             <summary>	
             <p>Loads a volume from a file in memory.</p>	
@@ -23130,33 +23205,6 @@
             <msdn-id>bb172906</msdn-id>	
             <unmanaged>HRESULT D3DXLoadVolumeFromFileInMemory([In] IDirect3DVolume9* pDestVolume,[Out, Buffer] const PALETTEENTRY* pDestPalette,[In] const void* pDestBox,[In] const void* pSrcData,[In] unsigned int SrcDataSize,[In] const void* pSrcBox,[In] D3DX_FILTER Filter,[In] int ColorKey,[In] void* pSrcInfo)</unmanaged>	
             <unmanaged-short>D3DXLoadVolumeFromFileInMemory</unmanaged-short>	
-        </member>
-        <member name="M:SharpDX.Direct3D9.D3DX9.CreateTextureFromFileExW(SharpDX.Direct3D9.Device,System.String,System.Int32,System.Int32,System.Int32,System.Int32,SharpDX.Direct3D9.Format,SharpDX.Direct3D9.Pool,System.Int32,System.Int32,SharpDX.ColorBGRA,System.IntPtr,SharpDX.Direct3D9.PaletteEntry[],SharpDX.Direct3D9.Texture@)">
-            <summary>	
-            <p>Creates a texture from a file. This is a more advanced function than <strong><see cref="M:SharpDX.Direct3D9.D3DX9.CreateTextureFromFileW(SharpDX.Direct3D9.Device,System.String,SharpDX.Direct3D9.Texture@)"/></strong>.</p>	
-            </summary>	
-            <param name="deviceRef">No documentation.</param>	
-            <param name="srcFileRef">No documentation.</param>	
-            <param name="width">No documentation.</param>	
-            <param name="height">No documentation.</param>	
-            <param name="mipLevels">No documentation.</param>	
-            <param name="usage">No documentation.</param>	
-            <param name="format">No documentation.</param>	
-            <param name="pool">No documentation.</param>	
-            <param name="filter">No documentation.</param>	
-            <param name="mipFilter">No documentation.</param>	
-            <param name="colorKey">No documentation.</param>	
-            <param name="srcInfoRef">No documentation.</param>	
-            <param name="paletteRef">No documentation.</param>	
-            <param name="textureOut">No documentation.</param>	
-            <returns><p>If the function succeeds, the return value is <see cref="F:SharpDX.Direct3D9.ResultCode.Success"/>. If the function fails, the return value can be one of the following: <see cref="F:SharpDX.Direct3D9.ResultCode.InvalidCall"/>, <see cref="F:SharpDX.Direct3D9.ResultCode.NotAvailable"/>, <see cref="F:SharpDX.Direct3D9.ResultCode.OutOfVideoMemory"/>, D3DXERR_INVALIDDATA, E_OUTOFMEMORY.</p></returns>	
-            <remarks>	
-            <p>The compiler setting also determines the function version. If Unicode is defined, the function call resolves to <see cref="M:SharpDX.Direct3D9.D3DX9.CreateTextureFromFileExW(SharpDX.Direct3D9.Device,System.String,System.Int32,System.Int32,System.Int32,System.Int32,SharpDX.Direct3D9.Format,SharpDX.Direct3D9.Pool,System.Int32,System.Int32,SharpDX.ColorBGRA,System.IntPtr,SharpDX.Direct3D9.PaletteEntry[],SharpDX.Direct3D9.Texture@)"/>. Otherwise, the function call resolves to D3DXCreateTextureFromFileExA because ANSI strings are being used.</p><p>Use <strong><see cref="M:SharpDX.Direct3D9.D3DX9.CheckTextureRequirements(SharpDX.Direct3D9.Device,System.Int32@,System.Int32@,System.Int32@,System.Int32,SharpDX.Direct3D9.Format@,SharpDX.Direct3D9.Pool)"/></strong> to determine if your device can support the texture given the current state.</p><p>This function supports the following file formats: .bmp, .dds, .dib, .hdr, .jpg, .pfm, .png, .ppm, and .tga. See <strong><see cref="T:SharpDX.Direct3D9.ImageFileFormat"/></strong>.</p><p>Mipmapped textures automatically have each level filled with the loaded texture. When loading images into mipmapped textures, some devices are unable to go to a 1x1 image and this function will fail. If this happens, then the images need to be loaded manually.</p><p>For the best performance when using <strong><see cref="M:SharpDX.Direct3D9.D3DX9.CreateTextureFromFileExW(SharpDX.Direct3D9.Device,System.String,System.Int32,System.Int32,System.Int32,System.Int32,SharpDX.Direct3D9.Format,SharpDX.Direct3D9.Pool,System.Int32,System.Int32,SharpDX.ColorBGRA,System.IntPtr,SharpDX.Direct3D9.PaletteEntry[],SharpDX.Direct3D9.Texture@)"/></strong>:</p><ol> <li>Doing image scaling and format conversion at load time can be slow. Store images in the format and resolution they will be used. If the target hardware requires power of 2 dimensions, then create and store images using power of 2 dimensions.</li> <li>For mipmap image creation at load time, filter using <see cref="F:SharpDX.Direct3D9.Filter.Box"/>. A box filter is much faster than other filter types such as <see cref="F:SharpDX.Direct3D9.Filter.Triangle"/>.</li> <li>Consider using DDS files. Since DDS files can be used to represent any Direct3D 9 texture format, they are very easy for D3DX to read. Also, they can store mipmaps, so any mipmap-generation algorithms can be used to author the images.</li> </ol><p>When skipping mipmap levels while loading a .dds file, use the D3DX_SKIP_DDS_MIP_LEVELS macro to generate the MipFilter value. This macro takes the number of levels to skip and the filter type and returns the filter value, which would then be passed into the MipFilter parameter.</p>	
-            </remarks>	
-            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DXCreateTextureFromFileExW']/*"/>	
-            <msdn-id>bb172802</msdn-id>	
-            <unmanaged>HRESULT D3DXCreateTextureFromFileExW([In] IDirect3DDevice9* pDevice,[In] const wchar_t* pSrcFile,[In] unsigned int Width,[In] unsigned int Height,[In] unsigned int MipLevels,[In] unsigned int Usage,[In] D3DFORMAT Format,[In] D3DPOOL Pool,[In] unsigned int Filter,[In] unsigned int MipFilter,[In] D3DCOLOR ColorKey,[In] void* pSrcInfo,[Out, Buffer] PALETTEENTRY* pPalette,[In] IDirect3DTexture9** ppTexture)</unmanaged>	
-            <unmanaged-short>D3DXCreateTextureFromFileExW</unmanaged-short>	
         </member>
         <member name="M:SharpDX.Direct3D9.D3DX9.FileCreate(SharpDX.Direct3D9.XFile@)">
             <summary>	

@@ -55,7 +55,7 @@ namespace Tutorial9
                 //init shader with normal map illumination
                 SharpShader shaderNormal = new SharpShader(device, "../../HLSL_normal.txt",
                     new SharpShaderDescription() { VertexShaderFunction = "VS", PixelShaderFunction = "PS" },
-                    new InputElement[] {  
+                    new InputElement[] {
                         new InputElement("POSITION", 0, Format.R32G32B32_Float, 0, 0),
                         new InputElement("NORMAL", 0, Format.R32G32B32_Float, 12, 0),
                         new InputElement("TANGENT", 0, Format.R32G32B32_Float, 24, 0),
@@ -66,7 +66,7 @@ namespace Tutorial9
                 //Init shader with standard illumination
                 SharpShader shaderStandard = new SharpShader(device, "../../HLSL_standard.txt",
                     new SharpShaderDescription() { VertexShaderFunction = "VS", PixelShaderFunction = "PS" },
-                    new InputElement[] {  
+                    new InputElement[] {
                         new InputElement("POSITION", 0, Format.R32G32B32_Float, 0, 0),
                         new InputElement("NORMAL", 0, Format.R32G32B32_Float, 12, 0),
                         new InputElement("TANGENT", 0, Format.R32G32B32_Float, 24, 0),
@@ -89,9 +89,9 @@ namespace Tutorial9
                 form.KeyDown += (sender, e) =>
                 {
                     if (e.KeyCode == Keys.A)
-                        bias = 0.005f;
+                        bias += 0.005f;
                     else if (e.KeyCode == Keys.S)
-                        bias = 0;
+                        bias -= 0.005f;
 
                     if (e.KeyCode == Keys.N)
                         normalMap = true;
@@ -173,7 +173,8 @@ namespace Tutorial9
                     //draw string
                     fpsCounter.Update();
                     font.DrawString("FPS: " + fpsCounter.FPS, 0, 0, Color.White);
-
+                    font.DrawString("Press N or D to switch mode: ", 0, 20, Color.White);
+                    font.DrawString("Press A or S to change bias: " + bias, 0, 40, Color.White);
                     //flush text to view
                     font.End();
                     //present

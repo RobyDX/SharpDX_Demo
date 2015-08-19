@@ -1,4 +1,4 @@
-﻿
+
 cbuffer data :register(b0)
 {
 	float4x4 world;
@@ -27,8 +27,8 @@ struct PS_IN
 };
 
 //texture
-Texture2D textureMap;
-Texture2D normalMap;
+Texture2D textureMap:register(t0);
+Texture2D normalMap:register(t1);
 SamplerState textureSampler;
 
 PS_IN VS( VS_IN input)
@@ -46,7 +46,7 @@ PS_IN VS( VS_IN input)
 	
 	
 	float3x3 Tangent={T,B,N};
-	output.lightDirection=mul(lightDirection.xyz,Tangent);
+	output.lightDirection=mul(Tangent,lightDirection.xyz);
 	output.viewDirection= mul(Tangent,viewDirection.xyz);
 
 	return output;
@@ -58,6 +58,6 @@ float4 PS( PS_IN input ) : SV_Target
 	
 	float4 D=textureMap.Sample( textureSampler, input.texcoord +parallax);
 	float4 N=normalMap.Sample( textureSampler, input.texcoord +parallax)*2.0f-1.0f;
-
+	
 	return saturate(dot(N,input.lightDirection))*D+0.2F;
 }

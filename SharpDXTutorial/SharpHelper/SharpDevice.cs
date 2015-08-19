@@ -133,6 +133,9 @@ namespace SharpHelper
             Utilities.Dispose(ref _backbufferView);
             Utilities.Dispose(ref _zbufferView);
 
+            if (View.ClientSize.Width == 0 || View.ClientSize.Height == 0)
+                return;
+
             // Resize the backbuffer
             SwapChain.ResizeBuffers(1, View.ClientSize.Width, View.ClientSize.Height, Format.R8G8B8A8_UNorm, SwapChainFlags.AllowModeSwitch);
 

@@ -283,48 +283,6 @@
             <param name="keyCode">WinForms key code to be translated</param>
             <param name="keyAction">delegate to invoke with translated key</param>
         </member>
-        <member name="T:SharpDX.Toolkit.Input.KeyboardPlatformDesktopWpf">
-            <summary>
-            A specific implementation of <see cref="T:SharpDX.Toolkit.Input.KeyboardPlatform"/> for desktop WPF platform
-            </summary>
-        </member>
-        <member name="M:SharpDX.Toolkit.Input.KeyboardPlatformDesktopWpf.#ctor(System.Object)">
-            <summary>
-            Creates a new instance of <see cref="T:SharpDX.Toolkit.Input.KeyboardPlatformDesktopWpf"/> class
-            </summary>
-            <param name="nativeWindow">The native window object reference</param>
-            <exception cref="T:System.ArgumentNullException">Is thrown when <paramref name="nativeWindow"/> is null</exception>
-        </member>
-        <member name="M:SharpDX.Toolkit.Input.KeyboardPlatformDesktopWpf.BindWindow(System.Object)">
-            <summary>
-            Derived classes should implement platform-specific event bindings in this method
-            </summary>
-            <param name="nativeWindow">The native window object reference</param>
-            <exception cref="T:System.ArgumentNullException">Is thrown when <paramref name="nativeWindow"/> is null</exception>
-            <exception cref="T:System.InvalidOperationException">Is thrown when <paramref name="nativeWindow"/> is of an unsupported type.</exception>
-        </member>
-        <member name="M:SharpDX.Toolkit.Input.KeyboardPlatformDesktopWpf.HandleKeyDown(System.Object,System.Windows.Input.KeyEventArgs)">
-            <summary>
-            Handles the <see cref="E:System.Windows.UIElement.KeyDown"/> event.
-            </summary>
-            <param name="sender">Ignored</param>
-            <param name="e">The key is read from <see cref="P:System.Windows.Input.KeyEventArgs.Key"/> property.</param>
-        </member>
-        <member name="M:SharpDX.Toolkit.Input.KeyboardPlatformDesktopWpf.HandleKeyUp(System.Object,System.Windows.Input.KeyEventArgs)">
-            <summary>
-            Handles the <see cref="E:System.Windows.UIElement.KeyUp"/> event.
-            </summary>
-            <param name="sender">Ignored</param>
-            <param name="e">The key is read from <see cref="P:System.Windows.Input.KeyEventArgs.Key"/> property.</param>
-        </member>
-        <member name="M:SharpDX.Toolkit.Input.KeyboardPlatformDesktopWpf.ProcessKeyEvent(System.Windows.Input.Key,System.Action{SharpDX.Toolkit.Input.Keys})">
-            <summary>
-            Translates the WPF key to Toolkit key and invokes status change
-            </summary>
-            <remarks>For modifier keys (Shift, Control, Alt) will invoke its Left... analog additionally</remarks>
-            <param name="keyCode">WPF key code to be translated</param>
-            <param name="keyAction">delegate to invoke with translated key</param>
-        </member>
         <member name="T:SharpDX.Toolkit.Input.KeyboardState">
             <summary>
             Represents the immediate state of keyboard (pressed keys)
@@ -407,9 +365,14 @@
             </summary>
             <remarks>At this time only 256 key codes are supported</remarks>
         </member>
-        <member name="T:SharpDX.Toolkit.Input.MousePlatformDesktopWpf">
+        <member name="T:SharpDX.Toolkit.Input.NamespaceDoc">
             <summary>
-            Represents a specific <see cref="T:SharpDX.Toolkit.Input.MousePlatform"/> implementation for WPF platform (desktop)
+            The <see cref="N:SharpDX.Toolkit.Input"/> namespace provides a high level Input API.
+            </summary>
+        </member>
+        <member name="T:SharpDX.Toolkit.Input.MousePlatformDesktop">
+            <summary>
+            Represents a specific <see cref="T:SharpDX.Toolkit.Input.MousePlatform"/> implementation for WinForms platform (desktop)
             </summary>
         </member>
         <member name="T:SharpDX.Toolkit.Input.MousePlatform">
@@ -496,70 +459,6 @@
         <member name="E:SharpDX.Toolkit.Input.MousePlatform.MouseWheelDelta">
             <summary>
             Raised when mouse wheel delta is changed
-            </summary>
-        </member>
-        <member name="M:SharpDX.Toolkit.Input.MousePlatformDesktopWpf.#ctor(System.Object)">
-            <summary>
-            Initializes a new instance of <see cref="T:SharpDX.Toolkit.Input.MousePlatformDesktopWpf"/> class.
-            </summary>
-            <param name="nativeWindow">A reference to <see cref="T:SharpDX.Toolkit.SharpDXElement"/> class.</param>
-            <exception cref="T:System.ArgumentNullException">Is thrown when <paramref name="nativeWindow"/> is null.</exception>
-        </member>
-        <member name="M:SharpDX.Toolkit.Input.MousePlatformDesktopWpf.SetLocation(SharpDX.Vector2)">
-            <inheritdoc />
-        </member>
-        <member name="M:SharpDX.Toolkit.Input.MousePlatformDesktopWpf.BindWindow(System.Object)">
-            <summary>
-            Binds to specific events of the provided CoreWindow
-            </summary>
-            <param name="nativeWindow">A reference to <see cref="T:SharpDX.Toolkit.SharpDXElement"/> class.</param>
-            <exception cref="T:System.ArgumentNullException">Is thrown when <paramref name="nativeWindow"/> is null.</exception>
-            <exception cref="T:System.InvalidCastException">Is thrown when <paramref name="nativeWindow"/> is not an instance of the <see cref="T:SharpDX.Toolkit.SharpDXElement"/> class.</exception>
-        </member>
-        <member name="M:SharpDX.Toolkit.Input.MousePlatformDesktopWpf.HandleMouseDown(System.Object,System.Windows.Input.MouseButtonEventArgs)">
-            <summary>
-            Handles the <see cref="E:System.Windows.UIElement.MouseDown"/> event to update the mouse state.
-            </summary>
-            <param name="sender">Ignored.</param>
-            <param name="e">Event arguments from where is determined the changed button.</param>
-        </member>
-        <member name="M:SharpDX.Toolkit.Input.MousePlatformDesktopWpf.HandleMouseUp(System.Object,System.Windows.Input.MouseButtonEventArgs)">
-            <summary>
-            Handles the <see cref="E:System.Windows.UIElement.MouseUp"/> event to update the mouse state.
-            </summary>
-            <param name="sender">Ignored.</param>
-            <param name="e">Event arguments from where is determined the changed button.</param>
-        </member>
-        <member name="M:SharpDX.Toolkit.Input.MousePlatformDesktopWpf.HandleMouseWheel(System.Object,System.Windows.Input.MouseWheelEventArgs)">
-            <summary>
-            Handles the <see cref="E:System.Windows.UIElement.MouseWheel"/> event to update the mouse state.
-            </summary>
-            <param name="sender">Ignored.</param>
-            <param name="e">Event arguments from where is determined the wheel delta.</param>
-        </member>
-        <member name="M:SharpDX.Toolkit.Input.MousePlatformDesktopWpf.GetLocationInternal">
-            <inheritdoc />
-        </member>
-        <member name="M:SharpDX.Toolkit.Input.MousePlatformDesktopWpf.TranslateButton(System.Windows.Input.MouseButton)">
-            <summary>
-            Translates the <see cref="T:System.Windows.Input.MouseButton"/> enum (WinForms specific) to platform-independent <see cref="T:SharpDX.Toolkit.Input.MouseButton"/>.
-            </summary>
-            <param name="button">WinForms-specific <see cref="T:System.Windows.Input.MouseButton"/> value.</param>
-            <returns>Platform-independent <see cref="T:SharpDX.Toolkit.Input.MouseButton"/> value.</returns>
-        </member>
-        <member name="M:SharpDX.Toolkit.Input.MousePlatformDesktopWpf.SetCursorPos(System.Int32,System.Int32)">
-            <summary>
-            http://msdn.microsoft.com/en-us/library/windows/desktop/ms648394%28v=vs.85%29.aspx
-            </summary>
-        </member>
-        <member name="T:SharpDX.Toolkit.Input.NamespaceDoc">
-            <summary>
-            The <see cref="N:SharpDX.Toolkit.Input"/> namespace provides a high level Input API.
-            </summary>
-        </member>
-        <member name="T:SharpDX.Toolkit.Input.MousePlatformDesktop">
-            <summary>
-            Represents a specific <see cref="T:SharpDX.Toolkit.Input.MousePlatform"/> implementation for WinForms platform (desktop)
             </summary>
         </member>
         <member name="M:SharpDX.Toolkit.Input.MousePlatformDesktop.#ctor(System.Object)">
@@ -750,7 +649,7 @@
             </summary>
             <remarks>Is immutable.</remarks>
         </member>
-        <member name="M:SharpDX.Toolkit.Input.MouseState.#ctor(SharpDX.Toolkit.Input.ButtonState,SharpDX.Toolkit.Input.ButtonState,SharpDX.Toolkit.Input.ButtonState,SharpDX.Toolkit.Input.ButtonState,SharpDX.Toolkit.Input.ButtonState,System.Single,System.Single,System.Int32)">
+        <member name="M:SharpDX.Toolkit.Input.MouseState.#ctor(SharpDX.Toolkit.Input.ButtonState,SharpDX.Toolkit.Input.ButtonState,SharpDX.Toolkit.Input.ButtonState,SharpDX.Toolkit.Input.ButtonState,SharpDX.Toolkit.Input.ButtonState,System.Single,System.Single,System.Single,System.Single,System.Int32)">
             <summary>
             Initializes a new instance of the <see cref="T:SharpDX.Toolkit.Input.MouseState"/> structure.
             </summary>
@@ -814,9 +713,21 @@
             Y-position of the mouse cursor in the range [0,1]
             </summary>
         </member>
+        <member name="P:SharpDX.Toolkit.Input.MouseState.DeltaX">
+            <summary>
+            Gets the delta on x since the previous update.
+            </summary>
+            <value>The delta x.</value>
+        </member>
+        <member name="P:SharpDX.Toolkit.Input.MouseState.DeltaY">
+            <summary>
+            Gets the delta y since the previous update.
+            </summary>
+            <value>The delta y.</value>
+        </member>
         <member name="P:SharpDX.Toolkit.Input.MouseState.WheelDelta">
             <summary>
-            Gets the cumulative mouse scroll wheel value since the game was started.
+            Gets the mouse scroll wheel value since the previous update.
             </summary>
         </member>
         <member name="T:SharpDX.Toolkit.Input.PointerDeviceType">
@@ -1144,26 +1055,6 @@
             <summary>
             Check if Multi-touch support device is ready
             </summary>
-        </member>
-        <member name="T:SharpDX.Toolkit.Input.PointerPlatformDesktopWpf">
-            <summary>
-            Specific implementation of <see cref="T:SharpDX.Toolkit.Input.PointerPlatform"/> for WPF desktop platform.
-            </summary>
-        </member>
-        <member name="M:SharpDX.Toolkit.Input.PointerPlatformDesktopWpf.#ctor(System.Object,SharpDX.Toolkit.Input.PointerManager)">
-            <summary>
-            Initializes a new instance of <see cref="T:SharpDX.Toolkit.Input.PointerPlatformDesktopWpf"/> class.
-            </summary>
-            <param name="nativeWindow">The platform-specific reference to window object</param>
-            <param name="manager">The <see cref="T:SharpDX.Toolkit.Input.PointerManager"/> whose events will be raised in response to platform-specific events</param>
-            <exception cref="T:System.ArgumentNullException">Is thrown when either <paramref name="nativeWindow"/> or <paramref name="manager"/> is null.</exception>
-        </member>
-        <member name="M:SharpDX.Toolkit.Input.PointerPlatformDesktopWpf.BindWindow(System.Object)">
-            <summary>
-            Binds to pointer events of specified <paramref name="nativeWindow"/> object and raises the corresponding events on <see cref="T:SharpDX.Toolkit.Input.PointerManager"/>.
-            </summary>
-            <param name="nativeWindow">An instance of <see cref="T:SharpDX.Toolkit.SharpDXElement"/>.</param>
-            <exception cref="T:System.ArgumentNullException">Is thrown when <paramref name="nativeWindow"/> is null.</exception>
         </member>
         <member name="T:SharpDX.Toolkit.Input.PointerPoint">
             <summary>

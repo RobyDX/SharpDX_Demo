@@ -1,11 +1,3 @@
-﻿
-cbuffer data :register(b0)
-{
-	float4x4 world;
-	float4x4 worldViewProj;
-	float4 lightDirection;
-};
-
 struct VS_IN
 {
 	float4 position : POSITION;
@@ -13,6 +5,13 @@ struct VS_IN
 	float3 tangent: TANGENT;
 	float3 binormal: BINORMAL;
 	float2 texcoord : TEXCOORD;
+};
+
+cbuffer data :register(b0)
+{
+	float4x4 world;
+	float4x4 worldViewProj;
+	float4 lightDirection;
 };
 
 struct PS_IN

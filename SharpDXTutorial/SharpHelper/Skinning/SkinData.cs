@@ -67,6 +67,7 @@ namespace SharpHelper.Skinning
                 }
 
                 m[i] = BindMatrix * InverseBindMatrix[i] * currentMat;
+                
                 i++;
             }
             return m;
