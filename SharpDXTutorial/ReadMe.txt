@@ -1,6 +1,6 @@
 //==============================================================
 //Tutorial Created By Roberto Nacchia (robydx@gmail.com)
-//www.notjustcode.it 2015
+//www.notjustcode.net 2015
 
 //Based on SharpDX Library (http://sharpdx.org/)
 //web site: http://www.notjustcode.net
