@@ -54,10 +54,13 @@ namespace TutorialI1
         private void ShowButtonStatus(Gamepad pad)
         {
 
-            pButtonA.BackColor = (pad.Buttons & GamepadButtonFlags.A) != 0 ? Color.Green : Color.White;
-            pButtonB.BackColor = (pad.Buttons & GamepadButtonFlags.B) != 0 ? Color.Red : Color.White;
-            pButtonX.BackColor = (pad.Buttons & GamepadButtonFlags.X) != 0 ? Color.Blue : Color.White;
-            pButtonY.BackColor = (pad.Buttons & GamepadButtonFlags.Y) != 0 ? Color.Yellow : Color.White;
+            pButtonA.BackColor = pad.Buttons.HasFlag(GamepadButtonFlags.A) ? Color.Green : Color.White;
+            pButtonB.BackColor = pad.Buttons.HasFlag(GamepadButtonFlags.B)  ? Color.Red : Color.White;
+            pButtonX.BackColor = pad.Buttons.HasFlag(GamepadButtonFlags.X) ? Color.Blue : Color.White;
+            pButtonY.BackColor = pad.Buttons.HasFlag(GamepadButtonFlags.Y) ? Color.Yellow : Color.White;
+
+            pButtonBack.BackColor = pad.Buttons.HasFlag(GamepadButtonFlags.Back) ? Color.Black : Color.White;
+            pButtonStart.BackColor = pad.Buttons.HasFlag(GamepadButtonFlags.Start) ? Color.Black : Color.White;
 
             pTriggerL.BackColor = Color.FromArgb(0, pad.LeftTrigger, 0);
             pTriggerR.BackColor = Color.FromArgb(0, pad.RightTrigger, 0);

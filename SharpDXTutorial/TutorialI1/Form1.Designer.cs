@@ -43,6 +43,8 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblBattery = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblHelp = new System.Windows.Forms.Label();
+            this.pButtonBack = new System.Windows.Forms.PictureBox();
+            this.pButtonStart = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pLeft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pRight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pButtonY)).BeginInit();
@@ -53,6 +55,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pTriggerR)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pDPad)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pButtonBack)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pButtonStart)).BeginInit();
             this.SuspendLayout();
             // 
             // timerCounter
@@ -167,11 +171,29 @@
             this.lblHelp.TabIndex = 12;
             this.lblHelp.Text = "Press Analogic Sticks and Buttons";
             // 
+            // pButtonBack
+            // 
+            this.pButtonBack.Location = new System.Drawing.Point(189, 132);
+            this.pButtonBack.Name = "pButtonBack";
+            this.pButtonBack.Size = new System.Drawing.Size(80, 25);
+            this.pButtonBack.TabIndex = 13;
+            this.pButtonBack.TabStop = false;
+            // 
+            // pButtonStart
+            // 
+            this.pButtonStart.Location = new System.Drawing.Point(314, 132);
+            this.pButtonStart.Name = "pButtonStart";
+            this.pButtonStart.Size = new System.Drawing.Size(80, 25);
+            this.pButtonStart.TabIndex = 14;
+            this.pButtonStart.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(597, 377);
+            this.Controls.Add(this.pButtonStart);
+            this.Controls.Add(this.pButtonBack);
             this.Controls.Add(this.lblHelp);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.lblStatus);
@@ -201,6 +223,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pDPad)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pButtonBack)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pButtonStart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,6 +246,8 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblBattery;
         private System.Windows.Forms.Label lblHelp;
+        private System.Windows.Forms.PictureBox pButtonBack;
+        private System.Windows.Forms.PictureBox pButtonStart;
     }
 }
 
