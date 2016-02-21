@@ -3,7 +3,7 @@
 //www.notjustcode.net 2015
 
 //Based on SharpDX Library (http://sharpdx.org/)
-//web site: http://www.notjustcode.net
+//web site: http://www.notjustcode.it
 
 
 //==============================================================
