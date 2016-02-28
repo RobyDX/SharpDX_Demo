@@ -44,16 +44,13 @@ namespace Tutorial7
 
             using (SharpDevice device = new SharpDevice(form))
             {
-                //load font
-                SharpBatch font = new SharpBatch(device, "textfont.dds");
-
                 //load model from wavefront obj file
                 SharpMesh mesh = SharpMesh.CreateFromObj(device, "../../../Models/car/car.obj");
 
                 //init shader
                 SharpShader shader = new SharpShader(device, "../../HLSL.txt",
                     new SharpShaderDescription() { VertexShaderFunction = "VS", PixelShaderFunction = "PS" },
-                    new InputElement[] {  
+                    new InputElement[] {
                         new InputElement("POSITION", 0, Format.R32G32B32_Float, 0, 0),
                         new InputElement("NORMAL", 0, Format.R32G32B32_Float, 12, 0),
                         new InputElement("TEXCOORD", 0, Format.R32G32_Float, 24, 0)
@@ -72,7 +69,6 @@ namespace Tutorial7
                     if (device.MustResize)
                     {
                         device.Resize();
-                        font.Resize();
                     }
 
                     //apply states
@@ -119,21 +115,20 @@ namespace Tutorial7
 
 
                     //begin drawing text
-                    font.Begin();
+                    device.Font.Begin();
 
                     //draw string
                     fpsCounter.Update();
-                    font.DrawString("FPS: " + fpsCounter.FPS, 0, 0, Color.White);
+                    device.Font.DrawString("FPS: " + fpsCounter.FPS, 0, 0);
 
                     //flush text to view
-                    font.End();
+                    device.Font.End();
                     //present
                     device.Present();
 
                 });
 
                 //release resource
-                font.Dispose();
                 mesh.Dispose();
                 buffer.Dispose();
             }

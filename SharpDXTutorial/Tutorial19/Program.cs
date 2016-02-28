@@ -53,8 +53,6 @@ namespace Tutorial19
 
             using (SharpDevice device = new SharpDevice(form))
             {
-                SharpBatch font = new SharpBatch(device, "textfont.dds");
-
                 InputElement[] description = new InputElement[]
                 {
                     new InputElement("POSITION",0,SharpDX.DXGI.Format.R32G32B32_Float,0,0),
@@ -119,9 +117,9 @@ namespace Tutorial19
 
                 string path = @"../../../Models/adaptive_tess/";
 
-                ShaderResourceView diffuseMap = ShaderResourceView.FromFile(device.Device, path + "D.dds");
-                ShaderResourceView normalMap = ShaderResourceView.FromFile(device.Device, path + "N.dds");
-                ShaderResourceView heightMap = ShaderResourceView.FromFile(device.Device, path + "H.dds");
+                ShaderResourceView diffuseMap = device.LoadTextureFromFile(path + "D.dds");
+                ShaderResourceView normalMap = device.LoadTextureFromFile(path + "N.dds");
+                ShaderResourceView heightMap = device.LoadTextureFromFile(path + "H.dds");
 
                 Buffer11 buffer = shader.CreateBuffer<SceneData>();
 
@@ -174,15 +172,14 @@ namespace Tutorial19
                     if (device.MustResize)
                     {
                         device.Resize();
-                        font.Resize();
                     }
-                    
+
                     //apply states
                     device.UpdateAllStates();
 
                     //clear color
                     device.Clear(Color.CornflowerBlue);
-                    
+
                     //Set matrices
                     float ratio = (float)form.ClientRectangle.Width / (float)form.ClientRectangle.Height;
 
@@ -226,18 +223,18 @@ namespace Tutorial19
                     mesh.DrawPatch(SharpDX.Direct3D.PrimitiveTopology.PatchListWith16ControlPoints);
 
                     //begin drawing text
-                    font.Begin();
+                    device.Font.Begin();
 
                     //draw string
                     fpsCounter.Update();
-                    font.DrawString("FPS: " + fpsCounter.FPS, 0, 0, Color.White);
+                    device.Font.DrawString("FPS: " + fpsCounter.FPS, 0, 0);
 
-                    font.DrawString("Presso Up,Down,Left,Right,A,Z to move camera", 0, 20, Color.White);
-                    font.DrawString("Presso W and S to Switch to Wireframe", 0, 40, Color.White);
+                    device.Font.DrawString("Presso Up,Down,Left,Right,A,Z to move camera", 0, 20);
+                    device.Font.DrawString("Presso W and S to Switch to Wireframe", 0, 40);
 
 
                     //flush text to view
-                    font.End();
+                    device.Font.End();
                     //present
                     device.Present();
 

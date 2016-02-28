@@ -60,16 +60,15 @@ namespace Tutorial8
 
             using (SharpDevice device = new SharpDevice(form))
             {
-                SharpBatch font = new SharpBatch(device, "textfont.dds");
                 SharpMesh mesh = SharpMesh.Create<Vector3>(device, vertices.ToArray(), indices);
                 SharpShader shader = new SharpShader(device, "../../HLSL.txt",
                     new SharpShaderDescription() { VertexShaderFunction = "VS", PixelShaderFunction = "PS", GeometryShaderFunction = "GS" },
-                    new InputElement[] {  
+                    new InputElement[] {
                         new InputElement("POSITION", 0, Format.R32G32B32_Float, 0, 0)
                     });
 
                 Buffer11 buffer = shader.CreateBuffer<Data>();
-                ShaderResourceView texture = ShaderResourceView.FromFile(device.Device, "../../texture.dds");
+                ShaderResourceView texture = device.LoadTextureFromFile("../../texture.dds");
 
                 fpsCounter.Reset();
 
@@ -95,7 +94,6 @@ namespace Tutorial8
                     if (device.MustResize)
                     {
                         device.Resize();
-                        font.Resize();
                     }
 
 
@@ -131,16 +129,16 @@ namespace Tutorial8
 
                     //begin drawing text
                     device.DeviceContext.GeometryShader.Set(null);
-                    font.Begin();
+                    device.Font.Begin();
 
                     //draw string
                     fpsCounter.Update();
-                    font.DrawString("FPS: " + fpsCounter.FPS, 0, 0, Color.White);
-                    font.DrawString("Cube Count: " + count, 0, 30, Color.White);
-                    font.DrawString("Press Up and Down to change number", 0, 60, Color.White);
+                    device.Font.DrawString("FPS: " + fpsCounter.FPS, 0, 0);
+                    device.Font.DrawString("Cube Count: " + count, 0, 30);
+                    device.Font.DrawString("Press Up and Down to change number", 0, 60);
 
                     //flush text to view
-                    font.End();
+                    device.Font.End();
                     //present
                     device.Present();
 
@@ -148,7 +146,6 @@ namespace Tutorial8
                 });
 
                 //release resource
-                font.Dispose();
                 mesh.Dispose();
                 buffer.Dispose();
             }

@@ -59,8 +59,7 @@ namespace Tutorial11
 
             using (SharpDevice device = new SharpDevice(form))
             {
-                //Init font
-                SharpBatch font = new SharpBatch(device, "textfont.dds");
+                
                 //Init mesh
                 SharpMesh mesh = SharpMesh.Create<Vector3>(device, vertices, indices);
 
@@ -104,7 +103,6 @@ namespace Tutorial11
                     if (device.MustResize)
                     {
                         device.Resize();
-                        font.Resize();
                     }
 
                     //clear color
@@ -138,23 +136,22 @@ namespace Tutorial11
                     shader.Clear();
 
                     //begin drawing text
-                    font.Begin();
+                    device.Font.Begin();
 
                     //draw string
                     fpsCounter.Update();
-                    font.DrawString("FPS: " + fpsCounter.FPS, 0, 0, Color.White);
-                    font.DrawString("Tessellation Factor: " + nFactor, 0, 30, Color.White);
-                    font.DrawString("Press Up And Down to change Tessellation Factor,W and S to switch to wireframe ", 0, 60, Color.White);
+                    device.Font.DrawString("FPS: " + fpsCounter.FPS, 0, 0);
+                    device.Font.DrawString("Tessellation Factor: " + nFactor, 0, 30);
+                    device.Font.DrawString("Press Up And Down to change Tessellation Factor,W and S to switch to wireframe ", 0, 60);
 
                     //flush text to view
-                    font.End();
+                    device.Font.End();
                     //present
                     device.Present();
                 });
 
 
                 //release resource
-                font.Dispose();
                 mesh.Dispose();
                 buffer.Dispose();
                 shader.Dispose();

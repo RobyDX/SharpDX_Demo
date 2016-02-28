@@ -31,8 +31,6 @@ namespace Tutorial3
             //main loop
             using (SharpDevice device = new SharpDevice(form))
             {
-                //create font from file (generated with tkfont.exe)
-                SharpBatch font = new SharpBatch(device, "textfont.dds");
 
                 RenderLoop.Run(form, () =>
                 {
@@ -40,28 +38,26 @@ namespace Tutorial3
                     if (device.MustResize)
                     {
                         device.Resize();
-                        font.Resize();
                     }
 
                     //clear color
                     device.Clear(Color.CornflowerBlue);
 
                     //begin drawing text
-                    font.Begin();
-                    
+                    device.Font.Begin();
+
                     //draw string
-                    font.DrawString("Hello SharpDX", 0, 0, Color.White);
-                    
-                    font.DrawString("Current Time " + DateTime.Now.ToString(), 0, 32, Color.White);
-                    
+                    device.Font.DrawString("Hello SharpDX", 0, 0);
+
+                    device.Font.DrawString("Current Time " + DateTime.Now.ToString(), 0, 32);
+
                     //flush text to view
-                    font.End();
+                    device.Font.End();
 
                     //present
                     device.Present();
                 });
 
-                font.Dispose();
             }
         }
     }

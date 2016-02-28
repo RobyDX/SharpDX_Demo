@@ -10,7 +10,7 @@ namespace SharpHelper
     /// <summary>
     /// Utilities
     /// </summary>
-    public class SharpUtilities
+    public static class SharpUtilities
     {
         /// <summary>
         /// Degree to Radiant
@@ -89,8 +89,6 @@ namespace SharpHelper
             }
             return temp;
         }
-
-
-
+        
     }
 }

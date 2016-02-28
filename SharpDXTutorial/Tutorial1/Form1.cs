@@ -15,7 +15,8 @@ namespace Tutorial1
     public partial class Form1 : Form
     {
         //allow to check Hardware
-        Factory factory = new Factory();
+        Factory factory = new Factory1();
+        
 
         public Form1()
         {
@@ -66,8 +67,8 @@ namespace Tutorial1
             {
                 cboOutput.Items.Add(string.Format("Name: {0} Size: {1}x{2} {3}",
                     o.Description.DeviceName,
-                    o.Description.DesktopBounds.Width,
-                    o.Description.DesktopBounds.Height,
+                    o.Description.DesktopBounds.Right,
+                    o.Description.DesktopBounds.Bottom,
                     (o.Description.IsAttachedToDesktop ? " Connected" : "Disconnected")
                     ));
             }

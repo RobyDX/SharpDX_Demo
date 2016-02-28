@@ -69,6 +69,10 @@ namespace SharpHelper
         /// </summary>
         public DepthStencilView ZBufferView { get { return _zbufferView; } }
 
+        /// <summary>
+        /// Font Batch
+        /// </summary>
+        public SharpBatch Font { get; private set; }
 
         /// <summary>
         /// Init all object to start rendering
@@ -90,10 +94,10 @@ namespace SharpHelper
                 Usage = Usage.RenderTargetOutput
             };
 
-            FeatureLevel[] levels = new FeatureLevel[] { FeatureLevel.Level_11_0, FeatureLevel.Level_10_1, FeatureLevel.Level_10_0 };
+            FeatureLevel[] levels = new FeatureLevel[] { FeatureLevel.Level_11_1 };
 
             //create device and swapchain
-            DeviceCreationFlags flag = DeviceCreationFlags.None;
+            DeviceCreationFlags flag = DeviceCreationFlags.None | DeviceCreationFlags.BgraSupport;
             if (debug)
                 flag = DeviceCreationFlags.Debug;
 
@@ -116,6 +120,8 @@ namespace SharpHelper
             SetDefaultBlendState();
             SetDefaultSamplerState();
 
+            Font = new SharpBatch(this);
+
             //Resize all items
             Resize();
         }
@@ -130,17 +136,22 @@ namespace SharpHelper
         public void Resize()
         {
             // Dispose all previous allocated resources
+            Font.Release();
             Utilities.Dispose(ref _backbufferView);
             Utilities.Dispose(ref _zbufferView);
+            
 
             if (View.ClientSize.Width == 0 || View.ClientSize.Height == 0)
                 return;
 
             // Resize the backbuffer
-            SwapChain.ResizeBuffers(1, View.ClientSize.Width, View.ClientSize.Height, Format.R8G8B8A8_UNorm, SwapChainFlags.AllowModeSwitch);
+            SwapChain.ResizeBuffers(1, View.ClientSize.Width, View.ClientSize.Height, Format.R8G8B8A8_UNorm, SwapChainFlags.None);
 
             // Get the backbuffer from the swapchain
             var _backBufferTexture = SwapChain.GetBackBuffer<Texture2D>(0);
+
+            //update font
+            Font.UpdateResources(_backBufferTexture);
 
             // Backbuffer
             _backbufferView = new RenderTargetView(Device, _backBufferTexture);
@@ -149,18 +160,18 @@ namespace SharpHelper
             // Depth buffer
 
             var _zbufferTexture = new Texture2D(Device, new Texture2DDescription()
-               {
-                   Format = Format.D16_UNorm,
-                   ArraySize = 1,
-                   MipLevels = 1,
-                   Width = View.ClientSize.Width,
-                   Height = View.ClientSize.Height,
-                   SampleDescription = new SampleDescription(1, 0),
-                   Usage = ResourceUsage.Default,
-                   BindFlags = BindFlags.DepthStencil,
-                   CpuAccessFlags = CpuAccessFlags.None,
-                   OptionFlags = ResourceOptionFlags.None
-               });
+            {
+                Format = Format.D16_UNorm,
+                ArraySize = 1,
+                MipLevels = 1,
+                Width = View.ClientSize.Width,
+                Height = View.ClientSize.Height,
+                SampleDescription = new SampleDescription(1, 0),
+                Usage = ResourceUsage.Default,
+                BindFlags = BindFlags.DepthStencil,
+                CpuAccessFlags = CpuAccessFlags.None,
+                OptionFlags = ResourceOptionFlags.None
+            });
 
 
             // Create the depth buffer view
@@ -168,7 +179,7 @@ namespace SharpHelper
             _zbufferTexture.Dispose();
 
             SetDefaultTargers();
-
+            
             // End resize
             MustResize = false;
         }
@@ -188,6 +199,7 @@ namespace SharpHelper
         /// </summary>
         public void Dispose()
         {
+            Font.Dispose();
             _rasterState.Dispose();
             _blendState.Dispose();
             _depthState.Dispose();
@@ -226,7 +238,7 @@ namespace SharpHelper
         /// </summary>
         public void SetDefaultRasterState()
         {
-            Utilities.Dispose(ref  _rasterState);
+            Utilities.Dispose(ref _rasterState);
             //Rasterize state
             RasterizerStateDescription rasterDescription = RasterizerStateDescription.Default();
             _rasterState = new RasterizerState(Device, rasterDescription);
@@ -280,7 +292,7 @@ namespace SharpHelper
         /// </summary>
         public void SetDefaultDepthState()
         {
-            Utilities.Dispose(ref  _depthState);
+            Utilities.Dispose(ref _depthState);
             DepthStencilStateDescription description = DepthStencilStateDescription.Default();
             description.DepthComparison = Comparison.LessEqual;
             description.IsDepthEnabled = true;

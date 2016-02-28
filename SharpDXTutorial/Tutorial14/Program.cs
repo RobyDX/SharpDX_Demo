@@ -83,11 +83,7 @@ namespace Tutorial14
 
             using (SharpDevice device = new SharpDevice(form))
             {
-
-
-                //Init font
-                SharpBatch font = new SharpBatch(device, "textfont.dds");
-
+                
                 //Init Mesh
                 SharpMesh mesh = SharpMesh.Create<TexturedVertex>(device, vertices, indices);
 
@@ -126,7 +122,7 @@ namespace Tutorial14
                 Buffer11 buffer = shader.CreateBuffer<Matrix>();
 
                 //Create texture from file
-                ShaderResourceView texture = ShaderResourceView.FromFile(device.Device, "../../texture.bmp");
+                ShaderResourceView texture = device.LoadTextureFromFile("../../texture.bmp");
 
 
                 fpsCounter.Reset();
@@ -174,7 +170,6 @@ namespace Tutorial14
                     if (device.MustResize)
                     {
                         device.Resize();
-                        font.Resize();
                     }
 
                     //apply states
@@ -241,21 +236,20 @@ namespace Tutorial14
                     outputBufferA.Draw(streamOutputVertexSize);
 
                     //begin drawing text
-                    font.Begin();
+                    device.Font.Begin();
 
                     //draw string
                     fpsCounter.Update();
-                    font.DrawString("FPS: " + fpsCounter.FPS, 0, 0, Color.White);
-                    font.DrawString("Press WASD, Up, Down to move cube", 0, 30, Color.White);
+                    device.Font.DrawString("FPS: " + fpsCounter.FPS, 0, 0);
+                    device.Font.DrawString("Press WASD, Up, Down to move cube", 0, 30);
 
                     //flush text to view
-                    font.End();
+                    device.Font.End();
                     //present
                     device.Present();
                 });
 
                 //release resource
-                font.Dispose();
                 mesh.Dispose();
                 buffer.Dispose();
                 texture.Dispose();

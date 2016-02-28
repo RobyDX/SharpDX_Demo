@@ -129,7 +129,7 @@ namespace SharpHelper
                 if (!string.IsNullOrEmpty(mate.DiffuseMap))
                 {
                     string textureFile = System.IO.Path.GetDirectoryName(filename) + "\\" + System.IO.Path.GetFileName(mate.DiffuseMap);
-                    tex = ShaderResourceView.FromFile(device.Device, textureFile);
+                    tex = device.LoadTextureFromFile(textureFile);
                 }
 
                 mesh.SubSets.Add(new SharpSubSet()
@@ -186,10 +186,10 @@ namespace SharpHelper
                 if (!string.IsNullOrEmpty(mate.DiffuseMap))
                 {
                     string textureFile = Path.GetDirectoryName(filename) + "\\" + Path.GetFileName(mate.DiffuseMap);
-                    tex = ShaderResourceView.FromFile(device.Device, textureFile);
+                    tex = device.LoadTextureFromFile(textureFile);
 
                     string normalMap = Path.GetDirectoryName(textureFile) + "\\" + Path.GetFileNameWithoutExtension(textureFile) + "N" + Path.GetExtension(textureFile);
-                    ntex = ShaderResourceView.FromFile(device.Device, normalMap);
+                    ntex = device.LoadTextureFromFile(normalMap);
                 }
 
                 mesh.SubSets.Add(new SharpSubSet()
@@ -218,12 +218,12 @@ namespace SharpHelper
         /// <returns>Mesh</returns>
         public static SharpMesh CreateQuad(SharpDevice device)
         {
-            Vector3[] vertices = new Vector3[] 
-            { 
-                new Vector3(-1, 1, 0), 
-                new Vector3(-1, -1, 0), 
-                new Vector3(1, 1, 0), 
-                new Vector3(1, -1, 0) 
+            Vector3[] vertices = new Vector3[]
+            {
+                new Vector3(-1, 1, 0),
+                new Vector3(-1, -1, 0),
+                new Vector3(1, 1, 0),
+                new Vector3(1, -1, 0)
             };
 
             int[] indices = new int[] { 0, 2, 1, 2, 3, 1 };

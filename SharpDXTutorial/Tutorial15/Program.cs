@@ -46,9 +46,6 @@ namespace Tutorial15
 
             using (SharpDevice device = new SharpDevice(form))
             {
-                //load font
-                SharpBatch font = new SharpBatch(device, "textfont.dds");
-
                 //load model from wavefront obj file
                 SharpMesh dogMesh = SharpMesh.CreateFromObj(device, "../../../Models/dog/dog.obj");
 
@@ -78,7 +75,7 @@ namespace Tutorial15
 
 
                 //toon texture
-                ShaderResourceView bandTexture = ShaderResourceView.FromFile(device.Device, "../../../Models/band.bmp");
+                ShaderResourceView bandTexture = device.LoadTextureFromFile("../../../Models/band.bmp");
 
                 //init constant buffer
                 Buffer11 toonConstantBuffer = firstPass.CreateBuffer<ToonData>();
@@ -104,8 +101,6 @@ namespace Tutorial15
                         target2.Dispose();
                         target2 = new SharpRenderTarget(device, form.ClientSize.Width, form.ClientSize.Height, Format.R8G8B8A8_UNorm);
 
-
-                        font.Resize();
                     }
 
                     //apply states
@@ -190,14 +185,14 @@ namespace Tutorial15
 
 
                     //begin drawing text
-                    font.Begin();
+                    device.Font.Begin();
 
                     //draw string
                     fpsCounter.Update();
-                    font.DrawString("FPS: " + fpsCounter.FPS, 0, 0, Color.White);
+                    device.Font.DrawString("FPS: " + fpsCounter.FPS, 0, 0);
 
                     //flush text to view
-                    font.End();
+                    device.Font.End();
                     //present
                     device.Present();
 
@@ -205,7 +200,6 @@ namespace Tutorial15
 
 
                 //release resource
-                font.Dispose();
                 dogMesh.Dispose();
                 quad.Dispose();
                 toonConstantBuffer.Dispose();

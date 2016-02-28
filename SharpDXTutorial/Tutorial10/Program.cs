@@ -51,9 +51,7 @@ namespace Tutorial10
 
             using (SharpDevice device = new SharpDevice(form))
             {
-                //load font
-                SharpBatch font = new SharpBatch(device, "textfont.dds");
-
+                
                 //load model from wavefront obj file
                 SharpMesh dogMesh = SharpMesh.CreateNormalMappedFromObj(device, "../../../Models/dog/dog.obj");
                 SharpMesh cubeMesh = SharpMesh.CreateFromObj(device, "../../../Models/cube.obj");
@@ -115,7 +113,6 @@ namespace Tutorial10
                     if (device.MustResize)
                     {
                         device.Resize();
-                        font.Resize();
                     }
 
                     //apply states
@@ -200,15 +197,15 @@ namespace Tutorial10
 
 
                     //begin drawing text
-                    font.Begin();
+                    device.Font.Begin();
 
                     //draw string
                     fpsCounter.Update();
-                    font.DrawString("FPS: " + fpsCounter.FPS, 0, 0, Color.White);
-                    font.DrawString("Press 1 To 4 to change Effect", 0, 30, Color.White);
+                    device.Font.DrawString("FPS: " + fpsCounter.FPS, 0, 0);
+                    device.Font.DrawString("Press 1 To 4 to change Effect", 0, 30);
 
                     //flush text to view
-                    font.End();
+                    device.Font.End();
                     //present
                     device.Present();
 
@@ -216,7 +213,6 @@ namespace Tutorial10
 
 
                 //release resource
-                font.Dispose();
                 dogMesh.Dispose();
                 cubeMesh.Dispose();
                 phongConstantBuffer.Dispose();

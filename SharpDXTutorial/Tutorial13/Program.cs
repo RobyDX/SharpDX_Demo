@@ -44,9 +44,6 @@ namespace Tutorial13
 
             using (SharpDevice device = new SharpDevice(form))
             {
-                //load font
-                SharpBatch font = new SharpBatch(device, "textfont.dds");
-
                 //load model from wavefront obj file
                 SharpMesh mesh = SharpMesh.CreateNormalMappedFromObj(device, "../../../Models/dog/dog.obj");
 
@@ -133,7 +130,6 @@ namespace Tutorial13
                     if (device.MustResize)
                     {
                         device.Resize();
-                        font.Resize();
                     }
 
                     //apply states
@@ -236,28 +232,27 @@ namespace Tutorial13
                     }
 
                     //begin drawing text
-                    font.Begin();
+                    device.Font.Begin();
 
                     //draw string
                     fpsCounter.Update();
-                    font.DrawString("FPS: " + fpsCounter.FPS, 0, 0, Color.White);
+                    device.Font.DrawString("FPS: " + fpsCounter.FPS, 0, 0);
                     if (instancing)
-                        font.DrawString("Instancing On: Press D to use standard rendering. See FPS", 0, 30, Color.White);
+                        device.Font.DrawString("Instancing On: Press D to use standard rendering. See FPS", 0, 30);
                     else
-                        font.DrawString("Instancing Off: Press I to use Instancing. See FPS", 0, 30, Color.White);
+                        device.Font.DrawString("Instancing Off: Press I to use Instancing. See FPS", 0, 30);
 
-                    font.DrawString("Press up and down to change count ", 0, 60, Color.White);
-                    font.DrawString("Count: " + instanceCount, 0, 90, Color.White);
+                    device.Font.DrawString("Press up and down to change count ", 0, 60);
+                    device.Font.DrawString("Count: " + instanceCount, 0, 90);
 
                     //flush text to view
-                    font.End();
+                    device.Font.End();
                     //present
                     device.Present();
 
                 });
 
                 //release resource
-                font.Dispose();
                 mesh.Dispose();
                 buffer.Dispose();
                 shader.Dispose();

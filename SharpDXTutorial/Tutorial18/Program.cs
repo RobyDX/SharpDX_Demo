@@ -47,8 +47,6 @@ namespace Tutorial18
 
             using (SharpDevice device = new SharpDevice(form))
             {
-                SharpBatch font = new SharpBatch(device, "textfont.dds");
-
                 //Input layout for Skinning Mesh
                 InputElement[] description = new InputElement[]
                 {
@@ -92,11 +90,11 @@ namespace Tutorial18
 
                     if (!string.IsNullOrEmpty(g.Material.DiffuseTextureName))
                     {
-                        g.Material.DiffuseTexture = ShaderResourceView.FromFile(device.Device, path + g.Material.DiffuseTextureName);
+                        g.Material.DiffuseTexture = device.LoadTextureFromFile(path + g.Material.DiffuseTextureName);
 
                         g.Material.NormalTextureName = Path.GetFileNameWithoutExtension(g.Material.DiffuseTextureName) + "N.dds";
 
-                        g.Material.NormalTexture = ShaderResourceView.FromFile(device.Device, path + g.Material.NormalTextureName);
+                        g.Material.NormalTexture = device.LoadTextureFromFile(path + g.Material.NormalTextureName);
                     }
                 }
 
@@ -126,7 +124,6 @@ namespace Tutorial18
                     if (device.MustResize)
                     {
                         device.Resize();
-                        font.Resize();
                     }
 
 
@@ -168,23 +165,21 @@ namespace Tutorial18
                         World = world
                     });
 
-                    font.Begin();
+                    device.Font.Begin();
 
                     //draw string
                     fpsCounter.Update();
-                    font.DrawString("FPS: " + fpsCounter.FPS, 0, 0, Color.White);
-                    font.DrawString("Skinning Animation With Collada", 0, 30, Color.White);
+                    device.Font.DrawString("FPS: " + fpsCounter.FPS, 0, 0);
+                    device.Font.DrawString("Skinning Animation With Collada", 0, 30);
 
                     //flush text to view
-                    font.End();
+                    device.Font.End();
                     //present
                     device.Present();
 
 
                 });
 
-                //release resource
-                font.Dispose();
             }
         }
     }

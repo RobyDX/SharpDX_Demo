@@ -29,8 +29,8 @@ namespace Tutorial5
             }
 
             //Init textured cube
-            int[] indices = new int[] 
-            { 
+            int[] indices = new int[]
+            {
                 0,1,2,0,2,3,
                 4,6,5,4,7,6,
                 8,9,10,8,10,11,
@@ -38,8 +38,8 @@ namespace Tutorial5
                 16,18,17,16,19,18,
                 20,21,22,20,22,23
             };
-            
-            TexturedVertex[] vertices = new[] 
+
+            TexturedVertex[] vertices = new[]
             {
                 ////TOP
                 new TexturedVertex(new Vector3(-5,5,5),new Vector2(1,1)),
@@ -85,16 +85,13 @@ namespace Tutorial5
 
             using (SharpDevice device = new SharpDevice(form))
             {
-                //Init font
-                SharpBatch font = new SharpBatch(device, "textfont.dds");
-
                 //Init Mesh
                 SharpMesh mesh = SharpMesh.Create<TexturedVertex>(device, vertices, indices);
-                
+
                 //Init shader from file
                 SharpShader shader = new SharpShader(device, "../../HLSL.txt",
                     new SharpShaderDescription() { VertexShaderFunction = "VS", PixelShaderFunction = "PS" },
-                    new InputElement[] {  
+                    new InputElement[] {
                         new InputElement("POSITION", 0, Format.R32G32B32_Float, 0, 0),
                         new InputElement("TEXCOORD", 0, Format.R32G32_Float, 12, 0)
                     });
@@ -102,7 +99,7 @@ namespace Tutorial5
                 //Create constant buffer
                 Buffer11 buffer = shader.CreateBuffer<Matrix>();
                 //Create texture from file
-                ShaderResourceView texture = ShaderResourceView.FromFile(device.Device, "../../texture.bmp");
+                ShaderResourceView texture = device.LoadTextureFromFile("../../texture.bmp");
 
                 fpsCounter.Reset();
 
@@ -113,7 +110,6 @@ namespace Tutorial5
                     if (device.MustResize)
                     {
                         device.Resize();
-                        font.Resize();
                     }
 
                     //apply states
@@ -122,7 +118,7 @@ namespace Tutorial5
                     //clear color
                     device.Clear(Color.CornflowerBlue);
 
-                    
+
                     //apply shader
                     shader.Apply();
 
@@ -144,20 +140,19 @@ namespace Tutorial5
                     mesh.Draw();
 
                     //begin drawing text
-                    font.Begin();
+                    device.Font.Begin();
 
                     //draw string
                     fpsCounter.Update();
-                    font.DrawString("FPS: " + fpsCounter.FPS, 0, 0, Color.White);
+                    device.Font.DrawString("FPS: " + fpsCounter.FPS, 0, 0);
 
                     //flush text to view
-                    font.End();
+                    device.Font.End();
                     //present
                     device.Present();
                 });
 
                 //release resource
-                font.Dispose();
                 mesh.Dispose();
                 buffer.Dispose();
                 texture.Dispose();

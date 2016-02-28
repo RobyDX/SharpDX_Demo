@@ -53,9 +53,6 @@ namespace Tutorial16
 
             using (SharpDevice device = new SharpDevice(form))
             {
-                //load font
-                SharpBatch font = new SharpBatch(device, "textfont.dds");
-
                 //load model from wavefront obj file
                 SharpMesh teapot = SharpMesh.CreateFromObj(device, "../../../Models/teapot.obj");
 
@@ -104,8 +101,6 @@ namespace Tutorial16
                     if (device.MustResize)
                     {
                         device.Resize();
-
-                        font.Resize();
                     }
 
                     //apply states
@@ -252,14 +247,14 @@ namespace Tutorial16
                     }
 
                     //begin drawing text
-                    font.Begin();
+                    device.Font.Begin();
 
                     //draw string
                     fpsCounter.Update();
-                    font.DrawString("FPS: " + fpsCounter.FPS, 0, 0, Color.White);
+                    device.Font.DrawString("FPS: " + fpsCounter.FPS, 0, 0);
 
                     //flush text to view
-                    font.End();
+                    device.Font.End();
                     //present
                     device.Present();
 
@@ -267,7 +262,6 @@ namespace Tutorial16
 
 
                 //release resource
-                font.Dispose();
                 teapot.Dispose();
                 dataConstantBuffer.Dispose();
                 

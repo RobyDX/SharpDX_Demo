@@ -46,9 +46,6 @@ namespace Tutorial9
 
             using (SharpDevice device = new SharpDevice(form))
             {
-                //load font
-                SharpBatch font = new SharpBatch(device, "textfont.dds");
-
                 //load model from wavefront obj file
                 SharpMesh mesh = SharpMesh.CreateNormalMappedFromObj(device, "../../../Models/dog/dog.obj");
 
@@ -106,7 +103,6 @@ namespace Tutorial9
                     if (device.MustResize)
                     {
                         device.Resize();
-                        font.Resize();
                     }
 
                     //apply states
@@ -168,22 +164,21 @@ namespace Tutorial9
 
 
                     //begin drawing text
-                    font.Begin();
+                    device.Font.Begin();
 
                     //draw string
                     fpsCounter.Update();
-                    font.DrawString("FPS: " + fpsCounter.FPS, 0, 0, Color.White);
-                    font.DrawString("Press N or D to switch mode: ", 0, 20, Color.White);
-                    font.DrawString("Press A or S to change bias: " + bias, 0, 40, Color.White);
+                    device.Font.DrawString("FPS: " + fpsCounter.FPS, 0, 0);
+                    device.Font.DrawString("Press N or D to switch mode: ", 0, 20);
+                    device.Font.DrawString("Press A or S to change bias: " + bias, 0, 40);
                     //flush text to view
-                    font.End();
+                    device.Font.End();
                     //present
                     device.Present();
 
                 });
 
                 //release resource
-                font.Dispose();
                 mesh.Dispose();
                 buffer.Dispose();
                 shaderNormal.Dispose();

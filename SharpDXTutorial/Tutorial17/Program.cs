@@ -44,8 +44,6 @@ namespace Tutorial17
 
             using (SharpDevice device = new SharpDevice(form))
             {
-                //load font
-                SharpBatch font = new SharpBatch(device, "textfont.dds");
 
                 //load model from wavefront obj file
                 SharpMesh earth = SharpMesh.CreateFromObj(device, "../../../Models/planets/earth.obj");
@@ -54,7 +52,7 @@ namespace Tutorial17
                 //init shader
                 SharpShader shader = new SharpShader(device, "../../HLSL.txt",
                     new SharpShaderDescription() { VertexShaderFunction = "VS", PixelShaderFunction = "PS" },
-                    new InputElement[] {  
+                    new InputElement[] {
                         new InputElement("POSITION", 0, Format.R32G32B32_Float, 0, 0),
                         new InputElement("NORMAL", 0, Format.R32G32B32_Float, 12, 0),
                         new InputElement("TEXCOORD", 0, Format.R32G32_Float, 24, 0)
@@ -72,7 +70,7 @@ namespace Tutorial17
                 fpsCounter.Reset();
 
                 int lastX = 0;
-                float currentAngle = 200;
+                float currentAngle = 50;
                 form.MouseMove += (sender, e) =>
                 {
                     if (e.Button == MouseButtons.Left)
@@ -89,7 +87,6 @@ namespace Tutorial17
                     if (device.MustResize)
                     {
                         device.Resize();
-                        font.Resize();
                     }
 
                     //apply states
@@ -160,28 +157,28 @@ namespace Tutorial17
                     device.DeviceContext.End(pipelineQuery);
 
                     //get result
-                    
+
                     while (!device.DeviceContext.GetData<QueryDataPipelineStatistics>(pipelineQuery, AsynchronousFlags.None, out stats))
                     {
                     }
 
                     //begin drawing text
-                    font.Begin();
+                    device.Font.Begin();
 
                     //draw string
                     fpsCounter.Update();
-                    font.DrawString("Earth Stats : FPS: " + fpsCounter.FPS, 0, 0, Color.White);
+                    device.Font.DrawString("Earth Stats : FPS: " + fpsCounter.FPS, 0, 0);
 
                     //print earth stats
-                    font.DrawString("Earth Stats : Rotate Moon To Cover Earth " , 0, 30, Color.White);
-                    font.DrawString(string.Format("Primitive Count: {0}", stats.IAPrimitiveCount), 0, 60, Color.White);
-                    font.DrawString(string.Format("Vertex Count Count: {0}", stats.IAVerticeCount), 0, 90, Color.White);
-                    font.DrawString(string.Format("Vertex Shader Execution: {0}", stats.VSInvocationCount), 0, 120, Color.White);
-                    font.DrawString(string.Format("Pixel Shader Execution: {0}", stats.PSInvocationCount), 0, 150, Color.White);
-                    
+                    device.Font.DrawString("Earth Stats : Use Mouse to Rotate Moon To Cover Earth ", 0, 30);
+                    device.Font.DrawString(string.Format("Primitive Count: {0}", stats.IAPrimitiveCount), 0, 60);
+                    device.Font.DrawString(string.Format("Vertex Count Count: {0}", stats.IAVerticeCount), 0, 90);
+                    device.Font.DrawString(string.Format("Vertex Shader Execution: {0}", stats.VSInvocationCount), 0, 120);
+                    device.Font.DrawString(string.Format("Pixel Shader Execution: {0}", stats.PSInvocationCount), 0, 150);
+
 
                     //flush text to view
-                    font.End();
+                    device.Font.End();
                     //present
                     device.Present();
 
@@ -191,7 +188,6 @@ namespace Tutorial17
                 });
 
                 //release resource
-                font.Dispose();
                 earth.Dispose();
                 moon.Dispose();
                 buffer.Dispose();

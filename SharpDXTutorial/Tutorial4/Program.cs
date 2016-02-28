@@ -28,8 +28,8 @@ namespace Tutorial4
             }
 
             //Indices
-            int[] indices = new int[] 
-            { 
+            int[] indices = new int[]
+            {
                 0,1,2,0,2,3,
                 4,6,5,4,7,6,
                 8,9,10,8,10,11,
@@ -40,7 +40,7 @@ namespace Tutorial4
 
 
             //Vertices
-            ColoredVertex[] vertices = new[] 
+            ColoredVertex[] vertices = new[]
             {
                 ////TOP
                 new ColoredVertex(new Vector3(-5,5,5),new Vector4(0,1,0,0)),
@@ -85,16 +85,13 @@ namespace Tutorial4
 
             using (SharpDevice device = new SharpDevice(form))
             {
-                //Init Font
-                SharpBatch font = new SharpBatch(device, "textfont.dds");
-
                 //Init Mesh
                 SharpMesh mesh = SharpMesh.Create<ColoredVertex>(device, vertices, indices);
 
                 //Create Shader From File and Create Input Layout
                 SharpShader shader = new SharpShader(device, "../../HLSL.txt",
                     new SharpShaderDescription() { VertexShaderFunction = "VS", PixelShaderFunction = "PS" },
-                    new InputElement[] {  
+                    new InputElement[] {
                         new InputElement("POSITION", 0, Format.R32G32B32_Float, 0, 0),
                         new InputElement("COLOR", 0, Format.R32G32B32A32_Float, 12, 0)
                     });
@@ -111,7 +108,6 @@ namespace Tutorial4
                     if (device.MustResize)
                     {
                         device.Resize();
-                        font.Resize();
                     }
 
                     //apply states
@@ -140,20 +136,19 @@ namespace Tutorial4
                     mesh.Draw();
 
                     //begin drawing text
-                    font.Begin();
+                    device.Font.Begin();
 
                     //draw string
                     fpsCounter.Update();
-                    font.DrawString("FPS: " + fpsCounter.FPS, 0, 0, Color.White);
+                    device.Font.DrawString("FPS: " + fpsCounter.FPS, 0, 0);
 
                     //flush text to view
-                    font.End();
+                    device.Font.End();
                     //present
                     device.Present();
                 });
 
                 //release resources
-                font.Dispose();
                 mesh.Dispose();
                 buffer.Dispose();
             }

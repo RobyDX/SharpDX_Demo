@@ -36,12 +36,9 @@ namespace Tutorial6
 
             using (SharpDevice device = new SharpDevice(form))
             {
-                //load font
-                SharpBatch font = new SharpBatch(device, "textfont.dds");
-
                 //init mesh
-                int[] indices = new int[] 
-                { 
+                int[] indices = new int[]
+                {
                     0,1,2,0,2,3,
                     4,6,5,4,7,6,
                     8,9,10,8,10,11,
@@ -49,8 +46,8 @@ namespace Tutorial6
                     16,18,17,16,19,18,
                     20,21,22,20,22,23
                 };
-                
-                TexturedVertex[] vertices = new[] 
+
+                TexturedVertex[] vertices = new[]
                 {
                     ////TOP
                     new TexturedVertex(new Vector3(-5,5,5),new Vector2(1,1)),
@@ -89,7 +86,7 @@ namespace Tutorial6
                 //init shader
                 SharpShader shader = new SharpShader(device, "../../HLSL.txt",
                     new SharpShaderDescription() { VertexShaderFunction = "VS", PixelShaderFunction = "PS" },
-                    new InputElement[] {  
+                    new InputElement[] {
                         new InputElement("POSITION", 0, Format.R32G32B32_Float, 0, 0),
                         new InputElement("TEXCOORD", 0, Format.R32G32_Float, 12, 0)
                     });
@@ -99,7 +96,7 @@ namespace Tutorial6
 
                 //load Shader Resouce View from file
                 //it contains texture for using inside shaders
-                ShaderResourceView texture = ShaderResourceView.FromFile(device.Device, "../../texture.dds");
+                ShaderResourceView texture = device.LoadTextureFromFile("../../texture.dds");
 
                 //init frame rate counter
                 fpsCounter.Reset();
@@ -142,7 +139,6 @@ namespace Tutorial6
                     if (device.MustResize)
                     {
                         device.Resize();
-                        font.Resize();
                     }
 
 
@@ -154,7 +150,7 @@ namespace Tutorial6
 
                     //apply shader
                     shader.Apply();
-                    
+
                     //apply constant buffer to shader
                     device.DeviceContext.VertexShader.SetConstantBuffer(0, buffer);
 
@@ -163,13 +159,13 @@ namespace Tutorial6
 
                     //set transformation matrix
                     float ratio = (float)form.ClientRectangle.Width / (float)form.ClientRectangle.Height;
-                    
+
                     //projection matrix
                     Matrix projection = Matrix.PerspectiveFovLH(3.14F / 3.0F, ratio, 1, 1000);
-                    
+
                     //view matrix (camera)
                     Matrix view = Matrix.LookAtLH(new Vector3(0, 10, -40), new Vector3(), Vector3.UnitY);
-                    
+
                     //world matrix
                     Matrix world = Matrix.RotationY(Environment.TickCount / 1000.0F);
 
@@ -202,16 +198,16 @@ namespace Tutorial6
 
 
                     //begin drawing text
-                    font.Begin();
+                    device.Font.Begin();
 
                     //draw string
                     fpsCounter.Update();
-                    font.DrawString("FPS: " + fpsCounter.FPS, 0, 0, Color.White);
-                    font.DrawString("Press W for wireframe, S for solid", 0, 30, Color.White);
-                    font.DrawString("Press From 1 to 5 for Alphablending", 0, 60, Color.White);
+                    device.Font.DrawString("FPS: " + fpsCounter.FPS, 0, 0);
+                    device.Font.DrawString("Press W for wireframe, S for solid", 0, 30);
+                    device.Font.DrawString("Press From 1 to 5 for Alphablending", 0, 60);
 
                     //flush text to view
-                    font.End();
+                    device.Font.End();
                     //present
                     device.Present();
 
@@ -220,7 +216,6 @@ namespace Tutorial6
 
 
                 //release resource
-                font.Dispose();
                 mesh.Dispose();
                 buffer.Dispose();
                 texture.Dispose();
