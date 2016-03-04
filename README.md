@@ -2,7 +2,7 @@ SharpDX DirectX11 Tutorial
 ============
 Created By Roberto Nacchia (RobyDX)
 email: robydx@gmail.com
-website: http://www.notjustcode.net
+website: http://www.notjustcode.it
 
 ============
 
