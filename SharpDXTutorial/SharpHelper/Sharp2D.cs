@@ -14,17 +14,32 @@ namespace SharpHelper
     /// <summary>
     /// Permit to draw font
     /// </summary>
-    public class SharpBatch : IDisposable
+    public class Sharp2D : IDisposable
     {
         /// <summary>
         /// Device reference
         /// </summary>
         public SharpDevice Device { get; private set; }
 
+        /// <summary>
+        /// Direct3D Render Target
+        /// </summary>
+        public RenderTarget Direct2DRenderTarget
+        {
+            get
+            {
+                return _direct2DRenderTarget;
+            }
+            set
+            {
+                _direct2DRenderTarget = value;
+            }
+        }
+
         private SharpDX.DirectWrite.TextFormat _directWriteTextFormat;
         private SharpDX.Direct2D1.SolidColorBrush _directWriteFontColor;
         private SharpDX.Direct2D1.RenderTarget _direct2DRenderTarget;
-        
+
 
         private string _fontName = "Calibri";
         private int _fontSize = 14;
@@ -34,19 +49,18 @@ namespace SharpHelper
         /// Create a batch manager for drawing text and sprite
         /// </summary>
         /// <param name="device">Device pointer</param>
-        internal SharpBatch(SharpDevice device)
+        internal Sharp2D(SharpDevice device)
         {
             Device = device;
         }
-        
+
 
         /// <summary>
         /// Begin a 2D drawing session
         /// </summary>
         public void Begin()
         {
-            if (_direct2DRenderTarget != null)
-                _direct2DRenderTarget.BeginDraw();
+            _direct2DRenderTarget.BeginDraw();
         }
 
         /// <summary>
@@ -54,8 +68,7 @@ namespace SharpHelper
         /// </summary>
         public void End()
         {
-            if (_direct2DRenderTarget != null)
-                _direct2DRenderTarget.EndDraw();
+            _direct2DRenderTarget.EndDraw();
         }
 
         /// <summary>
@@ -74,17 +87,14 @@ namespace SharpHelper
         /// <param name="backBuffer">BackBuffer</param>
         internal void UpdateResources(SharpDX.Direct3D11.Texture2D backBuffer)
         {
-            
+
             var d2dFactory = new SharpDX.Direct2D1.Factory();
             var d2dSurface = backBuffer.QueryInterface<Surface>();
             _direct2DRenderTarget = new SharpDX.Direct2D1.RenderTarget(d2dFactory, d2dSurface, new SharpDX.Direct2D1.RenderTargetProperties(new SharpDX.Direct2D1.PixelFormat(Format.Unknown, SharpDX.Direct2D1.AlphaMode.Premultiplied)));
             d2dSurface.Dispose();
             d2dFactory.Dispose();
 
-            var directWriteFactory = new SharpDX.DirectWrite.Factory();
-            _directWriteTextFormat = new SharpDX.DirectWrite.TextFormat(directWriteFactory, _fontName, _fontSize) { TextAlignment = SharpDX.DirectWrite.TextAlignment.Leading, ParagraphAlignment = SharpDX.DirectWrite.ParagraphAlignment.Near };
-            _directWriteFontColor = new SharpDX.Direct2D1.SolidColorBrush(_direct2DRenderTarget, _fontColor);
-            directWriteFactory.Dispose();
+            InitFont();
         }
 
         /// <summary>
@@ -99,6 +109,11 @@ namespace SharpHelper
             _fontName = fontName;
             _fontSize = fontSize;
 
+            InitFont();
+        }
+
+        private void InitFont()
+        {
             var directWriteFactory = new SharpDX.DirectWrite.Factory();
             _directWriteTextFormat = new SharpDX.DirectWrite.TextFormat(directWriteFactory, _fontName, _fontSize) { TextAlignment = SharpDX.DirectWrite.TextAlignment.Leading, ParagraphAlignment = SharpDX.DirectWrite.ParagraphAlignment.Near };
             _directWriteFontColor = new SharpDX.Direct2D1.SolidColorBrush(_direct2DRenderTarget, _fontColor);
@@ -115,9 +130,6 @@ namespace SharpHelper
         /// <param name="height">Max heigh</param>
         public void DrawString(string text, int x, int y, int width = 800, int height = 600)
         {
-            if (_directWriteFontColor == null)
-                return;
-
             _direct2DRenderTarget.DrawText(text, _directWriteTextFormat, new RawRectangleF(x, y, width, height), _directWriteFontColor);
         }
 

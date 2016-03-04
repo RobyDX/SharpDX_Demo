@@ -72,7 +72,7 @@ namespace SharpHelper
         /// <summary>
         /// Font Batch
         /// </summary>
-        public SharpBatch Font { get; private set; }
+        public Sharp2D Font { get; private set; }
 
         /// <summary>
         /// Init all object to start rendering
@@ -120,7 +120,7 @@ namespace SharpHelper
             SetDefaultBlendState();
             SetDefaultSamplerState();
 
-            Font = new SharpBatch(this);
+            Font = new Sharp2D(this);
 
             //Resize all items
             Resize();
