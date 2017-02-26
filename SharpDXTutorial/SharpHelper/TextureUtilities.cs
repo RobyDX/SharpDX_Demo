@@ -547,6 +547,8 @@ namespace SharpHelper
 
         private static List<DataBox> FillInitData(IntPtr pointer, int width, int height, int depth, int mipCount, int arraySize, Format format, int maxsize, int bitSize, int offset)
         {
+            pointer += offset;
+
             List<DataBox> boxes = new List<DataBox>();
 
             int NumBytes = 0;
